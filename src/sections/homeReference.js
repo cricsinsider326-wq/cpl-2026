@@ -168,6 +168,33 @@ function renderTrust(site) {
   return `<section class="rh-trust" aria-label="CPL Insider editorial information"><div><i data-lucide="file-check-2" aria-hidden="true"></i><span><strong>Sources</strong><p>Official tournament announcements, team websites, venue information and trusted sports sources.</p><small>Page updated: ${escapeHtml(site.buildUpdated)}. Tournament data reviewed: ${escapeHtml(site.lastUpdated)}.</small></span></div><div><i data-lucide="pen-line" aria-hidden="true"></i><span><strong>Editor's note</strong><p>Schedules, squads, venues, tickets and broadcasters can change. Check linked primary sources for the latest confirmation.</p><small>${escapeHtml(site.notAffiliated)}</small></span></div></section>`;
 }
 
+function renderSeoOverview() {
+  return `<section class="rh-section rh-seo-overview" aria-labelledby="rh-seo-title">
+    <div class="rh-section-title">
+      <div>
+        <p class="rh-eyebrow">Tournament Overview & Guide</p>
+        <h2 id="rh-seo-title">CPL 2026: Caribbean Cricket's Biggest Party Returns</h2>
+      </div>
+    </div>
+    <div class="rh-seo-card">
+      <div class="rh-seo-grid">
+        <article class="rh-seo-block">
+          <h3><i data-lucide="trophy" aria-hidden="true"></i> Tournament Overview & 2026 Season Format</h3>
+          <p>The <strong>Caribbean Premier League 2026 (CPL T20)</strong> returns for its 14th edition from <strong>7 August to 20 September 2026</strong>, featuring 39 high-stakes T20 matches played across eight premier Caribbean venues. Seven powerhouse franchises—<strong><a href="/teams/jamaica-kingsmen/">Jamaica Kingsmen</a>, <a href="/teams/trinbago-knight-riders/">Trinbago Knight Riders</a>, <a href="/teams/guyana-amazon-warriors/">Guyana Amazon Warriors</a>, <a href="/teams/barbados-tridents/">Barbados Tridents</a>, <a href="/teams/saint-lucia-kings/">Saint Lucia Kings</a>, <a href="/teams/st-kitts-nevis-patriots/">St Kitts &amp; Nevis Patriots</a>, and <a href="/teams/antigua-and-barbuda-falcons/">Antigua &amp; Barbuda Falcons</a></strong>—will compete for the prestigious CPL title.</p>
+        </article>
+        <article class="rh-seo-block">
+          <h3><i data-lucide="calendar" aria-hidden="true"></i> CPL 2026 Schedule, Live Scores & Match Centre</h3>
+          <p>Follow every match live with our <strong><a href="/live-score/">CPL 2026 live score match centre</a></strong>, confirmed playing XI team line-ups, toss updates, and official venue local start times. Matches will be hosted at world-famous Caribbean cricket stadiums including <em>Kensington Oval in Barbados</em> (host of CPL 2026 finals week), <em>Brian Lara Cricket Academy in Trinidad</em>, <em>Providence Stadium in Guyana</em>, and <em>Sabina Park in Jamaica</em>. View the complete <strong><a href="/fixtures/">CPL 2026 schedule</a></strong> for local match times and stadium guides.</p>
+        </article>
+        <article class="rh-seo-block">
+          <h3><i data-lucide="users" aria-hidden="true"></i> Franchise Squads, Player Profiles & Points Table</h3>
+          <p>Explore source-checked <strong><a href="/teams/">CPL 2026 team squads</a></strong>, captain &amp; coach profiles, and in-depth <strong><a href="/players/">player statistics</a></strong> for marquee T20 superstars including <em>Nicholas Pooran, Andre Russell, Kieron Pollard, Sunil Narine, and Shai Hope</em>. Track standings, net run rates, and playoff qualification scenarios with the live <strong><a href="/points-table/">CPL 2026 points table</a></strong> throughout the season.</p>
+        </article>
+      </div>
+    </div>
+  </section>`;
+}
+
 function renderReferenceHome(data) {
   const { site, teams, players, fixtures, venues, news, faqs, broadcasters } = data;
   return `<main class="home-page rh-home" id="main-content">
@@ -185,6 +212,7 @@ function renderReferenceHome(data) {
     <section class="rh-support-grid" aria-label="Venue and viewing guides">${renderVenues(venues)}${renderWatch(broadcasters)}</section>
     ${renderAbout(site)}
     ${renderPlanTournament(site)}
+    ${renderSeoOverview()}
     ${renderFaqAndNewsletter(site, faqs)}
     ${renderTrust(site)}
   </main>`;

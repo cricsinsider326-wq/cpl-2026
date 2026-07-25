@@ -1368,12 +1368,27 @@
   .rh-home > .hub-about .hub-format-stats > div:nth-child(3) { border-left: 0; }
 }
 
+/* ── SEO Overview Section ──────────────────────────────────── */
+.rh-seo-overview { margin-bottom: 25px; }
+.rh-seo-card { background: linear-gradient(150deg, #101735, #090e23); border: 1px solid var(--rh-line); border-radius: 8px; padding: 24px; }
+.rh-seo-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.rh-seo-block h3 { color: var(--rh-yellow); font-family: "Barlow Condensed", sans-serif; font-size: 1.25rem; margin-bottom: 10px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.rh-seo-block h3 svg { height: 18px; width: 18px; color: #a66dff; flex-shrink: 0; }
+.rh-seo-block p { color: #c3cbe4; font-size: .94rem; line-height: 1.65; margin: 0; }
+.rh-seo-block a { color: #fff; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(255, 208, 0, 0.45); text-underline-offset: 3px; transition: color .2s, text-decoration-color .2s; }
+.rh-seo-block a:hover { color: var(--rh-yellow); text-decoration-color: var(--rh-yellow); }
+
+@media (max-width: 900px) {
+  .rh-seo-grid { grid-template-columns: 1fr; gap: 20px; }
+  .rh-seo-card { padding: 18px; }
+  .rh-match-centre .rh-live-score-compact .rh-live-actions { grid-template-columns: 1fr; }
+  .rh-match-centre .rh-live-score-compact .rh-live-actions > small { grid-column: auto; }
+}
+
 @media (max-width: 420px) {
   .rh-upcoming-grid,
   .rh-team-grid,
   .rh-feature-grid,
   .rh-venue-grid { grid-auto-columns: 86%; }
   .rh-player-role-grid { grid-auto-columns: 66%; }
-  .rh-match-centre .rh-live-score-compact .rh-live-actions { grid-template-columns: 1fr; }
-  .rh-match-centre .rh-live-score-compact .rh-live-actions > small { grid-column: auto; }
 }
