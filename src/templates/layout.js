@@ -99,7 +99,7 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     : route === "" || route === "cpl-2026"
       ? `${imageBase}/assets/images/players/cpl-2026-players-hero.webp`
     : `${imageBase}/assets/images/hero/cpl-2026-css-hero-reference.webp`;
-  const cssVersion = "20260725-home-editorial2";
+  const cssVersion = "20260725-slider-purple-fix1";
   const jsVersion = "20260724-schedule-editorial1";
   const scheduleCssVersion = "20260724-schedule-editorial1";
   const heroPreload = route === ""
