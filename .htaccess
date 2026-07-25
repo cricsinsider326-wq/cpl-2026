@@ -1,0 +1,20 @@
+DirectoryIndex index.html
+Options -Indexes
+AddType text/calendar .ics
+
+Redirect 301 /news/how-to-watch-cpl-2026-live-stream/ https://cplinsider.com/news/cpl-2026-tv-guide/
+Redirect 301 /news/cpl-2026-tv-streaming-guide/ https://cplinsider.com/news/cpl-2026-tv-guide/
+Redirect 301 /cpl-2026/ https://cplinsider.com/
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^news/cpl-2026-tv-guide/?$ news/cpl-2026-tv-guide.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>

@@ -1,0 +1,19 @@
+CPL 2026 ANTIGRAVITY HANDOFF PACK
+
+Sab se safe tareeqa:
+
+1. Is ZIP ko apne website project ke ROOT folder mein extract karein.
+2. Google Antigravity IDE mein apna project open karein.
+3. New Worktree Mode use karein, taa-ke original website safe rahe.
+4. Settings mein Terminal Execution aur Artifact Review ko Request Review par rakhein.
+5. .agents/rules/cpl-hub-design.md ko Workspace Rule ke taur par Always On activate karein.
+6. MASTER-COMMAND.txt kholein aur uska poora text Antigravity chat mein paste karein.
+7. Command ke start mein /goal rehne dein.
+8. Agent ko browser permission dein taa-ke desktop, tablet aur mobile testing kar sake.
+9. Final browser screenshots aur file diff review karne ke baad hi changes merge karein.
+
+IMPORTANT:
+- Reference images design blueprint hain; unke sports facts automatically copy nahi karne.
+- Real headings, paragraphs, tables, FAQs aur buttons HTML mein banne chahiye.
+- Reference PNGs ko full-page background sections ke taur par use nahi karna.
+- Existing verified project data, team logos, routes aur assets ko prefer karna.

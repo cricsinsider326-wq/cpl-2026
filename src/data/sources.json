@@ -1,0 +1,99 @@
+[
+  {
+    "id": "official-cpl-website",
+    "name": "Caribbean Premier League official website",
+    "publisher": "Caribbean Premier League",
+    "url": "https://www.cplt20.com/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-15"
+  },
+  {
+    "id": "official-cpl-2026-fixtures",
+    "name": "CPL 2026 fixtures announcement",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/republic-bank-cpl-fixtures-confirmed-for-2026/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-15",
+    "publishedAt": "2026-04-28"
+  },
+  {
+    "id": "official-cpl-2026-local-draft",
+    "name": "Local players confirmed following CPL draft",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/local-players-confirmed-following-cpl-draft/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-15",
+    "publishedAt": "2026-05-15"
+  },
+  {
+    "id": "official-cpl-2026-barbados-tridents-return",
+    "name": "The Barbados Tridents return",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/the-barbados-tridents-return/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-15",
+    "publishedAt": "2026-05-13"
+  },
+  {
+    "id": "official-cpl-2026-gaw-overseas",
+    "name": "Guyana Amazon Warriors overseas contingent for CPL 2026",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/guyana-amazon-warriors-unveil-overseas-contingent-for-cpl-2026/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-15",
+    "publishedAt": "2026-07-13"
+  },
+  {
+    "id": "official-cpl-2026-bt-overseas",
+    "name": "Barbados Tridents overseas contingent for CPL 2026",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/barbados-tridents-unveil-overseas-contingent-for-cpl-2026/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-15",
+    "publishedAt": "2026-07-09"
+  },
+  {
+    "id": "official-cpl-2026-slk-overseas",
+    "name": "Saint Lucia Kings overseas contingent for CPL 2026",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/saint-lucia-kings-unveil-overseas-contingent-for-cpl-2026/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-15",
+    "publishedAt": "2026-07-08"
+  },
+  {
+    "id": "official-cpl-2026-caribbean-broadcast",
+    "name": "CPL and Rush Sports launch Rush Live & Louder",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/cpl-and-rush-sports-launch-rush-live-louder/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-15",
+    "publishedAt": "2026-06-29"
+  },
+  {
+    "id": "official-cpl-player-media",
+    "name": "Official CPL player media library",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/",
+    "sourceType": "primary",
+    "status": "reviewed",
+    "lastChecked": "2026-07-15"
+  },
+  {
+    "id": "cpl-insider-editorial",
+    "name": "CPL Insider editorial review",
+    "publisher": "CPL Insider",
+    "url": "https://cplinsider.com/editorial-policy/",
+    "sourceType": "editorial",
+    "status": "verified",
+    "lastChecked": "2026-07-15"
+  }
+]

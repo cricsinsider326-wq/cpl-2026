@@ -1,0 +1,183 @@
+const fs = require("fs");
+const http = require("http");
+const path = require("path");
+const { spawn } = require("child_process");
+const { chromium } = require("playwright-core");
+
+const live = process.argv.includes("--live");
+const baseUrl = live ? "https://cplinsider.com/players/" : "http://127.0.0.1:4177/players/";
+
+function isReachable(url) {
+  return new Promise((resolve) => {
+    const request = http.get(url, (response) => {
+      response.resume();
+      resolve(response.statusCode >= 200 && response.statusCode < 500);
+    });
+    request.setTimeout(1500, () => request.destroy());
+    request.on("error", () => resolve(false));
+  });
+}
+
+async function startLocalServer() {
+  if (live || await isReachable(baseUrl)) return null;
+  const child = spawn(process.execPath, ["server.js"], {
+    cwd: path.resolve(__dirname, ".."),
+    env: { ...process.env, PORT: "4177" },
+    stdio: "ignore"
+  });
+  for (let attempt = 0; attempt < 30; attempt += 1) {
+    if (await isReachable(baseUrl)) return child;
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  }
+  child.kill();
+  throw new Error("Local preview server did not start.");
+}
+
+function findBrowser() {
+  const candidates = [
+    process.env.CHROME_PATH,
+    "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+    path.join(process.env.LOCALAPPDATA || "", "Google", "Chrome", "Application", "chrome.exe"),
+    "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe"
+  ].filter(Boolean);
+  return candidates.find((candidate) => fs.existsSync(candidate));
+}
+
+async function auditViewport(browser, viewport) {
+  const context = await browser.newContext({ viewport });
+  const page = await context.newPage();
+  const issues = [];
+  try {
+    const response = await page.goto(baseUrl, { waitUntil: "networkidle", timeout: 30000 });
+    if (!response || response.status() >= 400) issues.push(`HTTP status ${response ? response.status() : "missing"}`);
+
+    const visibleCards = () => page.locator("[data-player-card]:visible");
+    if (await visibleCards().count() !== 30) issues.push("Initial player page must show 30 cards");
+    if ((await page.locator("[data-player-result-count]").textContent()).trim() !== "99 players found") issues.push("Initial player count is incorrect");
+
+    const firstPageNames = await visibleCards().locator("h2").allTextContents();
+    await page.locator("[data-player-next]").click();
+    const secondPageNames = await visibleCards().locator("h2").allTextContents();
+    if (firstPageNames.join("|") === secondPageNames.join("|")) issues.push("Next-page control did not change players");
+
+    await page.locator("[data-player-search]").fill("Nicholas Pooran");
+    if (await visibleCards().count() !== 1) issues.push("Player-name search did not return one matching card");
+    if (!(await page.locator("[data-player-result-count]").textContent()).includes("1 player found")) issues.push("Filtered player count is incorrect");
+
+    await page.locator("[data-player-filters]").evaluate((form) => form.reset());
+    await page.waitForTimeout(50);
+    const expectedRoleCounts = await page.locator("[data-player-card]").evaluateAll((cards) =>
+      cards.reduce((counts, card) => {
+        counts[card.dataset.role] = (counts[card.dataset.role] || 0) + 1;
+        return counts;
+      }, {}),
+    );
+    for (const role of ["batter", "allrounder", "bowler"]) {
+      await page.locator("[data-player-role]").selectOption(role);
+      const actual = Number.parseInt(
+        await page.locator("[data-player-result-count]").textContent(),
+        10,
+      );
+      if (actual !== (expectedRoleCounts[role] || 0) || actual < 2) {
+        issues.push("Role filter did not return the expected " + role + " count");
+      }
+    }
+    await page.locator("[data-player-filters]").evaluate((form) => form.reset());
+    await page.waitForTimeout(50);
+    const expectedNationalityCounts = await page.locator("[data-player-card]").evaluateAll((cards) =>
+      cards.reduce((counts, card) => {
+        counts[card.dataset.nationality] = (counts[card.dataset.nationality] || 0) + 1;
+        return counts;
+      }, {}),
+    );
+    const nationalityOptions = await page.locator("[data-player-nationality] option").evaluateAll((options) =>
+      options.map((option) => option.value).filter((value) => value !== "all"),
+    );
+    for (const nationality of nationalityOptions) {
+      await page.locator("[data-player-nationality]").selectOption(nationality);
+      const actual = Number.parseInt(
+        await page.locator("[data-player-result-count]").textContent(),
+        10,
+      );
+      if (actual !== (expectedNationalityCounts[nationality] || 0)) {
+        issues.push("Nationality filter did not return the expected " + nationality + " count");
+      }
+    }
+    await page.locator("[data-player-filters]").evaluate((form) => form.reset());
+    await page.waitForTimeout(50);
+    const expectedStatusCounts = await page.locator("[data-player-card]").evaluateAll((cards) =>
+      cards.reduce((counts, card) => {
+        counts[card.dataset.status] = (counts[card.dataset.status] || 0) + 1;
+        return counts;
+      }, {}),
+    );
+    for (const status of ["complete", "partial"]) {
+      await page.locator("[data-player-status]").selectOption(status);
+      const actual = Number.parseInt(
+        await page.locator("[data-player-result-count]").textContent(),
+        10,
+      );
+      if (actual !== (expectedStatusCounts[status] || 0) || actual < 2) {
+        issues.push("Squad status filter did not return the expected " + status + " count");
+      }
+    }
+    await page.locator("[data-player-filters]").evaluate((form) => form.reset());
+    await page.waitForTimeout(50);
+    await page.locator("[data-player-team]").selectOption("GAW");
+    if (!(await page.locator("[data-player-result-count]").textContent()).includes("17 players found")) issues.push("Team filter did not return the verified Guyana squad count");
+    await page.locator("[data-player-role]").selectOption("bowler");
+    const combinedCount = Number.parseInt(
+      await page.locator("[data-player-result-count]").textContent(),
+      10,
+    );
+    if (combinedCount < 1 || combinedCount > 17) issues.push("Combined team and role filters did not narrow the directory");
+
+    await page.locator("[data-player-search]").fill("No Such CPL Player");
+    if (await visibleCards().count() !== 0 || !(await page.locator("[data-player-empty]").isVisible())) issues.push("Empty search state did not render");
+
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    if (overflow > 1) issues.push(`Page has ${overflow}px horizontal overflow`);
+
+    if (viewport.width <= 900) {
+      const toggle = page.locator(".nav-toggle");
+      await toggle.click();
+      const close = page.locator(".mobile-nav-close");
+      const box = await close.boundingBox();
+      if (!box || box.width < 44 || box.height < 44) issues.push("Mobile menu close target is smaller than 44px");
+      await close.click();
+      if (await toggle.getAttribute("aria-expanded") !== "false") issues.push("Mobile menu did not close");
+    }
+  } finally {
+    await context.close();
+  }
+  return issues;
+}
+
+(async () => {
+  const server = await startLocalServer();
+  const executablePath = findBrowser();
+  if (!executablePath) throw new Error("Chrome or Edge was not found.");
+  const browser = await chromium.launch({ executablePath, headless: true });
+  const viewports = [
+    { width: 1440, height: 1000 },
+    { width: 768, height: 1024 },
+    { width: 430, height: 932 },
+    { width: 320, height: 568 }
+  ];
+  let failed = false;
+  try {
+    for (const viewport of viewports) {
+      const issues = await auditViewport(browser, viewport);
+      console.log(`${viewport.width}px: ${issues.length ? issues.join("; ") : "passed"}`);
+      if (issues.length) failed = true;
+    }
+  } finally {
+    await browser.close();
+    if (server) server.kill();
+  }
+  if (failed) process.exitCode = 1;
+})().catch((error) => {
+  console.error(error.stack || error.message);
+  process.exitCode = 1;
+});

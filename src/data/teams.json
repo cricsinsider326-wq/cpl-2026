@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Jamaica Kingsmen",
+    "slug": "jamaica-kingsmen",
+    "code": "JAK",
+    "country": "Jamaica",
+    "homeVenue": "Sabina Park",
+    "accent": "#c59b49",
+    "logo": "/assets/images/teams/jamaica-kingsmen.webp",
+    "summary": "Jamaica's returning CPL identity, built around island energy, batting flair and a fresh 2026 campaign."
+  },
+  {
+    "name": "Trinbago Knight Riders",
+    "slug": "trinbago-knight-riders",
+    "code": "TKR",
+    "country": "Trinidad & Tobago",
+    "homeVenue": "Brian Lara Stadium",
+    "accent": "#cf20b8",
+    "logo": "/assets/images/teams/trinbago-knight-riders.webp",
+    "officialUrl": "https://www.tkriders.com/",
+    "summary": "A powerhouse franchise with marquee names, elite finishing power and one of the loudest fanbases in the league."
+  },
+  {
+    "name": "Guyana Amazon Warriors",
+    "slug": "guyana-amazon-warriors",
+    "code": "GAW",
+    "country": "Guyana",
+    "homeVenue": "Providence Stadium",
+    "accent": "#0aa636",
+    "logo": "/assets/images/teams/guyana-amazon-warriors.webp",
+    "summary": "A consistent contender known for strong spin options, home support and pressure cricket in Guyana."
+  },
+  {
+    "name": "Barbados Tridents",
+    "slug": "barbados-tridents",
+    "code": "BT",
+    "country": "Barbados",
+    "homeVenue": "Kensington Oval",
+    "accent": "#ffd000",
+    "logo": "/assets/images/teams/barbados-tridents.webp",
+    "summary": "Barbados Tridents return as Barbados cricket's CPL identity, with a proud home base at Kensington Oval and a fixture list that includes finals week in Barbados."
+  },
+  {
+    "name": "Saint Lucia Kings",
+    "slug": "saint-lucia-kings",
+    "code": "SLK",
+    "country": "Saint Lucia",
+    "homeVenue": "Daren Sammy Cricket Ground",
+    "accent": "#1f9ee9",
+    "logo": "/assets/images/teams/saint-lucia-kings.webp",
+    "summary": "A fast-rising franchise with Caribbean pride, explosive top-order options and home energy in Gros Islet."
+  },
+  {
+    "name": "St Kitts & Nevis Patriots",
+    "slug": "st-kitts-nevis-patriots",
+    "code": "SKNP",
+    "country": "St Kitts & Nevis",
+    "homeVenue": "Warner Park",
+    "accent": "#12ba65",
+    "logo": "/assets/images/teams/st-kitts-nevis-patriots.webp",
+    "summary": "A fearless island side built for high-tempo T20 cricket, aggressive starts and strong home backing."
+  },
+  {
+    "name": "Antigua & Barbuda Falcons",
+    "slug": "antigua-and-barbuda-falcons",
+    "code": "ABF",
+    "country": "Antigua & Barbuda",
+    "homeVenue": "Sir Vivian Richards Stadium",
+    "accent": "#ed2024",
+    "logo": "/assets/images/teams/antigua-and-barbuda-falcons.webp",
+    "summary": "A modern CPL franchise carrying Antigua and Barbuda's cricket culture into a new tournament era."
+  }
+]

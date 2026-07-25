@@ -1,0 +1,9 @@
+/goal
+
+Open and follow `CPL-HUB-GOAL.md` completely.
+Treat `.agents/rules/cpl-hub-design.md` as a locked, always-on workspace rule.
+Use `references/REFERENCE-MAP.md` and the numbered images in `references/` as the approved UI design specification.
+
+Implement the full CPL 2026 hub in the current project, phase by phase. Use an isolated worktree or dedicated branch, inspect the existing project before editing, preserve verified content and routes, and use the browser for visual comparison at desktop, tablet and mobile widths.
+
+Do not ask me to make routine implementation decisions. Resolve them using the approved references, existing project conventions and the locked rule. Stop only for a genuinely blocking conflict, missing project access, or a destructive action requiring approval.

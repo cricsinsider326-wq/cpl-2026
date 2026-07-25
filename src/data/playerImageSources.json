@@ -1,0 +1,1589 @@
+{
+  "generatedAt": "2026-07-21T08:53:21.148Z",
+  "policy": [
+    "Images are downloaded to CPL Insider and are never hotlinked in frontend markup.",
+    "Exact-name franchise sources take priority over official governing-body profiles.",
+    "Unverified name matches are rejected."
+  ],
+  "target": {
+    "width": 640,
+    "height": 800,
+    "format": "webp",
+    "frontendBasePath": "/assets/images/players/directory/"
+  },
+  "sources": [
+    {
+      "name": "Nicholas Pooran",
+      "slug": "nicholas-pooran",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Trinbago Knight Riders official player profile",
+      "sourcePageUrl": "https://www.tkriders.com/players/nicholas-pooran-profile-63726",
+      "sourceImageUrl": "https://www.tkriders.com/static-assets/images/players/2020/63726.png?v=3.89",
+      "localPath": "/assets/images/players/directory/nicholas-pooran.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 44874,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Andre Russell",
+      "slug": "andre-russell",
+      "team": "Jamaica Kingsmen",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/andre-russell-4400/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/c8af1f6a-e70c-4d6c-a9ba-c89954ac108f.original.jpg",
+      "localPath": "/assets/images/players/directory/andre-russell.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 27456,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Shai Hope",
+      "slug": "shai-hope",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/shai-hope-3445/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/8b301330-801a-469b-9bd5-3c7b83c2eec3.original.jpg",
+      "localPath": "/assets/images/players/directory/shai-hope.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 31350,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Alzarri Joseph",
+      "slug": "alzarri-joseph",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/alzarri-joseph-2605/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/40510ad0-a711-44af-b82b-ff00ed7d6417.original.jpg",
+      "localPath": "/assets/images/players/directory/alzarri-joseph.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 22680,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Imran Tahir",
+      "slug": "imran-tahir",
+      "team": "Guyana Amazon Warriors",
+      "status": "preserved-existing",
+      "localPath": "/assets/images/players/imran-tahir.webp"
+    },
+    {
+      "name": "Rovman Powell",
+      "slug": "rovman-powell",
+      "team": "Jamaica Kingsmen",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/rovman-powell-4166/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/de2e4947-0f5d-466b-b74a-e16a303b70bb.original.jpg",
+      "localPath": "/assets/images/players/directory/rovman-powell.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 52344,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Keemo Paul",
+      "slug": "keemo-paul",
+      "team": "Jamaica Kingsmen",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/keemo-paul-4054/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/89bd86de-fe3c-42d1-8989-f51d3f6f5496.original.jpg",
+      "localPath": "/assets/images/players/directory/keemo-paul.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 23364,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Keacy Carty",
+      "slug": "keacy-carty",
+      "team": "Jamaica Kingsmen",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/kacey-carty-2588/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/2c2029f0-f7af-4dda-9836-06bc9174b45f.original.png",
+      "localPath": "/assets/images/players/directory/keacy-carty.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 40588,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jediah Blades",
+      "slug": "jediah-blades",
+      "team": "Jamaica Kingsmen",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Shaqkere Parris",
+      "slug": "shaqkere-parris",
+      "team": "Jamaica Kingsmen",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Odean Smith",
+      "slug": "odean-smith",
+      "team": "Jamaica Kingsmen",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/odean-smith-4434/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/a2da4ca5-4aa3-4889-be1e-d2aaec9e12ea.original.png",
+      "localPath": "/assets/images/players/directory/odean-smith.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 33098,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Vitel Lawes",
+      "slug": "vitel-lawes",
+      "team": "Jamaica Kingsmen",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Romaine Morris",
+      "slug": "romaine-morris",
+      "team": "Jamaica Kingsmen",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Kirk McKenzie",
+      "slug": "kirk-mckenzie",
+      "team": "Jamaica Kingsmen",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Kelvin Pitman",
+      "slug": "kelvin-pitman",
+      "team": "Jamaica Kingsmen",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Jeavor Royal",
+      "slug": "jeavor-royal",
+      "team": "Jamaica Kingsmen",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/jeavor-royal-4346/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/1026d31c-5214-4660-b55c-e220f65c733b.original.png",
+      "localPath": "/assets/images/players/directory/jeavor-royal.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 36616,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Sunil Narine",
+      "slug": "sunil-narine",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Trinbago Knight Riders official player profile",
+      "sourcePageUrl": "https://www.tkriders.com/players/sunil-narine-profile-11229",
+      "sourceImageUrl": "https://www.tkriders.com/static-assets/images/players/2020/11229.png?v=3.89",
+      "localPath": "/assets/images/players/directory/sunil-narine.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 48976,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Kieron Pollard",
+      "slug": "kieron-pollard",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Trinbago Knight Riders official player profile",
+      "sourcePageUrl": "https://www.tkriders.com/players/kieron-pollard-profile-3910",
+      "sourceImageUrl": "https://www.tkriders.com/static-assets/images/players/2020/3910.png?v=3.89",
+      "localPath": "/assets/images/players/directory/kieron-pollard.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 49880,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Akeal Hosein",
+      "slug": "akeal-hosein",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Trinbago Knight Riders official player profile",
+      "sourcePageUrl": "https://www.tkriders.com/players/akeal-hosein-profile-57239",
+      "sourceImageUrl": "https://www.tkriders.com/static-assets/images/players/2020/57239.png?v=3.89",
+      "localPath": "/assets/images/players/directory/akeal-hosein.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 42460,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Justin Greaves",
+      "slug": "justin-greaves",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile gallery",
+      "sourcePageUrl": "https://www.windiescricket.com/players/justin-greaves-3303/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/f0f0f100-ea62-45f5-a482-06fa962c6bbf.original.jpg",
+      "sourceImageFallbackUrls": [
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/f0f0f100-ea62-45f5-a482-06fa962c6bbf.max-390x333.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/2bf52555-d008-4b54-9494-f71d99ff5f92.max-390x333.png",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/aece9fa4-c5cf-44be-8dff-e7994db34d37.max-390x333.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/46c7fa16-27ea-4ad0-8.original.max-700x450.jpegquality-65.png"
+      ],
+      "localPath": "/assets/images/players/directory/justin-greaves.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 59156,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Dominic Drakes",
+      "slug": "dominic-drakes",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/dominic-drakes-3034/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/ac1a3256-828d-4642-ad29-d6bca11685c5.original.png",
+      "localPath": "/assets/images/players/directory/dominic-drakes.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 32656,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jyd Goolie",
+      "slug": "jyd-goolie",
+      "team": "Trinbago Knight Riders",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Dexter Sween",
+      "slug": "dexter-sween",
+      "team": "Trinbago Knight Riders",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Terrance Hinds",
+      "slug": "terrance-hinds",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Trinbago Knight Riders official player profile",
+      "sourcePageUrl": "https://www.tkriders.com/players/terrance-hinds-profile-69484",
+      "sourceImageUrl": "https://www.tkriders.com/static-assets/images/players/2020/69484.png?v=3.89",
+      "localPath": "/assets/images/players/directory/terrance-hinds.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 48694,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Nathan Edward",
+      "slug": "nathan-edward",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Trinbago Knight Riders official player profile",
+      "sourcePageUrl": "https://www.tkriders.com/players/nathan-edward-profile-87588",
+      "sourceImageUrl": "https://www.tkriders.com/static-assets/images/players/2020/87588.png?v=3.89",
+      "localPath": "/assets/images/players/directory/nathan-edward.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 47138,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Joshua Da Silva",
+      "slug": "joshua-da-silva",
+      "team": "Trinbago Knight Riders",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/joshua-da-silva-5661/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/adebc8ac-220a-420f-9188-94cfa5095d8a.original.jpg",
+      "localPath": "/assets/images/players/directory/joshua-da-silva.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 25080,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Abdul-Raheem Toppin",
+      "slug": "abdul-raheem-toppin",
+      "team": "Trinbago Knight Riders",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Shimron Hetmyer",
+      "slug": "shimron-hetmyer",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/shimron-hetmyer-3391/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/abdfb3ad-ded4-49b0-9601-82b7d02c1288.original.jpg",
+      "localPath": "/assets/images/players/directory/shimron-hetmyer.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 30252,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Romario Shepherd",
+      "slug": "romario-shepherd",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile gallery",
+      "sourcePageUrl": "https://www.windiescricket.com/players/romario-shepherd-4482/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/a6fe1277-41ea-42d4-9f11-118c2ddb7870.original.jpg",
+      "sourceImageFallbackUrls": [
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/a6fe1277-41ea-42d4-9f11-118c2ddb7870.max-390x333.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/1d62c00d-082e-4719-b.original.max-700x450.jpegquality-65.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/6f48c540-5f9b-4f32-a.original.max-700x450.jpegquality-65.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/a6fe1277-41ea-42d4-9.original.max-700x450.jpegquality-65.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/a33efec2-5552-4651-b.original.max-700x450.jpegquality-65.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/6dfe9233-c73e-411a-8.original.max-700x450.jpegquality-65.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/eb7f3eb5-a037-44f5-a.original.max-700x450.jpegquality-65.jpg"
+      ],
+      "localPath": "/assets/images/players/directory/romario-shepherd.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 30684,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Khary Pierre",
+      "slug": "khary-pierre",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/khary-pierre-4158/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/c6f78237-284c-48fd-90c8-8d9e6a02af58.original.jpg",
+      "localPath": "/assets/images/players/directory/khary-pierre.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 17488,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Shamar Joseph",
+      "slug": "shamar-joseph",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile gallery",
+      "sourcePageUrl": "https://www.windiescricket.com/players/shamar-joseph-18423/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/9fab20a3-9d20-4ad4-accc-dce498438a04.original.png",
+      "sourceImageFallbackUrls": [
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/9fab20a3-9d20-4ad4-accc-dce498438a04.max-390x333.png",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/878c7351-a5ad-4283-ab9c-6dca00dc9898.max-390x333.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/77556ff0-3e8b-4dad-a.original.max-700x450.jpegquality-65.png"
+      ],
+      "localPath": "/assets/images/players/directory/shamar-joseph.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 27266,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Ronaldo Alimohamed",
+      "slug": "ronaldo-alimohamed",
+      "team": "Guyana Amazon Warriors",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Veerasammy Permaul",
+      "slug": "veerasammy-permaul",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile gallery",
+      "sourcePageUrl": "https://www.windiescricket.com/players/veerasammy-permaul-4105/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/d7a64dc2-e46a-4363-8.original.max-700x450.jpegquality-65.jpg",
+      "sourceImageFallbackUrls": [
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/d52ac194-c83f-4caf-9.original.max-700x450.jpegquality-65.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/6dfe9233-c73e-411a-8.original.max-700x450.jpegquality-65.jpg"
+      ],
+      "localPath": "/assets/images/players/directory/veerasammy-permaul.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 75712,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Matthew Nandu",
+      "slug": "matthew-nandu",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/matthew-nandu-16765/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/800d190b-593e-4995-8c6e-0c00d7fbcfff.original.jpg",
+      "localPath": "/assets/images/players/directory/matthew-nandu.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 28698,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jonathan Van Lange",
+      "slug": "jonathan-van-lange",
+      "team": "Guyana Amazon Warriors",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Mavendra Dindyal",
+      "slug": "mavendra-dindyal",
+      "team": "Guyana Amazon Warriors",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Isai Thorne",
+      "slug": "isai-thorne",
+      "team": "Guyana Amazon Warriors",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Quentin Sampson",
+      "slug": "quentin-sampson",
+      "team": "Guyana Amazon Warriors",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Glenn Phillips",
+      "slug": "glenn-phillips",
+      "team": "Guyana Amazon Warriors",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Mohammad Nabi",
+      "slug": "mohammad-nabi",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Afghanistan Cricket Board national team page",
+      "sourcePageUrl": "https://www.acb.af/en-US/afghan-atalan",
+      "sourceImageUrl": "https://api.acb.af/storage/media//cricket//teams//68651a768a553_1751456374.jpg",
+      "localPath": "/assets/images/players/directory/mohammad-nabi.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 75340,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Rahmanullah Gurbaz",
+      "slug": "rahmanullah-gurbaz",
+      "team": "Guyana Amazon Warriors",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Afghanistan Cricket Board national team page",
+      "sourcePageUrl": "https://www.acb.af/en-US/afghan-atalan",
+      "sourceImageUrl": "https://api.acb.af/storage/media//cricket//teams//6864dd7544f51_1751440757.jpg",
+      "localPath": "/assets/images/players/directory/rahmanullah-gurbaz.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 70664,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Dwaine Pretorius",
+      "slug": "dwaine-pretorius",
+      "team": "Guyana Amazon Warriors",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Gudakesh Motie",
+      "slug": "gudakesh-motie",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/64262.png?v=1.94",
+      "localPath": "/assets/images/players/directory/gudakesh-motie.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 43582,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Sherfane Rutherford",
+      "slug": "sherfane-rutherford",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/67285.png?v=1.94",
+      "localPath": "/assets/images/players/directory/sherfane-rutherford.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 51322,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Brandon King",
+      "slug": "brandon-king",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/64543.png?v=1.94",
+      "localPath": "/assets/images/players/directory/brandon-king.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 65670,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Zachary Carter",
+      "slug": "zachary-carter",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/129585.png?v=1.94",
+      "localPath": "/assets/images/players/directory/zachary-carter.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 43582,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Kadeem Alleyne",
+      "slug": "kadeem-alleyne",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/86107.png?v=1.94",
+      "localPath": "/assets/images/players/directory/kadeem-alleyne.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 52320,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Ramon Simmonds",
+      "slug": "ramon-simmonds",
+      "team": "Barbados Tridents",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Shadrack Descarte",
+      "slug": "shadrack-descarte",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/78041.png?v=1.94",
+      "localPath": "/assets/images/players/directory/shadrack-descarte.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 43582,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Rivaldo Clarke",
+      "slug": "rivaldo-clarke",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/87587.png?v=1.94",
+      "localPath": "/assets/images/players/directory/rivaldo-clarke.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 48258,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Zishan Motara",
+      "slug": "zishan-motara",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/100145.png?v=1.94",
+      "localPath": "/assets/images/players/directory/zishan-motara.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 53472,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jakeem Pollard",
+      "slug": "jakeem-pollard",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/129587.png?v=1.94",
+      "localPath": "/assets/images/players/directory/jakeem-pollard.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 43582,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Johann Layne",
+      "slug": "johann-layne",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/87593.png?v=1.94",
+      "localPath": "/assets/images/players/directory/johann-layne.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 48832,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Kofi James",
+      "slug": "kofi-james",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/68434.png?v=1.94",
+      "localPath": "/assets/images/players/directory/kofi-james.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 74234,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Quinton de Kock",
+      "slug": "quinton-de-kock",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/28035.png?v=1.94",
+      "localPath": "/assets/images/players/directory/quinton-de-kock.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 53154,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Chris Green",
+      "slug": "chris-green",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/64971.png?v=1.94",
+      "localPath": "/assets/images/players/directory/chris-green.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 49794,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Mujeeb ur Rahman",
+      "slug": "mujeeb-ur-rahman",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/67540.png?v=1.94",
+      "localPath": "/assets/images/players/directory/mujeeb-ur-rahman.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 49222,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "George Linde",
+      "slug": "george-linde",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/57533.png?v=1.94",
+      "localPath": "/assets/images/players/directory/george-linde.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 43582,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Daniel Sams",
+      "slug": "daniel-sams",
+      "team": "Barbados Tridents",
+      "status": "imported",
+      "sourceType": "official-franchise",
+      "sourceLabel": "Barbados Royals official team page",
+      "sourcePageUrl": "https://www.barbadosroyals.com/team",
+      "sourceImageUrl": "https://www.barbadosroyals.com/static-assets/images/players/67859.png?v=1.94",
+      "localPath": "/assets/images/players/directory/daniel-sams.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 52014,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Roston Chase",
+      "slug": "roston-chase",
+      "team": "Saint Lucia Kings",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/roston-chase-2168/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/3dfdc6a2-d3ce-4445-b419-f22b55cf5a3b.original.jpg",
+      "localPath": "/assets/images/players/directory/roston-chase.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 31428,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jewel Andrew",
+      "slug": "jewel-andrew",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Matthew Forde",
+      "slug": "matthew-forde",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Kamil Pooran",
+      "slug": "kamil-pooran",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Darron Nedd",
+      "slug": "darron-nedd",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "McKenny Clarke",
+      "slug": "mckenny-clarke",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Joshua Bishop",
+      "slug": "joshua-bishop",
+      "team": "Saint Lucia Kings",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/joshua-bishop-2434/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/a0655938-f858-4be6-a49b-e68be4d0eceb.original.png",
+      "localPath": "/assets/images/players/directory/joshua-bishop.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 41062,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Damion Joachim",
+      "slug": "damion-joachim",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Keon Gaston",
+      "slug": "keon-gaston",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Amari Goodridge",
+      "slug": "amari-goodridge",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Johann Jeremiah",
+      "slug": "johann-jeremiah",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Akeem Auguste",
+      "slug": "akeem-auguste",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Noor Ahmad",
+      "slug": "noor-ahmad",
+      "team": "Saint Lucia Kings",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Afghanistan Cricket Board national team page",
+      "sourcePageUrl": "https://www.acb.af/en-US/afghan-atalan",
+      "sourceImageUrl": "https://api.acb.af/storage/media//cricket//teams//686bb0805ded6_1751888000.jpg",
+      "localPath": "/assets/images/players/directory/noor-ahmad.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 68440,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Tim Seifert",
+      "slug": "tim-seifert",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Maheesh Theekshana",
+      "slug": "maheesh-theekshana",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Charith Asalanka",
+      "slug": "charith-asalanka",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Shadley van Schalkwyk",
+      "slug": "shadley-van-schalkwyk",
+      "team": "Saint Lucia Kings",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Johnson Charles",
+      "slug": "johnson-charles",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile gallery",
+      "sourcePageUrl": "https://www.windiescricket.com/players/johnson-charles-2239/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/d3a78b3c-6904-4af5-9f4d-051d176b0f4b.original.jpg",
+      "sourceImageFallbackUrls": [
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/d3a78b3c-6904-4af5-9f4d-051d176b0f4b.max-390x333.jpg",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/c4231ccd-0211-42be-8.original.max-700x450.jpegquality-65.jpg"
+      ],
+      "localPath": "/assets/images/players/directory/johnson-charles.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 78220,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jason Holder",
+      "slug": "jason-holder",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/jason-holder-3425/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/c191ed38-1b3c-458e-95d0-32f3b0c7de46.original.jpg",
+      "localPath": "/assets/images/players/directory/jason-holder.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 28506,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Kyle Mayers",
+      "slug": "kyle-mayers",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/kyle-mayers-3822/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/728385b9-0b13-4dd2-a6fd-e0ccf377f1e1.original.jpg",
+      "localPath": "/assets/images/players/directory/kyle-mayers.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 32788,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Andre Fletcher",
+      "slug": "andre-fletcher",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/andre-fletcher-2488/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/4bddd4f2-ecb2-40b3-a05b-4e3f749c3234.original.jpg",
+      "localPath": "/assets/images/players/directory/andre-fletcher.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 47846,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Kevin Wickham",
+      "slug": "kevin-wickham",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile gallery",
+      "sourcePageUrl": "https://www.windiescricket.com/players/kevin-wickham-17180/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/74201224-fec0-4ae3-ba3f-10cb5929ed97.original.png",
+      "sourceImageFallbackUrls": [
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/74201224-fec0-4ae3-ba3f-10cb5929ed97.max-390x333.png",
+        "https://cricviz-westindies-production.s3.amazonaws.com/images/52c73bec-954c-4893-a5de-05c13ec71a1e.max-390x333.jpg"
+      ],
+      "localPath": "/assets/images/players/directory/kevin-wickham.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 19442,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Obed McCoy",
+      "slug": "obed-mccoy",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/obed-mccoy-3833/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/3c282387-99cc-44d9-bd84-25252953a6e7.original.jpg",
+      "localPath": "/assets/images/players/directory/obed-mccoy.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 61630,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Ashmead Nedd",
+      "slug": "ashmead-nedd",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile gallery",
+      "sourcePageUrl": "https://www.windiescricket.com/players/ashmead-nedd-3961/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/e8a71cc2-c9e7-469c-8.original.max-700x450.jpegquality-65.png",
+      "sourceImageFallbackUrls": [],
+      "localPath": "/assets/images/players/directory/ashmead-nedd.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 19110,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jeremiah Louis",
+      "slug": "jeremiah-louis",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/jeremiah-louis-3692/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/edf2587d-333a-4e7f-90c5-a2df3f28c3b8.original.png",
+      "localPath": "/assets/images/players/directory/jeremiah-louis.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 37146,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Alick Athanaze",
+      "slug": "alick-athanaze",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/alick-athanaze-2530/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/4c671753-0750-487a-941f-edee9c3af9d5.original.png",
+      "localPath": "/assets/images/players/directory/alick-athanaze.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 22598,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Micah McKenzie",
+      "slug": "micah-mckenzie",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Navin Bidaisee",
+      "slug": "navin-bidaisee",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Mikyle Louis",
+      "slug": "mikyle-louis",
+      "team": "St Kitts & Nevis Patriots",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Evin Lewis",
+      "slug": "evin-lewis",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/evin-lewis-3731/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/991cf9f2-b4e6-4b4f-b328-38ee6e8eeb1a.original.jpg",
+      "localPath": "/assets/images/players/directory/evin-lewis.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 31054,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Fabian Allen",
+      "slug": "fabian-allen",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/fabian-allen-2063/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/ecfa965f-b5d6-4053-9cb2-e186a73d55b5.original.jpg",
+      "localPath": "/assets/images/players/directory/fabian-allen.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 37174,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jayden Seales",
+      "slug": "jayden-seales",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/jayden-seales-14897/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/d8abfc8e-35da-4c6d-9e4d-fe585d11c635.original.jpg",
+      "localPath": "/assets/images/players/directory/jayden-seales.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": false,
+        "bytes": 33354,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Amir Jangoo",
+      "slug": "amir-jangoo",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/amir-jangoo-3544/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/8af7db0a-0a0e-4159-8555-f9249b5e7d91.original.png",
+      "localPath": "/assets/images/players/directory/amir-jangoo.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 40632,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Shamar Springer",
+      "slug": "shamar-springer",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/shamar-springer-4611/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/a4d73c8d-3140-4cbb-ac2e-d0f760e16eff.original.png",
+      "localPath": "/assets/images/players/directory/shamar-springer.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 38240,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Jahmar Hamilton",
+      "slug": "jahmar-hamilton",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/jahmar-hamilton-2636/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/d7824254-320a-4807-b77d-76524bcdd10b.original.jpg",
+      "localPath": "/assets/images/players/directory/jahmar-hamilton.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 53976,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Rakheem Cornwall",
+      "slug": "rakheem-cornwall",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Anderson Phillip",
+      "slug": "anderson-phillip",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "imported",
+      "sourceType": "official-governing-body",
+      "sourceLabel": "Cricket West Indies player profile",
+      "sourcePageUrl": "https://www.windiescricket.com/players/anderson-phillip-4097/",
+      "sourceImageUrl": "https://cricviz-westindies-production.s3.amazonaws.com/images/340fa54c-e7eb-4e37-ab01-98f1b21c01ff.original.png",
+      "localPath": "/assets/images/players/directory/anderson-phillip.webp",
+      "validation": {
+        "sourceWidth": null,
+        "sourceHeight": null,
+        "sourceHasAlpha": null,
+        "width": 640,
+        "height": 800,
+        "hasAlpha": true,
+        "bytes": 33104,
+        "reusedLocalFile": true
+      }
+    },
+    {
+      "name": "Karima Gore",
+      "slug": "karima-gore",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Anderson Mahase",
+      "slug": "anderson-mahase",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "official-image-unavailable",
+      "localPath": null
+    },
+    {
+      "name": "Joshua James",
+      "slug": "joshua-james",
+      "team": "Antigua & Barbuda Falcons",
+      "status": "official-image-unavailable",
+      "localPath": null
+    }
+  ],
+  "summary": {
+    "totalPlayers": 99,
+    "imported": 60,
+    "preservedExisting": 1,
+    "officialImageUnavailable": 39,
+    "failed": 0
+  }
+}

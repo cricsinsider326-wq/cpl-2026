@@ -1,0 +1,67 @@
+{
+  "recommendedBuildPath": "static-first-now-wordpress-later",
+  "siteType": "CPL 2026 event hub with programmatic SEO pages",
+  "eventFacts": {
+    "teams": 7,
+    "matches": 39,
+    "dates": "2026-08-07 to 2026-09-20",
+    "primaryDataSource": "Official CPL WordPress API at https://wp.cplt20.com/wp-json/wp/v2/"
+  },
+  "pageTemplates": [
+    {
+      "template": "team",
+      "urlPattern": "/teams/{team-slug}/",
+      "examples": [
+        "/teams/trinbago-knight-riders/",
+        "/teams/guyana-amazon-warriors/",
+        "/teams/saint-lucia-kings/",
+        "/teams/jamaica-kingsmen/"
+      ],
+      "fields": ["teamName", "shortName", "logo", "captain", "homeVenue", "squad", "fixtures", "latestNews", "stats"]
+    },
+    {
+      "template": "player",
+      "urlPattern": "/players/{player-slug}/",
+      "examples": [
+        "/players/nicholas-pooran/",
+        "/players/andre-russell/",
+        "/players/rashid-khan/"
+      ],
+      "fields": ["playerName", "team", "role", "battingStyle", "bowlingStyle", "photo", "bio", "seasonStats", "careerStats"]
+    },
+    {
+      "template": "match",
+      "urlPattern": "/matches/{team-a}-vs-{team-b}-{date}/",
+      "examples": [
+        "/matches/tkr-vs-skn-2026-08-14/",
+        "/matches/gaw-vs-br-2026-08-15/"
+      ],
+      "fields": ["matchTitle", "date", "time", "venue", "teams", "preview", "weather", "headToHead", "playersToWatch"]
+    },
+    {
+      "template": "venue",
+      "urlPattern": "/venues/{venue-slug}/",
+      "examples": [
+        "/venues/brian-lara-stadium/",
+        "/venues/providence-stadium/"
+      ],
+      "fields": ["venueName", "city", "country", "capacity", "image", "matches", "travelGuide", "pitchReport"]
+    },
+    {
+      "template": "news",
+      "urlPattern": "/news/{post-slug}/",
+      "examples": [
+        "/news/cpl-2026-schedule-announced/",
+        "/news/top-players-to-watch-cpl-2026/"
+      ],
+      "fields": ["title", "excerpt", "content", "category", "author", "publishDate", "featuredImage"]
+    }
+  ],
+  "firstMilestone": [
+    "Approve homepage design",
+    "Collect and freeze real CPL 2026 schedule, teams, venues and squads from official/ESPN sources",
+    "Finalize URL structure",
+    "Convert static components into WordPress theme templates",
+    "Import programmatic data into custom post types"
+  ]
+}

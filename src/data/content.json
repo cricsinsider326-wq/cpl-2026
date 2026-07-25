@@ -1,0 +1,55 @@
+{
+  "homeGuide": {
+    "title": "CPL 2026 Caribbean Premier League Complete Guide",
+    "intro": "The current CPL 2026 dataset contains 39 scheduled matches from 7 August to 20 September 2026, with fans searching for fixtures, team squads, live score updates, player form, ticket information, venue guides and points table movement throughout the tournament.",
+    "paragraphs": [
+      "This independent CPL 2026 guide is built to help cricket fans follow the Caribbean Premier League from the planning stage through match days. The site connects the most important tournament information in one place: teams, fixtures, live score links, venues, recent player form, FAQs and news updates.",
+      "The goal is to avoid thin pages by giving each major search intent its own useful destination. Fans searching for CPL 2026 schedule can move directly to fixtures, users checking CPL live score can use the match center, and supporters researching a franchise can browse dedicated team pages with venue and squad context.",
+      "The fixture calendar is recorded from the official CPL schedule announcement published on 28 April 2026. As squads and match-day details are confirmed, this guide should be updated with match previews, toss updates, playing XI details, scorecards, post-match summaries and points table changes."
+    ]
+  },
+  "topics": [
+    {
+      "heading": "CPL 2026 Schedule and Fixtures",
+      "text": "The fixtures hub should answer date, time, host country, venue and team-vs-team questions clearly. For SEO, every match page can target long-tail searches such as team A vs team B CPL 2026, match preview, venue guide, live score and result."
+    },
+    {
+      "heading": "CPL Live Score and Match Center",
+      "text": "During the tournament, live score pages should become the fastest route to toss updates, playing XI, scorecard links, innings summaries and final results. This helps users who search with urgent intent on match day."
+    },
+    {
+      "heading": "CPL 2026 Teams and Squads",
+      "text": "Team pages should include home venue, squad list, captain, overseas players, key allrounders, schedule, recent form and internal links to player profiles. This creates a strong team-topic cluster."
+    },
+    {
+      "heading": "CPL 2026 Points Table",
+      "text": "The points table page should stay fresh with matches played, wins, losses, net run rate and qualification scenarios. A short explanation of how the standings work improves usefulness for casual fans."
+    }
+  ],
+  "pageCopy": {
+    "teams": [
+      "The CPL 2026 teams section is the main hub for franchise research. Each team profile should explain the team's identity, home venue, likely squad structure, key players, strengths, schedule links and news updates.",
+      "A strong team page should not only list names. It should help fans understand how the team may approach the tournament, which fixtures matter most and which players could influence the points table."
+    ],
+    "players": [
+      "The CPL 2026 players hub is designed for fans searching for squads, recent form, player roles and future live stats. Player pages can target searches around batting records, wickets, team assignments and match impact.",
+      "Until official 2026 stats begin, this guide labels player numbers as previous-season form context. Once matches start, player pages should update with runs, strike rate, wickets, economy rate, catches and match-by-match notes."
+    ],
+    "fixtures": [
+      "The CPL 2026 fixtures page uses the current 39-match schedule dataset dated 28 April 2026. A direct source URL is required before the dataset is marked fully verified. Cricket fans usually search schedule queries close to match day, so clear dates, team names and venue information matter.",
+      "Every fixture can later become a full match preview page with pitch report, weather, head-to-head notes, players to watch and live score links."
+    ],
+    "liveScore": [
+      "The CPL live score page is built for high-intent searches during the tournament. It should surface the current match, scorecard, toss result, playing XI, innings summary and result link with minimal friction.",
+      "For launch, this section is a placeholder. On match days, it should connect to a reliable score data source or manually updated match center."
+    ],
+    "points": [
+      "The CPL 2026 points table starts at zero before the tournament begins. After each match, standings should update with played, won, lost, net run rate and points.",
+      "Adding qualification notes and net run rate explanations will make this page more useful than a basic table."
+    ],
+    "venues": [
+      "The venue guide helps fans understand where CPL 2026 matches are played. Useful venue pages should include city, country, pitch behavior, travel notes, nearby fan areas and match schedule.",
+      "Venue pages are also useful for long-tail searches around CPL tickets, stadium location and matchday planning."
+    ]
+  }
+}

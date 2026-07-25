@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Arnos Vale Stadium",
+    "slug": "arnos-vale-stadium",
+    "location": "St Vincent",
+    "image": "/assets/images/venues/arnos-vale-stadium.webp",
+    "summary": "Arnos Vale Stadium in St Vincent is listed for the opening CPL 2026 fixtures, bringing Caribbean Premier League matches to St Vincent and the Grenadines."
+  },
+  {
+    "name": "Sabina Park",
+    "slug": "sabina-park",
+    "location": "Jamaica",
+    "image": "/assets/images/venues/sabina-park.webp",
+    "summary": "Sabina Park is Jamaica's host venue for Jamaica Kingsmen home fixtures in the CPL 2026 schedule."
+  },
+  {
+    "name": "Daren Sammy Cricket Ground",
+    "slug": "daren-sammy-cricket-ground",
+    "location": "Saint Lucia",
+    "image": "/assets/images/venues/daren-sammy-cricket-ground.webp",
+    "summary": "Daren Sammy Cricket Ground is Saint Lucia's CPL 2026 home venue and a key stop during the August fixture block."
+  },
+  {
+    "name": "Sir Vivian Richards Stadium",
+    "slug": "sir-vivian-richards-stadium",
+    "location": "Antigua",
+    "image": "/assets/images/venues/sir-vivian-richards-stadium.webp",
+    "summary": "Sir Vivian Richards Stadium hosts Antigua & Barbuda Falcons fixtures in the CPL 2026 schedule."
+  },
+  {
+    "name": "Brian Lara Stadium",
+    "slug": "brian-lara-stadium",
+    "location": "Trinidad",
+    "image": "/assets/images/venues/brian-lara-stadium.webp",
+    "summary": "Brian Lara Stadium is Trinidad's CPL 2026 host venue for Trinbago Knight Riders home fixtures."
+  },
+  {
+    "name": "Warner Park",
+    "slug": "warner-park",
+    "location": "St Kitts",
+    "image": "/assets/images/venues/warner-park.webp",
+    "summary": "Warner Park in St Kitts appears in the CPL 2026 fixture list for St Kitts & Nevis Patriots home matches."
+  },
+  {
+    "name": "Providence Stadium",
+    "slug": "providence-stadium",
+    "location": "Guyana",
+    "image": "/assets/images/venues/providence-stadium.webp",
+    "summary": "Providence Stadium is Guyana's CPL 2026 venue and a major home base for Guyana Amazon Warriors supporters."
+  },
+  {
+    "name": "Kensington Oval",
+    "slug": "kensington-oval",
+    "location": "Barbados",
+    "image": "/assets/images/venues/kensington-oval.webp",
+    "summary": "Kensington Oval in Barbados is listed for CPL 2026 matches and finals week, including the tournament final on 20 September."
+  }
+]

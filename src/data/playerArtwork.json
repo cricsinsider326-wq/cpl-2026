@@ -1,0 +1,2273 @@
+{
+  "generatedAt": "2026-07-21T08:58:25.545Z",
+  "designStandard": "CPL Players to Watch transparent portrait",
+  "target": {
+    "width": 1120,
+    "height": 1536,
+    "format": "webp",
+    "alpha": true,
+    "visibleSubjectBox": "consistent across every card"
+  },
+  "players": [
+    {
+      "name": "Nicholas Pooran",
+      "slug": "nicholas-pooran",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/nicholas-pooran-desktop-art.webp",
+      "outputPath": "/assets/images/players/nicholas-pooran-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 359104
+      }
+    },
+    {
+      "name": "Andre Russell",
+      "slug": "andre-russell",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/andre-russell-desktop-art.webp",
+      "outputPath": "/assets/images/players/andre-russell-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 291124
+      }
+    },
+    {
+      "name": "Shai Hope",
+      "slug": "shai-hope",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/shai-hope-desktop-art.webp",
+      "outputPath": "/assets/images/players/shai-hope-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 396174
+      }
+    },
+    {
+      "name": "Alzarri Joseph",
+      "slug": "alzarri-joseph",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/alzarri-joseph-desktop-art.webp",
+      "outputPath": "/assets/images/players/alzarri-joseph-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 331880
+      }
+    },
+    {
+      "name": "Imran Tahir",
+      "slug": "imran-tahir",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/imran-tahir-desktop-art.webp",
+      "outputPath": "/assets/images/players/imran-tahir-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 352480
+      }
+    },
+    {
+      "name": "Rovman Powell",
+      "slug": "rovman-powell",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/rovman-powell-desktop-art.webp",
+      "outputPath": "/assets/images/players/rovman-powell-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 212910
+      }
+    },
+    {
+      "name": "Keemo Paul",
+      "slug": "keemo-paul",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/keemo-paul-desktop-art.webp",
+      "outputPath": "/assets/images/players/keemo-paul-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 113266
+      }
+    },
+    {
+      "name": "Keacy Carty",
+      "slug": "keacy-carty",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/keacy-carty-desktop-art.webp",
+      "outputPath": "/assets/images/players/keacy-carty-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 133912
+      }
+    },
+    {
+      "name": "Jediah Blades",
+      "slug": "jediah-blades",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jediah-blades-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Shaqkere Parris",
+      "slug": "shaqkere-parris",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/shaqkere-parris-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Odean Smith",
+      "slug": "odean-smith",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/odean-smith-desktop-art.webp",
+      "outputPath": "/assets/images/players/odean-smith-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 159556
+      }
+    },
+    {
+      "name": "Vitel Lawes",
+      "slug": "vitel-lawes",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/vitel-lawes-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Romaine Morris",
+      "slug": "romaine-morris",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/romaine-morris-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Kirk McKenzie",
+      "slug": "kirk-mckenzie",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/kirk-mckenzie-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Kelvin Pitman",
+      "slug": "kelvin-pitman",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/kelvin-pitman-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Jeavor Royal",
+      "slug": "jeavor-royal",
+      "team": "Jamaica Kingsmen",
+      "teamCode": "JAK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/jeavor-royal-desktop-art.webp",
+      "outputPath": "/assets/images/players/jeavor-royal-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 128428
+      }
+    },
+    {
+      "name": "Sunil Narine",
+      "slug": "sunil-narine",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/sunil-narine-desktop-art.webp",
+      "outputPath": "/assets/images/players/sunil-narine-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 183832
+      }
+    },
+    {
+      "name": "Kieron Pollard",
+      "slug": "kieron-pollard",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/kieron-pollard-desktop-art.webp",
+      "outputPath": "/assets/images/players/kieron-pollard-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 162600
+      }
+    },
+    {
+      "name": "Akeal Hosein",
+      "slug": "akeal-hosein",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/akeal-hosein-desktop-art.webp",
+      "outputPath": "/assets/images/players/akeal-hosein-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 137472
+      }
+    },
+    {
+      "name": "Justin Greaves",
+      "slug": "justin-greaves",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/justin-greaves-desktop-art.webp",
+      "outputPath": "/assets/images/players/justin-greaves-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 135540
+      }
+    },
+    {
+      "name": "Dominic Drakes",
+      "slug": "dominic-drakes",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/dominic-drakes-desktop-art.webp",
+      "outputPath": "/assets/images/players/dominic-drakes-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 163376
+      }
+    },
+    {
+      "name": "Jyd Goolie",
+      "slug": "jyd-goolie",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jyd-goolie-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Dexter Sween",
+      "slug": "dexter-sween",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/dexter-sween-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Terrance Hinds",
+      "slug": "terrance-hinds",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/terrance-hinds-desktop-art.webp",
+      "outputPath": "/assets/images/players/terrance-hinds-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 153216
+      }
+    },
+    {
+      "name": "Nathan Edward",
+      "slug": "nathan-edward",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/nathan-edward-desktop-art.webp",
+      "outputPath": "/assets/images/players/nathan-edward-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 163356
+      }
+    },
+    {
+      "name": "Joshua Da Silva",
+      "slug": "joshua-da-silva",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/joshua-da-silva-desktop-art.webp",
+      "outputPath": "/assets/images/players/joshua-da-silva-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 140264
+      }
+    },
+    {
+      "name": "Abdul-Raheem Toppin",
+      "slug": "abdul-raheem-toppin",
+      "team": "Trinbago Knight Riders",
+      "teamCode": "TKR",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/abdul-raheem-toppin-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Shimron Hetmyer",
+      "slug": "shimron-hetmyer",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/shimron-hetmyer-desktop-art.webp",
+      "outputPath": "/assets/images/players/shimron-hetmyer-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 165332
+      }
+    },
+    {
+      "name": "Romario Shepherd",
+      "slug": "romario-shepherd",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/romario-shepherd-desktop-art.webp",
+      "outputPath": "/assets/images/players/romario-shepherd-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 152490
+      }
+    },
+    {
+      "name": "Khary Pierre",
+      "slug": "khary-pierre",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/khary-pierre-desktop-art.webp",
+      "outputPath": "/assets/images/players/khary-pierre-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 150502
+      }
+    },
+    {
+      "name": "Shamar Joseph",
+      "slug": "shamar-joseph",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/shamar-joseph-desktop-art.webp",
+      "outputPath": "/assets/images/players/shamar-joseph-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 139724
+      }
+    },
+    {
+      "name": "Ronaldo Alimohamed",
+      "slug": "ronaldo-alimohamed",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/ronaldo-alimohamed-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Veerasammy Permaul",
+      "slug": "veerasammy-permaul",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/veerasammy-permaul-desktop-art.webp",
+      "outputPath": "/assets/images/players/veerasammy-permaul-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 134292
+      }
+    },
+    {
+      "name": "Matthew Nandu",
+      "slug": "matthew-nandu",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/matthew-nandu-desktop-art.webp",
+      "outputPath": "/assets/images/players/matthew-nandu-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 156314
+      }
+    },
+    {
+      "name": "Jonathan Van Lange",
+      "slug": "jonathan-van-lange",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jonathan-van-lange-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Mavendra Dindyal",
+      "slug": "mavendra-dindyal",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/mavendra-dindyal-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Isai Thorne",
+      "slug": "isai-thorne",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/isai-thorne-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Quentin Sampson",
+      "slug": "quentin-sampson",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/quentin-sampson-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Glenn Phillips",
+      "slug": "glenn-phillips",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/glenn-phillips-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Mohammad Nabi",
+      "slug": "mohammad-nabi",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/mohammad-nabi-desktop-art.webp",
+      "outputPath": "/assets/images/players/mohammad-nabi-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 158180
+      }
+    },
+    {
+      "name": "Rahmanullah Gurbaz",
+      "slug": "rahmanullah-gurbaz",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": "/assets/images/players/rahmanullah-gurbaz-desktop-art.webp",
+      "outputPath": "/assets/images/players/rahmanullah-gurbaz-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "ready",
+      "validation": {
+        "width": 1120,
+        "height": 1536,
+        "hasAlpha": true,
+        "bytes": 185032
+      }
+    },
+    {
+      "name": "Dwaine Pretorius",
+      "slug": "dwaine-pretorius",
+      "team": "Guyana Amazon Warriors",
+      "teamCode": "GAW",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/dwaine-pretorius-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Gudakesh Motie",
+      "slug": "gudakesh-motie",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/gudakesh-motie-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Sherfane Rutherford",
+      "slug": "sherfane-rutherford",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/sherfane-rutherford-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Brandon King",
+      "slug": "brandon-king",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/brandon-king-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Zachary Carter",
+      "slug": "zachary-carter",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/zachary-carter-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Kadeem Alleyne",
+      "slug": "kadeem-alleyne",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/kadeem-alleyne-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Ramon Simmonds",
+      "slug": "ramon-simmonds",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/ramon-simmonds-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Shadrack Descarte",
+      "slug": "shadrack-descarte",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/shadrack-descarte-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Rivaldo Clarke",
+      "slug": "rivaldo-clarke",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/rivaldo-clarke-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Zishan Motara",
+      "slug": "zishan-motara",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/zishan-motara-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Jakeem Pollard",
+      "slug": "jakeem-pollard",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jakeem-pollard-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Johann Layne",
+      "slug": "johann-layne",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/johann-layne-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Kofi James",
+      "slug": "kofi-james",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/kofi-james-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Quinton de Kock",
+      "slug": "quinton-de-kock",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/quinton-de-kock-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Chris Green",
+      "slug": "chris-green",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/chris-green-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Mujeeb ur Rahman",
+      "slug": "mujeeb-ur-rahman",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/mujeeb-ur-rahman-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "George Linde",
+      "slug": "george-linde",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/george-linde-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Daniel Sams",
+      "slug": "daniel-sams",
+      "team": "Barbados Tridents",
+      "teamCode": "BT",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/daniel-sams-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Roston Chase",
+      "slug": "roston-chase",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/roston-chase-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Jewel Andrew",
+      "slug": "jewel-andrew",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jewel-andrew-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Matthew Forde",
+      "slug": "matthew-forde",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/matthew-forde-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Kamil Pooran",
+      "slug": "kamil-pooran",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/kamil-pooran-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Darron Nedd",
+      "slug": "darron-nedd",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/darron-nedd-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "McKenny Clarke",
+      "slug": "mckenny-clarke",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/mckenny-clarke-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Joshua Bishop",
+      "slug": "joshua-bishop",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/joshua-bishop-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Damion Joachim",
+      "slug": "damion-joachim",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/damion-joachim-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Keon Gaston",
+      "slug": "keon-gaston",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/keon-gaston-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Amari Goodridge",
+      "slug": "amari-goodridge",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/amari-goodridge-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Johann Jeremiah",
+      "slug": "johann-jeremiah",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/johann-jeremiah-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Akeem Auguste",
+      "slug": "akeem-auguste",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/akeem-auguste-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Noor Ahmad",
+      "slug": "noor-ahmad",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/noor-ahmad-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Tim Seifert",
+      "slug": "tim-seifert",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/tim-seifert-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Maheesh Theekshana",
+      "slug": "maheesh-theekshana",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/maheesh-theekshana-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Charith Asalanka",
+      "slug": "charith-asalanka",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/charith-asalanka-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Shadley van Schalkwyk",
+      "slug": "shadley-van-schalkwyk",
+      "team": "Saint Lucia Kings",
+      "teamCode": "SLK",
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/shadley-van-schalkwyk-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Johnson Charles",
+      "slug": "johnson-charles",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/johnson-charles-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Jason Holder",
+      "slug": "jason-holder",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jason-holder-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Kyle Mayers",
+      "slug": "kyle-mayers",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/kyle-mayers-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Andre Fletcher",
+      "slug": "andre-fletcher",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/andre-fletcher-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Kevin Wickham",
+      "slug": "kevin-wickham",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/kevin-wickham-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Obed McCoy",
+      "slug": "obed-mccoy",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/obed-mccoy-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Ashmead Nedd",
+      "slug": "ashmead-nedd",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/ashmead-nedd-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Jeremiah Louis",
+      "slug": "jeremiah-louis",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jeremiah-louis-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Alick Athanaze",
+      "slug": "alick-athanaze",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/alick-athanaze-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Micah McKenzie",
+      "slug": "micah-mckenzie",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/micah-mckenzie-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Navin Bidaisee",
+      "slug": "navin-bidaisee",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/navin-bidaisee-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Mikyle Louis",
+      "slug": "mikyle-louis",
+      "team": "St Kitts & Nevis Patriots",
+      "teamCode": "SKNP",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/mikyle-louis-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Evin Lewis",
+      "slug": "evin-lewis",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/evin-lewis-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Fabian Allen",
+      "slug": "fabian-allen",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/fabian-allen-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Jayden Seales",
+      "slug": "jayden-seales",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jayden-seales-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Amir Jangoo",
+      "slug": "amir-jangoo",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/amir-jangoo-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Shamar Springer",
+      "slug": "shamar-springer",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/shamar-springer-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Jahmar Hamilton",
+      "slug": "jahmar-hamilton",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/jahmar-hamilton-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Rakheem Cornwall",
+      "slug": "rakheem-cornwall",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/rakheem-cornwall-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Anderson Phillip",
+      "slug": "anderson-phillip",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/anderson-phillip-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Karima Gore",
+      "slug": "karima-gore",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/karima-gore-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Anderson Mahase",
+      "slug": "anderson-mahase",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/anderson-mahase-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    },
+    {
+      "name": "Joshua James",
+      "slug": "joshua-james",
+      "team": "Antigua & Barbuda Falcons",
+      "teamCode": "ABF",
+      "sourceIds": [
+        "official-cpl-2026-local-draft"
+      ],
+      "referencePath": null,
+      "approvedAsset": null,
+      "outputPath": "/assets/images/players/joshua-james-desktop-art.webp",
+      "target": {
+        "width": 1120,
+        "height": 1536,
+        "format": "webp",
+        "alpha": true,
+        "subjectAlignment": "bottom-center"
+      },
+      "status": "pending",
+      "validation": null
+    }
+  ]
+}

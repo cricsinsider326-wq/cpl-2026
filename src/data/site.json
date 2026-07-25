@@ -1,0 +1,33 @@
+{
+  "name": "CPL Insider",
+  "siteUrl": "https://cplinsider.com",
+  "shortName": "CPL 2026",
+  "tagline": "Independent CPL 2026 guide for teams, fixtures, players and live updates",
+  "description": "CPL Insider is an independent CPL 2026 guide covering Caribbean Premier League teams, fixtures, players, points table, venues, live score updates and fan information.",
+  "eventName": "Caribbean Premier League 2026",
+  "startDate": "2026-08-07",
+  "endDate": "2026-09-20",
+  "lastUpdated": "July 25, 2026",
+  "basePath": "",
+  "notAffiliated": "Independent fan resource; not affiliated with Caribbean Premier League.",
+  "commercialDisclosure": "Some future links may be affiliate links. We will clearly label paid or partner placements.",
+  "targetKeywords": [
+    "CPL 2026",
+    "Caribbean Premier League 2026",
+    "CPL 2026 schedule",
+    "CPL live score",
+    "CPL 2026 teams",
+    "CPL 2026 points table",
+    "CPL 2026 players",
+    "CPL 2026 venues"
+  ],
+  "stats": {
+    "teams": 7,
+    "matches": 39,
+    "venues": 8,
+    "seasons": 12,
+    "matchesPlayed": "1140+",
+    "internationalPlayers": "300+",
+    "fans": "1.5M+"
+  }
+}

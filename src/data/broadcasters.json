@@ -1,0 +1,12 @@
+{
+  "season": 2026,
+  "lastChecked": "2026-07-15",
+  "markets": [
+    { "market": "Caribbean", "countryCodes": ["AG", "BB", "GD", "GY", "JM", "KN", "LC", "TT", "VC"], "status": "verified", "tvBroadcaster": "Rush Live & Louder", "streamingPlatform": null, "subscription": "Check with your local television provider", "devices": ["Television"], "restrictions": "Available through major cable and television networks across the Caribbean; exact provider availability may vary.", "sourceId": "official-cpl-2026-caribbean-broadcast" },
+    { "market": "United Kingdom and Ireland", "countryCodes": ["GB", "IE"], "status": "unconfirmed", "tvBroadcaster": null, "streamingPlatform": null, "subscription": null, "devices": [], "restrictions": null, "sourceId": null },
+    { "market": "United States and Canada", "countryCodes": ["US", "CA"], "status": "unconfirmed", "tvBroadcaster": null, "streamingPlatform": null, "subscription": null, "devices": [], "restrictions": null, "sourceId": null },
+    { "market": "India", "countryCodes": ["IN"], "status": "unconfirmed", "tvBroadcaster": null, "streamingPlatform": null, "subscription": null, "devices": [], "restrictions": null, "sourceId": null },
+    { "market": "Pakistan", "countryCodes": ["PK"], "status": "unconfirmed", "tvBroadcaster": null, "streamingPlatform": null, "subscription": null, "devices": [], "restrictions": null, "sourceId": null },
+    { "market": "Australia and New Zealand", "countryCodes": ["AU", "NZ"], "status": "unconfirmed", "tvBroadcaster": null, "streamingPlatform": null, "subscription": null, "devices": [], "restrictions": null, "sourceId": null }
+  ]
+}

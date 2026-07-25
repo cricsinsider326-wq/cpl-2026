@@ -1,0 +1,39 @@
+{
+  "name": "cpl-2026-guide",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "lint": "node scripts/lint.js",
+    "data:check": "node scripts/validate-data.js",
+    "schedule:test": "node scripts/test-schedule-data.js && node scripts/test-calendar.js",
+    "schedule:test:ui": "node scripts/test-schedule-ui.js",
+    "data:sync:players": "node scripts/sync-players-from-squads.js",
+    "artwork:manifest": "node scripts/build-player-artwork-manifest.js",
+    "artwork:normalize": "node scripts/normalize-player-artwork.js",
+    "asset:replicate": "node scripts/replicate-image.js",
+    "page:replicate": "node scripts/prepare-page-replication.js",
+    "page:replicate:audit": "node scripts/audit-page-replication.js",
+    "players:images:official": "node scripts/import-official-player-images.js",
+    "players:images:audit": "node scripts/import-official-player-images.js --dry-run",
+    "players:roles:official": "node scripts/fill-player-roles.js",
+    "cpl:sync": "node scripts/cpl-sync.js",
+    "cpl:sync:dry": "node scripts/cpl-sync.js --dry-run",
+    "cpl:release": "node scripts/cpl-sync.js --deploy",
+    "cpl:fast": "node scripts/cpl-sync.js --skip-images --skip-roles --fast-deploy --deploy",
+    "validate": "node scripts/validate-build.js",
+    "check": "npm run lint && npm run data:check && npm run schedule:test && npm run build && npm run validate",
+    "ui:audit": "node scripts/ui-audit.js",
+    "ui:audit:live": "node scripts/ui-audit.js --live",
+    "ui:audit:interactions": "node scripts/audit-home-interactions.js",
+    "ui:audit:players": "node scripts/audit-player-directory.js",
+    "check:release": "npm run check && npm run ui:audit",
+    "serve": "node server.js",
+    "deploy:fast": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy-fast.ps1",
+    "deploy:full": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy-fast.ps1 -Full"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.61.1",
+    "sharp": "^0.34.3"
+  }
+}

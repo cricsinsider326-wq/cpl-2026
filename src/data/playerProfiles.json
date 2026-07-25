@@ -1,0 +1,124 @@
+{
+  "profiles": [
+    {
+      "playerSlug": "nicholas-pooran",
+      "fullName": "Nicholas Pooran",
+      "nationality": "West Indies",
+      "countryLabel": "Trinidad & Tobago",
+      "dateOfBirth": "1995-10-02",
+      "birthplace": "Trinidad",
+      "battingStyle": "Left-handed",
+      "bowlingStyle": "Off spin",
+      "playingRole": "Wicketkeeper-batter",
+      "cplDebut": "2013",
+      "jerseyNumber": "29",
+      "squadStatus": "Confirmed to date",
+      "overview": "Nicholas Pooran is a left-handed wicketkeeper-batter from Trinidad known for powerful boundary hitting and an aggressive middle-order role. His verified CPL record includes appearances for several franchises, and he is listed with Trinbago Knight Riders for CPL 2026.",
+      "seasonNote": "Pooran is listed in the current Trinbago Knight Riders squad record for CPL 2026. Current-season runs, appearances and playing-role details will be added only after official scorecards and team announcements are published.",
+      "keyFacts": [
+        ["Role", "Wicketkeeper-batter"],
+        ["Batting position", "Middle order"],
+        ["Bowling role", "Part-time off spin"],
+        ["Current status", "Confirmed in squad record"]
+      ],
+      "careerStats": {
+        "format": "CPL career through 2025",
+        "matches": "127",
+        "innings": "116",
+        "runs": "2,873",
+        "average": "29.62",
+        "strikeRate": "149.09",
+        "highestScore": "102*",
+        "catches": "82",
+        "stumpings": "15",
+        "hundreds": "3",
+        "fifties": "17",
+        "sixes": "205"
+      },
+      "recentPerformances": [
+        { "date": "21 Sep 2025", "opponent": "Guyana Amazon Warriors", "batting": "1 (9)", "bowling": "-" },
+        { "date": "19 Sep 2025", "opponent": "Saint Lucia Kings", "batting": "50 (32)", "bowling": "-" },
+        { "date": "16 Sep 2025", "opponent": "Antigua & Barbuda Falcons", "batting": "90* (53)", "bowling": "-" },
+        { "date": "12 Sep 2025", "opponent": "Barbados Royals", "batting": "45 (44)", "bowling": "-" },
+        { "date": "6 Sep 2025", "opponent": "Guyana Amazon Warriors", "batting": "13 (10)", "bowling": "-" }
+      ],
+      "sourceId": "official-tkr-nicholas-pooran-profile",
+      "sourceUrl": "https://www.tkriders.com/players/nicholas-pooran-profile-63726",
+      "lastChecked": "2026-07-22"
+    },
+    {
+      "playerSlug": "kieron-pollard",
+      "fullName": "Kieron Pollard",
+      "nationality": "West Indies",
+      "countryLabel": "Trinidad & Tobago",
+      "dateOfBirth": "1987-05-12",
+      "birthplace": "Tacarigua, Trinidad",
+      "battingStyle": "Right-handed",
+      "bowlingStyle": "Right-arm medium",
+      "playingRole": "Allrounder",
+      "cplDebut": "2013",
+      "squadStatus": "Confirmed to date",
+      "careerStats": {
+        "format": "CPL career through 2025",
+        "matches": "138",
+        "innings": "125",
+        "runs": "3,192",
+        "average": "34.70",
+        "strikeRate": "151.64",
+        "highestScore": "104",
+        "catches": "86",
+        "stumpings": "0",
+        "hundreds": "1",
+        "fifties": "16",
+        "sixes": "228"
+      },
+      "recentPerformances": [
+        { "date": "21 Sep 2025", "opponent": "Guyana Amazon Warriors", "batting": "21 (12)", "bowling": "0/10" },
+        { "date": "19 Sep 2025", "opponent": "Saint Lucia Kings", "batting": "35 (26)", "bowling": "1/4" },
+        { "date": "16 Sep 2025", "opponent": "Antigua & Barbuda Falcons", "batting": "DNB", "bowling": "0/19" },
+        { "date": "12 Sep 2025", "opponent": "Barbados Royals", "batting": "36 (25)", "bowling": "0/43" },
+        { "date": "6 Sep 2025", "opponent": "Guyana Amazon Warriors", "batting": "54* (18)", "bowling": "0/9" }
+      ],
+      "sourceId": "official-tkr-kieron-pollard-profile",
+      "sourceUrl": "https://www.tkriders.com/players/kieron-pollard-profile-3910",
+      "lastChecked": "2026-07-22"
+    },
+    {
+      "playerSlug": "usman-tariq",
+      "fullName": "Usman Tariq",
+      "nationality": "Pakistan",
+      "countryLabel": "Pakistan",
+      "dateOfBirth": "1998-01-01",
+      "birthplace": "To be confirmed",
+      "battingStyle": "Right-handed",
+      "bowlingStyle": "Off break",
+      "playingRole": "Bowler",
+      "cplDebut": "2025",
+      "squadStatus": "Confirmed to date",
+      "careerStats": {
+        "format": "CPL career through 2025",
+        "matches": "10",
+        "innings": "1",
+        "runs": "4",
+        "average": "-",
+        "strikeRate": "200.00",
+        "highestScore": "4*",
+        "catches": "1",
+        "stumpings": "0",
+        "hundreds": "0",
+        "fifties": "0",
+        "sixes": "0"
+      },
+      "recentPerformances": [
+        { "date": "21 Sep 2025", "opponent": "Guyana Amazon Warriors", "batting": "DNB", "bowling": "1/18" },
+        { "date": "19 Sep 2025", "opponent": "Saint Lucia Kings", "batting": "DNB", "bowling": "4/35" },
+        { "date": "16 Sep 2025", "opponent": "Antigua & Barbuda Falcons", "batting": "DNB", "bowling": "2/19" },
+        { "date": "12 Sep 2025", "opponent": "Barbados Royals", "batting": "DNB", "bowling": "2/23" },
+        { "date": "6 Sep 2025", "opponent": "Guyana Amazon Warriors", "batting": "DNB", "bowling": "1/36" }
+      ],
+      "sourceId": "official-tkr-usman-tariq-profile",
+      "sourceUrl": "https://www.tkriders.com/players/usman-tariq-profile-119754",
+      "lastChecked": "2026-07-22"
+    }
+  ]
+}
