@@ -54,7 +54,9 @@ function renderLiveScore(site, teams, fixtures) {
 function renderUpcoming(fixtures, teams) {
   return `<section class="rh-section rh-upcoming" aria-labelledby="rh-upcoming-title">
     <div class="rh-section-title"><div><p class="rh-eyebrow">Next fixtures</p><h3 id="rh-upcoming-title">Upcoming CPL 2026 Matches</h3><p class="rh-section-copy">Confirmed dates, venues and start times shown in venue local time.</p></div><a href="/fixtures/">View full schedule <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
-    <div class="rh-slider-shell"><div class="rh-upcoming-grid" id="rh-upcoming-track">${fixtures.slice(0, 5).map((match) => `<a class="rh-upcoming-card" href="/fixtures/${escapeHtml(match.slug)}/">
+    <div class="rh-slider-shell">
+      <button class="rh-slider-prev" type="button" data-scroll-prev="rh-upcoming-track" aria-label="Show previous upcoming match"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+      <div class="rh-upcoming-grid" id="rh-upcoming-track">${fixtures.slice(0, 5).map((match) => `<a class="rh-upcoming-card" href="/fixtures/${escapeHtml(match.slug)}/">
       <div><b>${escapeHtml(match.date)} 2026</b></div>
       <div class="rh-upcoming-pair"><span>${teamLogo(teams, match.teamA)}<strong>${escapeHtml(match.teamA)}</strong></span><em>vs</em><span>${teamLogo(teams, match.teamB)}<strong>${escapeHtml(match.teamB)}</strong></span></div>
       <small><i data-lucide="map-pin" aria-hidden="true"></i>${escapeHtml(match.venue)}</small><time datetime="${escapeHtml(match.dateISO)}">${escapeHtml(match.day)} - ${escapeHtml(match.time)} local</time>
@@ -88,6 +90,7 @@ function renderTeams(teams, squadByTeam) {
 function renderStandings(teams) {
   return `<article class="rh-panel rh-standings" aria-labelledby="rh-standings-title">
     <div class="rh-panel-heading"><div><h2 id="rh-standings-title">CPL 2026 Points Table</h2><p class="rh-section-copy">Follow the latest CPL standings as the season moves forward. The table tracks matches played, wins, losses, points and net run rate, so you can quickly see which teams are in the playoff race.</p></div><a href="/points-table/">View full table <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    <div class="rh-standings-alert" style="background: rgba(255,208,0,0.08); border: 1px solid rgba(255,208,0,0.25); border-radius: 6px; padding: 10px 14px; margin: 12px 0 6px; color: #ffd000; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;"><i data-lucide="bell" style="height:16px; width:16px; flex-shrink:0;"></i><span>Tournament starts Aug 7 — Points table will update live after Match 1</span></div>
     <p class="rh-muted">The points table will start updating after the first completed match.</p>
     <div class="rh-table-wrap"><table><thead><tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>NRR</th><th>Pts</th></tr></thead><tbody>${teams.map((team, index) => `<tr><td>${index + 1}</td><th><img src="${escapeHtml(team.logo)}" alt="" width="28" height="28" loading="lazy" />${escapeHtml(team.name)}</th><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>`).join("")}</tbody></table></div>
     <a class="rh-panel-button" href="/points-table/">View full points table <i data-lucide="arrow-right" aria-hidden="true"></i></a>

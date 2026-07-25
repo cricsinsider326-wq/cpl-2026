@@ -1,0 +1,18 @@
+{
+  "name": "CPL Insider 2026",
+  "short_name": "CPL 2026",
+  "description": "Your Ultimate CPL 2026 Guide - Live Scores, Schedule, Teams & News",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050816",
+  "theme_color": "#050816",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/images/brand/cpl-2026-brand-lockup.webp",
+      "sizes": "310x100",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}

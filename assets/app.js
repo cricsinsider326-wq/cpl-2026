@@ -183,13 +183,22 @@ document.querySelectorAll("[data-tabs]").forEach((tabs) => {
   }
 })();
 
-/* Compact horizontal lists use one accessible next control. */
+/* Compact horizontal lists use accessible scroll controls. */
 document.querySelectorAll("[data-scroll-next]").forEach((button) => {
   const track = document.getElementById(button.dataset.scrollNext);
   if (!track) return;
   button.addEventListener("click", () => {
     const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
     track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + track.clientWidth * 0.82, behavior: "smooth" });
+  });
+});
+
+document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
+  const track = document.getElementById(button.dataset.scrollPrev);
+  if (!track) return;
+  button.addEventListener("click", () => {
+    const atStart = track.scrollLeft <= 8;
+    track.scrollTo({ left: atStart ? track.scrollWidth : track.scrollLeft - track.clientWidth * 0.82, behavior: "smooth" });
   });
 });
 

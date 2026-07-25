@@ -115,6 +115,9 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#050816" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/webp" href="/assets/images/brand/cpl-2026-brand-lockup.webp" />
+    <link rel="apple-touch-icon" href="/assets/images/brand/cpl-2026-brand-lockup.webp" />
     <meta name="robots" content="${escapeHtml(robots)}" />
     <title>${escapeHtml(pageTitle)}</title>
     <meta name="description" content="${escapeHtml(pageDescription)}" />
