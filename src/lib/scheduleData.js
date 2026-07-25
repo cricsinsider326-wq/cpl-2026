@@ -161,8 +161,9 @@ function buildScheduleRows(fixtures = []) {
   return fixtures.map((match, index) => {
     const stage = stageOfMatch(match);
     const number = index + 1;
-    const teamACode = match.teamA || stageCodeLabel(match, "A");
-    const teamBCode = match.teamB || stageCodeLabel(match, "B");
+    const participants = stageParticipants(match);
+    const teamACode = match.teamA || participants.a.code;
+    const teamBCode = match.teamB || participants.b.code;
     return {
       ...match,
       matchNumber: number,
@@ -180,26 +181,42 @@ function buildScheduleRows(fixtures = []) {
       teamACode,
       teamBCode,
       isPlayoff: stage !== "league",
-      displayFixtureA: match.teamA || teamACode,
-      displayFixtureB: match.teamB || teamBCode || "TBC"
+      displayFixtureA: match.teamA || participants.a.label,
+      displayFixtureB: match.teamB || participants.b.label
     };
   });
 }
 
-function stageCodeLabel(match, side) {
+function stageParticipants(match) {
   const name = `${match.match || ""} ${match.teamAName || ""}`.toLowerCase();
   if (/\bfinal\b/.test(name) && !/qualifier|eliminator/.test(name)) {
-    return side === "A" ? "FINAL" : "TBC";
+    return {
+      a: { code: "WQ1", label: "WINNER Q1" },
+      b: { code: "WQ2", label: "WINNER Q2" }
+    };
   }
-  if (name.includes("eliminator")) return side === "A" ? "E" : "TBC";
+  if (name.includes("eliminator")) {
+    return {
+      a: { code: "3RD", label: "3RD PLACE" },
+      b: { code: "4TH", label: "4TH PLACE" }
+    };
+  }
   if (name.includes("qualifier 1") || name.includes("qualifier one") || name.includes("q1")) {
-    return side === "A" ? "Q1" : "TBC";
+    return {
+      a: { code: "1ST", label: "1ST PLACE" },
+      b: { code: "2ND", label: "2ND PLACE" }
+    };
   }
   if (name.includes("qualifier 2") || name.includes("qualifier two") || name.includes("q2")) {
-    return side === "A" ? "Q2" : "TBC";
+    return {
+      a: { code: "WE", label: "WINNER ELIMINATOR" },
+      b: { code: "LQ1", label: "LOSER Q1" }
+    };
   }
-  if (name.includes("qualifier")) return side === "A" ? "Q" : "TBC";
-  return side === "A" ? (match.teamAName || "TBC") : "TBC";
+  return {
+    a: { code: "TBC", label: match.teamAName || "TBC" },
+    b: { code: "TBC", label: match.teamBName || "TBC" }
+  };
 }
 
 function getNextMatch(fixtures = []) {
@@ -300,8 +317,8 @@ function finalVenue(fixtures = []) {
 
 function tournamentDateRange(site = {}, fixtures = []) {
   if (site.startDate && site.endDate) {
-    const start = formatIsoRangePart(site.startDate);
-    const end = formatIsoRangePart(site.endDate);
+    const start = formatIsoRangePart(site.startDate, false);
+    const end = formatIsoRangePart(site.endDate, true);
     return `${start} - ${end}`;
   }
   if (!fixtures.length) return "TBC";
@@ -310,11 +327,11 @@ function tournamentDateRange(site = {}, fixtures = []) {
   return `${formatTableDate(first)} - ${formatTableDate(last)}`;
 }
 
-function formatIsoRangePart(iso) {
+function formatIsoRangePart(iso, includeYear = true) {
   if (!iso) return "";
   const [year, month, day] = iso.split("-").map(Number);
   const monthShort = MONTH_NAMES[month - 1]?.slice(0, 3) || "";
-  return `${monthShort.toUpperCase()} ${day}, ${year}`;
+  return `${day} ${monthShort.toUpperCase()}${includeYear ? ` ${year}` : ""}`;
 }
 
 function roadToFinal(fixtures = []) {
@@ -457,7 +474,8 @@ function buildSchedulePageModel({ site, teams, fixtures, venues, faqs = [], play
     road: roadToFinal(fixtures),
     timezones: timezoneSamples(next),
     faqs: scheduleFaqs(faqs),
-    months: [...new Set(rows.map((row) => row.monthFilter).filter(Boolean))]
+    months: [...new Set(rows.map((row) => row.monthFilter).filter(Boolean))],
+    defaultMonth: rows.find((row) => row.stage === "league")?.monthFilter || "all"
   };
 }
 

@@ -423,6 +423,7 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
   const mobileGroups = [...root.querySelectorAll("[data-mobile-month-group]")];
   const fixtureEntries = [...rows, ...mobileEntries];
   const empty = root.querySelector("[data-sch-empty]");
+  const expandButton = root.querySelector("[data-sch-expand]");
   const teamFilter = root.querySelector("[data-sch-filter='team']");
   const venueFilter = root.querySelector("[data-sch-filter='venue']");
   const stageFilter = root.querySelector("[data-sch-filter='stage']");
@@ -430,7 +431,9 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
   const timezoneSelect = document.querySelector("[data-sch-timezone]");
   const timezoneChips = [...document.querySelectorAll("[data-sch-tz]")];
   const timeHeading = root.querySelector("[data-sch-time-heading]");
-  let tabMode = "all";
+  let tabMode = root.dataset.schDefaultTab || "all";
+  let scheduleExpanded = false;
+  const initialFixtureLimit = 12;
   const timezoneOffsets = {
     gmt: 0,
     bst: 1,
@@ -498,12 +501,22 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
     });
     if (timeHeading) timeHeading.textContent = `TIME (${timezoneLabels[zone] || zone.toUpperCase()})`;
     timezoneChips.forEach((chip) => chip.classList.toggle("is-active", chip.dataset.schTz === zone));
+    try {
+      window.localStorage.setItem("cpl-schedule-timezone", zone);
+    } catch {
+      // Storage can be unavailable in privacy modes; the selector still works.
+    }
   }
 
   function applyFilters() {
     const team = teamFilter?.value || "all";
     const venue = venueFilter?.value || "all";
     const stage = stageFilter?.value || "all";
+    const canTruncate = !scheduleExpanded
+      && team === "all"
+      && venue === "all"
+      && stage === "all"
+      && tabMode !== "playoffs";
     let visible = 0;
 
     function entryMatches(entry) {
@@ -527,14 +540,25 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
       return show;
     }
 
+    let desktopMatches = 0;
     rows.forEach((row) => {
-      const show = entryMatches(row);
+      let show = entryMatches(row);
+      if (show) {
+        desktopMatches += 1;
+        if (canTruncate && desktopMatches > initialFixtureLimit) show = false;
+      }
       row.classList.toggle("is-hidden", !show);
       if (show) visible += 1;
     });
 
+    let mobileMatches = 0;
     mobileEntries.forEach((entry) => {
-      entry.classList.toggle("is-hidden", !entryMatches(entry));
+      let show = entryMatches(entry);
+      if (show) {
+        mobileMatches += 1;
+        if (canTruncate && mobileMatches > initialFixtureLimit) show = false;
+      }
+      entry.classList.toggle("is-hidden", !show);
     });
 
     groups.forEach((group) => {
@@ -551,6 +575,13 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
     });
 
     if (empty) empty.hidden = visible > 0;
+    if (expandButton) {
+      const hiddenCount = Math.max(0, desktopMatches - initialFixtureLimit);
+      expandButton.hidden = !canTruncate || hiddenCount === 0;
+      expandButton.textContent = hiddenCount > 0
+        ? `SHOW ${hiddenCount} MORE ${tabMode === "all" ? "FIXTURES" : `${tabMode.toUpperCase()} FIXTURES`}`
+        : "SHOW MORE FIXTURES";
+    }
   }
 
   tabs.forEach((tab) => {
@@ -565,6 +596,7 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
         return;
       }
       tabMode = mode;
+      scheduleExpanded = false;
       tabs.forEach((item) => {
         const active = item === tab;
         item.classList.toggle("is-active", active);
@@ -572,16 +604,36 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
       });
       if (mode === "playoffs" && stageFilter) stageFilter.value = "playoff";
       if (mode === "all" && stageFilter) stageFilter.value = "all";
+      if (mode !== "playoffs" && stageFilter?.value === "playoff") stageFilter.value = "all";
       applyFilters();
       root.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
   [teamFilter, venueFilter, stageFilter].forEach((select) => {
-    select?.addEventListener("change", applyFilters);
+    select?.addEventListener("change", () => {
+      scheduleExpanded = false;
+      applyFilters();
+    });
+  });
+
+  expandButton?.addEventListener("click", () => {
+    scheduleExpanded = true;
+    applyFilters();
   });
 
   timezoneSelect?.addEventListener("change", updateTimezone);
+
+  if (timezoneSelect) {
+    try {
+      const savedZone = window.localStorage.getItem("cpl-schedule-timezone");
+      if (savedZone && [...timezoneSelect.options].some((option) => option.value === savedZone)) {
+        timezoneSelect.value = savedZone;
+      }
+    } catch {
+      // Keep venue-local time when storage is unavailable.
+    }
+  }
 
   document.querySelectorAll("[data-sch-jump='playoffs']").forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -601,4 +653,7 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
       document.getElementById("complete-schedule")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+
+  applyFilters();
+  updateTimezone();
 })();

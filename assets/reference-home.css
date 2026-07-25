@@ -236,11 +236,12 @@
 .rh-upcoming-pair strong { font-family: "Barlow Condensed", sans-serif; font-size: .95rem; }
 .rh-upcoming-pair em { color: #a66dff; font-family: "Barlow Condensed", sans-serif; font-size: .85rem; font-style: normal; font-weight: 900; }
 .rh-upcoming-card > small svg { height: 11px; margin-right: 3px; vertical-align: -2px; width: 11px; }
-.rh-slider-prev, .rh-slider-next { align-items: center; background: #6c24df; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; color: #fff; cursor: pointer; display: flex; height: 42px; justify-content: center; position: absolute; top: 50%; transform: translateY(-50%); width: 42px; z-index: 3; transition: background .2s ease, transform .2s ease; }
-.rh-slider-prev { left: -14px; }
-.rh-slider-next { right: -14px; }
-.rh-slider-prev:hover, .rh-slider-next:hover { background: #7e31f4; transform: translateY(-50%) scale(1.08); }
-.rh-slider-prev svg, .rh-slider-next svg { height: 20px; width: 20px; }
+button.rh-slider-prev, button.rh-slider-next { align-items: center !important; background: #6c24df !important; border: 1px solid rgba(255,255,255,.35) !important; border-radius: 50% !important; box-shadow: 0 4px 14px rgba(108, 36, 223, 0.45) !important; color: #ffffff !important; cursor: pointer !important; display: flex !important; height: 42px !important; justify-content: center !important; outline: none !important; padding: 0 !important; position: absolute !important; top: 50% !important; transform: translateY(-50%) !important; width: 42px !important; z-index: 10 !important; transition: background .2s ease, transform .2s ease, box-shadow .2s ease !important; }
+button.rh-slider-prev { left: -14px !important; }
+button.rh-slider-next { right: -14px !important; }
+button.rh-slider-prev:hover, button.rh-slider-next:hover { background: #8b3dff !important; box-shadow: 0 6px 20px rgba(139, 61, 255, 0.6) !important; transform: translateY(-50%) scale(1.1) !important; }
+button.rh-slider-prev svg, button.rh-slider-next svg { height: 20px !important; stroke: #ffffff !important; stroke-width: 2.5px !important; width: 20px !important; }
+
 
 .rh-team-grid { display: grid; gap: 9px; grid-template-columns: repeat(7, minmax(0, 1fr)); }
 .rh-team-card { align-items: center; background: linear-gradient(180deg, rgba(19, 27, 60, .64), rgba(8, 13, 32, .28)); border: 0; border-bottom: 1px solid rgba(151,169,224,.16); border-radius: 2px; border-top: 2px solid color-mix(in srgb, var(--team-accent) 72%, #fff); display: grid; justify-items: center; min-width: 0; padding: 16px 8px 13px; text-align: center; transition: .2s ease; }

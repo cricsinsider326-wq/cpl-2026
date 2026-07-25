@@ -122,15 +122,17 @@ function renderNextMatch(model, teams) {
       </div>
     </div>
     <div class="sch-next-actions">
-      <a class="sch-btn sch-btn-primary" href="/fixtures/${escapeHtml(match.slug)}/">MATCH PREVIEW</a>
-      <a class="sch-btn sch-btn-ghost" href="/teams/">TEAM SQUADS</a>
-      <a class="sch-btn sch-btn-ghost" href="/venues/">VENUE GUIDE</a>
+      <a class="sch-btn sch-btn-primary" href="/fixtures/${escapeHtml(match.slug)}/"><i data-lucide="clipboard-list" aria-hidden="true"></i> MATCH PREVIEW</a>
       <a class="sch-btn sch-btn-live" href="/live-score/"><i data-lucide="radio" aria-hidden="true"></i> LIVE SCORE</a>
+      <span class="sch-next-secondary">
+        <a href="/teams/"><i data-lucide="users" aria-hidden="true"></i> TEAM SQUADS</a>
+        <a href="/venues/"><i data-lucide="map-pin" aria-hidden="true"></i> VENUE GUIDE</a>
+      </span>
     </div>
   </section>`;
 }
 
-function renderFilterBar(model, teams) {
+function renderFilterBar(model) {
   const monthTabs = [
     { id: "all", label: "ALL MATCHES" },
     ...model.months.map((month) => ({ id: month, label: month.toUpperCase() })),
@@ -139,8 +141,16 @@ function renderFilterBar(model, teams) {
     { id: "playoffs", label: "PLAYOFFS" }
   ];
   return `<div class="sch-filter-bar" data-sch-tabs>
-    <div class="sch-tabs" role="tablist" aria-label="Schedule filters">
-      ${monthTabs.map((tab, index) => `<button type="button" class="sch-tab${index === 0 ? " is-active" : ""}" role="tab" data-sch-tab="${escapeHtml(tab.id)}" aria-selected="${index === 0 ? "true" : "false"}">${escapeHtml(tab.label)}</button>`).join("")}
+    <div class="sch-tabs-shell">
+      <div class="sch-tabs" id="sch-filter-tabs" role="tablist" aria-label="Schedule filters">
+        ${monthTabs.map((tab) => {
+          const active = tab.id === model.defaultMonth;
+          return `<button type="button" class="sch-tab${active ? " is-active" : ""}" role="tab" data-sch-tab="${escapeHtml(tab.id)}" aria-selected="${active ? "true" : "false"}">${escapeHtml(tab.label)}</button>`;
+        }).join("")}
+      </div>
+      <button type="button" class="sch-tabs-next" data-scroll-next="sch-filter-tabs" aria-label="Show more schedule filters">
+        <i data-lucide="chevron-right" aria-hidden="true"></i>
+      </button>
     </div>
     <label class="sch-timezone-select">
       <span class="visually-hidden">Timezone display</span>
@@ -157,12 +167,12 @@ function renderFilterBar(model, teams) {
   </div>`;
 }
 
-function renderTeamChip(team, code, size = 28) {
+function renderTeamChip(team, code, size = 28, label = code) {
   if (!team && !code) {
     return `<span class="sch-fixture-chip sch-fixture-tbc"><span class="sch-code-badge">TBC</span><b>TBC</b></span>`;
   }
   if (!team) {
-    return `<span class="sch-fixture-chip"><span class="sch-code-badge">${escapeHtml(code)}</span><b>${escapeHtml(code)}</b></span>`;
+    return `<span class="sch-fixture-chip sch-fixture-placeholder"><span class="sch-code-badge">${escapeHtml(code)}</span><b>${escapeHtml(label || code)}</b></span>`;
   }
   return `<span class="sch-fixture-chip">
     <img src="${escapeHtml(team.logo || "")}" alt="" width="${size}" height="${size}" loading="lazy" />
@@ -179,9 +189,9 @@ function renderTableRow(row, teams) {
     <td class="sch-col-date"><time datetime="${escapeHtml(row.dateISO)}" data-sch-date>${escapeHtml(row.tableDate)}</time></td>
     <td class="sch-col-fixture">
       <div class="sch-fixture-pair">
-        ${renderTeamChip(teamA, row.displayFixtureA)}
+        ${renderTeamChip(teamA, row.teamACode, 28, row.displayFixtureA)}
         <span class="sch-fixture-vs">vs</span>
-        ${renderTeamChip(teamB, row.displayFixtureB)}
+        ${renderTeamChip(teamB, row.teamBCode, 28, row.displayFixtureB)}
       </div>
     </td>
     <td class="sch-col-venue">${escapeHtml(row.venue)}</td>
@@ -199,9 +209,9 @@ function renderMobileFixture(row, teams) {
     <span class="sch-mobile-match-number">MATCH ${escapeHtml(String(row.matchNumber))}</span>
     <time datetime="${escapeHtml(row.dateISO)}" data-sch-date>${escapeHtml(row.tableDate)}</time>
     <span class="sch-mobile-fixture-pair">
-      ${renderTeamChip(teamA, row.displayFixtureA, 34)}
+      ${renderTeamChip(teamA, row.teamACode, 34, row.displayFixtureA)}
       <span class="sch-fixture-vs">VS</span>
-      ${renderTeamChip(teamB, row.displayFixtureB, 34)}
+      ${renderTeamChip(teamB, row.teamBCode, 34, row.displayFixtureB)}
     </span>
     <strong class="sch-mobile-time" data-sch-time>${escapeHtml(row.localTime)}</strong>
     <span class="sch-mobile-venue">${escapeHtml(row.venue)}</span>
@@ -222,7 +232,8 @@ function renderCompleteSchedule(model, teams) {
   }).join("");
   const mobileGroups = model.monthGroups.map((group) => {
     const month = group.rows[0]?.monthFilter || "";
-    return `<details class="sch-mobile-month" data-mobile-month-group="${escapeHtml(month)}">
+    const open = month === model.defaultMonth ? " open" : "";
+    return `<details class="sch-mobile-month" data-mobile-month-group="${escapeHtml(month)}"${open}>
       <summary>
         <span>${escapeHtml(group.label)}</span>
         <span>${group.rows.length} MATCHES <i data-lucide="chevron-down" aria-hidden="true"></i></span>
@@ -233,10 +244,13 @@ function renderCompleteSchedule(model, teams) {
     </details>`;
   }).join("");
 
-  return `<section class="sch-table-section" id="complete-schedule" aria-labelledby="sch-table-title" data-sch-schedule>
-    ${renderFilterBar(model, teams)}
+  return `<section class="sch-table-section" id="complete-schedule" aria-labelledby="sch-table-title" data-sch-schedule data-sch-default-tab="${escapeHtml(model.defaultMonth)}">
+    ${renderFilterBar(model)}
     <div class="sch-table-head">
-      <h2 id="sch-table-title">COMPLETE CPL 2026 SCHEDULE</h2>
+      <div>
+        <h2 id="sch-table-title">COMPLETE CPL 2026 SCHEDULE</h2>
+        <p class="sch-section-copy">Browse all 39 CPL 2026 fixtures across seven teams and eight host venues. Times are shown in venue local time until you select another timezone.</p>
+      </div>
       <div class="sch-selects">
         <label><span class="visually-hidden">Filter by team</span>
           <select data-sch-filter="team" aria-label="Filter by team">
@@ -280,7 +294,8 @@ function renderCompleteSchedule(model, teams) {
       ${mobileGroups}
     </div>
     <div class="sch-table-footer">
-      <a class="sch-btn sch-btn-ghost" href="#complete-schedule"><i data-lucide="list" aria-hidden="true"></i> VIEW FULL SCHEDULE</a>
+      <button type="button" class="sch-btn sch-btn-primary" data-sch-expand>SHOW MORE FIXTURES</button>
+      <a class="sch-btn sch-btn-ghost" href="/assets/calendar/cpl-2026-schedule.ics" download><i data-lucide="calendar-plus" aria-hidden="true"></i> DOWNLOAD FULL SCHEDULE</a>
     </div>
     <p class="sch-filter-empty" data-sch-empty hidden>No fixtures match the selected filters.</p>
   </section>`;
@@ -289,15 +304,23 @@ function renderCompleteSchedule(model, teams) {
 function renderScheduleByTeam(model) {
   return `<section class="sch-by-team" id="by-team" aria-labelledby="sch-by-team-title">
     <div class="sch-section-head">
-      <h2 id="sch-by-team-title">CPL 2026 SCHEDULE BY TEAM</h2>
+      <div>
+        <h2 id="sch-by-team-title">CPL 2026 FIXTURES BY TEAM</h2>
+        <p class="sch-section-copy">Open a team fixture guide to check its complete league-stage schedule, venues and match previews.</p>
+      </div>
       <a href="/teams/">VIEW ALL TEAMS <i data-lucide="arrow-right" aria-hidden="true"></i></a>
     </div>
-    <div class="sch-team-grid">
-      ${model.teams.map((team) => `<a class="sch-team-tile" href="/teams/${escapeHtml(team.slug)}/fixtures/" style="--team-accent:${escapeHtml(team.accent || "#ffd400")}">
-        <span class="sch-team-tile-logo"><img src="${escapeHtml(team.logo || "")}" alt="${escapeHtml(team.name)} logo" width="72" height="72" loading="lazy" /></span>
-        <strong>${escapeHtml(team.name.toUpperCase())}</strong>
-        <small>${team.matchCount} matches</small>
-      </a>`).join("")}
+    <div class="sch-team-grid-wrap">
+      <div class="sch-team-grid" id="sch-team-track">
+        ${model.teams.map((team) => `<a class="sch-team-tile" href="/teams/${escapeHtml(team.slug)}/fixtures/" style="--team-accent:${escapeHtml(team.accent || "#ffd400")}">
+          <span class="sch-team-tile-logo"><img src="${escapeHtml(team.logo || "")}" alt="${escapeHtml(team.name)} logo" width="72" height="72" loading="lazy" /></span>
+          <strong>${escapeHtml(team.name.toUpperCase())}</strong>
+          <small>${team.matchCount} league matches</small>
+        </a>`).join("")}
+      </div>
+      <button type="button" class="sch-scroll-next sch-team-next" data-scroll-next="sch-team-track" aria-label="Show more CPL teams">
+        <i data-lucide="chevron-right" aria-hidden="true"></i>
+      </button>
     </div>
   </section>`;
 }
@@ -307,7 +330,10 @@ function renderVenueAndRoad(model) {
   return `<section class="sch-venue-road" aria-label="Fixtures by venue and road to final">
     <div class="sch-by-venue" id="by-venue">
       <div class="sch-section-head">
-        <h2>FIXTURES BY VENUE &amp; HOST DESTINATION</h2>
+        <div>
+          <h2>CPL 2026 FIXTURES BY VENUE</h2>
+          <p class="sch-section-copy">Explore stadium-specific fixture lists and practical host destination guides for the 2026 tournament.</p>
+        </div>
         <a href="/venues/">VIEW ALL VENUES <i data-lucide="arrow-right" aria-hidden="true"></i></a>
       </div>
       <div class="sch-venue-strip-wrap">
@@ -328,7 +354,10 @@ function renderVenueAndRoad(model) {
     </div>
     <div class="sch-road" id="playoffs" aria-labelledby="sch-road-title">
       <div class="sch-section-head">
-        <h2 id="sch-road-title">ROAD TO THE CPL 2026 FINAL</h2>
+        <div>
+          <h2 id="sch-road-title">CPL 2026 PLAYOFF SCHEDULE AND FINAL</h2>
+          <p class="sch-section-copy">The top four teams progress from the league stage to the Eliminator, two Qualifiers and the Final.</p>
+        </div>
         <a href="#complete-schedule" data-sch-jump="playoffs">VIEW PLAYOFFS <i data-lucide="arrow-right" aria-hidden="true"></i></a>
       </div>
       <ol class="sch-road-path">
@@ -349,7 +378,7 @@ function renderTools(model) {
   return `<section class="sch-tools" id="calendar-tools" aria-label="Timezone and calendar tools">
     <article class="sch-tool-card sch-timezone-card">
       <p class="sch-section-eyebrow">FOLLOW EVERY MATCH</p>
-      <h2>MATCH TIMES IN YOUR TIMEZONE</h2>
+      <h2>CPL 2026 MATCH TIMES BY TIMEZONE</h2>
       <div class="sch-tz-grid">
         ${model.timezones.map((tz, index) => `<button type="button" class="sch-tz-chip${index === 0 ? " is-active" : ""}" data-sch-tz="${escapeHtml(tz.code)}">
           <span>${escapeHtml(tz.label)}</span>
@@ -362,7 +391,7 @@ function renderTools(model) {
       <h2>CALENDAR TOOLS</h2>
       <div class="sch-calendar-actions">
         <a class="sch-btn sch-btn-primary" href="/assets/calendar/cpl-2026-schedule.ics" download><i data-lucide="calendar-plus" aria-hidden="true"></i> ADD FULL SCHEDULE TO CALENDAR</a>
-        <a class="sch-btn sch-btn-ghost" href="${nextCalendar}" download><i data-lucide="calendar" aria-hidden="true"></i> ADD THIS MATCH TO CALENDAR</a>
+        <a class="sch-btn sch-btn-ghost" href="${nextCalendar}" download><i data-lucide="calendar" aria-hidden="true"></i> ADD NEXT MATCH TO CALENDAR</a>
       </div>
       <p class="sch-tool-note">Downloads use the standard .ics calendar format. Confirm official kick-off times before travel.</p>
     </article>
@@ -381,7 +410,7 @@ function renderFaqExplore(model) {
   return `<section class="sch-faq-explore" aria-label="FAQ and explore more">
     <article class="sch-faq-card" aria-labelledby="sch-faq-title">
       <p class="sch-section-eyebrow">PLAN YOUR TOURNAMENT</p>
-      <h2 id="sch-faq-title">FREQUENTLY ASKED QUESTIONS</h2>
+      <h2 id="sch-faq-title">CPL 2026 SCHEDULE FAQS</h2>
       <div class="sch-faq-list">
         ${model.faqs.map((faq, index) => `<details class="sch-faq-item"${index === 0 ? " open" : ""}>
           <summary>${escapeHtml(faq.question)}</summary>

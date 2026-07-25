@@ -40,10 +40,17 @@ async function run() {
     }));
 
     assert(initial.details.length === 2, "Expected August and September mobile schedule groups.");
-    assert(initial.details.every((item) => !item.open), "Mobile month groups should start collapsed.");
+    const initialAugust = initial.details.find((item) => item.month === "august");
+    assert(initialAugust?.open, "The upcoming August month group should start open.");
     assert(initial.mobileDisplay !== "none", "Mobile fixture list is hidden at 430px.");
     assert(initial.tableDisplay === "none", "Desktop fixture table is visible at 430px.");
     assert(initial.horizontalOverflow <= 1, `Page overflows horizontally by ${initial.horizontalOverflow}px.`);
+
+    const initialVisible = await page.locator("[data-sch-mobile-entry]:not(.is-hidden)").count();
+    assert(initialVisible === 12, `Expected 12 initially visible fixtures, found ${initialVisible}.`);
+    await page.click("[data-sch-expand]");
+    const expandedVisible = await page.locator("[data-sch-mobile-entry]:not(.is-hidden)").count();
+    assert(expandedVisible === 22, `Expected all 22 August fixtures after expansion, found ${expandedVisible}.`);
 
     await page.click('[data-sch-tab="august"]');
     const august = await page.evaluate(() => ({
@@ -57,7 +64,7 @@ async function run() {
     }));
     const augustGroup = august.details.find((item) => item.month === "august");
     assert(augustGroup?.open && !augustGroup.hidden, "August tab did not open the August group.");
-    assert(august.visibleEntries === 22, `Expected 22 August fixtures, found ${august.visibleEntries}.`);
+    assert(august.visibleEntries === 12, `Expected 12 initially visible August fixtures, found ${august.visibleEntries}.`);
 
     await page.click('[data-sch-tab="all"]');
     await page.selectOption('[data-sch-filter="team"]', "TKR");
