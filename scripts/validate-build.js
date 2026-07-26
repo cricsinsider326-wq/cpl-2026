@@ -7,7 +7,7 @@ const errors = [];
 const titles = new Map();
 const canonicals = new Map();
 const pageAudit = [];
-const cssVersion = "20260725-slider-purple-fix1";
+const cssVersion = "20260726-home-tone2";
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {

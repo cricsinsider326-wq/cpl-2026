@@ -1393,3 +1393,274 @@ button.rh-slider-prev svg, button.rh-slider-next svg { height: 20px !important; 
   .rh-venue-grid { grid-auto-columns: 86%; }
   .rh-player-role-grid { grid-auto-columns: 66%; }
 }
+
+/* Homepage tonal balance: retain the night-cricket identity while separating
+   long-form sections into readable full-width bands. */
+.home-body {
+  background: #070b19;
+}
+
+.home-body .site-shell {
+  background: #070b19;
+}
+
+.rh-home {
+  --rh-bg: #070b19;
+  --rh-panel: #17244a;
+  --rh-panel-2: #1b2b56;
+  --rh-line: rgba(180, 198, 241, .34);
+  --rh-muted: #c7d1e7;
+}
+
+.rh-home > :is(
+  .rh-match-centre,
+  .rh-teams,
+  .rh-two-column,
+  .rh-feature-tiles,
+  .pm-player-showcase,
+  .rh-support-grid,
+  .hub-about,
+  .rh-plan,
+  .rh-seo-overview,
+  .rh-bottom-grid,
+  .rh-trust
+) {
+  position: relative;
+}
+
+.rh-match-centre {
+  background: linear-gradient(110deg, #111a38, #172850 54%, #161f49);
+  box-shadow: 0 0 0 100vmax #121e40;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 34px 38px;
+}
+
+.rh-teams {
+  background: linear-gradient(110deg, #0b2943, #103752 52%, #17284f);
+  box-shadow: 0 0 0 100vmax #0e2a45;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 34px 38px;
+}
+
+.rh-player-index {
+  background: linear-gradient(105deg, #2c1554, #1a254f 50%, #0b3a49);
+  border-block: 1px solid rgba(186, 204, 246, .28);
+  border-radius: 0;
+  box-shadow: 0 0 0 100vmax #182443;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 30px;
+}
+
+.rh-two-column {
+  background: #0a132a;
+  border-color: rgba(180, 198, 241, .28);
+  box-shadow: 0 0 0 100vmax #0a132a;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 34px;
+}
+
+.rh-feature-tiles {
+  background: linear-gradient(110deg, #18264c, #22345f 55%, #12304a);
+  box-shadow: 0 0 0 100vmax #1a294f;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 34px;
+}
+
+.rh-home > .pm-player-showcase {
+  background: #090f26;
+  box-shadow: 0 0 0 100vmax #090f26;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0 !important;
+  padding-block: 36px;
+}
+
+.rh-support-grid {
+  background: linear-gradient(110deg, #0b2d41, #12394e 52%, #1a2850);
+  box-shadow: 0 0 0 100vmax #0d3045;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 34px;
+}
+
+.rh-home > .hub-about {
+  background: linear-gradient(105deg, #351763, #1a2852 52%, #0e3b49);
+  box-shadow: 0 0 0 100vmax #201a43;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+}
+
+.rh-plan {
+  background: linear-gradient(110deg, #17274f, #20325d 56%, #123248);
+  border: 1px solid rgba(180, 198, 241, .3);
+  box-shadow: 0 0 0 100vmax #111d3b;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 34px;
+}
+
+.rh-seo-overview {
+  background: #0b1630;
+  box-shadow: 0 0 0 100vmax #0b1630;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 34px;
+}
+
+.rh-bottom-grid {
+  background: linear-gradient(110deg, #1b294f, #252758 54%, #2a184d);
+  box-shadow: 0 0 0 100vmax #202650;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+  padding-block: 34px;
+}
+
+.rh-trust {
+  background: #0b142b;
+  box-shadow: 0 0 0 100vmax #0b142b;
+  clip-path: inset(0 -100vmax);
+  margin-bottom: 0;
+}
+
+.rh-next-match,
+.rh-match-centre .rh-live-score,
+.rh-live-score-card,
+.rh-upcoming-grid,
+.rh-panel,
+.rh-seo-card {
+  background-color: #17244a;
+  border-color: rgba(180, 198, 241, .34);
+}
+
+.rh-next-match {
+  background: linear-gradient(145deg, #1c2b55 0%, #162249 66%, #2a174a 100%);
+}
+
+.rh-match-centre .rh-live-score {
+  background: linear-gradient(145deg, #1b2c57, #132449);
+}
+
+.rh-live-score-card {
+  background: linear-gradient(145deg, #1d2f5c, #132448 72%);
+}
+
+.rh-upcoming-grid {
+  background: linear-gradient(145deg, #1a2a54, #112344);
+}
+
+.rh-team-card {
+  background: linear-gradient(180deg, rgba(26, 50, 83, .96), rgba(16, 31, 65, .92));
+  border-bottom-color: rgba(180, 198, 241, .3);
+}
+
+.rh-home .pm-player-watch-card {
+  background: #152247;
+}
+
+.rh-home .pm-player-watch-visual {
+  background: linear-gradient(145deg, #1c2d58, #132445 76%);
+}
+
+.rh-home .pm-player-watch-visual::after {
+  background: linear-gradient(90deg, transparent, rgba(13, 25, 50, .76) 22%, #132445 58%);
+}
+
+.rh-home .pm-player-watch-link,
+.rh-venue-grid a {
+  background: #182851;
+}
+
+.rh-feature-tile {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--tile-accent) 14%, #1c2b55), #142748 76%);
+}
+
+.rh-feature-tile:hover {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--tile-accent) 22%, #213364), #183052 76%);
+}
+
+.rh-two-column > .rh-panel {
+  background: rgba(24, 39, 78, .64);
+  padding: 18px;
+}
+
+.rh-two-column > .rh-panel + .rh-panel {
+  padding-left: 34px;
+}
+
+.rh-support-grid > .rh-panel {
+  background: rgba(18, 45, 68, .72);
+  border: 1px solid rgba(180, 198, 241, .28);
+  padding: 18px;
+}
+
+.rh-bottom-grid > .rh-faq {
+  background: rgba(22, 35, 73, .82);
+  border: 1px solid rgba(180, 198, 241, .3);
+  padding: 20px;
+}
+
+.rh-seo-card {
+  background: linear-gradient(145deg, #172952, #102240);
+}
+
+.rh-section-copy,
+.rh-match-intro > p,
+.rh-live-status > p,
+.rh-upcoming-card > div:first-child span,
+.rh-upcoming-card > small,
+.rh-upcoming-card > time,
+.rh-team-card small,
+.rh-team-card em,
+.rh-news-list small,
+.rh-feature-tile span,
+.rh-watch > p,
+.rh-faq details p,
+.rh-trust p,
+.rh-trust small {
+  color: #c7d1e7;
+}
+
+.rh-home .pm-section-heading > div > p:last-child,
+.rh-home .pm-player-showcase-note {
+  color: #ccd5e8;
+}
+
+@media (max-width: 760px) {
+  .rh-hero-content {
+    background: #09142b;
+  }
+
+  .rh-match-centre,
+  .rh-teams,
+  .rh-feature-tiles,
+  .rh-home > .pm-player-showcase,
+  .rh-support-grid,
+  .rh-plan,
+  .rh-seo-overview,
+  .rh-bottom-grid {
+    padding-block: 26px;
+  }
+
+  .rh-player-index {
+    padding-block: 24px;
+  }
+
+  .rh-two-column {
+    padding-block: 8px;
+  }
+
+  .rh-two-column > .rh-panel,
+  .rh-two-column > .rh-panel + .rh-panel {
+    background: transparent;
+    padding-inline: 0;
+  }
+
+  .rh-support-grid > .rh-panel,
+  .rh-bottom-grid > .rh-faq {
+    padding: 16px;
+  }
+}

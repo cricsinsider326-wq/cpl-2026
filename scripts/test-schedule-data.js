@@ -92,6 +92,12 @@ test("stage and status labels for league vs playoff vs final", () => {
   const eliminator = rows.find((row) => /eliminator/i.test(row.match));
   assert.strictEqual(eliminator.displayFixtureA, "3rd Place");
   assert.strictEqual(eliminator.displayFixtureB, "4th Place");
+
+  const qualifierTwo = rows.find((row) => /qualifier 2|qualifier two/i.test(row.match));
+  assert.strictEqual(qualifierTwo.teamACode, "WE");
+  assert.strictEqual(qualifierTwo.displayFixtureA, "Eliminator Winner");
+  assert.strictEqual(qualifierTwo.teamBCode, "LQ1");
+  assert.strictEqual(qualifierTwo.displayFixtureB, "Qualifier 1 Loser");
 });
 
 test("getNextMatch returns first real league fixture with venue and time", () => {

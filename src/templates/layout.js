@@ -50,6 +50,18 @@ function schemaGraph({ site, teams, faqs, route, pageTitle, structuredData }) {
         location: { "@type": "Place", name: "Caribbean" },
         competitor: teams.map((team) => ({ "@type": "SportsTeam", name: team.name }))
     });
+
+    graph.push({
+      "@type": "ItemList",
+      "@id": `${canonical}#teams-list`,
+      name: "CPL 2026 Teams and Franchises",
+      itemListElement: teams.map((team, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: team.name,
+        url: `${site.siteUrl.replace(/\/$/, "")}/teams/${team.slug}/`
+      }))
+    });
   }
 
   if (route === "" || route === "cpl-2026" || route === "faq") {
@@ -99,9 +111,9 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     : route === "" || route === "cpl-2026"
       ? `${imageBase}/assets/images/players/cpl-2026-players-hero.webp`
     : `${imageBase}/assets/images/hero/cpl-2026-css-hero-reference.webp`;
-  const cssVersion = "20260725-slider-purple-fix1";
-  const jsVersion = "20260724-schedule-editorial1";
-  const scheduleCssVersion = "20260724-schedule-editorial1";
+  const cssVersion = "20260726-home-tone2";
+  const jsVersion = "20260726-fixtures-audit1";
+  const scheduleCssVersion = "20260726-fixtures-audit1";
   const heroPreload = route === ""
     ? '<link rel="preload" href="/assets/images/hero/cpl-2026-player-artwork.webp" as="image" type="image/webp" fetchpriority="high" />'
     : route === "cpl-2026"

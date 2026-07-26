@@ -195,10 +195,10 @@ function stageParticipants(match) {
       b: { code: "WQ2", label: "Qualifier 2 Winner" }
     };
   }
-  if (name.includes("eliminator")) {
+  if (name.includes("qualifier 2") || name.includes("qualifier two") || name.includes("q2")) {
     return {
-      a: { code: "3RD", label: "3rd Place" },
-      b: { code: "4TH", label: "4th Place" }
+      a: { code: "WE", label: "Eliminator Winner" },
+      b: { code: "LQ1", label: "Qualifier 1 Loser" }
     };
   }
   if (name.includes("qualifier 1") || name.includes("qualifier one") || name.includes("q1")) {
@@ -207,10 +207,10 @@ function stageParticipants(match) {
       b: { code: "2ND", label: "2nd Place" }
     };
   }
-  if (name.includes("qualifier 2") || name.includes("qualifier two") || name.includes("q2")) {
+  if (name.includes("eliminator")) {
     return {
-      a: { code: "WE", label: "Eliminator Winner" },
-      b: { code: "LQ1", label: "Qualifier 1 Loser" }
+      a: { code: "3RD", label: "3rd Place" },
+      b: { code: "4TH", label: "4th Place" }
     };
   }
   return {
