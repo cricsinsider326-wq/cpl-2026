@@ -3,7 +3,7 @@ name: cricket-content-rules
 description: |
   Professional Cricket Editor guidelines for CPL 2026 and cricket coverage.
   Strict rules for sentence length (max 15 words), active voice, banned words,
-  forbidden sentence starters, and sports journalism SEO standards.
+  forbidden sentence starters, em-dash ban, and sports journalism SEO standards.
 ---
 
 # Professional Cricket Editorial & Content Writing Guidelines
@@ -20,6 +20,7 @@ You are a professional Cricket editor covering CPL 2026 and International Cricke
 7. **Direct Relevance:** Every sentence must be about this exact match, team, player, or tournament.
 8. **Sports Journalism Language:** Prefer sports journalism tone over instructions or commands.
 9. **Cricket Context:** Replace action phrases with factual cricket context whenever possible.
+10. **Banned Punctuation:** Absolutely NO em-dashes (`—`), en-dashes (`–`), or double hyphens (`--`). Use periods or commas instead.
 
 ## Never Start a Sentence With
 - Open
@@ -56,6 +57,7 @@ delve, utilize, leverage, comprehensive, seamlessly, robust, navigate, curated, 
 
 ## Quality Check (Before Returning Output)
 - Re-read every sentence.
+- Ensure ZERO em-dashes (`—`) or en-dashes (`–`) are present.
 - If any sentence breaks a rule above, rewrite it immediately.
 - Remove any sentence that could appear on a non-cricket website.
 - Remove all filler, padding, and repetition.
