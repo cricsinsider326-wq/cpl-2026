@@ -58,6 +58,7 @@
   z-index: -1;
 }
 .rh-hero-art { inset: 0; position: absolute; z-index: -2; }
+.rh-hero-art picture { display: block; height: 100%; width: 100%; }
 .rh-hero-art img { height: 100%; object-fit: cover; object-position: center right; width: 100%; }
 .rh-hero-content { max-width: 450px; padding: 94px 0 24px 14px; position: relative; z-index: 2; }
 .rh-hero-content h1 { font-family: "Barlow Condensed", sans-serif; font-size: 3.25rem; font-weight: 900; line-height: .92; margin: 0 0 20px; max-width: 100%; text-transform: uppercase; }

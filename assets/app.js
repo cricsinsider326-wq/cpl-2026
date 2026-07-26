@@ -221,7 +221,7 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
   const previous = directory.querySelector("[data-player-prev]");
   const next = directory.querySelector("[data-player-next]");
   const listSection = document.getElementById("complete-player-list");
-  const pageSize = 30;
+  const pageSize = 8;
   let currentPage = 1;
   let filteredCards = cards;
 
@@ -311,6 +311,38 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
     currentPage += 1;
     render();
     listSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  // Role pill click handler
+  const rolePills = [...directory.querySelectorAll("[data-role-pill]")];
+  rolePills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      rolePills.forEach((p) => {
+        const active = p === pill;
+        p.classList.toggle("is-active", active);
+        p.setAttribute("aria-selected", String(active));
+      });
+      role.value = pill.dataset.rolePill;
+      currentPage = 1;
+      render();
+    });
+  });
+
+  // Role action cards click handler
+  const roleCards = [...directory.querySelectorAll("[data-role-card]")];
+  roleCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const roleVal = card.dataset.roleCard;
+      role.value = roleVal;
+      rolePills.forEach((p) => {
+        const active = p.dataset.rolePill === roleVal;
+        p.classList.toggle("is-active", active);
+        p.setAttribute("aria-selected", String(active));
+      });
+      currentPage = 1;
+      render();
+      listSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   });
 
   render();

@@ -379,7 +379,7 @@ function renderPlayerLeaders(players, teams) {
 
   return `<section class="pm-section pm-player-showcase" aria-labelledby="players-watch-title">
     <div class="pm-section-heading">
-      <div><p class="eyebrow">Previous-season form guide</p><h2 id="players-watch-title">CPL 2026 Players to Watch</h2><p>CPL 2026 will bring together leading Caribbean players, young talent and overseas stars. Visit each profile to learn about the player's role, team and recent form.</p></div>
+      <div><p class="eyebrow">Previous-season form guide</p><h2 id="players-watch-title">Players to Watch This Season</h2><p>The 2026 tournament will bring together leading Caribbean players, young talent and overseas stars. Visit each profile to learn about the player's role, team and recent form.</p></div>
       <a href="/players/">View all players <i data-lucide="arrow-right" aria-hidden="true"></i></a>
     </div>
     <p class="pm-player-showcase-note"><i data-lucide="info" aria-hidden="true"></i> Statistics are from the previous completed CPL season and do not represent CPL 2026 performance.</p>

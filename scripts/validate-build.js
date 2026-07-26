@@ -7,7 +7,7 @@ const errors = [];
 const titles = new Map();
 const canonicals = new Map();
 const pageAudit = [];
-const cssVersion = "20260726-home-tone2";
+const cssVersion = "20260726-mobile-perf2";
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -41,7 +41,11 @@ for (const file of htmlFiles) {
   if (!description) errors.push(`${relative}: missing meta description`);
   if (!canonical) errors.push(`${relative}: missing canonical`);
   if (h1Count !== 1) errors.push(`${relative}: expected one H1, found ${h1Count}`);
-  if (!html.includes(`/assets/premium.css?v=${cssVersion}`)) errors.push(`${relative}: missing premium CSS version`);
+  if (relative === "index.html") {
+    if (!html.includes(`/assets/home.css?v=${cssVersion}`)) errors.push(`${relative}: missing optimized homepage CSS version`);
+  } else if (!html.includes(`/assets/premium.css?v=${cssVersion}`)) {
+    errors.push(`${relative}: missing premium CSS version`);
+  }
   if (html.includes("\u00c2") || html.includes("\ufffd")) errors.push(`${relative}: visible encoding artifact detected`);
   if (relative !== "index.html" && !html.includes('aria-label="Breadcrumb"')) errors.push(`${relative}: visible breadcrumbs missing`);
 
@@ -111,7 +115,7 @@ if (!home.includes('class="home-page rh-home"') || !home.includes('id="main-cont
 if (!home.includes("<title>CPL 2026: Schedule, Teams, Live Scores and Latest News</title>")) errors.push("Homepage SEO title is incorrect");
 if (!home.includes("Follow CPL 2026 with the latest schedule, team squads, live scores, points table, player profiles, venues, results and viewing information.")) errors.push("Homepage meta description is incorrect");
 if (!home.includes('"@type":"FAQPage"')) errors.push("Homepage FAQPage schema is missing");
-for (const heading of ["CPL 2026 Match Centre", "Next CPL 2026 Match", "CPL 2026 Live Score", "Upcoming CPL 2026 Matches", "Meet the CPL 2026 Teams", "About CPL 2026", "CPL 2026 Points Table", "Latest CPL 2026 News", "Explore CPL 2026", "Players and Squads", "CPL 2026 Players to Watch", "Top CPL 2026 Venue Guides", "How to Watch CPL 2026", "CPL 2026 Tickets and Final", "Frequently Asked Questions"]) {
+for (const heading of ["Tournament Match Centre", "Live Match Scores", "Upcoming Matches", "Meet the Seven Teams", "About the 2026 Tournament", "Tournament Points Table", "Latest League News", "Explore the Tournament", "Browse Players and Squads", "Players to Watch This Season", "Top Venue Guides", "How to Watch the Tournament", "Tickets and Final Guide", "Frequently Asked Questions"]) {
   if (!home.includes(heading)) errors.push(`Homepage heading missing: ${heading}`);
 }
 for (const copy of false ? [
@@ -137,8 +141,8 @@ if ((home.match(/class="rh-upcoming-card"/g) || []).length !== 5) errors.push("H
 if ((home.match(/class="rh-player-role-grid"/g) || []).length !== 1 || (home.match(/class="rh-player-role-grid"[\s\S]*?<\/nav>/g) || [])[0]?.match(/<a /g)?.length !== 6) errors.push("Homepage player index must render six role links");
 if ((home.match(/class="pm-player-watch-card"/g) || []).length !== 4) errors.push("Homepage Players to Watch must render four cards");
 if (!home.includes("The points table will start updating after the first completed match.")) errors.push("Homepage pre-tournament standings note missing");
-if (!home.includes('rel="preload" href="/assets/images/hero/cpl-2026-player-artwork.webp"')) errors.push("Homepage must preload the supplied hero image");
-if (!home.includes(`/assets/cpl-hub.css?v=${cssVersion}`) || !home.includes(`/assets/reference-home.css?v=${cssVersion}`)) errors.push("Homepage hybrid stylesheets are missing");
+if (!home.includes('rel="preload" href="/assets/images/hero/cpl-2026-player-artwork-720.avif"') || !home.includes('imagesrcset="/assets/images/hero/cpl-2026-player-artwork-720.avif 720w, /assets/images/hero/cpl-2026-player-artwork-1280.avif 1280w"')) errors.push("Homepage must preload the responsive supplied hero image");
+if (!home.includes(`/assets/home.css?v=${cssVersion}`) || home.includes(`/assets/cpl-hub.css?v=${cssVersion}`) || home.includes(`/assets/reference-home.css?v=${cssVersion}`)) errors.push("Homepage optimized stylesheet is missing or redundant stylesheets remain");
 if (!pillarRedirect.includes('http-equiv="refresh" content="0;url=/"') || sitemap.includes("/cpl-2026/")) errors.push("Legacy CPL guide route must redirect and stay out of the sitemap");
 if (!dataQuality.readiness.results && !fs.readFileSync(path.join(dist, "results", "index.html"), "utf8").includes("No completed CPL 2026 matches yet")) errors.push("Empty results dataset must render a clear not-started state");
 if (dataQuality.warnings.length && !fixturesPage.includes("Confirmation pending")) errors.push("Fixture source warning must be visible on the schedule page");
@@ -148,7 +152,7 @@ if (!dataQuality.readiness.playerStats && (!playerPage.includes("CPL 2026 statis
 if (!playersListingPage.includes("cpl-2026-players-hero.webp") || !playersListingPage.includes("data-player-directory")) errors.push("Players directory hero or filter controller is missing");
 if ((playersListingPage.match(/data-player-card/g) || []).length !== 99) errors.push("Players directory must render all 99 verified player records");
 if (!playersListingPage.includes("Complete CPL 2026 Players List") || !playersListingPage.includes("data-player-pagination") || !playersListingPage.includes("data-player-nationality")) errors.push("Players directory list, nationality filter or pagination is missing");
-if (!fs.readFileSync(path.join(dist, "assets", "app.js"), "utf8").includes("const pageSize = 30")) errors.push("Players directory must paginate 30 player cards per page");
+if (!fs.readFileSync(path.join(dist, "assets", "app.js"), "utf8").includes("const pageSize = 8")) errors.push("Players directory must paginate 8 player cards per page");
 if (!playersListingPage.includes('rel="preload" href="/assets/images/players/cpl-2026-players-hero.webp"')) errors.push("Players directory must preload its supplied hero image");
 if (!fixturesPage.includes("republic-bank-cpl-fixtures-confirmed-for-2026")) errors.push("Fixture page must link to the direct official schedule announcement");
 if (dataQuality.summary.confirmedSquads !== 7 || dataQuality.summary.completeSquads !== 3) errors.push("Squad readiness counts do not match the verified source snapshot");

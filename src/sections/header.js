@@ -33,7 +33,7 @@ function renderHeader(site, currentPath = "/") {
 <header class="main-header">
   <div class="main-header-inner">
     <a class="brand" href="/" aria-label="${escapeHtml(site.name)} home">
-      <span class="brand-symbol" aria-hidden="true"><img src="/assets/images/brand/cpl-2026-brand-lockup.webp" alt="" width="310" height="100" /></span>
+      <span class="brand-symbol" aria-hidden="true"><img src="/assets/images/brand/cpl-insider-lockup-310.webp" srcset="/assets/images/brand/cpl-insider-lockup-160.webp 160w, /assets/images/brand/cpl-insider-lockup-310.webp 310w" sizes="(max-width: 700px) 160px, 310px" alt="" width="310" height="100" decoding="async" /></span>
       <span class="brand-copy"><strong>CPL Insider</strong><small>Your Ultimate CPL Guide</small></span>
     </a>
     <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">

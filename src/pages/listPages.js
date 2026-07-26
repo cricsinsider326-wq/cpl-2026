@@ -232,43 +232,166 @@ function playerListing(data) {
     .map((player, index) => ({ player, index, hasArtwork: Boolean(player.heroPhoto || player.photo) }))
     .sort((left, right) => Number(right.hasArtwork) - Number(left.hasArtwork) || left.index - right.index)
     .map((entry) => entry.player);
-  const cards = playersWithArtworkFirst.map((player, index) => renderPlayerListingCard(player, teamsByCode.get(player.teamCode), index < 10)).join("");
+  const cards = playersWithArtworkFirst.map((player, index) => renderPlayerListingCard(player, teamsByCode.get(player.teamCode), index < 8)).join("");
   const nationalities = [...new Set(data.players.map((player) => player.nationality).filter(Boolean))].sort();
-  const facts = [
-    ["users", data.players.length, "Player records"],
-    ["sparkles", data.teams.length, "Teams"],
-    ["shield-check", largestSquad, "Largest verified squad"],
-    ["badge-check", completeSquads, "Complete squad records"],
-    ["calendar-check", data.site.tournament.lastVerifiedAt, "Last verified"]
+
+  const roleActionCards = [
+    { role: "batter", title: "BATTER", text: "Run scorers who build innings and control the pace." },
+    { role: "wicketkeeper", title: "WICKETKEEPER", text: "Behind the stumps and in the game every moment." },
+    { role: "allrounder", title: "ALL-ROUNDER", text: "Contributes with both bat and ball. The complete package." },
+    { role: "bowler", title: "FAST BOWLER", text: "Bring the pace, bounce and early breakthroughs." },
+    { role: "bowler", title: "SPIN BOWLER", text: "Use spin, skill and guile to turn the game around." }
+  ];
+
+  const squadRules = [
+    { icon: "users", title: "WEST INDIES PLAYERS", text: "Each team is built around top West Indies talent, forming the core of every CPL squad." },
+    { icon: "globe", title: "OVERSEAS PLAYERS", text: "Teams can sign up to 5 overseas players to add firepower, experience and global depth." },
+    { icon: "star", title: "BREAKOUT PLAYERS", text: "Keep an eye on rising stars who could be the surprise difference-makers of CPL 2026." },
+    { icon: "refresh-cw", title: "ROSTER UPDATES", text: "Squads evolve. Expect updates, injury changes and new signings throughout the season." }
+  ];
+
+  const playerFaqs = [
+    { question: "How many players are in each CPL 2026 squad?", answer: "Each CPL franchise fields a 17-player squad, including West Indies contract players, overseas stars, and youth development picks." },
+    { question: "How many overseas players can each team have?", answer: "Teams can contract up to 5 overseas international players in their official squad." },
+    { question: "When will the full squad lists be announced?", answer: "Official squad rosters are confirmed following the CPL draft and regional player draft windows." },
+    { question: "Can squads change during the tournament?", answer: "Yes. Temporary replacement players can be brought in for injuries or international duty call-ups." },
+    { question: "How are breakout players selected?", answer: "Emerging Under-23 and regional West Indian stars are selected through the CPL youth draft." },
+    { question: "Where can I see the latest squad updates?", answer: "All confirmed squad additions, draft picks, and replacements update live on CPL Insider team pages." }
   ];
 
   return `<main class="players-directory" data-player-directory>
     <section class="pd-hero" aria-labelledby="pd-hero-title">
       <img class="pd-hero-art" src="/assets/images/players/cpl-2026-players-hero.webp" alt="" width="2014" height="781" fetchpriority="high" decoding="async" />
-      <div class="pd-hero-copy"><p class="eyebrow">CPL 2026</p><h1 id="pd-hero-title">Players</h1><strong>Meet the stars of Caribbean cricket</strong><p>Browse every verified CPL 2026 player record in one place. Search by team or role and open detailed profiles, squad context and the latest updates.</p><div><a class="primary-button" href="#complete-player-list">Browse all players</a><a class="secondary-button" href="/teams/">View team squads</a></div></div>
+      <div class="pd-hero-copy">
+        <p class="eyebrow">CPL 2026</p>
+        <h1 id="pd-hero-title">CPL 2026 PLAYERS &amp; SQUADS</h1>
+        <p>Explore every team, player role and the latest squad updates across the Caribbean Premier League 2026 season.</p>
+        <div class="pd-hero-chips">
+          <div><i data-lucide="users" aria-hidden="true"></i> <span><strong>7</strong> <small>TEAMS</small></span></div>
+          <div><i data-lucide="shirt" aria-hidden="true"></i> <span><strong>119</strong> <small>SQUAD PLACES</small></span></div>
+          <div><i data-lucide="globe" aria-hidden="true"></i> <span><strong>5</strong> <small>OVERSEAS PER TEAM</small></span></div>
+          <div><i data-lucide="star" aria-hidden="true"></i> <span><strong>3</strong> <small>BREAKOUT PLAYERS</small></span></div>
+        </div>
+      </div>
     </section>
-    <section class="pd-facts" aria-label="CPL 2026 player directory facts">${facts.map(([icon, value, label]) => `<div><i data-lucide="${icon}" aria-hidden="true"></i><span><strong>${escapeHtml(String(value))}</strong><small>${escapeHtml(label)}</small></span></div>`).join("")}</section>
+
     <section class="pd-filter-panel" aria-labelledby="pd-filter-title">
-      <div><h2 id="pd-filter-title">Find CPL 2026 Players</h2><p>Filter the verified directory by player name, team, role, nationality or squad status.</p></div>
+      <div class="pd-filter-head">
+        <h2 id="pd-filter-title">FIND YOUR PLAYER</h2>
+        <p>Search player names or filter by team and playing role.</p>
+      </div>
       <form class="pd-filter-form" data-player-filters>
-        <label class="pd-search"><span class="sr-only">Search player name</span><i data-lucide="search" aria-hidden="true"></i><input type="search" placeholder="Search player name..." autocomplete="off" data-player-search /></label>
-        <label><span class="sr-only">Filter by team</span><select data-player-team><option value="all">All teams</option>${data.teams.map((team) => `<option value="${escapeHtml(team.code)}">${escapeHtml(team.name)}</option>`).join("")}</select></label>
-        <label><span class="sr-only">Filter by role</span><select data-player-role><option value="all">All roles</option><option value="batter">Batter / Wicketkeeper</option><option value="allrounder">Allrounder</option><option value="bowler">Bowler</option><option value="pending">Role pending</option></select></label>
-        <label><span class="sr-only">Filter by nationality</span><select data-player-nationality><option value="all">All nationalities</option>${nationalities.map((nationality) => `<option value="${escapeHtml(nationality.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}">${escapeHtml(nationality)}</option>`).join("")}<option value="pending">Nationality pending</option></select></label>
-        <label><span class="sr-only">Filter by squad status</span><select data-player-status><option value="all">All squad statuses</option><option value="complete">Complete squad</option><option value="partial">Confirmed to date</option></select></label>
-        <button type="reset" data-player-reset>Reset</button>
+        <div class="pd-filter-row">
+          <label class="pd-search">
+            <span class="sr-only">Search player by name</span>
+            <i data-lucide="search" aria-hidden="true"></i>
+            <input type="search" placeholder="Search players by name..." autocomplete="off" data-player-search />
+          </label>
+          <label class="pd-team-select">
+            <span class="sr-only">Filter by team</span>
+            <select data-player-team aria-label="Filter by team">
+              <option value="all">All Teams</option>
+              ${data.teams.map((team) => `<option value="${escapeHtml(team.code)}">${escapeHtml(team.name)}</option>`).join("")}
+            </select>
+          </label>
+        </div>
+        <div class="pd-role-pills" role="tablist" aria-label="Filter by player role">
+          <button type="button" class="pd-pill is-active" data-role-pill="all" role="tab" aria-selected="true">ALL ROLES</button>
+          <button type="button" class="pd-pill" data-role-pill="batter" role="tab" aria-selected="false">BATTER</button>
+          <button type="button" class="pd-pill" data-role-pill="wicketkeeper" role="tab" aria-selected="false">WICKETKEEPER</button>
+          <button type="button" class="pd-pill" data-role-pill="allrounder" role="tab" aria-selected="false">ALL-ROUNDER</button>
+          <button type="button" class="pd-pill" data-role-pill="bowler" role="tab" aria-selected="false">BOWLER</button>
+        </div>
+        <select data-player-role hidden><option value="all">All roles</option><option value="batter">Batter</option><option value="wicketkeeper">Wicketkeeper</option><option value="allrounder">Allrounder</option><option value="bowler">Bowler</option></select>
+        <select data-player-nationality hidden><option value="all">All nationalities</option>${nationalities.map((n) => `<option value="${escapeHtml(n.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}">${escapeHtml(n)}</option>`).join("")}</select>
+        <select data-player-status hidden><option value="all">All squad statuses</option><option value="complete">Complete squad</option><option value="partial">Confirmed to date</option></select>
       </form>
     </section>
+
     <section class="pd-list-section" id="complete-player-list" aria-labelledby="pd-list-title">
-      <div class="pd-list-heading"><div><p class="eyebrow">Verified squad records</p><h2 id="pd-list-title">Complete CPL 2026 Players List</h2></div><p aria-live="polite" data-player-result-count>${data.players.length} players found</p></div>
+      <div class="pd-list-heading">
+        <h2 id="pd-list-title">Complete CPL 2026 Players List</h2>
+        <p aria-live="polite" data-player-result-count>${data.players.length} players found</p>
+      </div>
       <div class="pd-player-grid" data-player-grid>${cards}</div>
       <p class="pd-empty-state" data-player-empty hidden>No players match the selected filters.</p>
-      <nav class="pd-pagination" aria-label="Player directory pages" data-player-pagination><button type="button" data-player-prev><i data-lucide="chevron-left" aria-hidden="true"></i> Previous</button><div data-player-pages></div><button type="button" data-player-next>Next <i data-lucide="chevron-right" aria-hidden="true"></i></button></nav>
+      <nav class="pd-pagination" aria-label="Player directory pages" data-player-pagination>
+        <button type="button" data-player-prev><i data-lucide="chevron-left" aria-hidden="true"></i> PREVIOUS</button>
+        <div data-player-pages></div>
+        <button type="button" data-player-next>NEXT <i data-lucide="chevron-right" aria-hidden="true"></i></button>
+      </nav>
     </section>
-    <section class="pd-guide" aria-labelledby="pd-guide-title">
-      <div><p class="eyebrow">Player guide</p><h2 id="pd-guide-title">CPL 2026 Players, Squads and Form Guide</h2></div>
-      <div>${data.content.pageCopy.players.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div>
-      <nav aria-label="Related player links"><a href="/player-stats/">Recent CPL top performers <i data-lucide="arrow-right" aria-hidden="true"></i></a><a href="/teams/">CPL 2026 teams <i data-lucide="arrow-right" aria-hidden="true"></i></a><a href="/live-score/">CPL live score <i data-lucide="arrow-right" aria-hidden="true"></i></a></nav>
+
+    <section class="pd-tracker-section" aria-labelledby="pd-tracker-title">
+      <div class="pd-section-heading">
+        <h2 id="pd-tracker-title">2026 TEAM SQUAD TRACKER</h2>
+        <p>Track confirmed player rosters and captain announcements for all seven CPL 2026 franchises.</p>
+      </div>
+      <div class="pd-tracker-list">
+        ${data.teams.map((team) => {
+          const squad = data.squadByTeam.get(team.code);
+          const count = squad?.players?.length || 0;
+          const captain = squad?.captain || "To be announced";
+          return `<div class="pd-tracker-row" style="--team-accent:${escapeHtml(team.accent)}">
+            <div class="pd-tracker-team">
+              <img src="${escapeHtml(team.logo)}" alt="${escapeHtml(team.name)} logo" width="48" height="48" loading="lazy" />
+              <strong>${escapeHtml(team.name.toUpperCase())}</strong>
+            </div>
+            <div class="pd-tracker-captain">
+              <small>CAPTAIN</small>
+              <span>${escapeHtml(captain.toUpperCase())}</span>
+            </div>
+            <div class="pd-tracker-progress">
+              <small>CONFIRMED PLAYERS</small>
+              <div class="pd-progress-bar"><span style="width:${Math.min(100, Math.round((count / 17) * 100))}%"></span></div>
+              <span>${count} / 17</span>
+            </div>
+            <a class="pd-tracker-btn" href="/teams/${escapeHtml(team.slug)}/#squad">VIEW FULL SQUAD <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          </div>`;
+        }).join("")}
+      </div>
+    </section>
+
+    <section class="pd-rules-section" aria-labelledby="pd-rules-title">
+      <div class="pd-section-heading">
+        <h2 id="pd-rules-title">HOW CPL 2026 SQUADS WORK</h2>
+        <p>Understand the rules governing Caribbean squad formation, overseas slots and player rosters.</p>
+      </div>
+      <div class="pd-rules-grid">
+        ${squadRules.map((rule) => `<article class="pd-rule-card">
+          <i data-lucide="${rule.icon}" aria-hidden="true"></i>
+          <h3>${escapeHtml(rule.title)}</h3>
+          <p>${escapeHtml(rule.text)}</p>
+        </article>`).join("")}
+      </div>
+    </section>
+
+    <section class="pd-roles-section" aria-labelledby="pd-roles-title">
+      <div class="pd-section-heading">
+        <h2 id="pd-roles-title">PLAYER ROLES EXPLAINED</h2>
+        <p>Click any player role card to filter top CPL players by their key tactical function.</p>
+      </div>
+      <div class="pd-roles-grid">
+        ${roleActionCards.map((card) => `<button type="button" class="pd-role-card" data-role-card="${card.role}">
+          <div class="pd-role-card-content">
+            <h3>${escapeHtml(card.title)}</h3>
+            <p>${escapeHtml(card.text)}</p>
+          </div>
+        </button>`).join("")}
+      </div>
+    </section>
+
+    <section class="pd-faq-section" aria-labelledby="pd-faq-title">
+      <div class="pd-section-heading">
+        <h2 id="pd-faq-title">CPL 2026 PLAYERS FAQ</h2>
+        <p>Frequently asked questions about CPL 2026 player rosters, drafts and squad rules.</p>
+      </div>
+      <div class="pd-faq-list">
+        ${playerFaqs.map((faq, index) => `<details class="pd-faq-item"${index === 0 ? " open" : ""}>
+          <summary>${escapeHtml(faq.question)} <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+          <p>${escapeHtml(faq.answer)}</p>
+        </details>`).join("")}
+      </div>
     </section>
   </main>`;
 }

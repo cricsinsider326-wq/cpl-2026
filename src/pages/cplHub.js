@@ -70,11 +70,11 @@ function renderAbout(site) {
   return `<section class="hub-section hub-about" id="about" aria-labelledby="hub-about-title">
     <div class="hub-shell hub-about-grid">
       <div>
-        ${sectionHeading("About the tournament", "About CPL 2026", "The Caribbean Premier League brings together regional talent and international players for a fast-moving season of T20 cricket across the Caribbean.")}
+        ${sectionHeading("About the tournament", "About the 2026 Tournament", "The Caribbean Premier League brings together regional talent and international players for a fast-moving season of T20 cricket across the Caribbean.")}
         <div class="hub-feature-list">${features.map(([i, title, text]) => `<div>${icon(i)}<span><strong>${safe(title)}</strong><small>${safe(text)}</small></span></div>`).join("")}</div>
       </div>
       <div class="hub-format">
-        <p class="hub-eyebrow">CPL 2026 format and tournament structure</p>
+        <p class="hub-eyebrow">Season format and tournament structure</p>
         <ol>${stages.map(([number, title, text], index) => `<li class="${index === stages.length - 1 ? "is-final" : ""}"><b>${number}</b><span>${icon(index === 0 ? "users" : index === 1 ? "swords" : "trophy")}</span><strong>${safe(title)}</strong><small>${safe(text)}</small></li>`).join("")}</ol>
         <dl class="hub-format-stats">
           <div><dt>Format</dt><dd>T20</dd></div><div><dt>Teams</dt><dd>${safe(site.stats.teams)}</dd></div><div><dt>Matches</dt><dd>${safe(site.stats.matches)}</dd></div><div><dt>Playoffs</dt><dd>4</dd></div><div><dt>Dates</dt><dd>7 Aug - 20 Sep</dd></div>

@@ -9095,3 +9095,342 @@ body {
     gap: 12px;
   }
 }
+
+/* ── CPL 2026 Players & Squads Page Enhancements ──────────────── */
+.pd-hero-chips {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.pd-hero-chips > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+}
+
+.pd-hero-chips svg {
+  width: 20px;
+  height: 20px;
+  color: #a963ff;
+}
+
+.pd-hero-chips span {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.pd-hero-chips strong {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 800;
+}
+
+.pd-hero-chips small {
+  font-size: 0.72rem;
+  color: #ffd000;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pd-filter-head {
+  margin-bottom: 16px;
+}
+
+.pd-filter-head h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.pd-filter-head p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.pd-filter-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pd-role-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pd-pill {
+  padding: 8px 18px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  color: #e2e8f0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pd-pill:hover,
+.pd-pill.is-active {
+  background: #6c24df;
+  border-color: #a963ff;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(108, 36, 223, 0.5);
+}
+
+.pd-tracker-section,
+.pd-rules-section,
+.pd-roles-section,
+.pd-faq-section {
+  margin-top: 48px;
+  padding: 32px 28px;
+  background: rgba(8, 13, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.pd-section-heading {
+  margin-bottom: 24px;
+}
+
+.pd-section-heading h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.pd-section-heading p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.pd-tracker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pd-tracker-row {
+  display: grid;
+  grid-template-columns: 240px 200px minmax(0, 1fr) 180px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 4px solid var(--team-accent, #6c24df);
+  border-radius: 8px;
+}
+
+.pd-tracker-team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pd-tracker-team strong {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.pd-tracker-captain small,
+.pd-tracker-progress small {
+  display: block;
+  font-size: 0.7rem;
+  color: #ffd000;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.pd-tracker-captain span {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.pd-progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 4px 0;
+}
+
+.pd-progress-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #6c24df, #ffd000);
+  border-radius: 4px;
+}
+
+.pd-tracker-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(108, 36, 223, 0.25);
+  border: 1px solid rgba(169, 99, 255, 0.4);
+  border-radius: 6px;
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.pd-tracker-btn:hover {
+  background: #6c24df;
+  border-color: #a963ff;
+  box-shadow: 0 0 12px rgba(108, 36, 223, 0.4);
+}
+
+.pd-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.pd-rule-card {
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+.pd-rule-card svg {
+  width: 32px;
+  height: 32px;
+  color: #ffd000;
+  margin-bottom: 12px;
+}
+
+.pd-rule-card h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.pd-rule-card p {
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pd-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.pd-role-card {
+  padding: 24px 16px;
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pd-role-card:hover {
+  transform: translateY(-4px);
+  border-color: #a963ff;
+  box-shadow: 0 10px 24px rgba(108, 36, 223, 0.35);
+}
+
+.pd-role-card h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #ffd000;
+  margin: 0 0 8px;
+}
+
+.pd-role-card p {
+  color: #e2e8f0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pd-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pd-faq-item {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pd-faq-item summary {
+  padding: 16px 20px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.pd-faq-item p {
+  padding: 0 20px 18px;
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .pd-hero-chips { grid-template-columns: repeat(2, 1fr); }
+  .pd-rules-grid { grid-template-columns: repeat(2, 1fr); }
+  .pd-roles-grid { grid-template-columns: repeat(3, 1fr); }
+  .pd-tracker-row { grid-template-columns: 1fr 1fr; gap: 12px; }
+}
+
+@media (max-width: 640px) {
+  .pd-hero-chips { grid-template-columns: 1fr; }
+  .pd-filter-row { grid-template-columns: 1fr; }
+  .pd-rules-grid { grid-template-columns: 1fr; }
+  .pd-roles-grid { grid-template-columns: 1fr; }
+  .pd-tracker-row { grid-template-columns: 1fr; }
+}

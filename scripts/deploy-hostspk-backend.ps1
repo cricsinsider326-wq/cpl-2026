@@ -129,7 +129,6 @@ function Save-RemoteBinaryFile($LocalFile, $RemoteFile, $Headers) {
   $TotalChunks = [Math]::Ceiling($Bytes.Length / $ChunkSize)
   $UploadSession = [Guid]::NewGuid().ToString("N")
   $Name = [System.IO.Path]::GetFileName($LocalFile)
-  $StagedName = "$Name|::|$script:FileManagerPackageId|::|$UploadSession|::|1"
   $StagedTmp = "$Name|::|$script:FileManagerPackageId|::|$UploadSession"
 
   # Remove a previous copy so the final File Manager publish is deterministic.
@@ -149,19 +148,29 @@ function Save-RemoteBinaryFile($LocalFile, $RemoteFile, $Headers) {
       [void]$Client.DefaultRequestHeaders.TryAddWithoutValidation($Header.Key, [string]$Header.Value)
     }
 
-    $Payload = [System.Net.Http.ByteArrayContent]::new([byte[]]$Bytes)
-    $Payload.Headers.ContentType = New-Object System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream")
-    $Multipart = New-Object System.Net.Http.MultipartFormDataContent
-    $Multipart.Add($Payload, "fileUpload", $StagedName)
     $Client.Timeout = [TimeSpan]::FromSeconds(60)
-    Write-Output "Uploading binary chunk: $RemoteFile"
-    $ChunkResponse = $Client.PostAsync("$Base/a/services/$Service/file-manager-upload", $Multipart).Result
-    $ChunkBody = $ChunkResponse.Content.ReadAsStringAsync().Result
-    if (-not $ChunkResponse.IsSuccessStatusCode -or $ChunkBody -notmatch '"success"\s*:\s*true') {
-      throw "HostSPK binary chunk upload failed for ${RemoteFile}: $ChunkBody"
+    foreach ($ChunkIndex in 1..$TotalChunks) {
+      $Offset = ($ChunkIndex - 1) * $ChunkSize
+      $Length = [Math]::Min($ChunkSize, $Bytes.Length - $Offset)
+      $ChunkBytes = New-Object byte[] $Length
+      [Array]::Copy($Bytes, $Offset, $ChunkBytes, 0, $Length)
+      $StagedName = "$Name|::|$script:FileManagerPackageId|::|$UploadSession|::|$ChunkIndex"
+      $Payload = [System.Net.Http.ByteArrayContent]::new([byte[]]$ChunkBytes)
+      $Payload.Headers.ContentType = New-Object System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream")
+      $Multipart = New-Object System.Net.Http.MultipartFormDataContent
+      try {
+        $Multipart.Add($Payload, "fileUpload", $StagedName)
+        Write-Output "Uploading binary chunk $ChunkIndex/$TotalChunks`: $RemoteFile"
+        $ChunkResponse = $Client.PostAsync("$Base/a/services/$Service/file-manager-upload", $Multipart).Result
+        $ChunkBody = $ChunkResponse.Content.ReadAsStringAsync().Result
+        if (-not $ChunkResponse.IsSuccessStatusCode -or $ChunkBody -notmatch '"success"\s*:\s*true') {
+          throw "HostSPK binary chunk upload failed for ${RemoteFile}: $ChunkBody"
+        }
+      } finally {
+        $Multipart.Dispose()
+      }
     }
   } finally {
-    if ($Multipart) { $Multipart.Dispose() }
     if ($Client) { $Client.Dispose() }
     if ($Handler) { $Handler.Dispose() }
   }
@@ -206,11 +215,25 @@ if ($OnlyFiles -and $OnlyFiles.Count) {
   }
 } elseif ($CriticalOnly) {
   $RelativeFiles = @(
+    "assets/fonts.css",
     "assets/styles.css",
     "assets/premium.css",
     "assets/cpl-hub.css",
+    "assets/home.css",
     "assets/reference-home.css",
     "assets/app.js",
+    "assets/fonts/anton-latin.woff2",
+    "assets/fonts/barlow-condensed-600-latin.woff2",
+    "assets/fonts/barlow-condensed-700-latin.woff2",
+    "assets/fonts/barlow-condensed-800-latin.woff2",
+    "assets/fonts/barlow-condensed-900-latin.woff2",
+    "assets/fonts/inter-latin.woff2",
+    "assets/images/brand/cpl-insider-lockup-160.webp",
+    "assets/images/brand/cpl-insider-lockup-310.webp",
+    "assets/images/hero/cpl-2026-player-artwork-720.avif",
+    "assets/images/hero/cpl-2026-player-artwork-720.webp",
+    "assets/images/hero/cpl-2026-player-artwork-1280.avif",
+    "assets/images/hero/cpl-2026-player-artwork-1280.webp",
     "assets/images/hero/cpl-2026-css-hero-reference.webp",
     "assets/images/hero/cpl-2026-player-artwork.webp",
     "assets/images/players/cpl-2026-players-hero.webp",
@@ -231,6 +254,7 @@ if ($OnlyFiles -and $OnlyFiles.Count) {
     "faq/index.html",
     "results/index.html",
     "data-quality.json",
+    "manifest.json",
     "sitemap.xml",
     "robots.txt"
   )
@@ -240,6 +264,18 @@ if ($OnlyFiles -and $OnlyFiles.Count) {
       ForEach-Object {
         $_.FullName.Substring($Dist.Length).TrimStart("\") -replace "\\", "/"
       }
+  }
+  foreach ($OptimizedDirectory in @(
+    "assets/images/news/thumbs",
+    "assets/images/teams/home"
+  )) {
+    $Directory = Join-Path $Dist $OptimizedDirectory
+    if (Test-Path $Directory) {
+      $RelativeFiles += Get-ChildItem -Path $Directory -File |
+        ForEach-Object {
+          $_.FullName.Substring($Dist.Length).TrimStart("\") -replace "\\", "/"
+        }
+    }
   }
   $Files = foreach ($Relative in $RelativeFiles) {
     $FullPath = Join-Path $Dist $Relative
@@ -273,7 +309,7 @@ $Uploaded = 0
 foreach ($File in $Files) {
   $Relative = $File.FullName.Substring($Dist.Length).TrimStart("\") -replace "\\", "/"
   $Remote = "/public_html/$Relative"
-  if ($File.Extension -match '^\.(png|jpe?g|webp|gif|ico|avif|bmp|zip)$') {
+  if ($File.Extension -match '^\.(png|jpe?g|webp|gif|ico|avif|bmp|zip|woff2?|ttf|otf|eot)$') {
     Save-RemoteBinaryFile $File.FullName $Remote $Headers
   } else {
     Save-RemoteFile $File.FullName $Remote $Headers
@@ -289,7 +325,9 @@ foreach ($File in $Files) {
       overwrite = "true"
     } $Headers
     $ExtractJson = $ExtractResponse.Content | ConvertFrom-Json
-    if (-not $ExtractJson.result.success) {
+    $ExtractOutput = [string]::Join("`n", @($ExtractJson.result.result))
+    $ExtractedFiles = $ExtractJson.result.code -eq 200 -and $ExtractOutput -match "inflating:|extracting:"
+    if (-not $ExtractJson.result.success -and -not $ExtractedFiles) {
       throw "HostSPK archive extraction failed for ${Relative}: $($ExtractResponse.Content)"
     }
     Write-Output "Extracted archive: $Relative"

@@ -9,6 +9,7 @@ const pages = require("../src/pages/listPages");
 const { buildCalendar } = require("../src/lib/calendar");
 const { routeIsIndexable } = require("../src/lib/dataQuality");
 const { loadTournamentData } = require("../src/lib/tournamentData");
+const { inlineLucideIcons } = require("../src/lib/staticIcons");
 
 const root = path.resolve(__dirname, "..");
 const dist = path.join(root, "dist");
@@ -40,7 +41,7 @@ function redirectDocument(target, canonical) {
 
 function page({ data, route, title, description, main, robots, structuredData }) {
   const currentPath = route ? `/${route}/` : "/";
-  return renderLayout({
+  return inlineLucideIcons(renderLayout({
     site: data.site,
     teams: data.teams,
     faqs: data.faqs,
@@ -50,7 +51,7 @@ function page({ data, route, title, description, main, robots, structuredData })
     robots,
     structuredData,
     body: `${renderHeader(data.site, currentPath)}${route === "" || route === "cpl-2026" ? "" : renderBreadcrumbs(route, title)}<div id="main-content" tabindex="-1">${main}</div>${renderFooter(data.site)}`
-  });
+  }));
 }
 
 function copyAssets() {
@@ -118,12 +119,30 @@ function build() {
   ];
   for (const [route, title, main, description] of staticPages) {
     const indexable = routeIsIndexable(route, data);
+    const structuredData = route === "points-table"
+      ? {
+          "@type": "ItemList",
+          name: "CPL 2026 Points Table",
+          itemListOrder: "https://schema.org/ItemListOrderAscending",
+          numberOfItems: data.teams.length,
+          itemListElement: data.teams.map((team, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "SportsTeam",
+              name: team.name,
+              url: `${data.site.siteUrl.replace(/\/$/, "")}/teams/${team.slug}/`
+            }
+          }))
+        }
+      : undefined;
     writePage(route, page({
       data,
       route,
       title: `${title} - ${data.site.name}`,
       description: description || data.site.description,
       robots: indexable ? undefined : "noindex,follow",
+      structuredData,
       main
     }));
     if (indexable) pageRoutes.push(route);
@@ -300,7 +319,16 @@ function build() {
         startDate: match.dateISO,
         eventStatus: "https://schema.org/EventScheduled",
         sport: "Cricket",
-        location: { "@type": "Place", name: match.venue },
+        description: `${match.match} in the Caribbean Premier League 2026 at ${match.venue}.`,
+        image: `${data.site.siteUrl.replace(/\/$/, "")}/assets/images/hero/cpl-2026-player-artwork-1280.webp`,
+        location: {
+          "@type": "Place",
+          name: match.venue,
+          address: {
+            "@type": "PostalAddress",
+            addressCountry: match.hostCountry
+          }
+        },
         competitor: [match.teamAName, match.teamBName].filter(Boolean).map((name) => ({ "@type": "SportsTeam", name }))
       },
       main: pages.fixtureDetail(data, match)
@@ -318,7 +346,7 @@ function build() {
         "@type": "NewsArticle",
         headline: item.title,
         description: item.excerpt,
-        image: item.image,
+        image: `${data.site.siteUrl.replace(/\/$/, "")}${item.image}`,
         datePublished: new Date(item.date).toISOString().slice(0, 10),
         dateModified: "2026-07-15",
         author: { "@type": "Organization", name: data.site.name },
@@ -362,6 +390,19 @@ function writeSeoFiles(site, routes) {
 
   fs.writeFileSync(path.join(dist, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
   fs.writeFileSync(path.join(dist, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${base}/sitemap.xml\n`);
+  fs.writeFileSync(path.join(dist, "manifest.json"), JSON.stringify({
+    name: "CPL Insider",
+    short_name: "CPL Insider",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#050816",
+    theme_color: "#050816",
+    icons: [{
+      src: "/assets/images/brand/cpl-insider-lockup-310.webp",
+      sizes: "310x96",
+      type: "image/webp"
+    }]
+  }));
 }
 
 function writeDeployZip() {

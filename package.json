@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "node scripts/optimize-home-images.js && node scripts/build.js && node scripts/build-home-css.js",
     "lint": "node scripts/lint.js",
     "data:check": "node scripts/validate-data.js",
     "schedule:test": "node scripts/test-schedule-data.js && node scripts/test-calendar.js",
@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "playwright-core": "^1.61.1",
+    "purgecss": "^8.0.0",
     "sharp": "^0.34.3"
   }
 }

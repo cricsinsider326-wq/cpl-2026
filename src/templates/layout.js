@@ -111,11 +111,11 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     : route === "" || route === "cpl-2026"
       ? `${imageBase}/assets/images/players/cpl-2026-players-hero.webp`
     : `${imageBase}/assets/images/hero/cpl-2026-css-hero-reference.webp`;
-  const cssVersion = "20260726-home-tone2";
-  const jsVersion = "20260726-fixtures-audit1";
+  const cssVersion = "20260726-mobile-perf2";
+  const jsVersion = "20260726-mobile-perf2";
   const scheduleCssVersion = "20260726-fixtures-audit1";
   const heroPreload = route === ""
-    ? '<link rel="preload" href="/assets/images/hero/cpl-2026-player-artwork.webp" as="image" type="image/webp" fetchpriority="high" />'
+    ? '<link rel="preload" href="/assets/images/hero/cpl-2026-player-artwork-720.avif" as="image" type="image/avif" imagesrcset="/assets/images/hero/cpl-2026-player-artwork-720.avif 720w, /assets/images/hero/cpl-2026-player-artwork-1280.avif 1280w" imagesizes="(max-width: 720px) 100vw, 70vw" fetchpriority="high" />'
     : route === "cpl-2026"
       ? '<link rel="preload" href="/assets/images/players/cpl-2026-players-hero.webp" as="image" type="image/webp" fetchpriority="high" />'
       : route === "players"
@@ -127,9 +127,11 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#050816" />
+    <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/barlow-condensed-900-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" type="image/webp" href="/assets/images/brand/cpl-2026-brand-lockup.webp" />
-    <link rel="apple-touch-icon" href="/assets/images/brand/cpl-2026-brand-lockup.webp" />
+    <link rel="icon" type="image/webp" href="/assets/images/brand/cpl-insider-lockup-160.webp" />
+    <link rel="apple-touch-icon" href="/assets/images/brand/cpl-insider-lockup-160.webp" />
     <meta name="robots" content="${escapeHtml(robots)}" />
     <title>${escapeHtml(pageTitle)}</title>
     <meta name="description" content="${escapeHtml(pageDescription)}" />
@@ -147,10 +149,8 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     <meta name="twitter:description" content="${escapeHtml(pageDescription)}" />
     <meta name="twitter:image" content="${escapeHtml(ogImage)}" />
     ${heroPreload}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <script type="application/ld+json">${JSON.stringify(schemaGraph({ site, teams, faqs, route, pageTitle, structuredData }))}</script>
+    <link rel="stylesheet" href="/assets/fonts.css?v=${cssVersion}" />
     <link rel="stylesheet" href="/assets/styles.css?v=${cssVersion}" />
     <link rel="stylesheet" href="/assets/premium.css?v=${cssVersion}" />
     ${route === "" ? `<link rel="stylesheet" href="/assets/cpl-hub.css?v=${cssVersion}" /><link rel="stylesheet" href="/assets/reference-home.css?v=${cssVersion}" />` : ""}
@@ -160,7 +160,6 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     <div class="site-shell">
       ${body}
     </div>
-    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script defer src="/assets/app.js?v=${jsVersion}"></script>
   </body>
 </html>`;
