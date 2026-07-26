@@ -112,8 +112,11 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
       ? `${imageBase}/assets/images/players/cpl-2026-players-hero.webp`
     : `${imageBase}/assets/images/hero/cpl-2026-css-hero-reference.webp`;
   const cssVersion = "20260726-mobile-perf2";
-  const jsVersion = "20260726-mobile-perf2";
+  const jsVersion = route === "players"
+    ? "20260726-players-squads-reference1"
+    : "20260726-mobile-perf2";
   const scheduleCssVersion = "20260726-fixtures-audit1";
+  const playerDirectoryCssVersion = "20260726-players-squads-reference1";
   const heroPreload = route === ""
     ? '<link rel="preload" href="/assets/images/hero/cpl-2026-player-artwork-720.avif" as="image" type="image/avif" imagesrcset="/assets/images/hero/cpl-2026-player-artwork-720.avif 720w, /assets/images/hero/cpl-2026-player-artwork-1280.avif 1280w" imagesizes="(max-width: 720px) 100vw, 70vw" fetchpriority="high" />'
     : route === "cpl-2026"
@@ -155,6 +158,7 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     <link rel="stylesheet" href="/assets/premium.css?v=${cssVersion}" />
     ${route === "" ? `<link rel="stylesheet" href="/assets/cpl-hub.css?v=${cssVersion}" /><link rel="stylesheet" href="/assets/reference-home.css?v=${cssVersion}" />` : ""}
     ${route === "fixtures" ? `<link rel="stylesheet" href="/assets/schedule.css?v=${scheduleCssVersion}" />` : ""}
+    ${route === "players" ? `<link rel="stylesheet" href="/assets/player-directory.css?v=${playerDirectoryCssVersion}" />` : ""}
   </head>
   <body class="${route === "" ? "home-body" : ""}${route === "fixtures" ? " sch-body" : ""}">
     <div class="site-shell">

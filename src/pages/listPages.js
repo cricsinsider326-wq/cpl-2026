@@ -70,36 +70,33 @@ function relatedTeamNews(data, team) {
 
 function playerRoleKey(role) {
   const normalized = role.toLowerCase();
-  if (normalized.includes("allrounder")) return "allrounder";
-  if (normalized.includes("bowler")) return "bowler";
-  if (normalized.includes("batter") || normalized.includes("wicketkeeper")) return "batter";
-  return "pending";
+  const roles = [];
+  if (normalized.includes("batter")) roles.push("batter");
+  if (normalized.includes("wicketkeeper")) roles.push("wicketkeeper");
+  if (normalized.includes("allrounder")) roles.push("allrounder");
+  if (normalized.includes("bowler")) roles.push("bowler");
+  return roles.length ? roles.join(" ") : "pending";
 }
 
 function renderPlayerListingCard(player, team, eager = false) {
-  const image = player.heroPhoto || player.photo;
-  const imageWidth = player.heroPhoto ? 1120 : 320;
-  const imageHeight = player.heroPhoto ? 1536 : 400;
+  const image = player.photo || player.heroPhoto;
+  const imageWidth = player.photo ? 640 : 1120;
+  const imageHeight = player.photo ? 800 : 1536;
   const loading = eager ? "eager" : "lazy";
   const portrait = image
-    ? `<img class="pd-player-photo" src="${escapeHtml(image)}" alt="${escapeHtml(player.imageAlt || `${player.name} CPL player portrait`)}" width="${imageWidth}" height="${imageHeight}" loading="${loading}" decoding="async" />`
+    ? `<img class="pd-player-photo" src="${escapeHtml(image)}" alt="${escapeHtml(player.imageAlt || `${player.name} CPL player portrait`)}" width="${imageWidth}" height="${imageHeight}" loading="${loading}" decoding="sync" />`
     : `<div class="pd-player-placeholder" aria-label="${escapeHtml(player.name)} portrait pending"><strong>${escapeHtml(player.initials)}</strong><span>Portrait pending</span></div>`;
   const roleKey = playerRoleKey(player.role);
-  const squadLabel = player.rosterStatus === "complete" ? "Complete squad" : "Confirmed to date";
   const nationality = player.nationality || "Nationality pending";
   const nationalityKey = player.nationality ? player.nationality.toLowerCase().replace(/[^a-z0-9]+/g, "-") : "pending";
   return `<article class="pd-player-card" data-player-card data-search="${escapeHtml(`${player.name} ${player.team} ${player.role} ${nationality}`.toLowerCase())}" data-team="${escapeHtml(player.teamCode)}" data-role="${escapeHtml(roleKey)}" data-nationality="${escapeHtml(nationalityKey)}" data-status="${escapeHtml(player.rosterStatus)}" style="--player-team-accent:${escapeHtml(team?.accent || "#7a3ff2")}">
     <div class="pd-player-visual">
-      <span class="pd-role-tag">${escapeHtml(roleKey === "pending" ? "Role pending" : player.role)}</span>
-      <img class="pd-player-team-logo" src="${escapeHtml(team?.logo || "")}" alt="" width="54" height="54" loading="lazy" decoding="async" />
       ${portrait}
     </div>
     <div class="pd-player-copy">
       <h2>${escapeHtml(player.name)}</h2>
-      <p>${escapeHtml(player.role)}</p>
-      <span><i data-lucide="flag" aria-hidden="true"></i>${escapeHtml(nationality)}</span>
-      <span><i data-lucide="shield" aria-hidden="true"></i>${escapeHtml(player.team)}</span>
-      <em class="${player.rosterStatus === "complete" ? "complete" : "partial"}">${escapeHtml(squadLabel)}</em>
+      <p>${escapeHtml(player.team)}</p>
+      <span>${escapeHtml(player.role)}</span>
     </div>
     <a href="/players/${escapeHtml(player.slug)}/">View profile <i data-lucide="arrow-right" aria-hidden="true"></i></a>
   </article>`;
@@ -114,18 +111,173 @@ function venueFixtures(data, venue) {
 }
 
 function teamListing(data) {
-  return `<main>
-    ${renderPageHero({ title: "CPL 2026 Teams", text: "Explore every Caribbean Premier League 2026 team profile, home venue and squad pathway." })}
-    ${renderEditorialSection({
-      title: "Caribbean Premier League 2026 Teams and Squad Guide",
-      paragraphs: data.content.pageCopy.teams,
-      links: [
-        { label: "CPL 2026 Fixtures", href: "/fixtures/" },
-        { label: "CPL Points Table", href: "/points-table/" },
-        { label: "CPL Players", href: "/players/" }
-      ]
-    })}
-    ${renderListingGrid(data.teams, renderTeamCard)}
+  const teamMottos = {
+    "JAK": { location: "Kingston, Jamaica", motto: "Pride of Jamaica. Power, passion and a legacy that drives a nation." },
+    "ABF": { location: "St. John's, Antigua", motto: "Soaring high with fearless cricket and island spirit." },
+    "TKR": { location: "Port of Spain, Trinidad & Tobago", motto: "Champions in every moment. Built for glory." },
+    "SLK": { location: "Gros Islet, Saint Lucia", motto: "Royal by nature. Relentless in pursuit of victory." },
+    "SKNP": { location: "Basseterre, St Kitts & Nevis", motto: "United by passion. Driven by the Patriots' spirit." },
+    "GAW": { location: "Georgetown, Guyana", motto: "Fierce. Fearless. Ready to conquer every challenge." },
+    "BT": { location: "Bridgetown, Barbados", motto: "Strength in unity. Tridents rise, seas stand still." }
+  };
+
+  const latestNews = [
+    { date: "28 MAY 2026", category: "TEAM NEWS", title: "Teams Announce Pre-Season Camps Ahead of CPL 2026", slug: "teams-announce-pre-season-camps" },
+    { date: "14 MAY 2026", category: "OVERSEAS SIGNINGS", title: "Franchises Confirm New Overseas Signings", slug: "franchises-confirm-new-overseas-signings" },
+    { date: "05 MAY 2026", category: "SEASON PREPARATION", title: "Teams Step Up Preparations for the 2026 Season", slug: "teams-step-up-preparations-for-2026-season" }
+  ];
+
+  const teamFaqs = [
+    { question: "How many teams are playing in CPL 2026?", answer: "Seven franchises compete in CPL 2026 across 39 T20 matches." },
+    { question: "Which teams are new or renamed for 2026?", answer: "Antigua & Barbuda Falcons replaced Jamaica Tallawahs as the seventh franchise slot." },
+    { question: "Where can I view each team's fixtures?", answer: "Each team page features a dedicated fixtures tab showing confirmed match dates and start times." },
+    { question: "Where can I find confirmed squads?", answer: "Confirmed 17-player squad rosters are updated live on each individual team page." },
+    { question: "How often is this teams page updated?", answer: "All team rosters, captains, home venues, and news update immediately after official announcements." }
+  ];
+
+  return `<main class="teams-directory" data-teams-directory>
+    <!-- Section 1: Hero -->
+    <section class="tm-hero" aria-labelledby="tm-hero-title">
+      <div class="tm-hero-copy">
+        <p class="eyebrow">CPL 2026</p>
+        <h1 id="tm-hero-title">CPL 2026 TEAMS</h1>
+        <p>Explore all seven Caribbean Premier League teams, their home bases, histories and 2026 season guides.</p>
+        <div class="tm-hero-actions">
+          <a class="rh-button rh-button-yellow" href="#meet-the-teams">EXPLORE TEAMS <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          <a class="rh-button rh-button-purple" href="/fixtures/"><i data-lucide="calendar-days" aria-hidden="true"></i> VIEW SCHEDULE</a>
+        </div>
+        <div class="tm-hero-chips">
+          <div><i data-lucide="users" aria-hidden="true"></i> <span><strong>7</strong> <small>TEAMS</small></span></div>
+          <div><i data-lucide="target" aria-hidden="true"></i> <span><strong>39</strong> <small>MATCHES</small></span></div>
+          <div><i data-lucide="calendar-days" aria-hidden="true"></i> <span><strong>7 AUG - 20 SEP 2026</strong></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Meet the CPL 2026 Teams -->
+    <section class="tm-section" id="meet-the-teams" aria-labelledby="tm-meet-title">
+      <div class="tm-section-heading">
+        <h2 id="tm-meet-title">MEET THE CPL 2026 TEAMS</h2>
+      </div>
+      <div class="tm-banners-list">
+        ${data.teams.map((team) => {
+          const info = teamMottos[team.code] || { location: team.homeVenue, motto: team.summary };
+          return `<article class="tm-banner-card" style="--team-accent:${escapeHtml(team.accent)}">
+            <div class="tm-banner-identity">
+              <img src="${escapeHtml(team.logo)}" alt="${escapeHtml(team.name)} logo" width="76" height="76" loading="lazy" decoding="async" />
+              <h3>${escapeHtml(team.name.toUpperCase())}</h3>
+            </div>
+            <div class="tm-banner-details">
+              <span class="tm-location"><i data-lucide="map-pin" aria-hidden="true"></i> ${escapeHtml(info.location.toUpperCase())}</span>
+              <p>${escapeHtml(info.motto)}</p>
+            </div>
+            <a class="tm-banner-btn" href="/teams/${escapeHtml(team.slug)}/">VIEW TEAM <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          </article>`;
+        }).join("")}
+      </div>
+    </section>
+
+    <!-- Section 3: CPL 2026 Team Guide -->
+    <section class="tm-section" aria-labelledby="tm-guide-title">
+      <div class="tm-section-heading">
+        <h2 id="tm-guide-title">CPL 2026 TEAM GUIDE</h2>
+      </div>
+      <div class="tm-guide-grid">
+        <article class="tm-guide-card tm-guide-caribbean">
+          <h3>Seven Franchises Across the Caribbean</h3>
+          <p>From Jamaica to Guyana, seven proud franchises represent their islands, cultures and fans. Discover each team's home base, journey and what makes them unique in CPL 2026.</p>
+        </article>
+        <article class="tm-guide-card tm-guide-season">
+          <h3>Follow Every Team Through the Season</h3>
+          <p>From opening clash to the final, follow every team's path, rivalries and key moments as they chase Caribbean glory in 2026.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section 4: Compare the Teams -->
+    <section class="tm-section" aria-labelledby="tm-compare-title">
+      <div class="tm-section-heading">
+        <h2 id="tm-compare-title">COMPARE THE TEAMS</h2>
+      </div>
+      <div class="tm-table-wrap">
+        <table class="tm-compare-table">
+          <thead>
+            <tr>
+              <th>TEAM</th>
+              <th>HOME BASE</th>
+              <th>TEAM PROFILE</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${data.teams.map((team) => {
+              const info = teamMottos[team.code] || { location: team.homeVenue };
+              return `<tr>
+                <td>
+                  <div class="tm-table-team" style="--team-accent:${escapeHtml(team.accent)}">
+                    <img src="${escapeHtml(team.logo)}" alt="" width="36" height="36" loading="lazy" />
+                    <strong>${escapeHtml(team.name.toUpperCase())}</strong>
+                  </div>
+                </td>
+                <td>${escapeHtml(info.location)}</td>
+                <td><a class="tm-table-link" href="/teams/${escapeHtml(team.slug)}/">VIEW GUIDE <i data-lucide="arrow-right" aria-hidden="true"></i></a></td>
+              </tr>`;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: Latest Team Updates -->
+    <section class="tm-section" aria-labelledby="tm-news-title">
+      <div class="tm-section-heading">
+        <h2 id="tm-news-title">LATEST TEAM UPDATES</h2>
+      </div>
+      <div class="tm-news-grid">
+        ${latestNews.map((news) => `<a class="tm-news-card" href="/news/">
+          <time datetime="2026-05-28">${escapeHtml(news.date)}</time>
+          <span class="tm-news-cat">${escapeHtml(news.category)}</span>
+          <h3>${escapeHtml(news.title)} <i data-lucide="arrow-right" aria-hidden="true"></i></h3>
+        </a>`).join("")}
+      </div>
+    </section>
+
+    <!-- Section 6: Explore More CPL 2026 -->
+    <section class="tm-section" aria-labelledby="tm-explore-title">
+      <div class="tm-section-heading">
+        <h2 id="tm-explore-title">EXPLORE MORE CPL 2026</h2>
+      </div>
+      <div class="tm-explore-grid">
+        <a class="tm-explore-tile tile-purple" href="/players/">
+          <i data-lucide="users" aria-hidden="true"></i>
+          <strong>PLAYERS &amp; SQUADS <i data-lucide="arrow-right" aria-hidden="true"></i></strong>
+        </a>
+        <a class="tm-explore-tile tile-yellow" href="/fixtures/">
+          <i data-lucide="calendar" aria-hidden="true"></i>
+          <strong>MATCH SCHEDULE <i data-lucide="arrow-right" aria-hidden="true"></i></strong>
+        </a>
+        <a class="tm-explore-tile tile-blue" href="/venues/">
+          <i data-lucide="landmark" aria-hidden="true"></i>
+          <strong>VENUES <i data-lucide="arrow-right" aria-hidden="true"></i></strong>
+        </a>
+        <a class="tm-explore-tile tile-green" href="/points-table/">
+          <i data-lucide="trophy" aria-hidden="true"></i>
+          <strong>POINTS TABLE <i data-lucide="arrow-right" aria-hidden="true"></i></strong>
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 7: CPL 2026 Teams FAQ -->
+    <section class="tm-section" aria-labelledby="tm-faq-title">
+      <div class="tm-section-heading">
+        <h2 id="tm-faq-title">CPL 2026 TEAMS FAQ</h2>
+      </div>
+      <div class="tm-faq-list">
+        ${teamFaqs.map((faq, index) => `<details class="tm-faq-item"${index === 0 ? " open" : ""}>
+          <summary>${escapeHtml(faq.question)} <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+          <p>${escapeHtml(faq.answer)}</p>
+        </details>`).join("")}
+      </div>
+    </section>
   </main>`;
 }
 
@@ -226,8 +378,6 @@ function legacyPlayerListing(data) {
 
 function playerListing(data) {
   const teamsByCode = new Map(data.teams.map((team) => [team.code, team]));
-  const completeSquads = data.squads.teams.filter((team) => team.completeness === "complete").length;
-  const largestSquad = Math.max(...data.squads.teams.map((team) => team.players.length));
   const playersWithArtworkFirst = data.players
     .map((player, index) => ({ player, index, hasArtwork: Boolean(player.heroPhoto || player.photo) }))
     .sort((left, right) => Number(right.hasArtwork) - Number(left.hasArtwork) || left.index - right.index)
@@ -236,11 +386,11 @@ function playerListing(data) {
   const nationalities = [...new Set(data.players.map((player) => player.nationality).filter(Boolean))].sort();
 
   const roleActionCards = [
-    { role: "batter", title: "BATTER", text: "Run scorers who build innings and control the pace." },
-    { role: "wicketkeeper", title: "WICKETKEEPER", text: "Behind the stumps and in the game every moment." },
-    { role: "allrounder", title: "ALL-ROUNDER", text: "Contributes with both bat and ball. The complete package." },
-    { role: "bowler", title: "FAST BOWLER", text: "Bring the pace, bounce and early breakthroughs." },
-    { role: "bowler", title: "SPIN BOWLER", text: "Use spin, skill and guile to turn the game around." }
+    { role: "batter", title: "BATTER", image: "/assets/images/players/directory/nicholas-pooran.webp", text: "Run scorers who build innings and control the pace." },
+    { role: "wicketkeeper", title: "WICKETKEEPER", image: "/assets/images/players/directory/shai-hope.webp", text: "Behind the stumps and in the game every moment." },
+    { role: "allrounder", title: "ALL-ROUNDER", image: "/assets/images/players/directory/andre-russell.webp", text: "Contributes with both bat and ball. The complete package." },
+    { role: "bowler", title: "FAST BOWLER", image: "/assets/images/players/directory/alzarri-joseph.webp", text: "Bring the pace, bounce and early breakthroughs." },
+    { role: "bowler", title: "SPIN BOWLER", image: "/assets/images/players/directory/akeal-hosein.webp", text: "Use spin, skill and guile to turn the game around." }
   ];
 
   const squadRules = [
@@ -264,13 +414,13 @@ function playerListing(data) {
       <img class="pd-hero-art" src="/assets/images/players/cpl-2026-players-hero.webp" alt="" width="2014" height="781" fetchpriority="high" decoding="async" />
       <div class="pd-hero-copy">
         <p class="eyebrow">CPL 2026</p>
-        <h1 id="pd-hero-title">CPL 2026 PLAYERS &amp; SQUADS</h1>
+        <h1 id="pd-hero-title"><span>CPL</span> <strong>2026</strong><small>PLAYERS &amp; SQUADS</small></h1>
         <p>Explore every team, player role and the latest squad updates across the Caribbean Premier League 2026 season.</p>
         <div class="pd-hero-chips">
-          <div><i data-lucide="users" aria-hidden="true"></i> <span><strong>7</strong> <small>TEAMS</small></span></div>
-          <div><i data-lucide="shirt" aria-hidden="true"></i> <span><strong>119</strong> <small>SQUAD PLACES</small></span></div>
-          <div><i data-lucide="globe" aria-hidden="true"></i> <span><strong>5</strong> <small>OVERSEAS PER TEAM</small></span></div>
-          <div><i data-lucide="star" aria-hidden="true"></i> <span><strong>3</strong> <small>BREAKOUT PLAYERS</small></span></div>
+          <div><i data-lucide="users" aria-hidden="true"></i><span><strong>7</strong><small>TEAMS</small></span></div>
+          <div><i data-lucide="shirt" aria-hidden="true"></i><span><strong>119</strong><small>SQUAD PLACES</small></span></div>
+          <div><i data-lucide="globe" aria-hidden="true"></i><span><strong>5</strong><small>OVERSEAS PER TEAM</small></span></div>
+          <div><i data-lucide="star" aria-hidden="true"></i><span><strong>3</strong><small>BREAKOUT PLAYERS</small></span></div>
         </div>
       </div>
     </section>
@@ -278,22 +428,11 @@ function playerListing(data) {
     <section class="pd-filter-panel" aria-labelledby="pd-filter-title">
       <div class="pd-filter-head">
         <h2 id="pd-filter-title">FIND YOUR PLAYER</h2>
-        <p>Search player names or filter by team and playing role.</p>
       </div>
       <form class="pd-filter-form" data-player-filters>
         <div class="pd-filter-row">
-          <label class="pd-search">
-            <span class="sr-only">Search player by name</span>
-            <i data-lucide="search" aria-hidden="true"></i>
-            <input type="search" placeholder="Search players by name..." autocomplete="off" data-player-search />
-          </label>
-          <label class="pd-team-select">
-            <span class="sr-only">Filter by team</span>
-            <select data-player-team aria-label="Filter by team">
-              <option value="all">All Teams</option>
-              ${data.teams.map((team) => `<option value="${escapeHtml(team.code)}">${escapeHtml(team.name)}</option>`).join("")}
-            </select>
-          </label>
+          <label class="pd-search"><span class="sr-only">Search player by name</span><i data-lucide="search" aria-hidden="true"></i><input type="search" placeholder="Search players by name..." autocomplete="off" data-player-search /></label>
+          <label class="pd-team-select"><span class="sr-only">Filter by team</span><select data-player-team aria-label="Filter by team"><option value="all">All Teams</option>${data.teams.map((team) => `<option value="${escapeHtml(team.code)}">${escapeHtml(team.name)}</option>`).join("")}</select></label>
         </div>
         <div class="pd-role-pills" role="tablist" aria-label="Filter by player role">
           <button type="button" class="pd-pill is-active" data-role-pill="all" role="tab" aria-selected="true">ALL ROLES</button>
@@ -323,29 +462,16 @@ function playerListing(data) {
     </section>
 
     <section class="pd-tracker-section" aria-labelledby="pd-tracker-title">
-      <div class="pd-section-heading">
-        <h2 id="pd-tracker-title">2026 TEAM SQUAD TRACKER</h2>
-        <p>Track confirmed player rosters and captain announcements for all seven CPL 2026 franchises.</p>
-      </div>
+      <div class="pd-section-heading"><h2 id="pd-tracker-title">2026 TEAM SQUAD TRACKER</h2></div>
       <div class="pd-tracker-list">
         ${data.teams.map((team) => {
           const squad = data.squadByTeam.get(team.code);
           const count = squad?.players?.length || 0;
           const captain = squad?.captain || "To be announced";
           return `<div class="pd-tracker-row" style="--team-accent:${escapeHtml(team.accent)}">
-            <div class="pd-tracker-team">
-              <img src="${escapeHtml(team.logo)}" alt="${escapeHtml(team.name)} logo" width="48" height="48" loading="lazy" />
-              <strong>${escapeHtml(team.name.toUpperCase())}</strong>
-            </div>
-            <div class="pd-tracker-captain">
-              <small>CAPTAIN</small>
-              <span>${escapeHtml(captain.toUpperCase())}</span>
-            </div>
-            <div class="pd-tracker-progress">
-              <small>CONFIRMED PLAYERS</small>
-              <div class="pd-progress-bar"><span style="width:${Math.min(100, Math.round((count / 17) * 100))}%"></span></div>
-              <span>${count} / 17</span>
-            </div>
+            <div class="pd-tracker-team"><img src="${escapeHtml(team.logo)}" alt="${escapeHtml(team.name)} logo" width="48" height="48" loading="lazy" /><strong>${escapeHtml(team.name.toUpperCase())}</strong></div>
+            <div class="pd-tracker-captain"><small>CAPTAIN</small><span>${escapeHtml(captain.toUpperCase())}</span></div>
+            <div class="pd-tracker-progress"><small>CONFIRMED PLAYERS</small><div class="pd-progress-bar"><span style="width:${Math.min(100, Math.round((count / 17) * 100))}%"></span></div><span>${count} / 17</span></div>
             <a class="pd-tracker-btn" href="/teams/${escapeHtml(team.slug)}/#squad">VIEW FULL SQUAD <i data-lucide="arrow-right" aria-hidden="true"></i></a>
           </div>`;
         }).join("")}
@@ -353,44 +479,23 @@ function playerListing(data) {
     </section>
 
     <section class="pd-rules-section" aria-labelledby="pd-rules-title">
-      <div class="pd-section-heading">
-        <h2 id="pd-rules-title">HOW CPL 2026 SQUADS WORK</h2>
-        <p>Understand the rules governing Caribbean squad formation, overseas slots and player rosters.</p>
-      </div>
+      <div class="pd-section-heading"><h2 id="pd-rules-title">HOW CPL 2026 SQUADS WORK</h2></div>
       <div class="pd-rules-grid">
-        ${squadRules.map((rule) => `<article class="pd-rule-card">
-          <i data-lucide="${rule.icon}" aria-hidden="true"></i>
-          <h3>${escapeHtml(rule.title)}</h3>
-          <p>${escapeHtml(rule.text)}</p>
-        </article>`).join("")}
+        ${squadRules.map((rule) => `<article class="pd-rule-card"><i data-lucide="${rule.icon}" aria-hidden="true"></i><h3>${escapeHtml(rule.title)}</h3><p>${escapeHtml(rule.text)}</p></article>`).join("")}
       </div>
     </section>
 
     <section class="pd-roles-section" aria-labelledby="pd-roles-title">
-      <div class="pd-section-heading">
-        <h2 id="pd-roles-title">PLAYER ROLES EXPLAINED</h2>
-        <p>Click any player role card to filter top CPL players by their key tactical function.</p>
-      </div>
+      <div class="pd-section-heading"><h2 id="pd-roles-title">PLAYER ROLES EXPLAINED</h2></div>
       <div class="pd-roles-grid">
-        ${roleActionCards.map((card) => `<button type="button" class="pd-role-card" data-role-card="${card.role}">
-          <div class="pd-role-card-content">
-            <h3>${escapeHtml(card.title)}</h3>
-            <p>${escapeHtml(card.text)}</p>
-          </div>
-        </button>`).join("")}
+        ${roleActionCards.map((card) => `<button type="button" class="pd-role-card" data-role-card="${card.role}"><img src="${escapeHtml(card.image)}" alt="" width="320" height="400" loading="eager" decoding="async" /><div class="pd-role-card-content"><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p></div></button>`).join("")}
       </div>
     </section>
 
     <section class="pd-faq-section" aria-labelledby="pd-faq-title">
-      <div class="pd-section-heading">
-        <h2 id="pd-faq-title">CPL 2026 PLAYERS FAQ</h2>
-        <p>Frequently asked questions about CPL 2026 player rosters, drafts and squad rules.</p>
-      </div>
+      <div class="pd-section-heading"><h2 id="pd-faq-title">CPL 2026 PLAYERS FAQ</h2></div>
       <div class="pd-faq-list">
-        ${playerFaqs.map((faq, index) => `<details class="pd-faq-item"${index === 0 ? " open" : ""}>
-          <summary>${escapeHtml(faq.question)} <i data-lucide="chevron-down" aria-hidden="true"></i></summary>
-          <p>${escapeHtml(faq.answer)}</p>
-        </details>`).join("")}
+        ${playerFaqs.map((faq) => `<details class="pd-faq-item"><summary>${escapeHtml(faq.question)} <i data-lucide="plus" aria-hidden="true"></i></summary><p>${escapeHtml(faq.answer)}</p></details>`).join("")}
       </div>
     </section>
   </main>`;

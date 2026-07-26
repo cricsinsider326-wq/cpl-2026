@@ -4,7 +4,9 @@ param(
   [string[]]$OnlyFiles,
   [switch]$CriticalOnly,
   [switch]$Full,
-  [switch]$ExtractArchives
+  [switch]$ExtractArchives,
+  [switch]$PurgeCdn,
+  [switch]$PurgeOnly
 )
 
 $ErrorActionPreference = "Stop"
@@ -207,7 +209,9 @@ if ($OnlyFiles -and $OnlyFiles.Count -eq 1 -and $OnlyFiles[0].Contains(",")) {
     ForEach-Object { $_.Trim() }
 }
 
-if ($OnlyFiles -and $OnlyFiles.Count) {
+if ($PurgeOnly) {
+  $Files = @()
+} elseif ($OnlyFiles -and $OnlyFiles.Count) {
   $Files = foreach ($Relative in $OnlyFiles) {
     $FullPath = Join-Path $Dist $Relative
     if (-not (Test-Path $FullPath)) { throw "Requested deploy file not found: $Relative" }
@@ -218,6 +222,7 @@ if ($OnlyFiles -and $OnlyFiles.Count) {
     "assets/fonts.css",
     "assets/styles.css",
     "assets/premium.css",
+    "assets/player-directory.css",
     "assets/cpl-hub.css",
     "assets/home.css",
     "assets/reference-home.css",
@@ -345,3 +350,25 @@ foreach ($File in $Files) {
 }
 
 Write-Output "Done. Uploaded $Uploaded file(s)."
+
+if ($PurgeCdn -or $PurgeOnly) {
+  $CdnHeaders = @{}
+  foreach ($Header in $Headers.GetEnumerator()) {
+    $CdnHeaders[$Header.Key] = $Header.Value
+  }
+  $CdnHeaders["Referer"] = "$Base/services/$Service/cdn/caching"
+  $PurgeResponse = Invoke-WebRequest `
+    -Uri "$Base/x/package/$Service/web/cdn" `
+    -Method Post `
+    -WebSession $Session `
+    -Headers $CdnHeaders `
+    -ContentType "application/json" `
+    -Body '{"id":null,"jsonrpc":"2.0","method":"purge","params":[]}' `
+    -TimeoutSec 45 `
+    -UseBasicParsing
+  $PurgeJson = $PurgeResponse.Content | ConvertFrom-Json
+  if (-not $PurgeJson.result) {
+    throw "HostSPK CDN purge failed: $($PurgeResponse.Content)"
+  }
+  Write-Output "Requested full StackCDN cache purge."
+}

@@ -265,7 +265,7 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
     filteredCards = cards.filter((card) => {
       const matchesSearch = !query || card.dataset.search.includes(query);
       const matchesTeam = team.value === "all" || card.dataset.team === team.value;
-      const matchesRole = role.value === "all" || card.dataset.role === role.value;
+      const matchesRole = role.value === "all" || card.dataset.role.split(/\s+/).includes(role.value);
       const matchesNationality = nationality.value === "all" || card.dataset.nationality === nationality.value;
       const matchesStatus = status.value === "all" || card.dataset.status === status.value;
       return matchesSearch && matchesTeam && matchesRole && matchesNationality && matchesStatus;

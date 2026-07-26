@@ -11,10 +11,10 @@ try {
   npm run check:release
 
   if ($Full) {
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $DeployScript
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $DeployScript -PurgeCdn
   } else {
     # Homepage, shared assets, key hubs, sitemap and data status are enough for routine UI updates.
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $DeployScript -CriticalOnly
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $DeployScript -CriticalOnly -PurgeCdn
   }
 
   if ($LASTEXITCODE -ne 0) {

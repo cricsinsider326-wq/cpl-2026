@@ -72,7 +72,7 @@ async function auditViewport(browser, viewport) {
     await faq.locator("summary").click();
 
     const newsletter = page.locator(".rh-newsletter");
-    if (!(await newsletter.getByText("Subscription registration is not open yet.").isVisible())) issues.push("Newsletter availability status is missing");
+    if (!(await newsletter.getByText("Subscription registration opens soon.").isVisible())) issues.push("Newsletter availability status is missing");
     if ((await newsletter.locator(".rh-newsletter-link").getAttribute("href")) !== "/news/") issues.push("Newsletter fallback must link to latest news");
 
     if (viewport.width >= 1000) {

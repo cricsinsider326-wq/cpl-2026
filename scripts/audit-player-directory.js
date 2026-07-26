@@ -48,12 +48,19 @@ async function auditViewport(browser, viewport) {
   const context = await browser.newContext({ viewport });
   const page = await context.newPage();
   const issues = [];
+  const setSelectValue = async (selector, value) => {
+    await page.locator(selector).evaluate((select, nextValue) => {
+      select.value = nextValue;
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+    }, value);
+    await page.waitForTimeout(30);
+  };
   try {
     const response = await page.goto(baseUrl, { waitUntil: "networkidle", timeout: 30000 });
     if (!response || response.status() >= 400) issues.push(`HTTP status ${response ? response.status() : "missing"}`);
 
     const visibleCards = () => page.locator("[data-player-card]:visible");
-    if (await visibleCards().count() !== 30) issues.push("Initial player page must show 30 cards");
+    if (await visibleCards().count() !== 8) issues.push("Initial player page must show 8 cards");
     if ((await page.locator("[data-player-result-count]").textContent()).trim() !== "99 players found") issues.push("Initial player count is incorrect");
 
     const firstPageNames = await visibleCards().locator("h2").allTextContents();
@@ -69,12 +76,14 @@ async function auditViewport(browser, viewport) {
     await page.waitForTimeout(50);
     const expectedRoleCounts = await page.locator("[data-player-card]").evaluateAll((cards) =>
       cards.reduce((counts, card) => {
-        counts[card.dataset.role] = (counts[card.dataset.role] || 0) + 1;
+        card.dataset.role.split(/\s+/).forEach((role) => {
+          counts[role] = (counts[role] || 0) + 1;
+        });
         return counts;
       }, {}),
     );
     for (const role of ["batter", "allrounder", "bowler"]) {
-      await page.locator("[data-player-role]").selectOption(role);
+      await setSelectValue("[data-player-role]", role);
       const actual = Number.parseInt(
         await page.locator("[data-player-result-count]").textContent(),
         10,
@@ -95,7 +104,7 @@ async function auditViewport(browser, viewport) {
       options.map((option) => option.value).filter((value) => value !== "all"),
     );
     for (const nationality of nationalityOptions) {
-      await page.locator("[data-player-nationality]").selectOption(nationality);
+      await setSelectValue("[data-player-nationality]", nationality);
       const actual = Number.parseInt(
         await page.locator("[data-player-result-count]").textContent(),
         10,
@@ -113,7 +122,7 @@ async function auditViewport(browser, viewport) {
       }, {}),
     );
     for (const status of ["complete", "partial"]) {
-      await page.locator("[data-player-status]").selectOption(status);
+      await setSelectValue("[data-player-status]", status);
       const actual = Number.parseInt(
         await page.locator("[data-player-result-count]").textContent(),
         10,
@@ -126,7 +135,7 @@ async function auditViewport(browser, viewport) {
     await page.waitForTimeout(50);
     await page.locator("[data-player-team]").selectOption("GAW");
     if (!(await page.locator("[data-player-result-count]").textContent()).includes("17 players found")) issues.push("Team filter did not return the verified Guyana squad count");
-    await page.locator("[data-player-role]").selectOption("bowler");
+    await setSelectValue("[data-player-role]", "bowler");
     const combinedCount = Number.parseInt(
       await page.locator("[data-player-result-count]").textContent(),
       10,
