@@ -40,7 +40,7 @@ function renderLiveScore(site, teams, fixtures) {
   return `<section class="rh-section rh-live-score" aria-labelledby="rh-live-score-title">
     <div class="rh-section-title"><div><p class="rh-eyebrow">Match status</p><h3 id="rh-live-score-title">CPL 2026 Live Score</h3></div><a href="/live-score/">Open live score <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
     <div class="rh-live-score-card rh-live-score-compact">
-      <div class="rh-live-status"><span><i data-lucide="circle-pause" aria-hidden="true"></i> No live match</span><strong>Coverage starts on match day</strong><p>Verified toss, playing XI, innings scores and results will appear here.</p></div>
+      <div class="rh-live-status"><span><i data-lucide="circle-pause" aria-hidden="true"></i> No live match</span><strong>Coverage starts on match day</strong><p>Toss results, playing XIs, and live overs appear here during matches.</p></div>
       <div class="rh-live-next" aria-label="Next CPL 2026 live coverage">
         <small>Next coverage</small><strong>${escapeHtml(match.teamA)} <em>vs</em> ${escapeHtml(match.teamB)}</strong>
         <time datetime="${escapeHtml(match.dateISO)}">${escapeHtml(match.dateText)} 2026 &middot; ${escapeHtml(match.time)} local</time>
@@ -53,7 +53,7 @@ function renderLiveScore(site, teams, fixtures) {
 
 function renderUpcoming(fixtures, teams) {
   return `<section class="rh-section rh-upcoming" aria-labelledby="rh-upcoming-title">
-    <div class="rh-section-title"><div><p class="rh-eyebrow">Next fixtures</p><h3 id="rh-upcoming-title">Upcoming CPL 2026 Matches</h3><p class="rh-section-copy">Confirmed dates, venues and start times shown in venue local time.</p></div><a href="/fixtures/">View full schedule <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    <div class="rh-section-title"><div><p class="rh-eyebrow">Next fixtures</p><h3 id="rh-upcoming-title">Upcoming CPL 2026 Matches</h3><p class="rh-section-copy">Confirmed match dates, venues — local start times.</p></div><a href="/fixtures/">View full schedule <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
     <div class="rh-slider-shell">
       <button class="rh-slider-prev" type="button" data-scroll-prev="rh-upcoming-track" aria-label="Show previous upcoming match" style="align-items:center!important;background:#6c24df!important;border:1px solid rgba(255,255,255,.35)!important;border-radius:50%!important;box-shadow:0 4px 14px rgba(108,36,223,.45)!important;color:#fff!important;cursor:pointer!important;display:flex!important;height:42px!important;justify-content:center!important;left:-14px!important;outline:none!important;padding:0!important;position:absolute!important;top:50%!important;transform:translateY(-50%)!important;width:42px!important;z-index:10!important;"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
       <div class="rh-upcoming-grid" id="rh-upcoming-track">${fixtures.slice(0, 5).map((match) => `<a class="rh-upcoming-card" href="/fixtures/${escapeHtml(match.slug)}/">
@@ -74,7 +74,7 @@ function renderMatchCentre(site, teams, fixtures) {
 
 function renderTeams(teams, squadByTeam) {
   return `<section class="rh-section rh-teams" aria-labelledby="rh-teams-title">
-    <div class="rh-section-title"><div><p class="rh-eyebrow">Seven franchises</p><h2 id="rh-teams-title">Meet the CPL 2026 Teams</h2><p class="rh-section-copy">Seven teams will compete across the Caribbean in CPL 2026. Visit each team page to see its squad, captain, coach, key players, home ground, fixtures and franchise record.</p></div><a href="/teams/">View all teams <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    <div class="rh-section-title"><div><p class="rh-eyebrow">Seven franchises</p><h2 id="rh-teams-title">Meet the CPL 2026 Teams</h2><p class="rh-section-copy">Seven T20 franchises compete in CPL 2026 — official squads, captains, coaches, and home grounds.</p></div><a href="/teams/">View all teams <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
     <div class="rh-team-grid">${teams.map((team) => {
       const squad = squadByTeam.get(team.code);
       const status = squad?.completeness === "complete" ? "Confirmed" : squad?.players?.length ? "Partial" : "Awaiting update";
@@ -89,8 +89,8 @@ function renderTeams(teams, squadByTeam) {
 
 function renderStandings(teams) {
   return `<article class="rh-panel rh-standings" aria-labelledby="rh-standings-title">
-    <div class="rh-panel-heading"><div><h2 id="rh-standings-title">CPL 2026 Points Table</h2><p class="rh-section-copy">Follow the latest CPL standings as the season moves forward. The table tracks matches played, wins, losses, points and net run rate, so you can quickly see which teams are in the playoff race.</p></div><a href="/points-table/">View full table <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
-    <div class="rh-standings-alert" style="background: rgba(255,208,0,0.08); border: 1px solid rgba(255,208,0,0.25); border-radius: 6px; padding: 10px 14px; margin: 12px 0 6px; color: #ffd000; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;"><i data-lucide="bell" style="height:16px; width:16px; flex-shrink:0;"></i><span>Tournament starts Aug 7 — Points table will update live after Match 1</span></div>
+    <div class="rh-panel-heading"><div><h2 id="rh-standings-title">CPL 2026 Points Table</h2><p class="rh-section-copy">CPL standings track wins, losses, points, and net run rate — playoff qualification.</p></div><a href="/points-table/">View full table <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    <div class="rh-standings-alert" style="background: rgba(255,208,0,0.08); border: 1px solid rgba(255,208,0,0.25); border-radius: 6px; padding: 10px 14px; margin: 12px 0 6px; color: #ffd000; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;"><i data-lucide="bell" style="height:16px; width:16px; flex-shrink:0;"></i><span>Tournament starts Aug 7 — Points table updates live after Match 1</span></div>
     <p class="rh-muted">The points table will start updating after the first completed match.</p>
     <div class="rh-table-wrap"><table><thead><tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>NRR</th><th>Pts</th></tr></thead><tbody>${teams.map((team, index) => `<tr><td>${index + 1}</td><th><img src="${escapeHtml(team.logo)}" alt="" width="28" height="28" loading="lazy" />${escapeHtml(team.name)}</th><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>`).join("")}</tbody></table></div>
     <a class="rh-panel-button" href="/points-table/">View full points table <i data-lucide="arrow-right" aria-hidden="true"></i></a>
@@ -99,21 +99,21 @@ function renderStandings(teams) {
 
 function renderNews(news) {
   return `<article class="rh-panel rh-news" aria-labelledby="rh-news-title">
-    <div class="rh-panel-heading"><div><h2 id="rh-news-title">Latest CPL 2026 News</h2><p class="rh-section-copy">Source-checked schedule, squad, venue, player and viewing updates for CPL 2026.</p></div><a href="/news/">View all updates <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    <div class="rh-panel-heading"><div><h2 id="rh-news-title">Latest CPL 2026 News</h2><p class="rh-section-copy">Official fixture changes, squad news, player profiles, and broadcast market updates.</p></div><a href="/news/">View all updates <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
     <div class="rh-news-list">${news.slice(0, 5).map((item) => `<a href="/news/${escapeHtml(item.slug)}/"><img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" width="120" height="76" loading="lazy" /><span><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.date)}</small></span></a>`).join("")}</div>
   </article>`;
 }
 
 function renderFeatureTiles() {
   const tiles = [
-    ["calendar-days", "Schedule", "View all CPL 2026 matches, dates, times and venues.", "/fixtures/"],
-    ["trophy", "Points Table", "Track standings, net run rate and playoff qualification.", "/points-table/"],
-    ["users", "Teams", "Browse squads, captains and franchise profiles.", "/teams/"],
-    ["person-standing", "Players", "Read player profiles, roles and career records.", "/players/"],
-    ["landmark", "Venues", "Find stadium details, fixtures and travel information.", "/venues/"],
-    ["tv", "How to Watch", "Check TV channels and streaming options by country.", "/how-to-watch/"]
+    ["calendar-days", "Schedule", "Match dates, fixtures, local start times — and venues.", "/fixtures/"],
+    ["trophy", "Points Table", "Team standings, net run rate — playoff races.", "/points-table/"],
+    ["users", "Teams", "Franchise squads, captains, coaches — home grounds.", "/teams/"],
+    ["person-standing", "Players", "T20 player profiles, roles — career stats.", "/players/"],
+    ["landmark", "Venues", "Stadium guides, seating, locations — match lists.", "/venues/"],
+    ["tv", "How to Watch", "Confirmed TV channels — regional streaming links.", "/how-to-watch/"]
   ];
-  return `<section class="rh-section rh-feature-tiles" aria-labelledby="rh-explore-title"><div class="rh-section-title"><div><p class="rh-eyebrow">Tournament navigation</p><h2 id="rh-explore-title">Explore CPL 2026</h2><p class="rh-section-copy">Move directly to the tournament information you need.</p></div></div><nav class="rh-feature-grid" aria-label="Explore CPL 2026">${tiles.map(([icon, title, text, href]) => `<a href="${href}" class="rh-feature-tile"><i data-lucide="${icon}" aria-hidden="true"></i><strong>${title}</strong><span>${text}</span><b><i data-lucide="arrow-right" aria-hidden="true"></i></b></a>`).join("")}</nav></section>`;
+  return `<section class="rh-section rh-feature-tiles" aria-labelledby="rh-explore-title"><div class="rh-section-title"><div><p class="rh-eyebrow">Tournament navigation</p><h2 id="rh-explore-title">Explore CPL 2026</h2><p class="rh-section-copy">Direct access to official tournament guides — fast links.</p></div></div><nav class="rh-feature-grid" aria-label="Explore CPL 2026">${tiles.map(([icon, title, text, href]) => `<a href="${href}" class="rh-feature-tile"><i data-lucide="${icon}" aria-hidden="true"></i><strong>${title}</strong><span>${text}</span><b><i data-lucide="arrow-right" aria-hidden="true"></i></b></a>`).join("")}</nav></section>`;
 }
 
 function renderPlayerIndex() {
@@ -126,7 +126,7 @@ function renderPlayerIndex() {
     ["globe-2", "Overseas players", "all"]
   ];
   return `<section class="rh-player-index" aria-labelledby="rh-player-index-title">
-    <div class="rh-player-index-copy"><p class="rh-eyebrow">Player directory</p><h2 id="rh-player-index-title">Browse Players and Squads</h2><p>Find player profiles by role, squad and nationality.</p><a href="/players/">Explore all players <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    <div class="rh-player-index-copy"><p class="rh-eyebrow">Player directory</p><h2 id="rh-player-index-title">Browse Players and Squads</h2><p>Filter player profiles by playing role — T20 squad lists.</p><a href="/players/">Explore all players <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
     <nav class="rh-player-role-grid" aria-label="Browse CPL players by role">${roles.map(([icon, label, role]) => `<a href="/players/${role === "all" ? "" : `?role=${role}`}"><i data-lucide="${icon}" aria-hidden="true"></i><strong>${label}</strong><i data-lucide="arrow-right" aria-hidden="true"></i></a>`).join("")}</nav>
   </section>`;
 }
@@ -134,11 +134,11 @@ function renderPlayerIndex() {
 function renderVenues(venues) {
   const preferred = ["arnos-vale-stadium", "sabina-park", "brian-lara-stadium", "providence-stadium"];
   const featuredVenues = preferred.map((slug) => venues.find((venue) => venue.slug === slug)).filter(Boolean);
-  return `<article class="rh-panel rh-venues" aria-labelledby="rh-venues-title"><div class="rh-panel-heading"><div><h2 id="rh-venues-title">Top CPL 2026 Venue Guides</h2><p class="rh-section-copy">Explore the Caribbean grounds hosting CPL 2026. Each venue guide covers the stadium location, scheduled matches, seating information and useful details for supporters.</p></div><a href="/venues/">View all venues <i data-lucide="arrow-right" aria-hidden="true"></i></a></div><div class="rh-venue-grid">${featuredVenues.map((venue, index) => `<a class="${index === 0 ? "featured" : ""}" href="/venues/${escapeHtml(venue.slug)}/"><img src="${escapeHtml(venue.image)}" alt="${escapeHtml(venue.name)} cricket ground" width="640" height="360" loading="lazy" decoding="async" /><span>${escapeHtml(venue.name)}</span><small>${escapeHtml(venue.location)}</small><b>View venue guide <i data-lucide="arrow-right" aria-hidden="true"></i></b></a>`).join("")}</div></article>`;
+  return `<article class="rh-panel rh-venues" aria-labelledby="rh-venues-title"><div class="rh-panel-heading"><div><h2 id="rh-venues-title">Top CPL 2026 Venue Guides</h2><p class="rh-section-copy">Eight Caribbean grounds host CPL 2026 matches — stadium guides, seating, and fixtures.</p></div><a href="/venues/">View all venues <i data-lucide="arrow-right" aria-hidden="true"></i></a></div><div class="rh-venue-grid">${featuredVenues.map((venue, index) => `<a class="${index === 0 ? "featured" : ""}" href="/venues/${escapeHtml(venue.slug)}/"><img src="${escapeHtml(venue.image)}" alt="${escapeHtml(venue.name)} cricket ground" width="640" height="360" loading="lazy" decoding="async" /><span>${escapeHtml(venue.name)}</span><small>${escapeHtml(venue.location)}</small><b>View venue guide <i data-lucide="arrow-right" aria-hidden="true"></i></b></a>`).join("")}</div></article>`;
 }
 
 function renderWatch(broadcasters) {
-  return `<article class="rh-panel rh-watch" aria-labelledby="rh-watch-title"><div class="rh-panel-heading"><div><h2 id="rh-watch-title">How to Watch CPL 2026</h2><p class="rh-section-copy">Find out where CPL 2026 will be shown in your country. Broadcast rights differ by region, so every TV channel and streaming service should be marked as confirmed or awaiting an official announcement.</p></div><a href="/how-to-watch/">View Watching Guide <i data-lucide="arrow-right" aria-hidden="true"></i></a></div><div class="rh-watch-list">${broadcasters.markets.slice(0, 6).map((market) => `<div><span>${escapeHtml(market.market)}</span><b class="${market.status === "verified" ? "confirmed" : "pending"}">${market.status === "verified" ? "Confirmed" : "TBA"}</b></div>`).join("")}</div><p class="rh-watch-note"><i data-lucide="info" aria-hidden="true"></i> Broadcast details are updated after confirmation from official rights holders.</p></article>`;
+  return `<article class="rh-panel rh-watch" aria-labelledby="rh-watch-title"><div class="rh-panel-heading"><div><h2 id="rh-watch-title">How to Watch CPL 2026</h2><p class="rh-section-copy">Official TV networks and streaming services broadcast CPL 2026 matches — country guides.</p></div><a href="/how-to-watch/">View Watching Guide <i data-lucide="arrow-right" aria-hidden="true"></i></a></div><div class="rh-watch-list">${broadcasters.markets.slice(0, 6).map((market) => `<div><span>${escapeHtml(market.market)}</span><b class="${market.status === "verified" ? "confirmed" : "pending"}">${market.status === "verified" ? "Confirmed" : "TBA"}</b></div>`).join("")}</div><p class="rh-watch-note"><i data-lucide="info" aria-hidden="true"></i> Broadcast details update after rights holder announcements.</p></article>`;
 }
 
 function renderFaqAndNewsletter(site, faqs) {
@@ -150,13 +150,13 @@ function renderFaqAndNewsletter(site, faqs) {
     ["Where can I find CPL 2026 live scores?", "Where can I find CPL 2026 live scores?"]
   ];
   const homeFaqs = questions.map(([sourceQuestion, label]) => ({ ...faqs.find((faq) => faq.question === sourceQuestion), label })).filter((faq) => faq.answer);
-  return `<section class="rh-bottom-grid" aria-label="CPL 2026 FAQs and updates"><article class="rh-panel rh-faq"><div class="rh-panel-heading"><h2>Frequently Asked Questions</h2><a href="/faq/">View All FAQs <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>${homeFaqs.slice(0, 4).map((faq) => `<details><summary>${escapeHtml(faq.label)}<i data-lucide="chevron-right" aria-hidden="true"></i></summary><p>${escapeHtml(faq.answer)}</p></details>`).join("")}</article><article class="rh-newsletter"><div><p class="rh-eyebrow">Stay close to the action</p><h2>CPL Update Alerts</h2><p>Email alerts are being prepared. Until registration opens, use the latest news page for fixture changes, squad announcements, match results and viewing updates.</p></div><a class="rh-newsletter-link" href="/news/">Browse latest CPL news <i data-lucide="arrow-right" aria-hidden="true"></i></a><small>Subscription registration is not open yet.</small></article></section>`;
+  return `<section class="rh-bottom-grid" aria-label="CPL 2026 FAQs and updates"><article class="rh-panel rh-faq"><div class="rh-panel-heading"><h2>Frequently Asked Questions</h2><a href="/faq/">View All FAQs <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>${homeFaqs.slice(0, 4).map((faq) => `<details><summary>${escapeHtml(faq.label)}<i data-lucide="chevron-right" aria-hidden="true"></i></summary><p>${escapeHtml(faq.answer)}</p></details>`).join("")}</article><article class="rh-newsletter"><div><p class="rh-eyebrow">Stay close to the action</p><h2>CPL Update Alerts</h2><p>Latest CPL news page tracks match dates, squad updates, results, and broadcasts.</p></div><a class="rh-newsletter-link" href="/news/">Browse latest CPL news <i data-lucide="arrow-right" aria-hidden="true"></i></a><small>Subscription registration opens soon.</small></article></section>`;
 }
 
 function renderPlanTournament(site) {
   const finalDate = new Date(`${site.endDate}T00:00:00`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
   return `<section class="rh-section rh-plan" aria-labelledby="rh-plan-title">
-    <div class="rh-plan-copy"><p class="rh-eyebrow">Plan your tournament</p><h2 id="rh-plan-title">CPL 2026 Tickets and Final</h2><p class="rh-section-copy">Use confirmed official sellers for tickets. Match-by-match purchase links, the final host and venue will be added after official confirmation.</p><div><a class="rh-button rh-button-yellow" href="/tickets/"><i data-lucide="ticket-check" aria-hidden="true"></i> Ticket guide</a><a class="rh-button rh-button-outline" href="/fixtures/"><i data-lucide="calendar-days" aria-hidden="true"></i> View fixtures</a></div></div>
+    <div class="rh-plan-copy"><p class="rh-eyebrow">Plan your tournament</p><h2 id="rh-plan-title">CPL 2026 Tickets and Final</h2><p class="rh-section-copy">Official ticket sellers handle match passes — final venue host pending.</p><div><a class="rh-button rh-button-yellow" href="/tickets/"><i data-lucide="ticket-check" aria-hidden="true"></i> Ticket guide</a><a class="rh-button rh-button-outline" href="/fixtures/"><i data-lucide="calendar-days" aria-hidden="true"></i> View fixtures</a></div></div>
     <div class="rh-plan-status">
       <article><i data-lucide="ticket" aria-hidden="true"></i><span><small>Ticket sales</small><strong>Official seller links pending</strong><em>Seller TBC</em></span></article>
       <article><i data-lucide="trophy" aria-hidden="true"></i><span><small>CPL 2026 final</small><strong>${escapeHtml(finalDate)}</strong><em>Host and venue TBC</em></span></article>
@@ -165,7 +165,7 @@ function renderPlanTournament(site) {
 }
 
 function renderTrust(site) {
-  return `<section class="rh-trust" aria-label="CPL Insider editorial information"><div><i data-lucide="file-check-2" aria-hidden="true"></i><span><strong>Sources</strong><p>Official tournament announcements, team websites, venue information and trusted sports sources.</p><small>Page updated: ${escapeHtml(site.buildUpdated)}. Tournament data reviewed: ${escapeHtml(site.lastUpdated)}.</small></span></div><div><i data-lucide="pen-line" aria-hidden="true"></i><span><strong>Editor's note</strong><p>Schedules, squads, venues, tickets and broadcasters can change. Check linked primary sources for the latest confirmation.</p><small>${escapeHtml(site.notAffiliated)}</small></span></div></section>`;
+  return `<section class="rh-trust" aria-label="CPL Insider editorial information"><div><i data-lucide="file-check-2" aria-hidden="true"></i><span><strong>Sources</strong><p>Official tournament updates, team rosters, venue news — verified sources.</p><small>Page updated: ${escapeHtml(site.buildUpdated)}. Tournament data reviewed: ${escapeHtml(site.lastUpdated)}.</small></span></div><div><i data-lucide="pen-line" aria-hidden="true"></i><span><strong>Editor's note</strong><p>Match dates, squads, venues, and broadcasts change — check linked sources.</p><small>${escapeHtml(site.notAffiliated)}</small></span></div></section>`;
 }
 
 function renderSeoOverview() {
@@ -173,22 +173,22 @@ function renderSeoOverview() {
     <div class="rh-section-title">
       <div>
         <p class="rh-eyebrow">Tournament Overview & Guide</p>
-        <h2 id="rh-seo-title">CPL 2026: Caribbean Cricket's Biggest Party Returns</h2>
+        <h2 id="rh-seo-title">CPL 2026 — Caribbean Cricket's Biggest Party Returns</h2>
       </div>
     </div>
     <div class="rh-seo-card">
       <div class="rh-seo-grid">
         <article class="rh-seo-block">
           <h3><i data-lucide="trophy" aria-hidden="true"></i> Tournament Overview & 2026 Season Format</h3>
-          <p>The <strong>Caribbean Premier League 2026 (CPL T20)</strong> returns for its 14th edition from <strong>7 August to 20 September 2026</strong>, featuring 39 high-stakes T20 matches played across eight premier Caribbean venues. Seven powerhouse franchises—<strong><a href="/teams/jamaica-kingsmen/">Jamaica Kingsmen</a>, <a href="/teams/trinbago-knight-riders/">Trinbago Knight Riders</a>, <a href="/teams/guyana-amazon-warriors/">Guyana Amazon Warriors</a>, <a href="/teams/barbados-tridents/">Barbados Tridents</a>, <a href="/teams/saint-lucia-kings/">Saint Lucia Kings</a>, <a href="/teams/st-kitts-nevis-patriots/">St Kitts &amp; Nevis Patriots</a>, and <a href="/teams/antigua-and-barbuda-falcons/">Antigua &amp; Barbuda Falcons</a></strong>—will compete for the prestigious CPL title.</p>
+          <p>Caribbean Premier League 2026 runs from 7 August to 20 September 2026 across eight venues. Seven T20 franchises — <a href="/teams/jamaica-kingsmen/">Jamaica Kingsmen</a>, <a href="/teams/trinbago-knight-riders/">Trinbago Knight Riders</a>, <a href="/teams/guyana-amazon-warriors/">Guyana Amazon Warriors</a>, <a href="/teams/barbados-tridents/">Barbados Tridents</a>, <a href="/teams/saint-lucia-kings/">Saint Lucia Kings</a>, <a href="/teams/st-kitts-nevis-patriots/">St Kitts &amp; Nevis Patriots</a>, and <a href="/teams/antigua-and-barbuda-falcons/">Antigua &amp; Barbuda Falcons</a> — battle in 39 T20 matches.</p>
         </article>
         <article class="rh-seo-block">
           <h3><i data-lucide="calendar" aria-hidden="true"></i> CPL 2026 Schedule, Live Scores & Match Centre</h3>
-          <p>Follow every match live with our <strong><a href="/live-score/">CPL 2026 live score match centre</a></strong>, confirmed playing XI team line-ups, toss updates, and official venue local start times. Matches will be hosted at world-famous Caribbean cricket stadiums including <em>Kensington Oval in Barbados</em> (host of CPL 2026 finals week), <em>Brian Lara Cricket Academy in Trinidad</em>, <em>Providence Stadium in Guyana</em>, and <em>Sabina Park in Jamaica</em>. View the complete <strong><a href="/fixtures/">CPL 2026 schedule</a></strong> for local match times and stadium guides.</p>
+          <p>Match centre updates cover live scores, toss results, playing XIs, and local start times. Kensington Oval — host of CPL 2026 finals week — leads eight Caribbean venues. View complete <a href="/fixtures/">CPL 2026 schedule</a> and <a href="/live-score/">live score match centre</a> for stadium guides.</p>
         </article>
         <article class="rh-seo-block">
           <h3><i data-lucide="users" aria-hidden="true"></i> Franchise Squads, Player Profiles & Points Table</h3>
-          <p>Explore source-checked <strong><a href="/teams/">CPL 2026 team squads</a></strong>, captain &amp; coach profiles, and in-depth <strong><a href="/players/">player statistics</a></strong> for marquee T20 superstars including <em>Nicholas Pooran, Andre Russell, Kieron Pollard, Sunil Narine, and Shai Hope</em>. Track standings, net run rates, and playoff qualification scenarios with the live <strong><a href="/points-table/">CPL 2026 points table</a></strong> throughout the season.</p>
+          <p>Official <a href="/teams/">CPL 2026 team squads</a> include Nicholas Pooran, Andre Russell, Kieron Pollard, Sunil Narine, and Shai Hope — <a href="/players/">player stats</a>. Points table tracks team wins, losses, net run rate, and standings — live <a href="/points-table/">CPL 2026 points table</a>.</p>
         </article>
       </div>
     </div>
@@ -200,7 +200,7 @@ function renderReferenceHome(data) {
   return `<main class="home-page rh-home" id="main-content">
     <section class="rh-hero" aria-labelledby="rh-hero-title">
       <div class="rh-hero-art"><img src="/assets/images/hero/cpl-2026-player-artwork.webp" alt="" width="1717" height="916" fetchpriority="high" decoding="async" /></div>
-      <div class="rh-hero-content"><p class="rh-eyebrow">CPL 2026 Caribbean Premier League</p><h1 id="rh-hero-title"><span>Caribbean Cricket's</span> <strong>Biggest Party</strong> <span>Returns</span></h1><p>Follow CPL 2026 in one place. Check upcoming matches, team squads, live scores, standings, player profiles, venue guides and broadcast updates throughout the season.</p><div class="rh-hero-actions"><a class="rh-button rh-button-yellow" href="/fixtures/">View Schedule <i data-lucide="arrow-right" aria-hidden="true"></i></a><a class="rh-button rh-button-outline" href="/teams/">Explore Teams <i data-lucide="arrow-right" aria-hidden="true"></i></a></div></div>
+      <div class="rh-hero-content"><p class="rh-eyebrow">CPL 2026 Caribbean Premier League</p><h1 id="rh-hero-title"><span>Caribbean Cricket's</span> <strong>Biggest Party</strong> <span>Returns</span></h1><p>Caribbean Premier League 2026 brings 39 T20 matches across eight Caribbean venues — live scores, fixtures, squads, standings, and broadcast channels.</p><div class="rh-hero-actions"><a class="rh-button rh-button-yellow" href="/fixtures/">View Schedule <i data-lucide="arrow-right" aria-hidden="true"></i></a><a class="rh-button rh-button-outline" href="/teams/">Explore Teams <i data-lucide="arrow-right" aria-hidden="true"></i></a></div></div>
       <dl class="rh-hero-facts"><div><dt><i data-lucide="calendar-days"></i><span>Tournament dates</span></dt><dd>7 August - 20 September 2026</dd></div><div><dt><i data-lucide="trophy"></i><span>Matches</span></dt><dd>${escapeHtml(String(site.stats.matches))}</dd></div><div><dt><i data-lucide="users"></i><span>Teams</span></dt><dd>${escapeHtml(String(site.stats.teams))}</dd></div><div><dt><i data-lucide="map-pinned"></i><span>Venues</span></dt><dd>${escapeHtml(String(site.stats.venues))}</dd></div></dl>
     </section>
     ${renderMatchCentre(site, teams, fixtures)}
