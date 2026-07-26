@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, "..");
 const dist = path.join(root, "dist");
 const htmlPath = path.join(dist, "index.html");
 const rootHtmlPath = path.join(root, "index.html");
-const cssVersion = "20260726-mobile-perf2";
+const cssVersion = "20260726-teams-redesign1";
 const sourceStyles = [
   "styles.css",
   "premium.css",
