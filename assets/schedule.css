@@ -3611,16 +3611,22 @@ body.sch-body #main-content {
 }
 
 .sch-meta-bar {
-  gap: 12px 22px;
-  padding: 17px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
-  background: #0d1731;
-  color: #d7deec;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 18px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  background: #0f152b;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .sch-meta-bar a {
   color: #ffd000;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .sch-meta-bar i,

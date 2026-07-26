@@ -167,12 +167,13 @@ function renderFilterBar(model) {
   </div>`;
 }
 
-function renderTeamChip(team, code, size = 28, label = code) {
-  if (!team && !code) {
+function renderTeamChip(team, code, size = 28, label = "") {
+  if (!team && (!code || code === "TBC") && (!label || label === "TBC")) {
     return `<span class="sch-fixture-chip sch-fixture-tbc"><span class="sch-code-badge">TBC</span><b>TBC</b></span>`;
   }
   if (!team) {
-    return `<span class="sch-fixture-chip sch-fixture-placeholder"><span class="sch-code-badge">${escapeHtml(code)}</span><b>${escapeHtml(label || code)}</b></span>`;
+    const text = label && label !== code ? label : code;
+    return `<span class="sch-fixture-chip sch-fixture-placeholder"><span class="sch-code-badge">${escapeHtml(code)}</span><b>${escapeHtml(text)}</b></span>`;
   }
   return `<span class="sch-fixture-chip">
     <img src="${escapeHtml(team.logo || "")}" alt="" width="${size}" height="${size}" loading="lazy" />
@@ -315,7 +316,7 @@ function renderScheduleByTeam(model) {
         ${model.teams.map((team) => `<a class="sch-team-tile" href="/teams/${escapeHtml(team.slug)}/fixtures/" style="--team-accent:${escapeHtml(team.accent || "#ffd400")}">
           <span class="sch-team-tile-logo"><img src="${escapeHtml(team.logo || "")}" alt="${escapeHtml(team.name)} logo" width="72" height="72" loading="lazy" /></span>
           <strong>${escapeHtml(team.name.toUpperCase())}</strong>
-          <small>${team.matchCount} league matches</small>
+          <small>${team.matchCount} LEAGUE MATCHES</small>
         </a>`).join("")}
       </div>
       <button type="button" class="sch-scroll-next sch-team-next" data-scroll-next="sch-team-track" aria-label="Show more CPL teams">

@@ -85,13 +85,13 @@ test("stage and status labels for league vs playoff vs final", () => {
   assert.ok(final, "final row required");
   assert.strictEqual(statusLabel(final), "FINAL");
   assert.strictEqual(final.teamACode, "WQ1");
-  assert.strictEqual(final.displayFixtureA, "WINNER Q1");
+  assert.strictEqual(final.displayFixtureA, "Qualifier 1 Winner");
   assert.strictEqual(final.teamBCode, "WQ2");
-  assert.strictEqual(final.displayFixtureB, "WINNER Q2");
+  assert.strictEqual(final.displayFixtureB, "Qualifier 2 Winner");
 
   const eliminator = rows.find((row) => /eliminator/i.test(row.match));
-  assert.strictEqual(eliminator.displayFixtureA, "3RD PLACE");
-  assert.strictEqual(eliminator.displayFixtureB, "4TH PLACE");
+  assert.strictEqual(eliminator.displayFixtureA, "3rd Place");
+  assert.strictEqual(eliminator.displayFixtureB, "4th Place");
 });
 
 test("getNextMatch returns first real league fixture with venue and time", () => {

@@ -191,26 +191,26 @@ function stageParticipants(match) {
   const name = `${match.match || ""} ${match.teamAName || ""}`.toLowerCase();
   if (/\bfinal\b/.test(name) && !/qualifier|eliminator/.test(name)) {
     return {
-      a: { code: "WQ1", label: "WINNER Q1" },
-      b: { code: "WQ2", label: "WINNER Q2" }
+      a: { code: "WQ1", label: "Qualifier 1 Winner" },
+      b: { code: "WQ2", label: "Qualifier 2 Winner" }
     };
   }
   if (name.includes("eliminator")) {
     return {
-      a: { code: "3RD", label: "3RD PLACE" },
-      b: { code: "4TH", label: "4TH PLACE" }
+      a: { code: "3RD", label: "3rd Place" },
+      b: { code: "4TH", label: "4th Place" }
     };
   }
   if (name.includes("qualifier 1") || name.includes("qualifier one") || name.includes("q1")) {
     return {
-      a: { code: "1ST", label: "1ST PLACE" },
-      b: { code: "2ND", label: "2ND PLACE" }
+      a: { code: "1ST", label: "1st Place" },
+      b: { code: "2ND", label: "2nd Place" }
     };
   }
   if (name.includes("qualifier 2") || name.includes("qualifier two") || name.includes("q2")) {
     return {
-      a: { code: "WE", label: "WINNER ELIMINATOR" },
-      b: { code: "LQ1", label: "LOSER Q1" }
+      a: { code: "WE", label: "Eliminator Winner" },
+      b: { code: "LQ1", label: "Qualifier 1 Loser" }
     };
   }
   return {
