@@ -152,15 +152,15 @@ function teamListing(data) {
 /* Section 1: Hero Header */
 .tm-hero-sec {
   position: relative;
-  background: radial-gradient(circle at 50% 20%, rgba(30, 41, 89, 0.95) 0%, rgba(8, 12, 26, 0.98) 100%),
-              url('/assets/images/hero/cpl-2026-css-hero-reference.webp') center/cover no-repeat;
-  padding: 30px 24px 40px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(8, 12, 26, 0.25) 0%, rgba(8, 12, 26, 0.85) 100%),
+              url('/assets/images/hero/cpl-2026-teams-hero-bg.webp') center/cover no-repeat;
+  padding: 60px 24px 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
   margin-bottom: 50px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
 /* Hero 7 Flags Bar */
