@@ -139,6 +139,7 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     <link rel="icon" type="image/webp" href="/assets/images/brand/cpl-insider-lockup-160.webp" />
     <link rel="apple-touch-icon" href="/assets/images/brand/cpl-insider-lockup-160.webp" />
     <meta name="robots" content="${escapeHtml(robots)}" />
+    <meta name="google-site-verification" content="I3lnsMmlw3QvJ9Mf2SE8KuwvEE23RBVijh2Xp4ZEtmU" />
     <title>${escapeHtml(pageTitle)}</title>
     <meta name="description" content="${escapeHtml(pageDescription)}" />
     <link rel="canonical" href="${escapeHtml(canonical)}" />
