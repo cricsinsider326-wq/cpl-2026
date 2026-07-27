@@ -319,10 +319,25 @@
   right: 0;
   bottom: 0;
   left: 0;
+  min-width: 0;
   padding: 18px 14px 16px;
 }
-.players-directory .pd-role-card h3 { margin: 0 0 7px; color: #c85cff; font-size: 1.55rem; }
-.players-directory .pd-role-card p { color: #dbe1ef; font-size: 0.82rem; line-height: 1.4; }
+.players-directory .pd-role-card h3 {
+  max-width: 100%;
+  margin: 0 0 7px;
+  color: #c85cff;
+  font-size: 1.55rem;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.players-directory .pd-role-card p {
+  max-width: 100%;
+  color: #dbe1ef;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
 
 .players-directory .pd-faq-list { gap: 0; overflow: hidden; border: 1px solid var(--pd-line); border-radius: 7px; }
 .players-directory .pd-faq-item { border: 0; border-bottom: 1px solid rgba(127, 143, 196, 0.24); border-radius: 0; background: #080e22; }
@@ -367,6 +382,7 @@
   .players-directory .pd-rule-card:last-child { border-bottom: 0; }
   .players-directory .pd-roles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .players-directory .pd-role-card { min-height: 300px; }
+  .players-directory .pd-role-card h3 { font-size: 1.2rem; line-height: 1.05; }
 }
 
 @media (max-width: 360px) {
