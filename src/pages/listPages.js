@@ -111,336 +111,654 @@ function venueFixtures(data, venue) {
 }
 
 function teamListing(data) {
-  const teamMeta = {
-    "JAK": {
-      code: "JAK",
-      codeBg: "#1e293b",
-      codeColor: "#ffd000",
-      codeBorder: "rgba(255, 208, 0, 0.4)",
-      btnBg: "#eab308",
-      btnColor: "#0f172a",
-      glowColor: "rgba(234, 179, 8, 0.25)",
-      name: "Jamaica Kingsmen"
-    },
-    "TKR": {
-      code: "TKR",
-      codeBg: "#831843",
-      codeColor: "#f472b6",
-      codeBorder: "rgba(244, 114, 182, 0.4)",
-      btnBg: "#ec4899",
-      btnColor: "#ffffff",
-      glowColor: "rgba(236, 72, 153, 0.25)",
-      name: "Trinbago Knight Riders"
-    },
-    "GAW": {
-      code: "GAW",
-      codeBg: "#064e3b",
-      codeColor: "#34d399",
-      codeBorder: "rgba(52, 211, 153, 0.4)",
-      btnBg: "#10b981",
-      btnColor: "#ffffff",
-      glowColor: "rgba(16, 185, 129, 0.25)",
-      name: "Guyana Amazon Warriors"
-    },
-    "BT": {
-      code: "BT",
-      codeBg: "#78350f",
-      codeColor: "#ffd000",
-      codeBorder: "rgba(255, 208, 0, 0.4)",
-      btnBg: "#eab308",
-      btnColor: "#0f172a",
-      glowColor: "rgba(234, 179, 8, 0.25)",
-      name: "Barbados Tridents"
-    },
-    "SLK": {
-      code: "SLK",
-      codeBg: "#0c4a6e",
-      codeColor: "#38bdf8",
-      codeBorder: "rgba(56, 189, 248, 0.4)",
-      btnBg: "#0284c7",
-      btnColor: "#ffffff",
-      glowColor: "rgba(2, 132, 199, 0.25)",
-      name: "Saint Lucia Kings"
-    },
-    "SKNP": {
-      code: "SKNP",
-      codeBg: "#064e3b",
-      codeColor: "#34d399",
-      codeBorder: "rgba(52, 211, 153, 0.4)",
-      btnBg: "#10b981",
-      btnColor: "#ffffff",
-      glowColor: "rgba(16, 185, 129, 0.25)",
-      name: "St Kitts & Nevis Patriots"
-    },
-    "ABF": {
-      code: "ABF",
-      codeBg: "#7f1d1d",
-      codeColor: "#f87171",
-      codeBorder: "rgba(248, 113, 113, 0.4)",
-      btnBg: "#ef4444",
-      btnColor: "#ffffff",
-      glowColor: "rgba(239, 68, 68, 0.25)",
-      name: "Antigua & Barbuda Falcons"
-    }
+  const customMeta = {
+    "JAK": { city: "KINGSTON, JAMAICA", tagline: "Pride of Jamaica. Power, passion and a legacy that drives a nation.", accent: "#ffd000" },
+    "ABF": { city: "ST. JOHN'S, ANTIGUA", tagline: "Soaring high with fearless cricket and island spirit.", accent: "#ef4444" },
+    "TKR": { city: "PORT OF SPAIN, TRINIDAD & TOBAGO", tagline: "Champions in every moment. Built for glory.", accent: "#a855f7" },
+    "SLK": { city: "GROS ISLET, SAINT LUCIA", tagline: "Royal by nature. Relentless in pursuit of victory.", accent: "#0284c7" },
+    "SKNP": { city: "BASSETERRE, ST KITTS & NEVIS", tagline: "United by passion. Driven by the Patriots' spirit.", accent: "#22c55e" },
+    "GAW": { city: "GEORGETOWN, GUYANA", tagline: "Fierce. Fearless. Ready to conquer every challenge.", accent: "#14b8a6" },
+    "BT": { city: "BRIDGETOWN, BARBADOS", tagline: "Strength in unity. Tridents rise, seas stand still.", accent: "#eab308" }
   };
 
+  const teamsData = data.teams.map((team) => {
+    const meta = customMeta[team.code] || { city: "CARIBBEAN", tagline: "CPL 2026 Franchise", accent: "#ffd000" };
+    return {
+      code: team.code,
+      name: team.name,
+      city: meta.city,
+      tagline: meta.tagline,
+      accent: meta.accent,
+      logo: team.logo,
+      slug: team.slug
+    };
+  });
+
+  const teamFaqs = [
+    { question: "How many teams are playing in CPL 2026?", answer: "There are seven official franchise teams competing in CPL 2026: Jamaica Kingsmen, Antigua & Barbuda Falcons, Trinbago Knight Riders, Saint Lucia Kings, St Kitts & Nevis Patriots, Guyana Amazon Warriors, and Barbados Tridents." },
+    { question: "Which teams are new or renamed for 2026?", answer: "The 2026 season marks the historic return of the Barbados Tridents brand identity alongside Antigua & Barbuda Falcons and Jamaica Kingsmen." },
+    { question: "Where can I view each team's fixtures?", answer: "You can view team-specific schedules by clicking 'VIEW TEAM' on any franchise card above or by exploring our main CPL Fixtures page." },
+    { question: "Where can I find confirmed squads?", answer: "Each team profile includes confirmed player rosters, draft picks, overseas signings, and captain designations." },
+    { question: "How often is this teams page updated?", answer: "This directory updates live as official squad changes, venue announcements, and match scorecards are verified." }
+  ];
+
   return `<style>
-.tm-hero-ref {
+.tm-page {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #f1f5f9;
+}
+
+/* Section 1: Hero Header */
+.tm-hero-sec {
   position: relative;
-  background: linear-gradient(180deg, rgba(8, 12, 24, 0.75) 0%, rgba(5, 8, 22, 0.95) 100%),
+  background: radial-gradient(circle at 50% 20%, rgba(30, 41, 89, 0.9) 0%, rgba(8, 12, 26, 0.98) 100%),
               url('/assets/images/hero/cpl-2026-css-hero-reference.webp') center/cover no-repeat;
-  padding: 60px 40px;
-  border-radius: 16px;
+  padding: 60px 24px 40px;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 50px;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
-.tm-hero-ref .tm-badge {
-  display: inline-block;
-  color: #ffd000;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.tm-hero-ref h1 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 3.8rem;
+.tm-hero-sec h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 4rem;
   font-weight: 900;
   color: #ffffff;
   margin: 0 0 12px;
-  line-height: 1;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
 }
-.tm-hero-ref p {
+.tm-hero-sec p {
   color: #cbd5e1;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin: 0 auto 30px;
   line-height: 1.5;
-  max-width: 650px;
-  margin: 0;
 }
-
-.tm-intro-ref {
-  border-left: 4px solid #ffd000;
-  padding-left: 24px;
-  margin-bottom: 40px;
-}
-.tm-intro-badge {
-  display: inline-block;
-  background: rgba(255, 208, 0, 0.1);
-  color: #ffd000;
-  border: 1px solid rgba(255, 208, 0, 0.3);
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  font-family: "Barlow Condensed", sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-  letter-spacing: 0.5px;
-}
-.tm-intro-ref h2 {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: #ffffff;
-  margin: 0 0 16px;
-  line-height: 1.1;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.tm-intro-ref p {
-  color: #cbd5e1;
-  font-size: 1.02rem;
-  line-height: 1.6;
-  margin: 0 0 16px;
-  max-width: 900px;
-}
-.tm-intro-pills {
+.tm-hero-actions {
   display: flex;
-  gap: 12px;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
-  margin-top: 24px;
 }
-.tm-intro-pill {
-  display: inline-block;
-  background: rgba(255, 208, 0, 0.08);
-  border: 1px solid rgba(255, 208, 0, 0.35);
-  color: #ffd000;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 800;
+.tm-btn-gold {
+  background: #ffd000;
+  color: #0b0f19;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  padding: 12px 28px;
+  border-radius: 8px;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(255, 208, 0, 0.3);
   transition: all 0.2s ease;
 }
-.tm-intro-pill:hover {
-  background: #ffd000;
-  color: #0b0f19;
-  box-shadow: 0 0 14px rgba(255, 208, 0, 0.4);
+.tm-btn-gold:hover {
+  background: #ffe033;
+  transform: translateY(-2px);
+}
+.tm-btn-outline {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(165, 180, 252, 0.4);
+  color: #c7d2fe;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+.tm-btn-outline:hover {
+  background: rgba(99, 102, 241, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.tm-hero-stats {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 32px;
+  border-radius: 40px;
+  flex-wrap: wrap;
+}
+.tm-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tm-stat-item i {
+  color: #ffd000;
+  width: 20px;
+  height: 20px;
 }
 
-.tm-grid-ref {
+/* Section Headings */
+.tm-sec-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Section 2: MEET THE CPL 2026 TEAMS (Horizontal Rows) */
+.tm-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 50px;
+}
+.tm-row-card {
+  position: relative;
+  background: linear-gradient(90deg, rgba(17, 24, 48, 0.95) 0%, rgba(10, 14, 28, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 5px solid var(--team-accent);
+  border-radius: 12px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+.tm-row-card:hover {
+  transform: translateX(4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  border-left-color: var(--team-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), -5px 0 20px var(--team-glow);
+}
+.tm-row-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.tm-row-logo {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+.tm-row-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.tm-row-info h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--team-accent);
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tm-row-loc {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.tm-row-loc i {
+  color: var(--team-accent);
+  width: 14px;
+  height: 14px;
+}
+.tm-row-tagline {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  margin: 0;
+}
+.tm-row-btn {
+  background: transparent;
+  border: 1.5px solid var(--team-accent);
+  color: var(--team-accent);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 10px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.tm-row-btn:hover {
+  background: var(--team-accent);
+  color: #0b0f19;
+  box-shadow: 0 0 16px var(--team-glow);
+}
+
+/* Section 3: CPL 2026 TEAM GUIDE */
+.tm-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+.tm-guide-card {
+  background: linear-gradient(135deg, rgba(30, 41, 89, 0.6) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+}
+.tm-guide-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffd000;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+.tm-guide-card p {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Section 4: COMPARE THE TEAMS (Table) */
+.tm-table-wrap {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 8px;
+  margin-bottom: 50px;
+  overflow-x: auto;
+}
+.tm-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.tm-table th {
+  padding: 16px 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #a855f7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+.tm-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: middle;
+}
+.tm-table-team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tm-table-team img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.tm-table-team strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.tm-table-link {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s ease;
+}
+.tm-table-link:hover {
+  opacity: 0.8;
+}
+
+/* Section 5: LATEST TEAM UPDATES */
+.tm-news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
-.tm-card-ref {
+.tm-news-card {
   position: relative;
-  background: linear-gradient(180deg, #11152a 0%, #0b0e1e 100%);
+  background: rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 36px 24px 28px;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.tm-news-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 208, 0, 0.4);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+.tm-news-date {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #ffd000;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.tm-news-tag {
+  color: #38bdf8;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.tm-news-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+.tm-news-arrow {
+  color: #ffd000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Section 6: EXPLORE MORE CPL 2026 */
+.tm-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+.tm-explore-tile {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: space-between;
-  min-height: 380px;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
-.tm-card-ref:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-  border-color: rgba(255, 255, 255, 0.25);
+.tm-explore-tile:hover {
+  transform: translateY(-4px);
+  border-color: var(--tile-color);
+  box-shadow: 0 10px 24px var(--tile-glow);
 }
-.tm-card-glow {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.35;
-  filter: blur(40px);
+.tm-explore-tile i {
+  color: var(--tile-color);
+  width: 36px;
+  height: 36px;
+  margin-bottom: 12px;
 }
-.tm-card-logo-wrap {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 14px;
-}
-.tm-card-logo-wrap img {
-  width: 96px;
-  height: 96px;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
-}
-.tm-card-code-pill {
-  position: relative;
-  z-index: 2;
-  display: inline-block;
-  padding: 4px 14px;
-  border-radius: 12px;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.tm-card-ref h3 {
-  position: relative;
-  z-index: 2;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 1.55rem;
+.tm-explore-tile span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.25rem;
   font-weight: 900;
   color: #ffffff;
-  margin: 0 0 24px;
-  line-height: 1.15;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  max-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-.tm-card-btn-ref {
-  position: relative;
-  z-index: 2;
-  display: block;
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 1.05rem;
-  font-weight: 900;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+
+/* Section 7: FAQs */
+.tm-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
 }
-.tm-card-btn-ref:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
+.tm-faq-item {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tm-faq-item summary {
+  padding: 18px 24px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+.tm-faq-item summary::-webkit-details-marker { display: none; }
+.tm-faq-item summary i { color: #ffd000; }
+.tm-faq-item p {
+  padding: 0 24px 20px;
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 @media (max-width: 1024px) {
-  .tm-grid-ref { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .tm-hero-ref h1 { font-size: 3rem; }
-  .tm-intro-ref h2 { font-size: 2rem; }
+  .tm-guide-grid { grid-template-columns: 1fr; }
+  .tm-news-grid { grid-template-columns: repeat(2, 1fr); }
+  .tm-explore-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-  .tm-grid-ref { grid-template-columns: 1fr; gap: 16px; }
-  .tm-hero-ref { padding: 40px 20px; }
-  .tm-hero-ref h1 { font-size: 2.4rem; }
-  .tm-intro-ref { padding-left: 16px; }
-  .tm-intro-ref h2 { font-size: 1.6rem; }
+  .tm-row-card { flex-direction: column; text-align: center; }
+  .tm-row-left { flex-direction: column; }
+  .tm-news-grid { grid-template-columns: 1fr; }
+  .tm-explore-grid { grid-template-columns: 1fr; }
+  .tm-hero-sec h1 { font-size: 2.8rem; }
 }
 </style>
 
-<main class="teams-directory" data-teams-directory>
-  <!-- Hero Section -->
-  <section class="tm-hero-ref">
-    <span class="tm-badge">CPL 2026 GUIDE</span>
+<main class="tm-page" data-teams-directory>
+  <!-- Section 1: Hero Header -->
+  <section class="tm-hero-sec">
     <h1>CPL 2026 TEAMS</h1>
-    <p>Explore every Caribbean Premier League 2026 team profile, home venue and squad pathway.</p>
-  </section>
-
-  <!-- Intro Section -->
-  <section class="tm-intro-ref">
-    <span class="tm-intro-badge">CPL 2026 GUIDE</span>
-    <h2>CARIBBEAN PREMIER LEAGUE 2026 TEAMS AND SQUAD GUIDE</h2>
-    <p>The CPL 2026 teams section is the main hub for franchise research. Each team profile should explain the team's identity, home venue, likely squad structure, key players, strengths, schedule links and news updates.</p>
-    <p>A strong team page should not only list names. It should help fans understand how the team may approach the tournament, which fixtures matter most and which players could influence the points table.</p>
-    <div class="tm-intro-pills">
-      <a class="tm-intro-pill" href="/fixtures/">CPL 2026 FIXTURES</a>
-      <a class="tm-intro-pill" href="/points-table/">CPL POINTS TABLE</a>
-      <a class="tm-intro-pill" href="/players/">CPL PLAYERS</a>
+    <p>Explore all seven Caribbean Premier League teams, their home bases, histories and 2026 season guides.</p>
+    <div class="tm-hero-actions">
+      <a href="#meet-teams" class="tm-btn-gold">EXPLORE TEAMS</a>
+      <a href="/fixtures/" class="tm-btn-outline"><i data-lucide="calendar" aria-hidden="true"></i> VIEW SCHEDULE</a>
+    </div>
+    <div class="tm-hero-stats">
+      <div class="tm-stat-item"><i data-lucide="users" aria-hidden="true"></i> <span>7 TEAMS</span></div>
+      <div class="tm-stat-item"><i data-lucide="circle-dot" aria-hidden="true"></i> <span>39 MATCHES</span></div>
+      <div class="tm-stat-item"><i data-lucide="calendar" aria-hidden="true"></i> <span>7 AUG - 20 SEP 2026</span></div>
     </div>
   </section>
 
-  <!-- 3-Column Team Cards Grid -->
-  <section class="tm-grid-ref" aria-label="CPL 2026 Franchise Teams">
-    ${data.teams.map((team) => {
-      const meta = teamMeta[team.code] || {
-        code: team.code,
-        codeBg: "#1e293b",
-        codeColor: "#ffd000",
-        codeBorder: "rgba(255, 208, 0, 0.4)",
-        btnBg: "#eab308",
-        btnColor: "#0f172a",
-        glowColor: "rgba(234, 179, 8, 0.25)",
-        name: team.name
-      };
-      return `<article class="tm-card-ref">
-        <div class="tm-card-glow" style="background:${meta.glowColor}"></div>
-        <div class="tm-card-logo-wrap">
-          <img src="${escapeHtml(team.logo)}" alt="${escapeHtml(meta.name)} logo" width="96" height="96" loading="lazy" decoding="async" />
+  <!-- Section 2: MEET THE CPL 2026 TEAMS -->
+  <section id="meet-teams">
+    <h2 class="tm-sec-title">MEET THE CPL 2026 TEAMS</h2>
+    <div class="tm-rows-list">
+      ${teamsData.map((t) => `
+        <article class="tm-row-card" style="--team-accent: ${t.accent}; --team-glow: ${t.accent}40;">
+          <div class="tm-row-left">
+            <div class="tm-row-logo">
+              <img src="${t.logo}" alt="${escapeHtml(t.name)} logo" width="64" height="64" loading="lazy" />
+            </div>
+            <div class="tm-row-info">
+              <h3>${escapeHtml(t.name.toUpperCase())}</h3>
+              <div class="tm-row-loc"><i data-lucide="map-pin" aria-hidden="true"></i> ${escapeHtml(t.city)}</div>
+              <p class="tm-row-tagline">${escapeHtml(t.tagline)}</p>
+            </div>
+          </div>
+          <a class="tm-row-btn" href="/teams/${t.slug}/">VIEW TEAM</a>
+        </article>
+      `).join('')}
+    </div>
+  </section>
+
+  <!-- Section 3: CPL 2026 TEAM GUIDE -->
+  <section>
+    <h2 class="tm-sec-title">CPL 2026 TEAM GUIDE</h2>
+    <div class="tm-guide-grid">
+      <div class="tm-guide-card">
+        <h3>Seven Franchises Across the Caribbean</h3>
+        <p>From Jamaica to Guyana, seven proud franchises represent their islands, cultures and fans. Discover each team's home base, journey and what makes them unique in CPL 2026.</p>
+      </div>
+      <div class="tm-guide-card">
+        <h3>Follow Every Team Through the Season</h3>
+        <p>From opening clash to the final, follow every team's path, rivalries and key moments as they chase Caribbean glory in 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: COMPARE THE TEAMS -->
+  <section>
+    <h2 class="tm-sec-title">COMPARE THE TEAMS</h2>
+    <div class="tm-table-wrap">
+      <table class="tm-table">
+        <thead>
+          <tr>
+            <th>TEAM</th>
+            <th>HOME BASE</th>
+            <th>TEAM PROFILE</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${teamsData.map((t) => `
+            <tr>
+              <td>
+                <div class="tm-table-team">
+                  <img src="${t.logo}" alt="" width="32" height="32" />
+                  <strong style="color: ${t.accent}">${escapeHtml(t.name.toUpperCase())}</strong>
+                </div>
+              </td>
+              <td style="color: #cbd5e1; font-weight: 600;">${escapeHtml(t.city.split(',')[0].toLowerCase().replace(/\b\w/g, l => l.toUpperCase()))}, ${escapeHtml(t.city.split(',')[1] || '').trim().toLowerCase().replace(/\b\w/g, l => l.toUpperCase())}</td>
+              <td><a class="tm-table-link" style="color: ${t.accent}" href="/teams/${t.slug}/">VIEW GUIDE</a></td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 5: LATEST TEAM UPDATES -->
+  <section>
+    <h2 class="tm-sec-title">LATEST TEAM UPDATES</h2>
+    <div class="tm-news-grid">
+      <a class="tm-news-card" href="/news/">
+        <span class="tm-news-date">28 MAY 2026</span>
+        <div>
+          <span class="tm-news-tag">TEAM NEWS</span>
+          <h3>Teams Announce Pre-Season Camps Ahead of CPL 2026</h3>
         </div>
-        <span class="tm-card-code-pill" style="background:${meta.codeBg}; color:${meta.codeColor}; border:1px solid ${meta.codeBorder}">${escapeHtml(meta.code)}</span>
-        <h3>${escapeHtml(meta.name.toUpperCase())}</h3>
-        <a class="tm-card-btn-ref" style="background:${meta.btnBg}; color:${meta.btnColor}" href="/teams/${escapeHtml(team.slug)}/">VIEW TEAM</a>
-      </article>`;
-    }).join("")}
+        <div class="tm-news-arrow"><i data-lucide="arrow-right" aria-hidden="true"></i></div>
+      </a>
+      <a class="tm-news-card" href="/news/">
+        <span class="tm-news-date">14 MAY 2026</span>
+        <div>
+          <span class="tm-news-tag">OVERSEAS SIGNINGS</span>
+          <h3>Franchises Confirm New Overseas Signings</h3>
+        </div>
+        <div class="tm-news-arrow"><i data-lucide="arrow-right" aria-hidden="true"></i></div>
+      </a>
+      <a class="tm-news-card" href="/news/">
+        <span class="tm-news-date">05 MAY 2026</span>
+        <div>
+          <span class="tm-news-tag">SEASON PREPARATION</span>
+          <h3>Teams Step Up Preparations for the 2026 Season</h3>
+        </div>
+        <div class="tm-news-arrow"><i data-lucide="arrow-right" aria-hidden="true"></i></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 6: EXPLORE MORE CPL 2026 -->
+  <section>
+    <h2 class="tm-sec-title">EXPLORE MORE CPL 2026</h2>
+    <div class="tm-explore-grid">
+      <a class="tm-explore-tile" style="--tile-color: #a855f7; --tile-glow: rgba(168, 85, 247, 0.3);" href="/players/">
+        <i data-lucide="users" aria-hidden="true"></i>
+        <span>PLAYERS &amp; SQUADS <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+      </a>
+      <a class="tm-explore-tile" style="--tile-color: #ffd000; --tile-glow: rgba(255, 208, 0, 0.3);" href="/fixtures/">
+        <i data-lucide="calendar" aria-hidden="true"></i>
+        <span>MATCH SCHEDULE <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+      </a>
+      <a class="tm-explore-tile" style="--tile-color: #0284c7; --tile-glow: rgba(2, 132, 199, 0.3);" href="/venues/">
+        <i data-lucide="building-2" aria-hidden="true"></i>
+        <span>VENUES <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+      </a>
+      <a class="tm-explore-tile" style="--tile-color: #22c55e; --tile-glow: rgba(34, 197, 94, 0.3);" href="/points-table/">
+        <i data-lucide="trophy" aria-hidden="true"></i>
+        <span>POINTS TABLE <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 7: CPL 2026 TEAMS FAQ -->
+  <section>
+    <h2 class="tm-sec-title">CPL 2026 TEAMS FAQ</h2>
+    <div class="tm-faq-list">
+      ${teamFaqs.map((faq) => `
+        <details class="tm-faq-item">
+          <summary>${escapeHtml(faq.question)} <i data-lucide="plus" aria-hidden="true"></i></summary>
+          <p>${escapeHtml(faq.answer)}</p>
+        </details>
+      `).join('')}
+    </div>
   </section>
 </main>`;
 }
