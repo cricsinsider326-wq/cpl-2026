@@ -50,7 +50,12 @@ function loadTournamentData(root) {
   data.playerProfileBySlug = new Map(data.playerProfiles.profiles.map((record) => [record.playerSlug, record]));
   data.players = data.players.map((player) => {
     const profile = data.playerProfileBySlug.get(player.slug);
-    return profile ? { ...player, nationality: profile.nationality, profile } : player;
+    return profile ? {
+      ...player,
+      nationality: profile.nationality,
+      role: player.role === "Role to be confirmed" && profile.playingRole ? profile.playingRole : player.role,
+      profile
+    } : player;
   });
   data.sourcesById = new Map(data.sources.map((source) => [source.id, source]));
   return data;

@@ -65,6 +65,7 @@ function validateTournamentData(data) {
   const squadsByCode = new Map(data.squads.teams.map((squad) => [squad.teamCode, squad]));
   const playerNames = new Set();
   const playerProfileSlugs = new Set();
+  const profileBySlug = new Map((data.playerProfiles?.profiles || []).map((profile) => [profile.playerSlug, profile]));
   for (const player of data.players) {
     if (playerNames.has(player.name)) errors.push(`Duplicate player record: ${player.name}`);
     playerNames.add(player.name);
@@ -82,6 +83,11 @@ function validateTournamentData(data) {
     }
     if (!isConfirmed(player, sourcesById)) {
       errors.push(`Player ${player.name} lacks a confirmed roster source.`);
+    }
+    const profile = profileBySlug.get(player.slug);
+    if (!profile) errors.push(`Player ${player.name} is missing a profile data record.`);
+    if (profile && (!profile.playingRole || !profile.nationality || !profile.squadStatus || !profile.overview)) {
+      errors.push(`Player ${player.name} has an incomplete profile data record.`);
     }
   }
   for (const squad of data.squads.teams) {

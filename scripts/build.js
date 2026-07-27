@@ -290,6 +290,7 @@ function build() {
 
   for (const player of data.players) {
     const playerTeam = data.teams.find((team) => team.name === player.team);
+    const playerProfile = player.profile || data.playerProfileBySlug.get(player.slug) || {};
     writePage(`players/${player.slug}`, page({
       data,
       route: `players/${player.slug}`,
@@ -299,8 +300,11 @@ function build() {
         "@type": "Person",
         name: player.name,
         jobTitle: player.role,
+        description: playerProfile.overview || `${player.name} is listed with ${player.team} for CPL 2026.`,
+        ...(playerProfile.nationality && playerProfile.nationality !== "To be confirmed" ? { nationality: playerProfile.nationality } : {}),
+        ...(playerProfile.dateOfBirth ? { birthDate: playerProfile.dateOfBirth } : {}),
         ...(player.photo ? { image: `${data.site.siteUrl.replace(/\/$/, "")}${player.photo}` } : {}),
-        ...(player.imageSourcePage ? { sameAs: [player.imageSourcePage] } : {}),
+        ...((playerProfile.sourceUrl || player.imageSourcePage) ? { sameAs: [playerProfile.sourceUrl || player.imageSourcePage] } : {}),
         affiliation: {
           "@type": "SportsTeam",
           name: player.team,

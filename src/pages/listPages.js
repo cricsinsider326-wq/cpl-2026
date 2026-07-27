@@ -680,31 +680,31 @@ function teamListing(data) {
     <!-- Top 7 Team Flags Bar -->
     <div class="tm-hero-flags">
       <div class="tm-flag-item">
-        <div class="tm-flag-banner" style="--flag-bg: rgba(255, 208, 0, 0.2); --flag-border: #ffd000;"><img src="/assets/images/teams/jamaica-kingsmen.png" alt="Jamaica Kingsmen" width="32" height="24"></div>
+        <div class="tm-flag-banner" style="--flag-bg: rgba(255, 208, 0, 0.2); --flag-border: #ffd000;"><img src="/assets/images/teams/jamaica-kingsmen.webp" alt="Jamaica Kingsmen" width="32" height="24"></div>
         <div class="tm-flag-pole"></div>
       </div>
       <div class="tm-flag-item">
-        <div class="tm-flag-banner" style="--flag-bg: rgba(239, 68, 68, 0.2); --flag-border: #ef4444;"><img src="/assets/images/teams/antigua-barbuda-falcons.png" alt="Antigua Falcons" width="32" height="24"></div>
+        <div class="tm-flag-banner" style="--flag-bg: rgba(239, 68, 68, 0.2); --flag-border: #ef4444;"><img src="/assets/images/teams/antigua-and-barbuda-falcons.webp" alt="Antigua Falcons" width="32" height="24"></div>
         <div class="tm-flag-pole"></div>
       </div>
       <div class="tm-flag-item">
-        <div class="tm-flag-banner" style="--flag-bg: rgba(168, 85, 247, 0.2); --flag-border: #a855f7;"><img src="/assets/images/teams/trinbago-knight-riders.png" alt="Trinbago Knight Riders" width="32" height="24"></div>
+        <div class="tm-flag-banner" style="--flag-bg: rgba(168, 85, 247, 0.2); --flag-border: #a855f7;"><img src="/assets/images/teams/trinbago-knight-riders.webp" alt="Trinbago Knight Riders" width="32" height="24"></div>
         <div class="tm-flag-pole"></div>
       </div>
       <div class="tm-flag-item">
-        <div class="tm-flag-banner" style="--flag-bg: rgba(2, 132, 199, 0.2); --flag-border: #0284c7;"><img src="/assets/images/teams/saint-lucia-kings.png" alt="Saint Lucia Kings" width="32" height="24"></div>
+        <div class="tm-flag-banner" style="--flag-bg: rgba(2, 132, 199, 0.2); --flag-border: #0284c7;"><img src="/assets/images/teams/saint-lucia-kings.webp" alt="Saint Lucia Kings" width="32" height="24"></div>
         <div class="tm-flag-pole"></div>
       </div>
       <div class="tm-flag-item">
-        <div class="tm-flag-banner" style="--flag-bg: rgba(34, 197, 94, 0.2); --flag-border: #22c55e;"><img src="/assets/images/teams/st-kitts-nevis-patriots.png" alt="St Kitts Patriots" width="32" height="24"></div>
+        <div class="tm-flag-banner" style="--flag-bg: rgba(34, 197, 94, 0.2); --flag-border: #22c55e;"><img src="/assets/images/teams/st-kitts-nevis-patriots.webp" alt="St Kitts Patriots" width="32" height="24"></div>
         <div class="tm-flag-pole"></div>
       </div>
       <div class="tm-flag-item">
-        <div class="tm-flag-banner" style="--flag-bg: rgba(20, 184, 166, 0.2); --flag-border: #14b8a6;"><img src="/assets/images/teams/guyana-amazon-warriors.png" alt="Guyana Warriors" width="32" height="24"></div>
+        <div class="tm-flag-banner" style="--flag-bg: rgba(20, 184, 166, 0.2); --flag-border: #14b8a6;"><img src="/assets/images/teams/guyana-amazon-warriors.webp" alt="Guyana Warriors" width="32" height="24"></div>
         <div class="tm-flag-pole"></div>
       </div>
       <div class="tm-flag-item">
-        <div class="tm-flag-banner" style="--flag-bg: rgba(234, 179, 8, 0.2); --flag-border: #eab308;"><img src="/assets/images/teams/barbados-tridents.png" alt="Barbados Tridents" width="32" height="24"></div>
+        <div class="tm-flag-banner" style="--flag-bg: rgba(234, 179, 8, 0.2); --flag-border: #eab308;"><img src="/assets/images/teams/barbados-tridents.webp" alt="Barbados Tridents" width="32" height="24"></div>
         <div class="tm-flag-pole"></div>
       </div>
     </div>
@@ -861,6 +861,13 @@ function teamListing(data) {
 function teamDetail(data, team) {
   const teamFixtures = data.fixtures.filter((match) => match.teamA === team.code || match.teamB === team.code);
   const squad = data.squadByTeam.get(team.code);
+  const squadPlayers = data.players.filter((player) => player.teamCode === team.code);
+  const overseasPlayers = squadPlayers.filter((player) => player.nationality && player.nationality !== "West Indies");
+  const roleCounts = squadPlayers.reduce((counts, player) => {
+    const key = playerRoleKey(player.role).split(" ")[0] || "pending";
+    counts[key] = (counts[key] || 0) + 1;
+    return counts;
+  }, {});
   const squadSources = sourceRecordsFor(data, squad);
   const venue = data.venues.find((item) => item.name === team.homeVenue);
   const teamNews = relatedTeamNews(data, team);
@@ -882,6 +889,13 @@ function teamDetail(data, team) {
       <dl>
         <div><dt>Short code</dt><dd>${escapeHtml(team.code)}</dd></div><div><dt>Captain</dt><dd>${escapeHtml(displayValue(squad?.captain))}</dd></div><div><dt>Coach</dt><dd>${escapeHtml(displayValue(squad?.coach))}</dd></div><div><dt>Verified players</dt><dd>${squad?.players.length || 0}</dd></div>
       </dl>
+    </section>
+    <section class="team-squad-composition" aria-label="${escapeHtml(team.name)} squad composition">
+      <div><small>Batters</small><strong>${roleCounts.batter || 0}</strong></div>
+      <div><small>Wicketkeepers</small><strong>${roleCounts.wicketkeeper || 0}</strong></div>
+      <div><small>All-rounders</small><strong>${roleCounts.allrounder || 0}</strong></div>
+      <div><small>Bowlers</small><strong>${roleCounts.bowler || 0}</strong></div>
+      <div><small>Overseas confirmed</small><strong>${overseasPlayers.length}</strong><span>of up to 5</span></div>
     </section>
     ${renderDataState({
       label: `${team.name} squad`,
@@ -1107,7 +1121,9 @@ function calculateAge(dateOfBirth) {
 
 function formatProfileDate(dateOfBirth) {
   if (!dateOfBirth) return "To be confirmed";
-  return new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${dateOfBirth}T00:00:00Z`));
+  const date = new Date(`${dateOfBirth}T00:00:00Z`);
+  if (isNaN(date.getTime())) return escapeHtml(String(dateOfBirth));
+  return new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(date);
 }
 
 function playerRelatedNews(data, player) {
@@ -1121,6 +1137,7 @@ function playerDetail(data, player) {
   const squad = team ? data.squadByTeam.get(team.code) : null;
   const profile = player.profile || data.playerProfileBySlug.get(player.slug) || {};
   const relatedNews = playerRelatedNews(data, player);
+  const relatedPlayers = data.players.filter((candidate) => candidate.teamCode === player.teamCode && candidate.slug !== player.slug).slice(0, 4);
   const profileImage = player.heroPhoto || player.photo;
   const profileImageMarkup = profileImage
     ? `<img src="${escapeHtml(profileImage)}" alt="${escapeHtml(player.imageAlt || `${player.name} ${player.team} CPL player portrait`)}" width="1120" height="1536" decoding="async" fetchpriority="high" />`
@@ -1166,6 +1183,13 @@ function playerDetail(data, player) {
   const careerTable = careerRows.length ? `<div class="pp-table-wrap"><table><thead><tr><th>Format</th><th>Mat</th><th>Inns</th><th>Runs</th><th>Avg</th><th>SR</th><th>HS</th></tr></thead><tbody>${careerRows.map((row) => `<tr>${row.map((value) => `<td>${escapeHtml(String(value))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : `<p class="pp-empty">Verified CPL career statistics are not available for this profile yet.</p>`;
   const performancesTable = performanceRows.length ? `<div class="pp-table-wrap"><table><thead><tr><th>Date</th><th>Opponent</th><th>Batting</th><th>Bowling</th></tr></thead><tbody>${performanceRows.map((match) => `<tr><td>${escapeHtml(match.date)}</td><td>${escapeHtml(match.opponent)}</td><td>${escapeHtml(match.batting)}</td><td>${escapeHtml(match.bowling)}</td></tr>`).join("")}</tbody></table></div>` : `<p class="pp-empty">Recent CPL performances will appear after a verified scorecard source is attached.</p>`;
   const newsMarkup = relatedNews.length ? relatedNews.map((item) => `<a class="pp-news-item" href="/news/${escapeHtml(item.slug)}/"><img src="${escapeHtml(item.image)}" alt="" width="116" height="72" loading="lazy" decoding="async" /><span><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.date)}</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></a>`).join("") : `<p class="pp-empty">No verified player-specific CPL 2026 news has been published yet.</p>`;
+  const relatedPlayersMarkup = relatedPlayers.map((candidate) => {
+    const image = candidate.heroPhoto || candidate.photo;
+    return `<a class="pp-related-player" href="/players/${escapeHtml(candidate.slug)}/">
+      <span>${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(candidate.imageAlt || `${candidate.name} CPL player portrait`)}" width="280" height="384" loading="lazy" decoding="async" />` : `<b>${escapeHtml(candidate.initials)}</b>`}</span>
+      <strong>${escapeHtml(candidate.name)}</strong><small>${escapeHtml(candidate.role)}</small><i data-lucide="arrow-right" aria-hidden="true"></i>
+    </a>`;
+  }).join("");
 
   return `<main class="player-profile" style="--team-accent:${escapeHtml(team?.accent || "#7a3ff2")}">
     <section class="pp-hero" aria-labelledby="player-profile-title">
@@ -1195,6 +1219,10 @@ function playerDetail(data, player) {
         <div id="pp-panel-news" role="tabpanel" aria-labelledby="pp-tab-news" data-panel="news" hidden><article class="pp-card"><p class="eyebrow">Related coverage</p><h2>${escapeHtml(player.name)} News</h2>${newsMarkup}</article></div>
         <div id="pp-panel-videos" role="tabpanel" aria-labelledby="pp-tab-videos" data-panel="videos" hidden><article class="pp-card"><p class="eyebrow">Video archive</p><h2>${escapeHtml(player.name)} Videos</h2><p class="pp-empty">No verified video has been added to this player profile yet.</p></article></div>
       </div>
+    </section>
+    <section class="pp-related" aria-labelledby="related-players-title">
+      <div class="team-silo-heading"><div><p class="eyebrow">Same squad</p><h2 id="related-players-title">Related ${escapeHtml(player.team)} Players</h2></div><a href="/teams/${escapeHtml(team?.slug || "")}/#squad">View full squad <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+      <div class="pp-related-grid">${relatedPlayersMarkup}</div>
     </section>
     <nav class="team-related-links" aria-label="Related player guides"><a href="/players/">All CPL players</a><a href="/player-stats/">Player statistics</a><a href="/fixtures/">CPL schedule</a><a href="/live-score/">CPL live score</a></nav>
   </main>`;
