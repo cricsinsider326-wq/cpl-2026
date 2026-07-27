@@ -111,7 +111,7 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     : route === "" || route === "cpl-2026"
       ? `${imageBase}/assets/images/players/cpl-2026-players-hero.webp`
     : `${imageBase}/assets/images/hero/cpl-2026-css-hero-reference.webp`;
-  const cssVersion = "20260726-teams-redesign1";
+  const cssVersion = "20260727-teams-v3";
   const jsVersion = route === "players"
     ? "20260726-players-squads-reference1"
     : "20260726-mobile-perf2";

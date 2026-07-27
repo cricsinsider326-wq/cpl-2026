@@ -135,7 +135,83 @@ function teamListing(data) {
     { question: "How often is this teams page updated?", answer: "All team rosters, captains, home venues, and news update immediately after official announcements." }
   ];
 
-  return `<main class="teams-directory" data-teams-directory>
+  return `<style>
+.tm-hero {
+  background: linear-gradient(135deg, #0b0f19 0%, #1e1b4b 50%, #0f172a 100%);
+  padding: 60px 32px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+}
+.tm-hero-copy .eyebrow { color: #ffd000; font-family: "Barlow Condensed", sans-serif; font-size: 1.1rem; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
+.tm-hero-copy h1 { font-family: "Barlow Condensed", sans-serif; font-size: 3.2rem; font-weight: 900; color: #fff; margin: 0 0 12px; letter-spacing: -0.5px; line-height: 1; }
+.tm-hero-copy p { color: #cbd5e1; font-size: 1.1rem; max-width: 680px; margin: 0 0 24px; line-height: 1.5; }
+.tm-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+.tm-hero-chips { display: flex; gap: 24px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.tm-hero-chips div { display: flex; align-items: center; gap: 10px; color: #cbd5e1; font-size: 0.95rem; }
+.tm-hero-chips svg { color: #ffd000; width: 20px; height: 20px; }
+.tm-hero-chips strong { color: #fff; font-size: 1.2rem; font-family: "Barlow Condensed", sans-serif; }
+.tm-section { margin-bottom: 48px; }
+.tm-section-header { margin-bottom: 24px; }
+.tm-section-header h2 { font-family: "Barlow Condensed", sans-serif; font-size: 2.2rem; font-weight: 900; color: #fff; margin: 0 0 6px; letter-spacing: 0.5px; text-transform: uppercase; }
+.tm-section-header p { color: #cbd5e1; font-size: 1rem; margin: 0; }
+.tm-banner-list { display: flex; flex-direction: column; gap: 14px; }
+.tm-banner-card { display: grid; grid-template-columns: 280px minmax(0, 1fr) 180px; align-items: center; gap: 20px; padding: 16px 24px; background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(8, 13, 26, 0.9) 100%); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 5px solid var(--team-accent, #6c24df); border-radius: 10px; transition: transform 0.2s ease, border-color 0.2s ease; }
+.tm-banner-card:hover { transform: translateX(4px); border-color: rgba(255, 255, 255, 0.25); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); }
+.tm-banner-identity { display: flex; align-items: center; gap: 16px; }
+.tm-banner-identity h3 { font-family: "Barlow Condensed", sans-serif; font-size: 1.45rem; font-weight: 900; color: var(--team-accent, #ffd000); margin: 0; line-height: 1.1; }
+.tm-banner-details .tm-location { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 800; color: #ffd000; letter-spacing: 0.5px; margin-bottom: 4px; }
+.tm-banner-details p { color: #cbd5e1; font-size: 0.9rem; line-height: 1.4; margin: 0; }
+.tm-banner-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--team-accent, rgba(255, 255, 255, 0.25)); border-radius: 6px; color: #fff; font-family: "Barlow Condensed", sans-serif; font-size: 0.95rem; font-weight: 800; text-decoration: none; transition: all 0.2s ease; }
+.tm-banner-btn:hover { background: var(--team-accent, #6c24df); color: #fff; box-shadow: 0 0 14px rgba(108, 36, 223, 0.4); }
+.tm-guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.tm-guide-card { padding: 28px; background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; }
+.tm-guide-card h3 { font-family: "Barlow Condensed", sans-serif; font-size: 1.5rem; font-weight: 900; color: #ffd000; margin: 0 0 10px; }
+.tm-guide-card p { color: #cbd5e1; font-size: 0.92rem; line-height: 1.55; margin: 0; }
+.tm-table-wrap { overflow-x: auto; }
+.tm-compare-table { width: 100%; border-collapse: collapse; }
+.tm-compare-table th { padding: 12px 18px; background: #1e1b4b; color: #a963ff; font-family: "Barlow Condensed", sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: 0.5px; text-align: left; }
+.tm-compare-table td { padding: 14px 18px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1; font-size: 0.92rem; }
+.tm-table-team { display: flex; align-items: center; gap: 12px; }
+.tm-table-team strong { font-family: "Barlow Condensed", sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--team-accent, #fff); }
+.tm-table-link { color: #ffd000; font-family: "Barlow Condensed", sans-serif; font-size: 0.92rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.tm-table-link:hover { color: #fff; }
+.tm-news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tm-news-card { padding: 20px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 10px; text-decoration: none; transition: transform 0.2s ease, border-color 0.2s ease; }
+.tm-news-card:hover { transform: translateY(-4px); border-color: #a963ff; }
+.tm-news-card time { display: block; font-size: 0.75rem; color: #94a3b8; margin-bottom: 4px; }
+.tm-news-cat { display: inline-block; font-size: 0.72rem; font-weight: 800; color: #ffd000; letter-spacing: 0.5px; margin-bottom: 8px; }
+.tm-news-card h3 { font-family: "Barlow Condensed", sans-serif; font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0; line-height: 1.3; display: flex; align-items: center; justify-content: space-between; }
+.tm-explore-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.tm-explore-tile { display: flex; flex-direction: column; gap: 12px; padding: 20px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 10px; text-decoration: none; transition: transform 0.2s ease; }
+.tm-explore-tile:hover { transform: translateY(-4px); }
+.tm-explore-tile svg { width: 32px; height: 32px; }
+.tm-explore-tile strong { font-family: "Barlow Condensed", sans-serif; font-size: 1.15rem; font-weight: 800; color: #fff; display: flex; align-items: center; justify-content: space-between; }
+.tile-purple { border-top: 4px solid #a963ff; }
+.tile-purple svg { color: #a963ff; }
+.tile-yellow { border-top: 4px solid #ffd000; }
+.tile-yellow svg { color: #ffd000; }
+.tile-blue { border-top: 4px solid #38bdf8; }
+.tile-blue svg { color: #38bdf8; }
+.tile-green { border-top: 4px solid #34d399; }
+.tile-green svg { color: #34d399; }
+.tm-faq-list { display: flex; flex-direction: column; gap: 10px; }
+.tm-faq-item { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 8px; overflow: hidden; }
+.tm-faq-item summary { padding: 16px 20px; font-family: "Barlow Condensed", sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.tm-faq-item p { padding: 0 20px 16px; color: #cbd5e1; font-size: 0.9rem; line-height: 1.55; margin: 0; }
+@media (max-width: 1024px) {
+  .tm-banner-card { grid-template-columns: 1fr; gap: 12px; }
+  .tm-guide-grid { grid-template-columns: 1fr; }
+  .tm-news-grid { grid-template-columns: 1fr; }
+  .tm-explore-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .tm-explore-grid { grid-template-columns: 1fr; }
+  .tm-hero { padding: 40px 20px; }
+}
+</style>
+<main class="teams-directory" data-teams-directory>
     <!-- Section 1: Hero -->
     <section class="tm-hero" aria-labelledby="tm-hero-title">
       <div class="tm-hero-copy">
