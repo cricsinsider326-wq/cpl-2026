@@ -151,102 +151,164 @@ function teamListing(data) {
 /* Section 1: Hero Header */
 .tm-hero-sec {
   position: relative;
-  background: radial-gradient(circle at 50% 20%, rgba(30, 41, 89, 0.9) 0%, rgba(8, 12, 26, 0.98) 100%),
+  background: radial-gradient(circle at 50% 20%, rgba(30, 41, 89, 0.95) 0%, rgba(8, 12, 26, 0.98) 100%),
               url('/assets/images/hero/cpl-2026-css-hero-reference.webp') center/cover no-repeat;
-  padding: 60px 24px 40px;
-  border-radius: 20px;
+  padding: 30px 24px 40px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   text-align: center;
   margin-bottom: 50px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
 }
+
+/* Hero 7 Flags Bar */
+.tm-hero-flags {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-top: 10px;
+}
+.tm-flag-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.tm-flag-item:hover {
+  transform: translateY(-4px);
+}
+.tm-flag-banner {
+  width: 44px;
+  height: 30px;
+  background: var(--flag-bg, rgba(255, 255, 255, 0.1));
+  border: 1px solid var(--flag-border, rgba(255, 255, 255, 0.3));
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  position: relative;
+}
+.tm-flag-banner img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.tm-flag-pole {
+  width: 2px;
+  height: 45px;
+  background: linear-gradient(180deg, #94a3b8 0%, #334155 100%);
+  border-radius: 1px;
+  margin-top: -5px;
+}
+
 .tm-hero-sec h1 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 900;
   color: #ffffff;
   margin: 0 0 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  line-height: 1;
 }
 .tm-hero-sec p {
   color: #cbd5e1;
   font-size: 1.15rem;
   max-width: 680px;
-  margin: 0 auto 30px;
+  margin: 0 auto 28px;
   line-height: 1.5;
 }
 .tm-hero-actions {
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
   flex-wrap: wrap;
 }
 .tm-btn-gold {
-  background: #ffd000;
+  background: #ffd100;
   color: #0b0f19;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 900;
-  padding: 12px 28px;
-  border-radius: 8px;
+  padding: 12px 32px;
+  border-radius: 6px;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 20px rgba(255, 208, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 209, 0, 0.3);
   transition: all 0.2s ease;
 }
 .tm-btn-gold:hover {
   background: #ffe033;
   transform: translateY(-2px);
 }
-.tm-btn-outline {
-  background: rgba(99, 102, 241, 0.15);
-  border: 1px solid rgba(165, 180, 252, 0.4);
-  color: #c7d2fe;
+.tm-btn-purple {
+  background: linear-gradient(135deg, #6c1d99 0%, #4b1277 100%);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #ffffff;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 900;
-  padding: 12px 28px;
-  border-radius: 8px;
+  padding: 12px 32px;
+  border-radius: 6px;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(108, 29, 153, 0.4);
   transition: all 0.2s ease;
 }
-.tm-btn-outline:hover {
-  background: rgba(99, 102, 241, 0.3);
-  color: #ffffff;
+.tm-btn-purple:hover {
+  background: linear-gradient(135deg, #7c22b3 0%, #58168c 100%);
   transform: translateY(-2px);
 }
 .tm-hero-stats {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(8, 12, 26, 0.85);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 14px 32px;
-  border-radius: 40px;
-  flex-wrap: wrap;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 24px;
+  border-radius: 10px;
+  flex-wrap: flex;
 }
 .tm-stat-item {
   display: flex;
   align-items: center;
   gap: 10px;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #f1f5f9;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  padding: 4px 18px;
+}
+.tm-stat-item:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+.tm-stat-item i {
+  color: #94a3b8;
+  width: 20px;
+  height: 20px;
+}
+.tm-stat-num {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-right: 2px;
 }
 .tm-stat-item i {
   color: #ffd000;
@@ -614,16 +676,48 @@ function teamListing(data) {
 <main class="tm-page" data-teams-directory>
   <!-- Section 1: Hero Header -->
   <section class="tm-hero-sec">
+    <!-- Top 7 Team Flags Bar -->
+    <div class="tm-hero-flags">
+      <div class="tm-flag-item">
+        <div class="tm-flag-banner" style="--flag-bg: rgba(255, 208, 0, 0.2); --flag-border: #ffd000;"><img src="/assets/images/teams/jamaica-kingsmen.png" alt="Jamaica Kingsmen" width="32" height="24"></div>
+        <div class="tm-flag-pole"></div>
+      </div>
+      <div class="tm-flag-item">
+        <div class="tm-flag-banner" style="--flag-bg: rgba(239, 68, 68, 0.2); --flag-border: #ef4444;"><img src="/assets/images/teams/antigua-barbuda-falcons.png" alt="Antigua Falcons" width="32" height="24"></div>
+        <div class="tm-flag-pole"></div>
+      </div>
+      <div class="tm-flag-item">
+        <div class="tm-flag-banner" style="--flag-bg: rgba(168, 85, 247, 0.2); --flag-border: #a855f7;"><img src="/assets/images/teams/trinbago-knight-riders.png" alt="Trinbago Knight Riders" width="32" height="24"></div>
+        <div class="tm-flag-pole"></div>
+      </div>
+      <div class="tm-flag-item">
+        <div class="tm-flag-banner" style="--flag-bg: rgba(2, 132, 199, 0.2); --flag-border: #0284c7;"><img src="/assets/images/teams/saint-lucia-kings.png" alt="Saint Lucia Kings" width="32" height="24"></div>
+        <div class="tm-flag-pole"></div>
+      </div>
+      <div class="tm-flag-item">
+        <div class="tm-flag-banner" style="--flag-bg: rgba(34, 197, 94, 0.2); --flag-border: #22c55e;"><img src="/assets/images/teams/st-kitts-nevis-patriots.png" alt="St Kitts Patriots" width="32" height="24"></div>
+        <div class="tm-flag-pole"></div>
+      </div>
+      <div class="tm-flag-item">
+        <div class="tm-flag-banner" style="--flag-bg: rgba(20, 184, 166, 0.2); --flag-border: #14b8a6;"><img src="/assets/images/teams/guyana-amazon-warriors.png" alt="Guyana Warriors" width="32" height="24"></div>
+        <div class="tm-flag-pole"></div>
+      </div>
+      <div class="tm-flag-item">
+        <div class="tm-flag-banner" style="--flag-bg: rgba(234, 179, 8, 0.2); --flag-border: #eab308;"><img src="/assets/images/teams/barbados-tridents.png" alt="Barbados Tridents" width="32" height="24"></div>
+        <div class="tm-flag-pole"></div>
+      </div>
+    </div>
+
     <h1>CPL 2026 TEAMS</h1>
     <p>Explore all seven Caribbean Premier League teams, their home bases, histories and 2026 season guides.</p>
     <div class="tm-hero-actions">
       <a href="#meet-teams" class="tm-btn-gold">EXPLORE TEAMS</a>
-      <a href="/fixtures/" class="tm-btn-outline"><i data-lucide="calendar" aria-hidden="true"></i> VIEW SCHEDULE</a>
+      <a href="/fixtures/" class="tm-btn-purple"><i data-lucide="calendar" aria-hidden="true"></i> VIEW SCHEDULE</a>
     </div>
     <div class="tm-hero-stats">
-      <div class="tm-stat-item"><i data-lucide="users" aria-hidden="true"></i> <span>7 TEAMS</span></div>
-      <div class="tm-stat-item"><i data-lucide="circle-dot" aria-hidden="true"></i> <span>39 MATCHES</span></div>
-      <div class="tm-stat-item"><i data-lucide="calendar" aria-hidden="true"></i> <span>7 AUG - 20 SEP 2026</span></div>
+      <div class="tm-stat-item"><i data-lucide="users" aria-hidden="true"></i> <span class="tm-stat-num">7</span> <span>TEAMS</span></div>
+      <div class="tm-stat-item"><i data-lucide="circle-dot" aria-hidden="true"></i> <span class="tm-stat-num">39</span> <span>MATCHES</span></div>
+      <div class="tm-stat-item"><i data-lucide="calendar" aria-hidden="true"></i> <span>7 AUG – 20 SEP 2026</span></div>
     </div>
   </section>
 
