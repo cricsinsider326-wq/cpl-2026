@@ -308,8 +308,11 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
-    "status": "verified"
+    "artworkStatus": "ready",
+    "status": "verified",
+    "heroPhoto": "/assets/images/players/vitel-lawes-desktop-art.webp",
+    "imageAlt": "Vitel Lawes CPL player portrait",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Romaine Morris",
@@ -348,8 +351,11 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
-    "status": "verified"
+    "artworkStatus": "ready",
+    "status": "verified",
+    "heroPhoto": "/assets/images/players/kirk-mckenzie-desktop-art.webp",
+    "imageAlt": "Kirk McKenzie CPL player portrait",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Kelvin Pitman",
@@ -368,8 +374,11 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
-    "status": "verified"
+    "artworkStatus": "ready",
+    "status": "verified",
+    "heroPhoto": "/assets/images/players/kelvin-pitman-desktop-art.webp",
+    "imageAlt": "Kelvin Pitman CPL player portrait",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Jeavor Royal",
@@ -550,8 +559,11 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
-    "status": "verified"
+    "artworkStatus": "ready",
+    "status": "verified",
+    "heroPhoto": "/assets/images/players/jyd-goolie-desktop-art.webp",
+    "imageAlt": "Jyd Goolie CPL player portrait",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Dexter Sween",
@@ -1089,13 +1101,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/sherfane-rutherford.webp",
-    "imageAlt": "Sherfane Rutherford CPL 2026 player portrait",
+    "imageAlt": "Sherfane Rutherford CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/sherfane-rutherford-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Brandon King",
@@ -1115,13 +1129,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/brandon-king.webp",
-    "imageAlt": "Brandon King CPL 2026 player portrait",
+    "imageAlt": "Brandon King CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/brandon-king-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Zachary Carter",
@@ -1167,13 +1183,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/kadeem-alleyne.webp",
-    "imageAlt": "Kadeem Alleyne CPL 2026 player portrait",
+    "imageAlt": "Kadeem Alleyne CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/kadeem-alleyne-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Ramon Simmonds",
@@ -1214,13 +1232,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/shadrack-descarte.webp",
-    "imageAlt": "Shadrack Descarte CPL 2026 player portrait",
+    "imageAlt": "Shadrack Descarte CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/shadrack-descarte-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Rivaldo Clarke",
@@ -1240,13 +1260,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/rivaldo-clarke.webp",
-    "imageAlt": "Rivaldo Clarke CPL 2026 player portrait",
+    "imageAlt": "Rivaldo Clarke CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/rivaldo-clarke-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Zishan Motara",
@@ -1266,13 +1288,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/zishan-motara.webp",
-    "imageAlt": "Zishan Motara CPL 2026 player portrait",
+    "imageAlt": "Zishan Motara CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/zishan-motara-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Jakeem Pollard",
@@ -1318,13 +1342,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/johann-layne.webp",
-    "imageAlt": "Johann Layne CPL 2026 player portrait",
+    "imageAlt": "Johann Layne CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/johann-layne-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Kofi James",
@@ -1344,13 +1370,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/kofi-james.webp",
-    "imageAlt": "Kofi James CPL 2026 player portrait",
+    "imageAlt": "Kofi James CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/kofi-james-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Quinton de Kock",
@@ -1370,13 +1398,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/quinton-de-kock.webp",
-    "imageAlt": "Quinton de Kock CPL 2026 player portrait",
+    "imageAlt": "Quinton de Kock CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/quinton-de-kock-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Chris Green",
@@ -1396,13 +1426,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/chris-green.webp",
-    "imageAlt": "Chris Green CPL 2026 player portrait",
+    "imageAlt": "Chris Green CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/chris-green-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Mujeeb ur Rahman",
@@ -1422,13 +1454,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/mujeeb-ur-rahman.webp",
-    "imageAlt": "Mujeeb ur Rahman CPL 2026 player portrait",
+    "imageAlt": "Mujeeb ur Rahman CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/mujeeb-ur-rahman-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "George Linde",
@@ -1448,13 +1482,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/george-linde.webp",
-    "imageAlt": "George Linde CPL 2026 player portrait",
+    "imageAlt": "George Linde CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/george-linde-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Daniel Sams",
@@ -1474,13 +1510,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/daniel-sams.webp",
-    "imageAlt": "Daniel Sams CPL 2026 player portrait",
+    "imageAlt": "Daniel Sams CPL player portrait",
     "imageSourceType": "official-franchise",
     "imageSourcePage": "https://www.barbadosroyals.com/team",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/daniel-sams-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Roston Chase",
@@ -1500,13 +1538,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/roston-chase.webp",
-    "imageAlt": "Roston Chase CPL 2026 player portrait",
+    "imageAlt": "Roston Chase CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/roston-chase-2168/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/roston-chase-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Jewel Andrew",
@@ -1526,8 +1566,11 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
-    "status": "verified"
+    "artworkStatus": "ready",
+    "status": "verified",
+    "heroPhoto": "/assets/images/players/jewel-andrew-desktop-art.webp",
+    "imageAlt": "Jewel Andrew CPL player portrait",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Matthew Forde",
@@ -1631,13 +1674,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/joshua-bishop.webp",
-    "imageAlt": "Joshua Bishop CPL 2026 player portrait",
+    "imageAlt": "Joshua Bishop CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/joshua-bishop-2434/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/joshua-bishop-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Damion Joachim",
@@ -1762,13 +1807,15 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/noor-ahmad.webp",
-    "imageAlt": "Noor Ahmad CPL 2026 player portrait",
+    "imageAlt": "Noor Ahmad CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.acb.af/en-US/afghan-atalan",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/noor-ahmad-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Tim Seifert",
@@ -1809,8 +1856,11 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
-    "status": "verified"
+    "artworkStatus": "ready",
+    "status": "verified",
+    "heroPhoto": "/assets/images/players/maheesh-theekshana-desktop-art.webp",
+    "imageAlt": "Maheesh Theekshana CPL player portrait",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Charith Asalanka",
@@ -1830,8 +1880,11 @@
     "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
-    "status": "verified"
+    "artworkStatus": "ready",
+    "status": "verified",
+    "heroPhoto": "/assets/images/players/charith-asalanka-desktop-art.webp",
+    "imageAlt": "Charith Asalanka CPL player portrait",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Shadley van Schalkwyk",
@@ -1871,13 +1924,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/johnson-charles.webp",
-    "imageAlt": "Johnson Charles CPL 2026 player portrait",
+    "imageAlt": "Johnson Charles CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/johnson-charles-2239/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/johnson-charles-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Jason Holder",
@@ -1896,13 +1951,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/jason-holder.webp",
-    "imageAlt": "Jason Holder CPL 2026 player portrait",
+    "imageAlt": "Jason Holder CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/jason-holder-3425/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/jason-holder-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Kyle Mayers",
@@ -1921,13 +1978,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/kyle-mayers.webp",
-    "imageAlt": "Kyle Mayers CPL 2026 player portrait",
+    "imageAlt": "Kyle Mayers CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/kyle-mayers-3822/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/kyle-mayers-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Andre Fletcher",
@@ -1946,13 +2005,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/andre-fletcher.webp",
-    "imageAlt": "Andre Fletcher CPL 2026 player portrait",
+    "imageAlt": "Andre Fletcher CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/andre-fletcher-2488/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/andre-fletcher-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Kevin Wickham",
@@ -1971,13 +2032,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/kevin-wickham.webp",
-    "imageAlt": "Kevin Wickham CPL 2026 player portrait",
+    "imageAlt": "Kevin Wickham CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/kevin-wickham-17180/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/kevin-wickham-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Obed McCoy",
@@ -1996,13 +2059,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/obed-mccoy.webp",
-    "imageAlt": "Obed McCoy CPL 2026 player portrait",
+    "imageAlt": "Obed McCoy CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/obed-mccoy-3833/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/obed-mccoy-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Ashmead Nedd",
@@ -2021,13 +2086,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/ashmead-nedd.webp",
-    "imageAlt": "Ashmead Nedd CPL 2026 player portrait",
+    "imageAlt": "Ashmead Nedd CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/ashmead-nedd-3961/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/ashmead-nedd-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Jeremiah Louis",
@@ -2046,13 +2113,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/jeremiah-louis.webp",
-    "imageAlt": "Jeremiah Louis CPL 2026 player portrait",
+    "imageAlt": "Jeremiah Louis CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/jeremiah-louis-3692/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/jeremiah-louis-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Alick Athanaze",
@@ -2071,13 +2140,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/alick-athanaze.webp",
-    "imageAlt": "Alick Athanaze CPL 2026 player portrait",
+    "imageAlt": "Alick Athanaze CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/alick-athanaze-2530/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/alick-athanaze-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Micah McKenzie",
@@ -2156,13 +2227,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/evin-lewis.webp",
-    "imageAlt": "Evin Lewis CPL 2026 player portrait",
+    "imageAlt": "Evin Lewis CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/evin-lewis-3731/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/evin-lewis-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Fabian Allen",
@@ -2181,13 +2254,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/fabian-allen.webp",
-    "imageAlt": "Fabian Allen CPL 2026 player portrait",
+    "imageAlt": "Fabian Allen CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/fabian-allen-2063/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/fabian-allen-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Jayden Seales",
@@ -2206,13 +2281,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/jayden-seales.webp",
-    "imageAlt": "Jayden Seales CPL 2026 player portrait",
+    "imageAlt": "Jayden Seales CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/jayden-seales-14897/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/jayden-seales-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Amir Jangoo",
@@ -2231,13 +2308,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/amir-jangoo.webp",
-    "imageAlt": "Amir Jangoo CPL 2026 player portrait",
+    "imageAlt": "Amir Jangoo CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/amir-jangoo-3544/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/amir-jangoo-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Shamar Springer",
@@ -2256,13 +2335,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/shamar-springer.webp",
-    "imageAlt": "Shamar Springer CPL 2026 player portrait",
+    "imageAlt": "Shamar Springer CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/shamar-springer-4611/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/shamar-springer-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Jahmar Hamilton",
@@ -2281,13 +2362,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/jahmar-hamilton.webp",
-    "imageAlt": "Jahmar Hamilton CPL 2026 player portrait",
+    "imageAlt": "Jahmar Hamilton CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/jahmar-hamilton-2636/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/jahmar-hamilton-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Rakheem Cornwall",
@@ -2326,13 +2409,15 @@
     "rosterStatus": "partial",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
-    "artworkStatus": "pending",
+    "artworkStatus": "ready",
     "status": "verified",
     "photo": "/assets/images/players/directory/anderson-phillip.webp",
-    "imageAlt": "Anderson Phillip CPL 2026 player portrait",
+    "imageAlt": "Anderson Phillip CPL player portrait",
     "imageSourceType": "official-governing-body",
     "imageSourcePage": "https://www.windiescricket.com/players/anderson-phillip-4097/",
-    "imageCheckedAt": "2026-07-21"
+    "imageCheckedAt": "2026-07-21",
+    "heroPhoto": "/assets/images/players/anderson-phillip-desktop-art.webp",
+    "artworkUpdatedAt": "2026-07-27"
   },
   {
     "name": "Karima Gore",

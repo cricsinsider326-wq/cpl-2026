@@ -104,7 +104,7 @@ function build() {
 
   const staticPages = [
     ["teams", "CPL 2026 Teams", pages.teamListing(data)],
-    ["players", "CPL 2026 Players: Complete Squads, Roles and Profiles", pages.playerListing(data), "Browse the verified CPL 2026 players directory with team and role filters, squad status, player portraits and detailed profile pages."],
+    ["players", "CPL 2026 Players & Squads", pages.playerListing(data), "Browse CPL 2026 players and squads by team and role, with verified roster status, player profiles and the latest squad updates."],
     ["fixtures", "CPL 2026 Fixtures", pages.fixturesPage(data)],
     ["live-score", "CPL Live Score", pages.liveScorePage(data)],
     ["points-table", "CPL 2026 Points Table", pages.pointsTablePage(data)],
@@ -119,7 +119,38 @@ function build() {
   ];
   for (const [route, title, main, description] of staticPages) {
     const indexable = routeIsIndexable(route, data);
-    const structuredData = route === "points-table"
+    const structuredData = route === "players"
+      ? [
+          {
+            "@type": "ItemList",
+            "@id": `${data.site.siteUrl.replace(/\/$/, "")}/players/#player-list`,
+            name: "CPL 2026 Players and Squads",
+            numberOfItems: data.players.length,
+            itemListElement: data.players.map((player, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: player.name,
+              url: `${data.site.siteUrl.replace(/\/$/, "")}/players/${player.slug}/`
+            }))
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `${data.site.siteUrl.replace(/\/$/, "")}/players/#faq`,
+            mainEntity: [
+              ["How many players are in each CPL 2026 squad?", "Each CPL franchise fields a 17-player squad, including West Indies contract players, overseas stars, and youth development picks."],
+              ["How many overseas players can each team have?", "Teams can contract up to 5 overseas international players in their official squad."],
+              ["When will the full squad lists be announced?", "Official squad rosters are confirmed following the CPL draft and regional player draft windows."],
+              ["Can squads change during the tournament?", "Yes. Temporary replacement players can be brought in for injuries or international duty call-ups."],
+              ["How are breakout players selected?", "Emerging Under-23 and regional West Indian stars are selected through the CPL youth draft."],
+              ["Where can I see the latest squad updates?", "All confirmed squad additions, draft picks, and replacements update live on CPL Insider team pages."]
+            ].map(([question, answer]) => ({
+              "@type": "Question",
+              name: question,
+              acceptedAnswer: { "@type": "Answer", text: answer }
+            }))
+          }
+        ]
+      : route === "points-table"
       ? {
           "@type": "ItemList",
           name: "CPL 2026 Points Table",

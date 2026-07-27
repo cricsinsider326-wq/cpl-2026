@@ -59,13 +59,68 @@ async function auditViewport(browser, viewport) {
     const response = await page.goto(baseUrl, { waitUntil: "networkidle", timeout: 30000 });
     if (!response || response.status() >= 400) issues.push(`HTTP status ${response ? response.status() : "missing"}`);
 
+    const structure = await page.evaluate(() => {
+      const heroCopy = document.querySelector(".pd-hero-copy > p:not(.eyebrow)");
+      const heroStats = document.querySelector(".pd-hero-chips");
+      const footer = document.querySelector(".site-footer");
+      const trackerRows = [...document.querySelectorAll(".pd-tracker-row")];
+      const visiblePlayerCards = [...document.querySelectorAll("[data-player-card]")].filter((card) => {
+        const style = getComputedStyle(card);
+        return style.display !== "none" && !card.hidden;
+      });
+      const cardHeights = visiblePlayerCards.slice(0, 8).map((card) => Math.round(card.getBoundingClientRect().height));
+      const intersects = (left, right) => {
+        if (!left || !right) return false;
+        const a = left.getBoundingClientRect();
+        const b = right.getBoundingClientRect();
+        return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+      };
+      const schemaTypes = [...document.querySelectorAll('script[type="application/ld+json"]')].flatMap((script) => {
+        try {
+          const json = JSON.parse(script.textContent);
+          return (json["@graph"] || [json]).map((entry) => entry["@type"]);
+        } catch {
+          return [];
+        }
+      });
+      return {
+        h1Count: document.querySelectorAll("h1").length,
+        h2Count: document.querySelectorAll("h2").length,
+        cardHeadingCount: document.querySelectorAll("[data-player-card] h3").length,
+        heroOverlap: intersects(heroCopy, heroStats),
+        trackerDisplays: trackerRows.map((row) => getComputedStyle(row).display),
+        trackerHeights: trackerRows.map((row) => Math.round(row.getBoundingClientRect().height)),
+        cardHeights,
+        footerHeight: footer ? Math.round(footer.getBoundingClientRect().height) : 0,
+        schemaTypes
+      };
+    });
+
+    if (structure.h1Count !== 1) issues.push(`Expected one H1, found ${structure.h1Count}`);
+    if (structure.h2Count !== 6) issues.push(`Expected six section H2 headings, found ${structure.h2Count}`);
+    if (structure.cardHeadingCount !== 99) issues.push(`Expected 99 player-card H3 headings, found ${structure.cardHeadingCount}`);
+    if (structure.heroOverlap) issues.push("Hero description overlaps the squad-summary panel");
+    if (structure.trackerDisplays.some((display) => display !== "grid")) issues.push("Squad tracker rows are not grid layouts");
+    if (viewport.width >= 1101 && Math.max(...structure.trackerHeights) > 100) {
+      issues.push(`Desktop squad tracker row is too tall (${Math.max(...structure.trackerHeights)}px)`);
+    }
+    if (structure.cardHeights.length && Math.max(...structure.cardHeights) - Math.min(...structure.cardHeights) > 2) {
+      issues.push(`Visible player-card heights differ (${structure.cardHeights.join(", ")}px)`);
+    }
+    if (!structure.schemaTypes.includes("ItemList") || !structure.schemaTypes.includes("FAQPage")) {
+      issues.push(`Players page schema is incomplete (${structure.schemaTypes.join(", ")})`);
+    }
+    if (viewport.width <= 430 && structure.footerHeight > 850) {
+      issues.push(`Mobile footer is too tall (${structure.footerHeight}px)`);
+    }
+
     const visibleCards = () => page.locator("[data-player-card]:visible");
     if (await visibleCards().count() !== 8) issues.push("Initial player page must show 8 cards");
     if ((await page.locator("[data-player-result-count]").textContent()).trim() !== "99 players found") issues.push("Initial player count is incorrect");
 
-    const firstPageNames = await visibleCards().locator("h2").allTextContents();
+    const firstPageNames = await visibleCards().locator("h3").allTextContents();
     await page.locator("[data-player-next]").click();
-    const secondPageNames = await visibleCards().locator("h2").allTextContents();
+    const secondPageNames = await visibleCards().locator("h3").allTextContents();
     if (firstPageNames.join("|") === secondPageNames.join("|")) issues.push("Next-page control did not change players");
 
     await page.locator("[data-player-search]").fill("Nicholas Pooran");
@@ -152,6 +207,7 @@ async function auditViewport(browser, viewport) {
       const toggle = page.locator(".nav-toggle");
       await toggle.click();
       const close = page.locator(".mobile-nav-close");
+      await close.waitFor({ state: "visible", timeout: 5000 });
       const box = await close.boundingBox();
       if (!box || box.width < 44 || box.height < 44) issues.push("Mobile menu close target is smaller than 44px");
       await close.click();

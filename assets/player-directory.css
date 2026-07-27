@@ -110,14 +110,14 @@
 .players-directory .pd-hero-chips small { color: #c7d0e9; font-size: 0.58rem; line-height: 1.12; letter-spacing: 0; }
 
 .players-directory .pd-filter-panel {
-  margin: 28px 0 30px;
-  padding: 20px;
+  margin: 24px 0 28px;
+  padding: 17px 18px;
   border: 1px solid var(--pd-line);
   border-radius: 7px;
   background: linear-gradient(145deg, #0b1230, #070b1e);
 }
 
-.players-directory .pd-filter-head { margin-bottom: 14px; }
+.players-directory .pd-filter-head { margin-bottom: 11px; }
 .players-directory .pd-filter-head h2 {
   margin: 0;
   color: #fff;
@@ -137,7 +137,7 @@
 .players-directory .pd-filter-row input,
 .players-directory .pd-filter-row select {
   width: 100%;
-  min-height: 46px;
+  min-height: 44px;
   border: 1px solid rgba(137, 151, 205, 0.34);
   border-radius: 5px;
   background: #080e24;
@@ -215,7 +215,13 @@
   padding: 12px 13px;
 }
 
-.players-directory .pd-player-copy h2 {
+.players-directory .pd-player-copy h3 {
+  margin: 0;
+  color: #fff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
   font-size: 1.65rem;
   line-height: 0.9;
 }
@@ -250,7 +256,9 @@
   border-radius: 8px;
 }
 .players-directory .pd-tracker-row {
+  display: grid;
   grid-template-columns: minmax(235px, 1.25fr) minmax(175px, 0.8fr) minmax(245px, 1.2fr) 170px;
+  align-items: center;
   gap: 16px;
   padding: 13px 18px;
   border: 0;
@@ -260,10 +268,55 @@
   background: rgba(8, 14, 34, 0.82);
 }
 .players-directory .pd-tracker-row:last-child { border-bottom: 0; }
+.players-directory .pd-tracker-team {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+.players-directory .pd-tracker-team img { flex: 0 0 48px; object-fit: contain; }
+.players-directory .pd-tracker-team strong { min-width: 0; line-height: 1.05; overflow-wrap: anywhere; }
+.players-directory .pd-tracker-captain,
+.players-directory .pd-tracker-progress { min-width: 0; }
+.players-directory .pd-tracker-captain small,
+.players-directory .pd-tracker-progress small {
+  display: block;
+  margin-bottom: 3px;
+  color: #ffd000;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
 .players-directory .pd-tracker-team strong { color: var(--team-accent); font-size: 1rem; }
 .players-directory .pd-tracker-captain span { font-size: 0.9rem; }
+.players-directory .pd-tracker-progress {
+  display: grid;
+  grid-template-columns: minmax(110px, 1fr) auto;
+  align-items: center;
+  gap: 4px 10px;
+}
+.players-directory .pd-tracker-progress small { grid-column: 1 / -1; }
+.players-directory .pd-progress-bar {
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.players-directory .pd-progress-bar span { display: block; height: 100%; }
 .players-directory .pd-progress-bar span { background: var(--team-accent); }
-.players-directory .pd-tracker-btn { border: 0; background: transparent; color: #c680ff; font-size: 0.8rem; }
+.players-directory .pd-tracker-btn {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  color: #c680ff;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.players-directory .pd-tracker-btn svg { width: 16px; height: 16px; }
 
 .players-directory .pd-rules-grid {
   display: grid;
@@ -348,41 +401,80 @@
 
 @media (max-width: 1100px) {
   .players-directory .pd-player-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .players-directory .pd-tracker-row { grid-template-columns: 1fr 1fr; }
+  .players-directory .pd-tracker-row { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr); }
+  .players-directory .pd-tracker-progress { grid-column: 1 / 2; }
   .players-directory .pd-tracker-btn { justify-self: start; }
   .players-directory .pd-roles-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 760px) {
   .players-directory { width: min(calc(100% - 18px), 640px); padding-bottom: 44px; }
-  .players-directory .pd-hero { min-height: 0; display: grid; grid-template-rows: auto 250px; }
+  .players-directory .pd-hero { min-height: 0; display: flex; flex-direction: column; }
   .players-directory .pd-hero::after { display: none; }
-  .players-directory .pd-hero-copy { width: 100%; padding: 30px 20px 125px; background: #030817; }
+  .players-directory .pd-hero-copy { order: 1; width: 100%; padding: 28px 20px 24px; background: #030817; }
   .players-directory .pd-hero-copy h1 { font-size: clamp(4.2rem, 18vw, 6rem); }
   .players-directory .pd-hero-copy h1 > small { font-size: clamp(2.05rem, 9vw, 3rem); }
-  .players-directory .pd-hero-copy > p:not(.eyebrow) { font-size: 0.92rem; }
-  .players-directory .pd-hero-art { position: relative; grid-row: 2; object-position: 74% center; }
-  .players-directory .pd-hero-chips { right: 12px; bottom: 10px; left: 12px; width: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .players-directory .pd-hero-copy > p:not(.eyebrow) { max-width: 33rem; font-size: 0.92rem; }
+  .players-directory .pd-hero-art {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: 74% center;
+  }
+  .players-directory .pd-hero-chips {
+    position: static;
+    order: 3;
+    width: auto;
+    margin: 0 12px 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .players-directory .pd-hero-chips > div { min-height: 64px; border-bottom: 1px solid var(--pd-line); }
   .players-directory .pd-hero-chips > div:nth-child(even) { border-right: 0; }
   .players-directory .pd-hero-chips > div:nth-child(n + 3) { border-bottom: 0; }
-  .players-directory .pd-filter-panel { padding: 16px; }
+  .players-directory .pd-filter-panel { margin: 18px 0 24px; padding: 14px; }
   .players-directory .pd-filter-row { grid-template-columns: 1fr; }
-  .players-directory .pd-role-pills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .players-directory .pd-pill { width: 100%; min-height: 44px; padding: 6px 8px; }
+  .players-directory .pd-role-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: thin;
+  }
+  .players-directory .pd-pill { flex: 0 0 auto; width: auto; min-height: 40px; padding: 6px 14px; }
   .players-directory .pd-player-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .players-directory .pd-player-card { min-height: 340px; }
   .players-directory .pd-player-visual { min-height: 190px; }
-  .players-directory .pd-player-copy h2 { font-size: 1.25rem; }
+  .players-directory .pd-player-copy h3 { font-size: 1.25rem; }
   .players-directory .pd-player-copy p,
   .players-directory .pd-player-copy > span { font-size: 0.72rem; }
-  .players-directory .pd-tracker-row { grid-template-columns: 1fr; }
+  .players-directory .pd-tracker-row { grid-template-columns: minmax(0, 1fr); gap: 11px; padding: 14px; }
+  .players-directory .pd-tracker-progress { grid-column: auto; }
+  .players-directory .pd-tracker-btn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--team-accent) 45%, transparent);
+    border-radius: 5px;
+    background: color-mix(in srgb, var(--team-accent) 10%, transparent);
+  }
   .players-directory .pd-rules-grid { grid-template-columns: 1fr; }
   .players-directory .pd-rule-card { min-height: 0; border-right: 0; border-bottom: 1px solid rgba(127, 143, 196, 0.25); }
   .players-directory .pd-rule-card:last-child { border-bottom: 0; }
   .players-directory .pd-roles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .players-directory .pd-role-card { min-height: 300px; }
   .players-directory .pd-role-card h3 { font-size: 1.2rem; line-height: 1.05; }
+  .players-body .site-footer { grid-template-columns: 1fr; gap: 22px; padding-top: 24px !important; padding-bottom: 20px !important; }
+  .players-body .site-footer nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+  .players-body .site-footer nav > div { min-width: 0; }
+  .players-body .site-footer nav > div:nth-child(n + 5) { display: none; }
+  .players-body .site-footer strong { margin-bottom: 8px; font-size: 16px !important; }
+  .players-body .site-footer a,
+  .players-body .site-footer span { margin-bottom: 6px; font-size: 12px !important; line-height: 1.35; }
+  .players-body .site-footer .legal { grid-column: 1; gap: 8px; padding-top: 16px; }
 }
 
 @media (max-width: 360px) {

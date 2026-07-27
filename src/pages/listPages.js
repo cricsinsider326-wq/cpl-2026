@@ -79,9 +79,10 @@ function playerRoleKey(role) {
 }
 
 function renderPlayerListingCard(player, team, eager = false) {
-  const image = player.photo || player.heroPhoto;
-  const imageWidth = player.photo ? 640 : 1120;
-  const imageHeight = player.photo ? 800 : 1536;
+  const image = player.heroPhoto || player.photo;
+  const usesHeroArtwork = Boolean(player.heroPhoto);
+  const imageWidth = usesHeroArtwork ? 1120 : 640;
+  const imageHeight = usesHeroArtwork ? 1536 : 800;
   const loading = eager ? "eager" : "lazy";
   const portrait = image
     ? `<img class="pd-player-photo" src="${escapeHtml(image)}" alt="${escapeHtml(player.imageAlt || `${player.name} CPL player portrait`)}" width="${imageWidth}" height="${imageHeight}" loading="${loading}" decoding="sync" />`
@@ -94,7 +95,7 @@ function renderPlayerListingCard(player, team, eager = false) {
       ${portrait}
     </div>
     <div class="pd-player-copy">
-      <h2>${escapeHtml(player.name)}</h2>
+      <h3>${escapeHtml(player.name)}</h3>
       <p>${escapeHtml(player.team)}</p>
       <span>${escapeHtml(player.role)}</span>
     </div>
@@ -954,9 +955,25 @@ function legacyPlayerListing(data) {
 
 function playerListing(data) {
   const teamsByCode = new Map(data.teams.map((team) => [team.code, team]));
+  const featuredOrder = new Map([
+    "andre-russell",
+    "shimron-hetmyer",
+    "nicholas-pooran",
+    "shamar-joseph",
+    "alzarri-joseph",
+    "sunil-narine",
+    "rovman-powell",
+    "jason-holder"
+  ].map((slug, index) => [slug, index]));
   const playersWithArtworkFirst = data.players
     .map((player, index) => ({ player, index, hasArtwork: Boolean(player.heroPhoto || player.photo) }))
-    .sort((left, right) => Number(right.hasArtwork) - Number(left.hasArtwork) || left.index - right.index)
+    .sort((left, right) => {
+      const leftFeatured = featuredOrder.has(left.player.slug) ? featuredOrder.get(left.player.slug) : Number.MAX_SAFE_INTEGER;
+      const rightFeatured = featuredOrder.has(right.player.slug) ? featuredOrder.get(right.player.slug) : Number.MAX_SAFE_INTEGER;
+      return leftFeatured - rightFeatured
+        || Number(right.hasArtwork) - Number(left.hasArtwork)
+        || left.index - right.index;
+    })
     .map((entry) => entry.player);
   const cards = playersWithArtworkFirst.map((player, index) => renderPlayerListingCard(player, teamsByCode.get(player.teamCode), index < 8)).join("");
   const nationalities = [...new Set(data.players.map((player) => player.nationality).filter(Boolean))].sort();
@@ -966,7 +983,7 @@ function playerListing(data) {
     { role: "wicketkeeper", title: "WICKETKEEPER", image: "/assets/images/players/directory/shai-hope.webp", text: "Behind the stumps and in the game every moment." },
     { role: "allrounder", title: "ALL-ROUNDER", image: "/assets/images/players/directory/andre-russell.webp", text: "Contributes with both bat and ball. The complete package." },
     { role: "bowler", title: "FAST BOWLER", image: "/assets/images/players/directory/alzarri-joseph.webp", text: "Bring the pace, bounce and early breakthroughs." },
-    { role: "bowler", title: "SPIN BOWLER", image: "/assets/images/players/directory/akeal-hosein.webp", text: "Use spin, skill and guile to turn the game around." }
+    { role: "bowler", title: "SPIN BOWLER", image: "/assets/images/players/akeal-hosein-desktop-art.webp", text: "Use spin, skill and guile to turn the game around." }
   ];
 
   const squadRules = [
@@ -992,12 +1009,12 @@ function playerListing(data) {
         <p class="eyebrow">CPL 2026</p>
         <h1 id="pd-hero-title"><span>CPL</span> <strong>2026</strong><small>PLAYERS &amp; SQUADS</small></h1>
         <p>Explore every team, player role and the latest squad updates across the Caribbean Premier League 2026 season.</p>
-        <div class="pd-hero-chips">
-          <div><i data-lucide="users" aria-hidden="true"></i><span><strong>7</strong><small>TEAMS</small></span></div>
-          <div><i data-lucide="shirt" aria-hidden="true"></i><span><strong>119</strong><small>SQUAD PLACES</small></span></div>
-          <div><i data-lucide="globe" aria-hidden="true"></i><span><strong>5</strong><small>OVERSEAS PER TEAM</small></span></div>
-          <div><i data-lucide="star" aria-hidden="true"></i><span><strong>3</strong><small>BREAKOUT PLAYERS</small></span></div>
-        </div>
+      </div>
+      <div class="pd-hero-chips" aria-label="CPL 2026 squad summary">
+        <div><i data-lucide="users" aria-hidden="true"></i><span><strong>7</strong><small>TEAMS</small></span></div>
+        <div><i data-lucide="shirt" aria-hidden="true"></i><span><strong>119</strong><small>MAXIMUM SQUAD PLACES</small></span></div>
+        <div><i data-lucide="globe" aria-hidden="true"></i><span><strong>5</strong><small>OVERSEAS PER TEAM</small></span></div>
+        <div><i data-lucide="star" aria-hidden="true"></i><span><strong>3</strong><small>BREAKOUT PLAYERS</small></span></div>
       </div>
     </section>
 

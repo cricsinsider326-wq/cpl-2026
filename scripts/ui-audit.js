@@ -434,14 +434,18 @@ async function main() {
             await new Promise((resolve) => setTimeout(resolve, 40));
           }
           scrollTo(0, 0);
-          await Promise.all(images.map((image) => {
-            if (image.complete) return Promise.resolve();
-            return new Promise((resolve) => {
-              const done = () => resolve();
-              image.addEventListener("load", done, { once: true });
-              image.addEventListener("error", done, { once: true });
-              setTimeout(done, 8000);
-            });
+          await Promise.all(images.map(async (image) => {
+            if (!image.complete) {
+              await new Promise((resolve) => {
+                const done = () => resolve();
+                image.addEventListener("load", done, { once: true });
+                image.addEventListener("error", done, { once: true });
+                setTimeout(done, 8000);
+              });
+            }
+            if (typeof image.decode === "function") {
+              await image.decode().catch(() => {});
+            }
           }));
         });
         await page.waitForLoadState("networkidle", { timeout: 10000 }).catch(() => {});

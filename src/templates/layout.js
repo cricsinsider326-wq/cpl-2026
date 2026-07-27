@@ -85,10 +85,13 @@ function schemaGraph({ site, teams, faqs, route, pageTitle, structuredData }) {
   }
 
   if (structuredData) {
-    graph.push({
-      "@id": `${canonical}#primary-entity`,
-      url: canonical,
-      ...structuredData
+    const entities = Array.isArray(structuredData) ? structuredData : [structuredData];
+    entities.forEach((entity, index) => {
+      graph.push({
+        "@id": entity["@id"] || `${canonical}#primary-entity${index ? `-${index + 1}` : ""}`,
+        url: canonical,
+        ...entity
+      });
     });
   }
 
@@ -113,10 +116,10 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     : `${imageBase}/assets/images/hero/cpl-2026-css-hero-reference.webp`;
   const cssVersion = "20260727-teams-v3";
   const jsVersion = route === "players"
-    ? "20260727-players-squads-reference2"
+    ? "20260727-players-audit1"
     : "20260726-mobile-perf2";
   const scheduleCssVersion = "20260726-fixtures-audit1";
-  const playerDirectoryCssVersion = "20260727-players-squads-reference2";
+  const playerDirectoryCssVersion = "20260727-players-audit1";
   const heroPreload = route === ""
     ? '<link rel="preload" href="/assets/images/hero/cpl-2026-player-artwork-720.avif" as="image" type="image/avif" imagesrcset="/assets/images/hero/cpl-2026-player-artwork-720.avif 720w, /assets/images/hero/cpl-2026-player-artwork-1280.avif 1280w" imagesizes="(max-width: 720px) 100vw, 70vw" fetchpriority="high" />'
     : route === "cpl-2026"
@@ -160,7 +163,7 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     ${route === "fixtures" ? `<link rel="stylesheet" href="/assets/schedule.css?v=${scheduleCssVersion}" />` : ""}
     ${route === "players" ? `<link rel="stylesheet" href="/assets/player-directory.css?v=${playerDirectoryCssVersion}" />` : ""}
   </head>
-  <body class="${route === "" ? "home-body" : ""}${route === "fixtures" ? " sch-body" : ""}">
+  <body class="${route === "" ? "home-body" : ""}${route === "fixtures" ? " sch-body" : ""}${route === "players" ? " players-body" : ""}">
     <div class="site-shell">
       ${body}
     </div>

@@ -16,6 +16,7 @@
     "page:replicate:audit": "node scripts/audit-page-replication.js",
     "players:images:official": "node scripts/import-official-player-images.js",
     "players:images:audit": "node scripts/import-official-player-images.js --dry-run",
+    "players:artwork:audit": "node scripts/audit-player-artwork.js",
     "players:roles:official": "node scripts/fill-player-roles.js",
     "cpl:sync": "node scripts/cpl-sync.js",
     "cpl:sync:dry": "node scripts/cpl-sync.js --dry-run",
