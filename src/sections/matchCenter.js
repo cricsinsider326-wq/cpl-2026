@@ -1,11 +1,56 @@
 const { escapeHtml } = require("../lib/html");
 
 function renderPointsTable(site) {
+  const teams = [
+    { pos: 1, code: "JAK", name: "Jamaica Kingsmen", logo: "/assets/images/crests/jamaica-kingsmen-crest.webp", accent: "#ffd000" },
+    { pos: 2, code: "TKR", name: "Trinbago Knight Riders", logo: "/assets/images/crests/trinbago-knight-riders-crest.webp", accent: "#ec4899" },
+    { pos: 3, code: "GAW", name: "Guyana Amazon Warriors", logo: "/assets/images/crests/guyana-amazon-warriors-crest.webp", accent: "#10b981" },
+    { pos: 4, code: "BT", name: "Barbados Tridents", logo: "/assets/images/crests/barbados-tridents-crest.webp", accent: "#eab308" },
+    { pos: 5, code: "SLK", name: "Saint Lucia Kings", logo: "/assets/images/crests/saint-lucia-kings-crest.webp", accent: "#0284c7" },
+    { pos: 6, code: "SKNP", name: "St Kitts & Nevis Patriots", logo: "/assets/images/crests/st-kitts-nevis-patriots-crest.webp", accent: "#10b981" },
+    { pos: 7, code: "ABF", name: "Antigua & Barbuda Falcons", logo: "/assets/images/crests/antigua-barbuda-falcons-crest.webp", accent: "#ef4444" }
+  ];
+
   return `<article class="panel points-card" id="points">
-    <h2>CPL 2026 Points Table</h2>
-    <p class="panel-note">CPL 2026 standings will update after the first completed match.</p>
+    <div class="section-heading tight">
+      <h2>CPL 2026 Points Table</h2>
+      <a href="/points-table/">Full Table &amp; Rules <i data-lucide="arrow-right"></i></a>
+    </div>
+    <p class="panel-note">CPL 2026 standings start at zero. Table updates live after Match 1 completion.</p>
     <p class="last-updated"><i data-lucide="refresh-cw"></i> Last updated: ${escapeHtml(site.lastUpdated)}</p>
-    <div class="points-empty"><i data-lucide="table-properties"></i><strong>Tournament standings are not active yet</strong><p>Played, won, lost, no result, net run rate and points will appear only after a verified match result.</p><div class="points-empty-actions"><a href="/fixtures/">View fixtures</a><a href="/cpl-2026/#format">How CPL points work</a><a href="/past-seasons/">Previous seasons</a></div></div>
+    <div class="points-table-wrap" style="overflow-x:auto;">
+      <table class="points-table-grid" style="width:100%; border-collapse:collapse; text-align:left;">
+        <thead>
+          <tr style="border-bottom:2px solid rgba(255,255,255,0.12); color:#94a3b8; font-family:'Barlow Condensed',sans-serif; font-size:0.88rem; font-weight:800; text-transform:uppercase;">
+            <th style="padding:10px 8px; width:40px; text-align:center;">Pos</th>
+            <th style="padding:10px 12px;">Team</th>
+            <th style="padding:10px 8px; text-align:center;">P</th>
+            <th style="padding:10px 8px; text-align:center;">W</th>
+            <th style="padding:10px 8px; text-align:center;">L</th>
+            <th style="padding:10px 8px; text-align:center;">NRR</th>
+            <th style="padding:10px 8px; text-align:center;">Pts</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${teams.map((t, idx) => `
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.06); ${idx === 3 ? 'border-bottom:2px solid #10b981;' : ''}">
+              <td style="padding:12px 8px; text-align:center; color:#94a3b8; font-weight:800; font-family:'Barlow Condensed',sans-serif;">${t.pos}</td>
+              <td style="padding:12px 12px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <img src="${t.logo}" alt="" width="24" height="24" style="object-fit:contain;" />
+                  <strong style="color:#fff; font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:800;">${escapeHtml(t.name)}</strong>
+                </div>
+              </td>
+              <td style="padding:12px 8px; text-align:center; color:#cbd5e1; font-weight:700;">0</td>
+              <td style="padding:12px 8px; text-align:center; color:#cbd5e1; font-weight:700;">0</td>
+              <td style="padding:12px 8px; text-align:center; color:#cbd5e1; font-weight:700;">0</td>
+              <td style="padding:12px 8px; text-align:center; color:#94a3b8; font-family:monospace; font-size:0.88rem;">0.000</td>
+              <td style="padding:12px 8px; text-align:center; color:#ffd000; font-weight:900; font-family:'Barlow Condensed',sans-serif; font-size:1.1rem;">0</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
   </article>`;
 }
 
