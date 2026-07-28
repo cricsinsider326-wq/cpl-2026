@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, "..");
 const dist = path.join(root, "dist");
 const htmlPath = path.join(dist, "index.html");
 const rootHtmlPath = path.join(root, "index.html");
-const cssVersion = "20260727-teams-v3";
+const cssVersion = "20260727-profiles-v1";
 const sourceStyles = [
   "styles.css",
   "premium.css",

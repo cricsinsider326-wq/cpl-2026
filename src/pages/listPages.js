@@ -78,19 +78,20 @@ function playerRoleKey(role) {
   return roles.length ? roles.join(" ") : "pending";
 }
 
-function renderPlayerListingCard(player, team, eager = false) {
-  const image = player.heroPhoto || player.photo;
+function renderPlayerListingCard(player, team) {
+  const image = player.heroPhoto ? `/assets/images/players/cards/${player.slug}.webp` : player.photo;
   const usesHeroArtwork = Boolean(player.heroPhoto);
-  const imageWidth = usesHeroArtwork ? 1120 : 640;
-  const imageHeight = usesHeroArtwork ? 1536 : 800;
-  const loading = eager ? "eager" : "lazy";
+  const imageWidth = usesHeroArtwork ? 560 : 640;
+  const imageHeight = usesHeroArtwork ? 768 : 800;
   const portrait = image
-    ? `<img class="pd-player-photo" src="${escapeHtml(image)}" alt="${escapeHtml(player.imageAlt || `${player.name} CPL player portrait`)}" width="${imageWidth}" height="${imageHeight}" loading="${loading}" decoding="sync" />`
+    ? `<img class="pd-player-photo" src="${escapeHtml(image)}" alt="${escapeHtml(player.imageAlt || `${player.name} CPL player portrait`)}" width="${imageWidth}" height="${imageHeight}" loading="lazy" decoding="async" />`
     : `<div class="pd-player-placeholder" aria-label="${escapeHtml(player.name)} portrait pending"><strong>${escapeHtml(player.initials)}</strong><span>Portrait pending</span></div>`;
   const roleKey = playerRoleKey(player.role);
   const nationality = player.nationality || "Nationality pending";
   const nationalityKey = player.nationality ? player.nationality.toLowerCase().replace(/[^a-z0-9]+/g, "-") : "pending";
-  return `<article class="pd-player-card" data-player-card data-search="${escapeHtml(`${player.name} ${player.team} ${player.role} ${nationality}`.toLowerCase())}" data-team="${escapeHtml(player.teamCode)}" data-role="${escapeHtml(roleKey)}" data-nationality="${escapeHtml(nationalityKey)}" data-status="${escapeHtml(player.rosterStatus)}" style="--player-team-accent:${escapeHtml(team?.accent || "#7a3ff2")}">
+  const rosterLabel = player.rosterStatus === "complete" ? "Official squad announced" : "Confirmed to date";
+  const artworkStandard = player.artworkStatus === "ready";
+  return `<article class="pd-player-card" data-player-card data-search="${escapeHtml(`${player.name} ${player.team} ${player.role} ${nationality}`.toLowerCase())}" data-team="${escapeHtml(player.teamCode)}" data-role="${escapeHtml(roleKey)}" data-nationality="${escapeHtml(nationalityKey)}" data-status="${escapeHtml(player.rosterStatus)}" data-artwork-standard="${artworkStandard}" style="--player-team-accent:${escapeHtml(team?.accent || "#7a3ff2")}">
     <div class="pd-player-visual">
       ${portrait}
     </div>
@@ -98,6 +99,7 @@ function renderPlayerListingCard(player, team, eager = false) {
       <h3>${escapeHtml(player.name)}</h3>
       <p>${escapeHtml(player.team)}</p>
       <span>${escapeHtml(player.role)}</span>
+      <div class="pd-player-meta"><span class="pd-player-nationality">${escapeHtml(nationality)}</span><span class="pd-roster-status ${escapeHtml(player.rosterStatus)}">${escapeHtml(rosterLabel)}</span></div>
     </div>
     <a href="/players/${escapeHtml(player.slug)}/">View profile <i data-lucide="arrow-right" aria-hidden="true"></i></a>
   </article>`;
@@ -967,8 +969,7 @@ function legacyPlayerListing(data) {
   </main>`;
 }
 
-function playerListing(data) {
-  const teamsByCode = new Map(data.teams.map((team) => [team.code, team]));
+function sortPlayersForDirectory(players) {
   const featuredOrder = new Map([
     "andre-russell",
     "shimron-hetmyer",
@@ -979,42 +980,55 @@ function playerListing(data) {
     "rovman-powell",
     "jason-holder"
   ].map((slug, index) => [slug, index]));
-  const playersWithArtworkFirst = data.players
-    .map((player, index) => ({ player, index, hasArtwork: Boolean(player.heroPhoto || player.photo) }))
+  return players
+    .map((player, index) => ({ player, index, artworkStandard: player.artworkStatus === "ready", hasArtwork: Boolean(player.heroPhoto || player.photo) }))
     .sort((left, right) => {
       const leftFeatured = featuredOrder.has(left.player.slug) ? featuredOrder.get(left.player.slug) : Number.MAX_SAFE_INTEGER;
       const rightFeatured = featuredOrder.has(right.player.slug) ? featuredOrder.get(right.player.slug) : Number.MAX_SAFE_INTEGER;
-      return leftFeatured - rightFeatured
+      return Number(right.artworkStandard) - Number(left.artworkStandard)
+        || leftFeatured - rightFeatured
         || Number(right.hasArtwork) - Number(left.hasArtwork)
         || left.index - right.index;
     })
     .map((entry) => entry.player);
-  const cards = playersWithArtworkFirst.map((player, index) => renderPlayerListingCard(player, teamsByCode.get(player.teamCode), index < 8)).join("");
+}
+
+function playerDirectoryFaqs() {
+  return [
+    { question: "How many players are in each CPL 2026 squad?", answer: "Squad totals can vary while overseas availability and replacement windows are being finalized. This directory lists every player included in a verified official CPL 2026 announcement." },
+    { question: "How many overseas players can each team have?", answer: "Official announcements may include phased replacement players. Active-squad and match eligibility follow CPL regulations and confirmed player availability." },
+    { question: "When will the full squad lists be announced?", answer: "Squad records are updated after official CPL or franchise announcements and display the latest verification date on this page." },
+    { question: "Can squads change during the tournament?", answer: "Yes. Availability, injuries and international commitments can lead to officially announced replacements during the season." },
+    { question: "How are breakout players selected?", answer: "Emerging regional players enter CPL squads through official retention and draft processes announced by the league." },
+    { question: "Where can I see the latest squad updates?", answer: "Confirmed additions and replacements appear in this directory and on the relevant CPL Insider team page after source verification." }
+  ];
+}
+
+function playerListing(data) {
+  const teamsByCode = new Map(data.teams.map((team) => [team.code, team]));
+  const playersWithArtworkFirst = sortPlayersForDirectory(data.players);
+  const cards = playersWithArtworkFirst.map((player) => renderPlayerListingCard(player, teamsByCode.get(player.teamCode))).join("");
   const nationalities = [...new Set(data.players.map((player) => player.nationality).filter(Boolean))].sort();
+  const completeSquads = data.squads.teams.filter((squad) => squad.completeness === "complete").length;
+  const hasPartialSquads = data.squads.teams.some((squad) => squad.completeness === "partial");
+  const verifiedDate = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${data.squads.lastChecked}T00:00:00Z`));
 
   const roleActionCards = [
-    { role: "batter", title: "BATTER", image: "/assets/images/players/directory/nicholas-pooran.webp", text: "Run scorers who build innings and control the pace." },
-    { role: "wicketkeeper", title: "WICKETKEEPER", image: "/assets/images/players/directory/shai-hope.webp", text: "Behind the stumps and in the game every moment." },
-    { role: "allrounder", title: "ALL-ROUNDER", image: "/assets/images/players/directory/andre-russell.webp", text: "Contributes with both bat and ball. The complete package." },
-    { role: "bowler", title: "FAST BOWLER", image: "/assets/images/players/directory/alzarri-joseph.webp", text: "Bring the pace, bounce and early breakthroughs." },
-    { role: "bowler", title: "SPIN BOWLER", image: "/assets/images/players/akeal-hosein-desktop-art.webp", text: "Use spin, skill and guile to turn the game around." }
+    { role: "batter", title: "BATTER", image: "/assets/images/players/cards/nicholas-pooran.webp", text: "Run scorers who build innings and control the pace." },
+    { role: "wicketkeeper", title: "WICKETKEEPER", image: "/assets/images/players/cards/shai-hope.webp", text: "Behind the stumps and in the game every moment." },
+    { role: "allrounder", title: "ALL-ROUNDER", image: "/assets/images/players/cards/andre-russell.webp", text: "Contributes with both bat and ball. The complete package." },
+    { role: "bowler", title: "FAST BOWLER", image: "/assets/images/players/cards/alzarri-joseph.webp", text: "Bring the pace, bounce and early breakthroughs." },
+    { role: "bowler", title: "SPIN BOWLER", image: "/assets/images/players/cards/akeal-hosein.webp", text: "Use spin, skill and guile to turn the game around." }
   ];
 
   const squadRules = [
     { icon: "users", title: "WEST INDIES PLAYERS", text: "Each team is built around top West Indies talent, forming the core of every CPL squad." },
-    { icon: "globe", title: "OVERSEAS PLAYERS", text: "Teams can sign up to 5 overseas players to add firepower, experience and global depth." },
+    { icon: "globe", title: "OVERSEAS PLAYERS", text: "Official contingents reflect CPL rules, player availability and any phased replacement windows." },
     { icon: "star", title: "BREAKOUT PLAYERS", text: "Keep an eye on rising stars who could be the surprise difference-makers of CPL 2026." },
     { icon: "refresh-cw", title: "ROSTER UPDATES", text: "Squads evolve. Expect updates, injury changes and new signings throughout the season." }
   ];
 
-  const playerFaqs = [
-    { question: "How many players are in each CPL 2026 squad?", answer: "Each CPL franchise fields a 17-player squad, including West Indies contract players, overseas stars, and youth development picks." },
-    { question: "How many overseas players can each team have?", answer: "Teams can contract up to 5 overseas international players in their official squad." },
-    { question: "When will the full squad lists be announced?", answer: "Official squad rosters are confirmed following the CPL draft and regional player draft windows." },
-    { question: "Can squads change during the tournament?", answer: "Yes. Temporary replacement players can be brought in for injuries or international duty call-ups." },
-    { question: "How are breakout players selected?", answer: "Emerging Under-23 and regional West Indian stars are selected through the CPL youth draft." },
-    { question: "Where can I see the latest squad updates?", answer: "All confirmed squad additions, draft picks, and replacements update live on CPL Insider team pages." }
-  ];
+  const playerFaqs = playerDirectoryFaqs();
 
   return `<main class="players-directory" data-player-directory>
     <section class="pd-hero" aria-labelledby="pd-hero-title">
@@ -1025,10 +1039,10 @@ function playerListing(data) {
         <p>Explore every team, player role and the latest squad updates across the Caribbean Premier League 2026 season.</p>
       </div>
       <div class="pd-hero-chips" aria-label="CPL 2026 squad summary">
-        <div><i data-lucide="users" aria-hidden="true"></i><span><strong>7</strong><small>TEAMS</small></span></div>
-        <div><i data-lucide="shirt" aria-hidden="true"></i><span><strong>119</strong><small>MAXIMUM SQUAD PLACES</small></span></div>
-        <div><i data-lucide="globe" aria-hidden="true"></i><span><strong>5</strong><small>OVERSEAS PER TEAM</small></span></div>
-        <div><i data-lucide="star" aria-hidden="true"></i><span><strong>3</strong><small>BREAKOUT PLAYERS</small></span></div>
+        <div><i data-lucide="users" aria-hidden="true"></i><span><strong>${data.players.length}</strong><small>CONFIRMED PLAYERS</small></span></div>
+        <div><i data-lucide="shield" aria-hidden="true"></i><span><strong>${data.teams.length}</strong><small>TEAMS</small></span></div>
+        <div><i data-lucide="circle-check" aria-hidden="true"></i><span><strong>${completeSquads}</strong><small>COMPLETE SQUADS</small></span></div>
+        <div><i data-lucide="calendar-check" aria-hidden="true"></i><span><strong class="pd-verified-date">${escapeHtml(verifiedDate)}</strong><small>LAST VERIFIED</small></span></div>
       </div>
     </section>
 
@@ -1039,24 +1053,28 @@ function playerListing(data) {
       <form class="pd-filter-form" data-player-filters>
         <div class="pd-filter-row">
           <label class="pd-search"><span class="sr-only">Search player by name</span><i data-lucide="search" aria-hidden="true"></i><input type="search" placeholder="Search players by name..." autocomplete="off" data-player-search /></label>
-          <label class="pd-team-select"><span class="sr-only">Filter by team</span><select data-player-team aria-label="Filter by team"><option value="all">All Teams</option>${data.teams.map((team) => `<option value="${escapeHtml(team.code)}">${escapeHtml(team.name)}</option>`).join("")}</select></label>
+          <button type="button" class="pd-filter-toggle" data-filter-toggle aria-expanded="false" aria-controls="pd-advanced-filters">MORE FILTERS <i data-lucide="sliders-horizontal" aria-hidden="true"></i></button>
+          <div class="pd-filter-advanced" id="pd-advanced-filters" data-filter-advanced>
+            <label class="pd-team-select"><span class="sr-only">Filter by team</span><select data-player-team aria-label="Filter by team"><option value="all">All Teams</option>${data.teams.map((team) => `<option value="${escapeHtml(team.code)}">${escapeHtml(team.name)}</option>`).join("")}</select></label>
+            <label><span class="sr-only">Filter by nationality</span><select data-player-nationality aria-label="Filter by nationality"><option value="all">All Nationalities</option>${nationalities.map((n) => `<option value="${escapeHtml(n.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}">${escapeHtml(n)}</option>`).join("")}</select></label>
+            <label><span class="sr-only">Filter by squad status</span><select data-player-status aria-label="Filter by squad status"><option value="all">All Squad Statuses</option><option value="complete">Official Squad Announced</option>${hasPartialSquads ? '<option value="partial">Confirmed to Date</option>' : ""}</select></label>
+            <button type="reset" class="pd-filter-reset">RESET</button>
+          </div>
         </div>
-        <div class="pd-role-pills" role="tablist" aria-label="Filter by player role">
-          <button type="button" class="pd-pill is-active" data-role-pill="all" role="tab" aria-selected="true">ALL ROLES</button>
-          <button type="button" class="pd-pill" data-role-pill="batter" role="tab" aria-selected="false">BATTER</button>
-          <button type="button" class="pd-pill" data-role-pill="wicketkeeper" role="tab" aria-selected="false">WICKETKEEPER</button>
-          <button type="button" class="pd-pill" data-role-pill="allrounder" role="tab" aria-selected="false">ALL-ROUNDER</button>
-          <button type="button" class="pd-pill" data-role-pill="bowler" role="tab" aria-selected="false">BOWLER</button>
+        <div class="pd-role-pills" aria-label="Filter by player role">
+          <button type="button" class="pd-pill is-active" data-role-pill="all" aria-pressed="true">ALL ROLES</button>
+          <button type="button" class="pd-pill" data-role-pill="batter" aria-pressed="false">BATTER</button>
+          <button type="button" class="pd-pill" data-role-pill="wicketkeeper" aria-pressed="false">WICKETKEEPER</button>
+          <button type="button" class="pd-pill" data-role-pill="allrounder" aria-pressed="false">ALL-ROUNDER</button>
+          <button type="button" class="pd-pill" data-role-pill="bowler" aria-pressed="false">BOWLER</button>
         </div>
         <select data-player-role hidden><option value="all">All roles</option><option value="batter">Batter</option><option value="wicketkeeper">Wicketkeeper</option><option value="allrounder">Allrounder</option><option value="bowler">Bowler</option></select>
-        <select data-player-nationality hidden><option value="all">All nationalities</option>${nationalities.map((n) => `<option value="${escapeHtml(n.toLowerCase().replace(/[^a-z0-9]+/g, "-"))}">${escapeHtml(n)}</option>`).join("")}</select>
-        <select data-player-status hidden><option value="all">All squad statuses</option><option value="complete">Complete squad</option><option value="partial">Confirmed to date</option></select>
       </form>
     </section>
 
     <section class="pd-list-section" id="complete-player-list" aria-labelledby="pd-list-title">
       <div class="pd-list-heading">
-        <h2 id="pd-list-title">Complete CPL 2026 Players List</h2>
+        <div><h2 id="pd-list-title">Confirmed CPL 2026 Players to Date</h2><span>Standardized player artwork appears first; source-verified squad records follow.</span></div>
         <p aria-live="polite" data-player-result-count>${data.players.length} players found</p>
       </div>
       <div class="pd-player-grid" data-player-grid>${cards}</div>
@@ -1069,18 +1087,20 @@ function playerListing(data) {
     </section>
 
     <section class="pd-tracker-section" aria-labelledby="pd-tracker-title">
-      <div class="pd-section-heading"><h2 id="pd-tracker-title">2026 TEAM SQUAD TRACKER</h2></div>
+      <div class="pd-section-heading"><h2 id="pd-tracker-title">2026 TEAM SQUAD TRACKER</h2><p>Squads last verified ${escapeHtml(verifiedDate)}. Captains remain to be announced until officially confirmed.</p></div>
       <div class="pd-tracker-list">
         ${data.teams.map((team) => {
           const squad = data.squadByTeam.get(team.code);
           const count = squad?.players?.length || 0;
           const captain = squad?.captain || "To be announced";
-          return `<div class="pd-tracker-row" style="--team-accent:${escapeHtml(team.accent)}">
-            <div class="pd-tracker-team"><img src="${escapeHtml(team.logo)}" alt="${escapeHtml(team.name)} logo" width="48" height="48" loading="lazy" /><strong>${escapeHtml(team.name.toUpperCase())}</strong></div>
-            <div class="pd-tracker-captain"><small>CAPTAIN</small><span>${escapeHtml(captain.toUpperCase())}</span></div>
-            <div class="pd-tracker-progress"><small>CONFIRMED PLAYERS</small><div class="pd-progress-bar"><span style="width:${Math.min(100, Math.round((count / 17) * 100))}%"></span></div><span>${count} / 17</span></div>
-            <a class="pd-tracker-btn" href="/teams/${escapeHtml(team.slug)}/#squad">VIEW FULL SQUAD <i data-lucide="arrow-right" aria-hidden="true"></i></a>
-          </div>`;
+          return `<details class="pd-tracker-row" data-tracker-row open style="--team-accent:${escapeHtml(team.accent)}">
+            <summary class="pd-tracker-summary"><span class="pd-tracker-team"><img src="${escapeHtml(team.logo)}" alt="${escapeHtml(team.name)} logo" width="48" height="48" loading="lazy" /><strong>${escapeHtml(team.name.toUpperCase())}</strong></span><span class="pd-tracker-count"><strong>${count}</strong><small>ANNOUNCED</small></span><i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+            <div class="pd-tracker-details">
+              <div class="pd-tracker-captain"><small>CAPTAIN</small><span>${escapeHtml(captain.toUpperCase())}</span></div>
+              <div class="pd-tracker-progress"><small>SQUAD STATUS</small><div class="pd-progress-bar" aria-hidden="true"><span style="width:100%"></span></div><span>OFFICIAL ANNOUNCEMENT PUBLISHED</span></div>
+              <a class="pd-tracker-btn" href="/teams/${escapeHtml(team.slug)}/#squad">VIEW FULL SQUAD <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </details>`;
         }).join("")}
       </div>
     </section>
@@ -1095,7 +1115,7 @@ function playerListing(data) {
     <section class="pd-roles-section" aria-labelledby="pd-roles-title">
       <div class="pd-section-heading"><h2 id="pd-roles-title">PLAYER ROLES EXPLAINED</h2></div>
       <div class="pd-roles-grid">
-        ${roleActionCards.map((card) => `<button type="button" class="pd-role-card" data-role-card="${card.role}"><img src="${escapeHtml(card.image)}" alt="" width="320" height="400" loading="eager" decoding="async" /><div class="pd-role-card-content"><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p></div></button>`).join("")}
+        ${roleActionCards.map((card) => `<button type="button" class="pd-role-card" data-role-card="${card.role}"><img src="${escapeHtml(card.image)}" alt="" width="560" height="768" loading="lazy" decoding="async" /><div class="pd-role-card-content"><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p></div></button>`).join("")}
       </div>
     </section>
 
@@ -1356,7 +1376,7 @@ function pointsTablePage(data) {
       { label: "CPL Fixtures", href: "/fixtures/" },
       { label: "CPL Live Score", href: "/live-score/" }
     ]
-  })}<section class="single-panel">${renderPointsTable(data.site)}</section></main>`;
+  })}<section class="single-panel">${renderPointsTable(data.site, data.teams)}</section></main>`;
 }
 
 function playersStatsPage(data) {
@@ -1528,5 +1548,7 @@ module.exports = {
   venueDetail,
   venueFixturesPage,
   venuesListing,
-  renderPlayerListingCard
+  renderPlayerListingCard,
+  sortPlayersForDirectory,
+  playerDirectoryFaqs
 };

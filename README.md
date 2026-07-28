@@ -57,6 +57,22 @@ npm run cpl:release -- --full
 
 The runner stops before deployment if source sync, lint, data validation, build validation or responsive filters fail. Every run writes a machine-readable report to `reports/cpl-sync/latest.json`. HostSPK credentials are read from environment variables or the secure deployment prompt and are not stored in the repository.
 
+## Live tournament data
+
+Audit the current fixtures, results, squads, player statistics and data-quality state:
+
+```powershell
+npm run live:audit
+```
+
+Apply a reviewed JSON payload and automatically run lint, data checks, schedule tests, the production build and build validation in one command:
+
+```powershell
+npm run live:update -- --input=data/incoming/cpl-live.json --apply
+```
+
+The payload may include any of these top-level keys: `fixtures`, `results`, `squads` and `playerStats`. Only supplied keys are changed. Every run writes its result to `reports/live-data/latest.json`; deployment remains a separate guarded release step.
+
 ## Design and image replication
 
 Two reusable workflows are available for supplied designs and player artwork:

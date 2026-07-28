@@ -127,7 +127,7 @@ function Save-RemoteBinaryFile($LocalFile, $RemoteFile, $Headers) {
   Write-Output "Preparing binary upload: $RemoteFile"
 
   $Bytes = [System.IO.File]::ReadAllBytes($LocalFile)
-  $ChunkSize = 1024 * 1000 * 10
+  $ChunkSize = 1024 * 1000 * 2
   $TotalChunks = [Math]::Ceiling($Bytes.Length / $ChunkSize)
   $UploadSession = [Guid]::NewGuid().ToString("N")
   $Name = [System.IO.Path]::GetFileName($LocalFile)
@@ -150,7 +150,7 @@ function Save-RemoteBinaryFile($LocalFile, $RemoteFile, $Headers) {
       [void]$Client.DefaultRequestHeaders.TryAddWithoutValidation($Header.Key, [string]$Header.Value)
     }
 
-    $Client.Timeout = [TimeSpan]::FromSeconds(60)
+    $Client.Timeout = [TimeSpan]::FromSeconds(120)
     foreach ($ChunkIndex in 1..$TotalChunks) {
       $Offset = ($ChunkIndex - 1) * $ChunkSize
       $Length = [Math]::Min($ChunkSize, $Bytes.Length - $Offset)
@@ -164,9 +164,13 @@ function Save-RemoteBinaryFile($LocalFile, $RemoteFile, $Headers) {
         $Multipart.Add($Payload, "fileUpload", $StagedName)
         Write-Output "Uploading binary chunk $ChunkIndex/$TotalChunks`: $RemoteFile"
         $ChunkResponse = $Client.PostAsync("$Base/a/services/$Service/file-manager-upload", $Multipart).Result
-        $ChunkBody = $ChunkResponse.Content.ReadAsStringAsync().Result
-        if (-not $ChunkResponse.IsSuccessStatusCode -or $ChunkBody -notmatch '"success"\s*:\s*true') {
-          throw "HostSPK binary chunk upload failed for ${RemoteFile}: $ChunkBody"
+        $ChunkBody = if ($null -ne $ChunkResponse.Content) {
+          $ChunkResponse.Content.ReadAsStringAsync().Result
+        } else {
+          ""
+        }
+        if (-not $ChunkResponse.IsSuccessStatusCode -or ($ChunkBody -and $ChunkBody -notmatch '"success"\s*:\s*true')) {
+          throw "HostSPK binary chunk upload failed for ${RemoteFile} ($($ChunkResponse.StatusCode) $($ChunkResponse.ReasonPhrase)): $ChunkBody"
         }
       } finally {
         $Multipart.Dispose()

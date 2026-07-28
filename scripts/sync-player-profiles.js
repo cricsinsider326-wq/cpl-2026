@@ -144,8 +144,8 @@ async function main() {
     const generated = {
       playerSlug: player.slug,
       fullName: player.name,
-      nationality: source.nationality || "West Indies",
-      countryLabel: source.countryLabel || source.nationality || "West Indies",
+      nationality: source.nationality || player.nationality || "West Indies",
+      countryLabel: source.countryLabel || source.nationality || player.nationality || "West Indies",
       dateOfBirth: source.dateOfBirth || null,
       birthplace: source.birthplace || null,
       battingStyle: source.battingStyle || "To be confirmed",

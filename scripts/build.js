@@ -61,6 +61,9 @@ function copyAssets() {
     filter: (source) => !/\.(png|jpe?g)$/i.test(source),
   });
   fs.copyFileSync(path.join(root, ".htaccess"), path.join(dist, ".htaccess"));
+  if (fs.existsSync(path.join(root, "ads.txt"))) {
+    fs.copyFileSync(path.join(root, "ads.txt"), path.join(dist, "ads.txt"));
+  }
 }
 
 function writeCalendarFiles(data) {
@@ -126,7 +129,7 @@ function build() {
             "@id": `${data.site.siteUrl.replace(/\/$/, "")}/players/#player-list`,
             name: "CPL 2026 Players and Squads",
             numberOfItems: data.players.length,
-            itemListElement: data.players.map((player, index) => ({
+            itemListElement: pages.sortPlayersForDirectory(data.players).map((player, index) => ({
               "@type": "ListItem",
               position: index + 1,
               name: player.name,
@@ -136,14 +139,7 @@ function build() {
           {
             "@type": "FAQPage",
             "@id": `${data.site.siteUrl.replace(/\/$/, "")}/players/#faq`,
-            mainEntity: [
-              ["How many players are in each CPL 2026 squad?", "Each CPL franchise fields a 17-player squad, including West Indies contract players, overseas stars, and youth development picks."],
-              ["How many overseas players can each team have?", "Teams can contract up to 5 overseas international players in their official squad."],
-              ["When will the full squad lists be announced?", "Official squad rosters are confirmed following the CPL draft and regional player draft windows."],
-              ["Can squads change during the tournament?", "Yes. Temporary replacement players can be brought in for injuries or international duty call-ups."],
-              ["How are breakout players selected?", "Emerging Under-23 and regional West Indian stars are selected through the CPL youth draft."],
-              ["Where can I see the latest squad updates?", "All confirmed squad additions, draft picks, and replacements update live on CPL Insider team pages."]
-            ].map(([question, answer]) => ({
+            mainEntity: pages.playerDirectoryFaqs().map(({ question, answer }) => ({
               "@type": "Question",
               name: question,
               acceptedAnswer: { "@type": "Answer", text: answer }

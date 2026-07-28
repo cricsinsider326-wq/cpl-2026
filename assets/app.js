@@ -224,6 +224,69 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
   const pageSize = 8;
   let currentPage = 1;
   let filteredCards = cards;
+  const rolePills = [...directory.querySelectorAll("[data-role-pill]")];
+  const filterToggle = directory.querySelector("[data-filter-toggle]");
+  const advancedFilters = directory.querySelector("[data-filter-advanced]");
+  const trackerRows = [...directory.querySelectorAll("[data-tracker-row]")];
+
+  function setAdvancedFilters(open) {
+    if (!filterToggle || !advancedFilters) return;
+    advancedFilters.classList.toggle("is-open", open);
+    filterToggle.setAttribute("aria-expanded", String(open));
+    filterToggle.firstChild.textContent = open ? "FEWER FILTERS " : "MORE FILTERS ";
+  }
+
+  if (filterToggle) {
+    filterToggle.addEventListener("click", () => {
+      setAdvancedFilters(filterToggle.getAttribute("aria-expanded") !== "true");
+    });
+  }
+
+  const trackerMedia = window.matchMedia("(max-width: 760px)");
+  function syncTrackerDisclosure(event) {
+    trackerRows.forEach((row) => {
+      row.open = !event.matches;
+    });
+  }
+  syncTrackerDisclosure(trackerMedia);
+  trackerMedia.addEventListener?.("change", syncTrackerDisclosure);
+
+  function setRolePills(value) {
+    rolePills.forEach((pill) => {
+      const active = pill.dataset.rolePill === value;
+      pill.classList.toggle("is-active", active);
+      pill.setAttribute("aria-pressed", String(active));
+    });
+  }
+
+  function setSelectFromQuery(control, value) {
+    if (!value || ![...control.options].some((option) => option.value === value)) return;
+    control.value = value;
+  }
+
+  function restoreQueryState() {
+    const params = new URLSearchParams(window.location.search);
+    search.value = params.get("q") || "";
+    setSelectFromQuery(team, params.get("team"));
+    setSelectFromQuery(role, params.get("role"));
+    setSelectFromQuery(nationality, params.get("nationality"));
+    setSelectFromQuery(status, params.get("status"));
+    const page = Number.parseInt(params.get("page"), 10);
+    currentPage = Number.isFinite(page) && page > 0 ? page : 1;
+    setRolePills(role.value);
+    if (team.value !== "all" || nationality.value !== "all" || status.value !== "all") setAdvancedFilters(true);
+  }
+
+  function syncQueryState() {
+    const params = new URLSearchParams();
+    if (search.value.trim()) params.set("q", search.value.trim());
+    [["team", team], ["role", role], ["nationality", nationality], ["status", status]].forEach(([key, control]) => {
+      if (control.value !== "all") params.set(key, control.value);
+    });
+    if (currentPage > 1) params.set("page", String(currentPage));
+    const query = params.toString();
+    window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`);
+  }
 
   function pageNumbers(totalPages) {
     if (totalPages <= 7) return Array.from({ length: totalPages }, (_, index) => index + 1);
@@ -281,11 +344,13 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
     resultCount.textContent = `${filteredCards.length} player${filteredCards.length === 1 ? "" : "s"} found`;
     emptyState.hidden = filteredCards.length !== 0;
     renderPagination(totalPages);
+    syncQueryState();
   }
 
   [search, team, role, nationality, status].forEach((control) => {
     control.addEventListener(control === search ? "input" : "change", () => {
       currentPage = 1;
+      if (control === role) setRolePills(role.value);
       render();
     });
   });
@@ -293,6 +358,8 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
   form.addEventListener("reset", () => {
     window.setTimeout(() => {
       currentPage = 1;
+      setRolePills("all");
+      setAdvancedFilters(false);
       render();
       search.focus();
     }, 0);
@@ -313,16 +380,10 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
     listSection.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  // Role pill click handler
-  const rolePills = [...directory.querySelectorAll("[data-role-pill]")];
   rolePills.forEach((pill) => {
     pill.addEventListener("click", () => {
-      rolePills.forEach((p) => {
-        const active = p === pill;
-        p.classList.toggle("is-active", active);
-        p.setAttribute("aria-selected", String(active));
-      });
       role.value = pill.dataset.rolePill;
+      setRolePills(role.value);
       currentPage = 1;
       render();
     });
@@ -334,17 +395,14 @@ document.querySelectorAll("[data-scroll-prev]").forEach((button) => {
     card.addEventListener("click", () => {
       const roleVal = card.dataset.roleCard;
       role.value = roleVal;
-      rolePills.forEach((p) => {
-        const active = p.dataset.rolePill === roleVal;
-        p.classList.toggle("is-active", active);
-        p.setAttribute("aria-selected", String(active));
-      });
+      setRolePills(roleVal);
       currentPage = 1;
       render();
       listSection.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
+  restoreQueryState();
   render();
 })();
 

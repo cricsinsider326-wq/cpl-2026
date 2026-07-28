@@ -1,12 +1,12 @@
 {
   "season": 2026,
-  "lastChecked": "2026-07-15",
+  "lastChecked": "2026-07-28",
   "teams": [
     {
       "teamCode": "JAK",
       "status": "verified",
-      "completeness": "partial",
-      "scope": "Twelve West Indian players confirmed following the CPL draft; overseas players, captain and coach remain to be announced.",
+      "completeness": "complete",
+      "scope": "All nineteen officially announced players are listed. The seven-player overseas contingent includes phased replacements from 19 August.",
       "captain": null,
       "coach": null,
       "players": [
@@ -21,15 +21,26 @@
         "Romaine Morris",
         "Kirk McKenzie",
         "Kelvin Pitman",
-        "Jeavor Royal"
+        "Jeavor Royal",
+        "Maaz Sadaqat",
+        "Saim Ayub",
+        "Usman Khan",
+        "Hassan Khan",
+        "Hunain Shah",
+        "Shayan Jahangir",
+        "Tayyab Arif"
       ],
-      "sourceIds": ["official-cpl-2026-local-draft"]
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-jak-overseas"
+      ],
+      "phasedAvailability": true
     },
     {
       "teamCode": "TKR",
       "status": "verified",
-      "completeness": "partial",
-      "scope": "Twelve West Indian players confirmed following the CPL draft; overseas players, captain and coach remain to be announced.",
+      "completeness": "complete",
+      "scope": "17-player roster compiled from the official local-player draft and five-player overseas-contingent announcement.",
       "captain": null,
       "coach": null,
       "players": [
@@ -44,15 +55,24 @@
         "Terrance Hinds",
         "Nathan Edward",
         "Joshua Da Silva",
-        "Abdul-Raheem Toppin"
+        "Abdul-Raheem Toppin",
+        "Alex Hales",
+        "Usman Tariq",
+        "Colin Munro",
+        "Matthew Breetzke",
+        "Amshi de Silva"
       ],
-      "sourceIds": ["official-cpl-2026-local-draft"]
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-tkr-overseas"
+      ],
+      "phasedAvailability": false
     },
     {
       "teamCode": "GAW",
       "status": "verified",
       "completeness": "complete",
-      "scope": "Seventeen-player roster compiled from the official local-player draft and overseas-contingent announcements.",
+      "scope": "17-player roster compiled from the official local-player draft and overseas-contingent announcements.",
       "captain": null,
       "coach": null,
       "players": [
@@ -74,13 +94,16 @@
         "Rahmanullah Gurbaz",
         "Dwaine Pretorius"
       ],
-      "sourceIds": ["official-cpl-2026-local-draft", "official-cpl-2026-gaw-overseas"]
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-gaw-overseas"
+      ]
     },
     {
       "teamCode": "BT",
       "status": "verified",
       "completeness": "complete",
-      "scope": "Seventeen-player roster compiled from the official local-player draft and overseas-contingent announcements.",
+      "scope": "17-player roster compiled from the official local-player draft and overseas-contingent announcements.",
       "captain": null,
       "coach": null,
       "players": [
@@ -102,13 +125,16 @@
         "George Linde",
         "Daniel Sams"
       ],
-      "sourceIds": ["official-cpl-2026-local-draft", "official-cpl-2026-bt-overseas"]
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-bt-overseas"
+      ]
     },
     {
       "teamCode": "SLK",
       "status": "verified",
       "completeness": "complete",
-      "scope": "Seventeen-player roster compiled from the official local-player draft and overseas-contingent announcements.",
+      "scope": "17-player roster compiled from the official local-player draft and overseas-contingent announcements.",
       "captain": null,
       "coach": null,
       "players": [
@@ -130,13 +156,16 @@
         "Charith Asalanka",
         "Shadley van Schalkwyk"
       ],
-      "sourceIds": ["official-cpl-2026-local-draft", "official-cpl-2026-slk-overseas"]
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-slk-overseas"
+      ]
     },
     {
       "teamCode": "SKNP",
       "status": "verified",
-      "completeness": "partial",
-      "scope": "Twelve West Indian players confirmed following the CPL draft; overseas players, captain and coach remain to be announced.",
+      "completeness": "complete",
+      "scope": "17-player roster compiled from the official local-player draft and five-player overseas-contingent announcement.",
       "captain": null,
       "coach": null,
       "players": [
@@ -151,15 +180,24 @@
         "Alick Athanaze",
         "Micah McKenzie",
         "Navin Bidaisee",
-        "Mikyle Louis"
+        "Mikyle Louis",
+        "Naseem Shah",
+        "Dasun Shanaka",
+        "Waqar Salamkheil",
+        "Wanindu Hasaranga",
+        "Nikhil Chaudhary"
       ],
-      "sourceIds": ["official-cpl-2026-local-draft"]
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-sknp-overseas"
+      ],
+      "phasedAvailability": false
     },
     {
       "teamCode": "ABF",
       "status": "verified",
-      "completeness": "partial",
-      "scope": "Twelve West Indian players confirmed following the CPL draft; overseas players, captain and coach remain to be announced.",
+      "completeness": "complete",
+      "scope": "All eighteen officially announced players are listed. Availability varies across the six-player overseas contingent.",
       "captain": null,
       "coach": null,
       "players": [
@@ -174,9 +212,19 @@
         "Anderson Phillip",
         "Karima Gore",
         "Anderson Mahase",
-        "Joshua James"
+        "Joshua James",
+        "Moeen Ali",
+        "Kusal Perera",
+        "Milind Kumar",
+        "Tajinder Singh",
+        "Shadab Khan",
+        "Sufiyan Muqeem"
       ],
-      "sourceIds": ["official-cpl-2026-local-draft"]
+      "sourceIds": [
+        "official-cpl-2026-local-draft",
+        "official-cpl-2026-abf-overseas"
+      ],
+      "phasedAvailability": true
     }
   ]
 }

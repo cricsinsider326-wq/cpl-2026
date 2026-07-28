@@ -95,5 +95,45 @@
     "sourceType": "editorial",
     "status": "verified",
     "lastChecked": "2026-07-15"
+  },
+  {
+    "id": "official-cpl-2026-jak-overseas",
+    "name": "Jamaica Kingsmen overseas players for CPL 2026",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/jamaica-kingsmen-unveil-overseas-players-for-cpl-2026/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-28",
+    "publishedAt": "2026-07-20"
+  },
+  {
+    "id": "official-cpl-2026-abf-overseas",
+    "name": "Antigua and Barbuda Falcons overseas players for CPL 2026",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/falcons-confirm-overseas-players/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-28",
+    "publishedAt": "2026-07-21"
+  },
+  {
+    "id": "official-cpl-2026-tkr-overseas",
+    "name": "Trinbago Knight Riders overseas contingent for CPL 2026",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/trinbago-knight-riders-unveil-overseas-contingent-for-cpl-2026/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-28",
+    "publishedAt": "2026-07-23"
+  },
+  {
+    "id": "official-cpl-2026-sknp-overseas",
+    "name": "St Kitts and Nevis Patriots overseas players for CPL 2026",
+    "publisher": "Caribbean Premier League",
+    "url": "https://wp.cplt20.com/news/st-kitts-nevis-patriots-confirm-overseas-players-for-cpl-2026/",
+    "sourceType": "primary",
+    "status": "verified",
+    "lastChecked": "2026-07-28",
+    "publishedAt": "2026-07-24"
   }
 ]

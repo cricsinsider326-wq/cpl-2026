@@ -17,7 +17,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "status": "verified",
     "lastChecked": "2026-07-15",
@@ -46,7 +46,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "status": "verified",
     "lastChecked": "2026-07-15",
@@ -106,7 +106,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "status": "verified",
     "lastChecked": "2026-07-15",
@@ -157,7 +157,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -184,7 +184,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -211,7 +211,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -238,7 +238,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -258,7 +258,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -278,7 +278,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -305,7 +305,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -328,7 +328,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -348,7 +348,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -371,7 +371,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -394,7 +394,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -421,7 +421,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -448,7 +448,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -475,7 +475,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -502,7 +502,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -529,7 +529,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -556,7 +556,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -570,7 +570,7 @@
     "slug": "dexter-sween",
     "teamCode": "TKR",
     "team": "Trinbago Knight Riders",
-    "role": "Role to be confirmed",
+    "role": "Allrounder",
     "initials": "DS",
     "stat": "Not started",
     "context": "Confirmed CPL 2026 squad listing",
@@ -579,11 +579,12 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
-    "lastChecked": "2026-07-15",
+    "lastChecked": "2026-07-28",
     "artworkStatus": "pending",
-    "status": "verified"
+    "status": "verified",
+    "nationality": "Trinidad & Tobago"
   },
   {
     "name": "Terrance Hinds",
@@ -599,7 +600,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -626,7 +627,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -653,7 +654,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -680,7 +681,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -1773,7 +1774,7 @@
     "slug": "akeem-auguste",
     "teamCode": "SLK",
     "team": "Saint Lucia Kings",
-    "role": "Role to be confirmed",
+    "role": "Batter",
     "initials": "AA",
     "stat": "Not started",
     "context": "Confirmed CPL 2026 squad listing",
@@ -1785,9 +1786,10 @@
     ],
     "rosterStatus": "complete",
     "verificationStatus": "verified",
-    "lastChecked": "2026-07-15",
+    "lastChecked": "2026-07-28",
     "artworkStatus": "pending",
-    "status": "verified"
+    "status": "verified",
+    "nationality": "Saint Lucia"
   },
   {
     "name": "Noor Ahmad",
@@ -1867,7 +1869,7 @@
     "slug": "charith-asalanka",
     "teamCode": "SLK",
     "team": "Saint Lucia Kings",
-    "role": "Role to be confirmed",
+    "role": "Batter / Allrounder",
     "initials": "CA",
     "stat": "Not started",
     "context": "Confirmed CPL 2026 squad listing",
@@ -1879,19 +1881,20 @@
     ],
     "rosterStatus": "complete",
     "verificationStatus": "verified",
-    "lastChecked": "2026-07-15",
+    "lastChecked": "2026-07-28",
     "artworkStatus": "ready",
     "status": "verified",
     "heroPhoto": "/assets/images/players/charith-asalanka-desktop-art.webp",
     "imageAlt": "Charith Asalanka CPL player portrait",
-    "artworkUpdatedAt": "2026-07-27"
+    "artworkUpdatedAt": "2026-07-27",
+    "nationality": "Sri Lanka"
   },
   {
     "name": "Shadley van Schalkwyk",
     "slug": "shadley-van-schalkwyk",
     "teamCode": "SLK",
     "team": "Saint Lucia Kings",
-    "role": "Role to be confirmed",
+    "role": "Bowling Allrounder",
     "initials": "SV",
     "stat": "Not started",
     "context": "Confirmed CPL 2026 squad listing",
@@ -1903,9 +1906,10 @@
     ],
     "rosterStatus": "complete",
     "verificationStatus": "verified",
-    "lastChecked": "2026-07-15",
+    "lastChecked": "2026-07-28",
     "artworkStatus": "pending",
-    "status": "verified"
+    "status": "verified",
+    "nationality": "United States"
   },
   {
     "name": "Johnson Charles",
@@ -1921,7 +1925,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -1948,7 +1952,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -1975,7 +1979,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2002,7 +2006,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2029,7 +2033,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2056,7 +2060,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2083,7 +2087,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2110,7 +2114,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2137,7 +2141,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2164,7 +2168,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -2184,7 +2188,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -2204,7 +2208,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -2224,7 +2228,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2251,7 +2255,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2278,7 +2282,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2305,7 +2309,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2332,7 +2336,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2359,7 +2363,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2377,7 +2381,7 @@
     "slug": "rakheem-cornwall",
     "teamCode": "ABF",
     "team": "Antigua & Barbuda Falcons",
-    "role": "Role to be confirmed",
+    "role": "Allrounder",
     "initials": "RC",
     "stat": "Not started",
     "context": "Confirmed CPL 2026 squad listing",
@@ -2386,11 +2390,12 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
-    "lastChecked": "2026-07-15",
+    "lastChecked": "2026-07-28",
     "artworkStatus": "pending",
-    "status": "verified"
+    "status": "verified",
+    "nationality": "Antigua & Barbuda"
   },
   {
     "name": "Anderson Phillip",
@@ -2406,7 +2411,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "ready",
@@ -2433,7 +2438,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -2453,7 +2458,7 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
@@ -2473,10 +2478,493 @@
     "sourceIds": [
       "official-cpl-2026-local-draft"
     ],
-    "rosterStatus": "partial",
+    "rosterStatus": "complete",
     "verificationStatus": "verified",
     "lastChecked": "2026-07-15",
     "artworkStatus": "pending",
     "status": "verified"
+  },
+  {
+    "name": "Maaz Sadaqat",
+    "slug": "maaz-sadaqat",
+    "initials": "MS",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "JAK",
+    "team": "Jamaica Kingsmen",
+    "role": "Allrounder",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Maaz Sadaqat",
+    "officialSlug": "maaz-sadaqat",
+    "sourceIds": [
+      "official-cpl-2026-jak-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Saim Ayub",
+    "slug": "saim-ayub",
+    "initials": "SA",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "JAK",
+    "team": "Jamaica Kingsmen",
+    "role": "Batter / Allrounder",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Saim Ayub",
+    "officialSlug": "saim-ayub",
+    "sourceIds": [
+      "official-cpl-2026-jak-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Usman Khan",
+    "slug": "usman-khan",
+    "initials": "UK",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "JAK",
+    "team": "Jamaica Kingsmen",
+    "role": "Batter / Wicketkeeper",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Usman Khan",
+    "officialSlug": "usman-khan",
+    "sourceIds": [
+      "official-cpl-2026-jak-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Hassan Khan",
+    "slug": "hassan-khan",
+    "initials": "HK",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "JAK",
+    "team": "Jamaica Kingsmen",
+    "role": "Allrounder",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Hassan Khan",
+    "officialSlug": "hassan-khan",
+    "sourceIds": [
+      "official-cpl-2026-jak-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Hunain Shah",
+    "slug": "hunain-shah",
+    "initials": "HS",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "JAK",
+    "team": "Jamaica Kingsmen",
+    "role": "Bowler",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Hunain Shah",
+    "officialSlug": "hunain-shah",
+    "sourceIds": [
+      "official-cpl-2026-jak-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Shayan Jahangir",
+    "slug": "shayan-jahangir",
+    "initials": "SJ",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "JAK",
+    "team": "Jamaica Kingsmen",
+    "role": "Batter / Wicketkeeper",
+    "nationality": "United States",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Shayan Jahangir",
+    "officialSlug": "shayan-jahangir",
+    "sourceIds": [
+      "official-cpl-2026-jak-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Tayyab Arif",
+    "slug": "tayyab-arif",
+    "initials": "TA",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "JAK",
+    "team": "Jamaica Kingsmen",
+    "role": "Batter",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Tayyab Arif",
+    "officialSlug": "tayyab-arif",
+    "sourceIds": [
+      "official-cpl-2026-jak-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Moeen Ali",
+    "slug": "moeen-ali",
+    "initials": "MA",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "ABF",
+    "team": "Antigua & Barbuda Falcons",
+    "role": "Allrounder",
+    "nationality": "England",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Moeen Ali",
+    "officialSlug": "moeen-ali",
+    "sourceIds": [
+      "official-cpl-2026-abf-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Kusal Perera",
+    "slug": "kusal-perera",
+    "initials": "KP",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "ABF",
+    "team": "Antigua & Barbuda Falcons",
+    "role": "Batter / Wicketkeeper",
+    "nationality": "Sri Lanka",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Kusal Perera",
+    "officialSlug": "kusal-perera",
+    "sourceIds": [
+      "official-cpl-2026-abf-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Milind Kumar",
+    "slug": "milind-kumar",
+    "initials": "MK",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "ABF",
+    "team": "Antigua & Barbuda Falcons",
+    "role": "Batter / Allrounder",
+    "nationality": "United States",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Milind Kumar",
+    "officialSlug": "milind-kumar",
+    "sourceIds": [
+      "official-cpl-2026-abf-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Tajinder Singh",
+    "slug": "tajinder-singh",
+    "initials": "TS",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "ABF",
+    "team": "Antigua & Barbuda Falcons",
+    "role": "Allrounder",
+    "nationality": "United States",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Tajinder Singh",
+    "officialSlug": "tajinder-singh",
+    "sourceIds": [
+      "official-cpl-2026-abf-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Shadab Khan",
+    "slug": "shadab-khan",
+    "initials": "SK",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "ABF",
+    "team": "Antigua & Barbuda Falcons",
+    "role": "Allrounder",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Shadab Khan",
+    "officialSlug": "shadab-khan",
+    "sourceIds": [
+      "official-cpl-2026-abf-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Sufiyan Muqeem",
+    "slug": "sufiyan-muqeem",
+    "initials": "SM",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "ABF",
+    "team": "Antigua & Barbuda Falcons",
+    "role": "Bowler",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Sufiyan Muqeem",
+    "officialSlug": "sufiyan-muqeem",
+    "sourceIds": [
+      "official-cpl-2026-abf-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Alex Hales",
+    "slug": "alex-hales",
+    "initials": "AH",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "TKR",
+    "team": "Trinbago Knight Riders",
+    "role": "Batter",
+    "nationality": "England",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Alex Hales",
+    "officialSlug": "alex-hales",
+    "sourceIds": [
+      "official-cpl-2026-tkr-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Usman Tariq",
+    "slug": "usman-tariq",
+    "initials": "UT",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "TKR",
+    "team": "Trinbago Knight Riders",
+    "role": "Bowler",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Usman Tariq",
+    "officialSlug": "usman-tariq",
+    "sourceIds": [
+      "official-cpl-2026-tkr-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Colin Munro",
+    "slug": "colin-munro",
+    "initials": "CM",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "TKR",
+    "team": "Trinbago Knight Riders",
+    "role": "Batter",
+    "nationality": "New Zealand",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Colin Munro",
+    "officialSlug": "colin-munro",
+    "sourceIds": [
+      "official-cpl-2026-tkr-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Matthew Breetzke",
+    "slug": "matthew-breetzke",
+    "initials": "MB",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "TKR",
+    "team": "Trinbago Knight Riders",
+    "role": "Batter",
+    "nationality": "South Africa",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Matthew Breetzke",
+    "officialSlug": "matthew-breetzke",
+    "sourceIds": [
+      "official-cpl-2026-tkr-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Amshi de Silva",
+    "slug": "amshi-de-silva",
+    "initials": "AD",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "TKR",
+    "team": "Trinbago Knight Riders",
+    "role": "Allrounder",
+    "nationality": "Sri Lanka",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Amshi de Silva",
+    "officialSlug": "amshi-de-silva",
+    "sourceIds": [
+      "official-cpl-2026-tkr-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Naseem Shah",
+    "slug": "naseem-shah",
+    "initials": "NS",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "SKNP",
+    "team": "St Kitts & Nevis Patriots",
+    "role": "Bowler",
+    "nationality": "Pakistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Naseem Shah",
+    "officialSlug": "naseem-shah",
+    "sourceIds": [
+      "official-cpl-2026-sknp-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Dasun Shanaka",
+    "slug": "dasun-shanaka",
+    "initials": "DS",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "SKNP",
+    "team": "St Kitts & Nevis Patriots",
+    "role": "Allrounder",
+    "nationality": "Sri Lanka",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Dasun Shanaka",
+    "officialSlug": "dasun-shanaka",
+    "sourceIds": [
+      "official-cpl-2026-sknp-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Waqar Salamkheil",
+    "slug": "waqar-salamkheil",
+    "initials": "WS",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "SKNP",
+    "team": "St Kitts & Nevis Patriots",
+    "role": "Bowler",
+    "nationality": "Afghanistan",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Waqar Salamkheil",
+    "officialSlug": "waqar-salamkheil",
+    "sourceIds": [
+      "official-cpl-2026-sknp-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Wanindu Hasaranga",
+    "slug": "wanindu-hasaranga",
+    "initials": "WH",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "SKNP",
+    "team": "St Kitts & Nevis Patriots",
+    "role": "Allrounder",
+    "nationality": "Sri Lanka",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Wanindu Hasaranga",
+    "officialSlug": "wanindu-hasaranga",
+    "sourceIds": [
+      "official-cpl-2026-sknp-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
+  },
+  {
+    "name": "Nikhil Chaudhary",
+    "slug": "nikhil-chaudhary",
+    "initials": "NC",
+    "stat": "Not started",
+    "artworkStatus": "pending",
+    "teamCode": "SKNP",
+    "team": "St Kitts & Nevis Patriots",
+    "role": "Allrounder",
+    "nationality": "Australia",
+    "context": "Official CPL 2026 squad announcement",
+    "officialName": "Nikhil Chaudhary",
+    "officialSlug": "nikhil-chaudhary",
+    "sourceIds": [
+      "official-cpl-2026-sknp-overseas"
+    ],
+    "rosterStatus": "complete",
+    "verificationStatus": "verified",
+    "status": "verified",
+    "lastChecked": "2026-07-28"
   }
 ]

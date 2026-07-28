@@ -1,15 +1,7 @@
 const { escapeHtml } = require("../lib/html");
 
-function renderPointsTable(site) {
-  const teams = [
-    { pos: 1, code: "JAK", name: "Jamaica Kingsmen", logo: "/assets/images/crests/jamaica-kingsmen-crest.webp", accent: "#ffd000" },
-    { pos: 2, code: "TKR", name: "Trinbago Knight Riders", logo: "/assets/images/crests/trinbago-knight-riders-crest.webp", accent: "#ec4899" },
-    { pos: 3, code: "GAW", name: "Guyana Amazon Warriors", logo: "/assets/images/crests/guyana-amazon-warriors-crest.webp", accent: "#10b981" },
-    { pos: 4, code: "BT", name: "Barbados Tridents", logo: "/assets/images/crests/barbados-tridents-crest.webp", accent: "#eab308" },
-    { pos: 5, code: "SLK", name: "Saint Lucia Kings", logo: "/assets/images/crests/saint-lucia-kings-crest.webp", accent: "#0284c7" },
-    { pos: 6, code: "SKNP", name: "St Kitts & Nevis Patriots", logo: "/assets/images/crests/st-kitts-nevis-patriots-crest.webp", accent: "#10b981" },
-    { pos: 7, code: "ABF", name: "Antigua & Barbuda Falcons", logo: "/assets/images/crests/antigua-barbuda-falcons-crest.webp", accent: "#ef4444" }
-  ];
+function renderPointsTable(site, teamRecords = []) {
+  const teams = teamRecords.map((team, index) => ({ ...team, pos: index + 1 }));
 
   return `<article class="panel points-card" id="points">
     <div class="section-heading tight">
@@ -92,8 +84,8 @@ function renderTopPlayers(players) {
   </article>`;
 }
 
-function renderMatchCenter(site, fixtures, players) {
-  return `<section class="lower-grid match-center-grid">${renderPointsTable(site)}${renderLiveScore(site, fixtures)}${renderTopPlayers(players)}</section>`;
+function renderMatchCenter(site, fixtures, players, teams) {
+  return `<section class="lower-grid match-center-grid">${renderPointsTable(site, teams)}${renderLiveScore(site, fixtures)}${renderTopPlayers(players)}</section>`;
 }
 
 module.exports = {

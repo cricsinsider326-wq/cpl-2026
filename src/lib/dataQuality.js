@@ -50,8 +50,11 @@ function validateTournamentData(data) {
     if (squad.players.length !== new Set(squad.players).size) {
       errors.push(`Squad ${squad.teamCode} contains duplicate player names.`);
     }
-    if (squad.completeness === "complete" && squad.players.length !== 17) {
-      errors.push(`Complete squad ${squad.teamCode} must contain 17 players.`);
+    if (squad.completeness === "complete" && squad.players.length !== 17 && !squad.phasedAvailability) {
+      errors.push(`Complete squad ${squad.teamCode} must contain 17 players unless an official phased-availability announcement is recorded.`);
+    }
+    if (squad.phasedAvailability && squad.players.length < 17) {
+      errors.push(`Phased squad ${squad.teamCode} must contain at least 17 officially announced players.`);
     }
     if (squad.players.length && !["partial", "complete"].includes(squad.completeness)) {
       errors.push(`Squad ${squad.teamCode} needs partial or complete status.`);

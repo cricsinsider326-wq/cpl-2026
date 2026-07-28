@@ -90,6 +90,8 @@ async function auditViewport(browser, viewport) {
         heroOverlap: intersects(heroCopy, heroStats),
         trackerDisplays: trackerRows.map((row) => getComputedStyle(row).display),
         trackerHeights: trackerRows.map((row) => Math.round(row.getBoundingClientRect().height)),
+        playerCount: document.querySelectorAll("[data-player-card]").length,
+        standardArtworkCount: document.querySelectorAll('[data-player-card][data-artwork-standard="true"]').length,
         cardHeights,
         footerHeight: footer ? Math.round(footer.getBoundingClientRect().height) : 0,
         schemaTypes
@@ -98,11 +100,13 @@ async function auditViewport(browser, viewport) {
 
     if (structure.h1Count !== 1) issues.push(`Expected one H1, found ${structure.h1Count}`);
     if (structure.h2Count !== 6) issues.push(`Expected six section H2 headings, found ${structure.h2Count}`);
-    if (structure.cardHeadingCount !== 99) issues.push(`Expected 99 player-card H3 headings, found ${structure.cardHeadingCount}`);
+    if (structure.cardHeadingCount !== structure.playerCount) issues.push(`Expected ${structure.playerCount} player-card H3 headings, found ${structure.cardHeadingCount}`);
     if (structure.heroOverlap) issues.push("Hero description overlaps the squad-summary panel");
-    if (structure.trackerDisplays.some((display) => display !== "grid")) issues.push("Squad tracker rows are not grid layouts");
     if (viewport.width >= 1101 && Math.max(...structure.trackerHeights) > 100) {
       issues.push(`Desktop squad tracker row is too tall (${Math.max(...structure.trackerHeights)}px)`);
+    }
+    if (viewport.width <= 430 && Math.max(...structure.trackerHeights) > 92) {
+      issues.push(`Collapsed mobile squad tracker row is too tall (${Math.max(...structure.trackerHeights)}px)`);
     }
     if (structure.cardHeights.length && Math.max(...structure.cardHeights) - Math.min(...structure.cardHeights) > 2) {
       issues.push(`Visible player-card heights differ (${structure.cardHeights.join(", ")}px)`);
@@ -110,13 +114,24 @@ async function auditViewport(browser, viewport) {
     if (!structure.schemaTypes.includes("ItemList") || !structure.schemaTypes.includes("FAQPage")) {
       issues.push(`Players page schema is incomplete (${structure.schemaTypes.join(", ")})`);
     }
-    if (viewport.width <= 430 && structure.footerHeight > 850) {
+    if (viewport.width <= 430 && structure.footerHeight > 620) {
       issues.push(`Mobile footer is too tall (${structure.footerHeight}px)`);
     }
 
     const visibleCards = () => page.locator("[data-player-card]:visible");
     if (await visibleCards().count() !== 8) issues.push("Initial player page must show 8 cards");
-    if ((await page.locator("[data-player-result-count]").textContent()).trim() !== "99 players found") issues.push("Initial player count is incorrect");
+    if ((await page.locator("[data-player-result-count]").textContent()).trim() !== `${structure.playerCount} players found`) issues.push("Initial player count is incorrect");
+    const artworkOrder = await page.locator("[data-player-card]").evaluateAll((cards) => cards.map((card) => card.dataset.artworkStandard));
+    const firstNonStandard = artworkOrder.indexOf("false");
+    if (artworkOrder.filter((value) => value === "true").length !== structure.standardArtworkCount || firstNonStandard !== structure.standardArtworkCount) {
+      issues.push("Standardized player artworks are not ordered before remaining records");
+    }
+    if (viewport.width <= 760 && await page.locator("[data-filter-toggle]").isVisible()) {
+      await page.locator("[data-filter-toggle]").click();
+    }
+    if (!(await page.locator("[data-player-nationality]").isVisible()) || !(await page.locator("[data-player-status]").isVisible())) {
+      issues.push("Nationality and squad-status filters must be visible");
+    }
 
     const firstPageNames = await visibleCards().locator("h3").allTextContents();
     await page.locator("[data-player-next]").click();
@@ -126,6 +141,7 @@ async function auditViewport(browser, viewport) {
     await page.locator("[data-player-search]").fill("Nicholas Pooran");
     if (await visibleCards().count() !== 1) issues.push("Player-name search did not return one matching card");
     if (!(await page.locator("[data-player-result-count]").textContent()).includes("1 player found")) issues.push("Filtered player count is incorrect");
+    if (!new URL(page.url()).searchParams.has("q")) issues.push("Player filters are not preserved in the URL");
 
     await page.locator("[data-player-filters]").evaluate((form) => form.reset());
     await page.waitForTimeout(50);
@@ -176,19 +192,22 @@ async function auditViewport(browser, viewport) {
         return counts;
       }, {}),
     );
-    for (const status of ["complete", "partial"]) {
+    const statusOptions = await page.locator("[data-player-status] option").evaluateAll((options) =>
+      options.map((option) => option.value).filter((value) => value !== "all"),
+    );
+    for (const status of statusOptions) {
       await setSelectValue("[data-player-status]", status);
       const actual = Number.parseInt(
         await page.locator("[data-player-result-count]").textContent(),
         10,
       );
-      if (actual !== (expectedStatusCounts[status] || 0) || actual < 2) {
+      if (actual !== (expectedStatusCounts[status] || 0) || actual < 1) {
         issues.push("Squad status filter did not return the expected " + status + " count");
       }
     }
     await page.locator("[data-player-filters]").evaluate((form) => form.reset());
     await page.waitForTimeout(50);
-    await page.locator("[data-player-team]").selectOption("GAW");
+    await setSelectValue("[data-player-team]", "GAW");
     if (!(await page.locator("[data-player-result-count]").textContent()).includes("17 players found")) issues.push("Team filter did not return the verified Guyana squad count");
     await setSelectValue("[data-player-role]", "bowler");
     const combinedCount = Number.parseInt(

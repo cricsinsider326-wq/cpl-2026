@@ -110,16 +110,16 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
   const canonical = canonicalUrl(site, route);
   const imageBase = (site.siteUrl || "https://cplinsider.com").replace(/\/$/, "");
   const ogImage = route === "players"
-    ? `${imageBase}/assets/images/players/cpl-2026-players-hero.webp`
+    ? `${imageBase}/assets/images/social/cpl-2026-players-og.webp`
     : route === "" || route === "cpl-2026"
       ? `${imageBase}/assets/images/players/cpl-2026-players-hero.webp`
     : `${imageBase}/assets/images/hero/cpl-2026-css-hero-reference.webp`;
-  const cssVersion = "20260727-teams-v3";
+  const cssVersion = "20260727-profiles-v1";
   const jsVersion = route === "players"
-    ? "20260727-players-audit1"
+    ? "20260728-players-audit2"
     : "20260726-mobile-perf2";
   const scheduleCssVersion = "20260726-fixtures-audit1";
-  const playerDirectoryCssVersion = "20260727-players-audit1";
+  const playerDirectoryCssVersion = "20260728-players-audit2";
   const heroPreload = route === ""
     ? '<link rel="preload" href="/assets/images/hero/cpl-2026-player-artwork-720.avif" as="image" type="image/avif" imagesrcset="/assets/images/hero/cpl-2026-player-artwork-720.avif 720w, /assets/images/hero/cpl-2026-player-artwork-1280.avif 1280w" imagesizes="(max-width: 720px) 100vw, 70vw" fetchpriority="high" />'
     : route === "cpl-2026"
@@ -140,6 +140,7 @@ function renderLayout({ site, teams, faqs, title, description, body, route = "",
     <link rel="apple-touch-icon" href="/assets/images/brand/cpl-insider-lockup-160.webp" />
     <meta name="robots" content="${escapeHtml(robots)}" />
     <meta name="google-site-verification" content="I3lnsMmlw3QvJ9Mf2SE8KuwvEE23RBVijh2Xp4ZEtmU" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6585313207466408" crossorigin="anonymous"></script>
     <title>${escapeHtml(pageTitle)}</title>
     <meta name="description" content="${escapeHtml(pageDescription)}" />
     <link rel="canonical" href="${escapeHtml(canonical)}" />

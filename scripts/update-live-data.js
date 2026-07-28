@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { spawnSync } = require("child_process");
 const { loadTournamentData } = require("../src/lib/tournamentData");
 
 const ROOT = path.resolve(__dirname, "..");
@@ -64,6 +65,20 @@ async function main() {
     playerStats: data.playerStats.players.length,
     dataQuality: data.dataQuality.overallStatus
   };
+
+  if (apply) {
+    const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
+    const validation = spawnSync(npmCommand, ["run", "check"], {
+      cwd: ROOT,
+      env: process.env,
+      stdio: "inherit"
+    });
+    if (validation.status !== 0) {
+      throw new Error(`Post-update validation failed with exit code ${validation.status}`);
+    }
+    report.validation = "npm run check passed";
+  }
+
   writeReport(report);
   process.stdout.write(JSON.stringify(report, null, 2) + "\n");
 }

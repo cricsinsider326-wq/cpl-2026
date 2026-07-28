@@ -7,7 +7,7 @@ const errors = [];
 const titles = new Map();
 const canonicals = new Map();
 const pageAudit = [];
-const cssVersion = "20260727-teams-v3";
+const cssVersion = "20260727-profiles-v1";
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -81,6 +81,7 @@ const home = fs.readFileSync(path.join(dist, "index.html"), "utf8");
 const pillarRedirect = fs.readFileSync(path.join(dist, "cpl-2026", "index.html"), "utf8");
 const sitemap = fs.readFileSync(path.join(dist, "sitemap.xml"), "utf8");
 const dataQuality = JSON.parse(fs.readFileSync(path.join(dist, "data-quality.json"), "utf8"));
+const sourcePlayers = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "players.json"), "utf8"));
 const htaccess = fs.readFileSync(path.join(dist, ".htaccess"), "utf8");
 const tvGuideFallback = fs.readFileSync(path.join(dist, "news", "cpl-2026-tv-guide.html"), "utf8");
 const fixturesPage = fs.readFileSync(path.join(dist, "fixtures", "index.html"), "utf8");
@@ -91,6 +92,7 @@ const tkrTeamPage = fs.readFileSync(path.join(dist, "teams", "trinbago-knight-ri
 const playersListingPage = fs.readFileSync(path.join(dist, "players", "index.html"), "utf8");
 const playerPage = fs.readFileSync(path.join(dist, "players", "nicholas-pooran", "index.html"), "utf8");
 const andrePage = fs.readFileSync(path.join(dist, "players", "andre-russell", "index.html"), "utf8");
+const charithPage = fs.readFileSync(path.join(dist, "players", "charith-asalanka", "index.html"), "utf8");
 const fixtureDetailPage = fs.readFileSync(path.join(dist, "fixtures", "jamaica-kingsmen-vs-antigua-and-barbuda-falcons-at-arnos-vale-stadium-st-vincent", "index.html"), "utf8");
 const scheduleNewsPage = fs.readFileSync(path.join(dist, "news", "cpl-2026-schedule-announced", "index.html"), "utf8");
 const termsPage = fs.readFileSync(path.join(dist, "terms", "index.html"), "utf8");
@@ -150,21 +152,26 @@ if (!dataQuality.readiness.broadcasters && (!watchPage.includes("broadcast-direc
 if (!dataQuality.readiness.squads && (!teamPage.includes("Captain") || !teamPage.includes("To be announced"))) errors.push("Unconfirmed squad pages must render captain and squad TBA states");
 if (!dataQuality.readiness.playerStats && (!playerPage.includes("CPL 2026 statistics") || !playerPage.includes("Not started"))) errors.push("Player profiles must not present previous-season figures as CPL 2026 stats");
 if (!playersListingPage.includes("cpl-2026-players-hero.webp") || !playersListingPage.includes("data-player-directory")) errors.push("Players directory hero or filter controller is missing");
-if ((playersListingPage.match(/data-player-card/g) || []).length !== 99) errors.push("Players directory must render all 99 verified player records");
-if (!playersListingPage.includes("Complete CPL 2026 Players List") || !playersListingPage.includes("data-player-pagination") || !playersListingPage.includes("data-player-nationality")) errors.push("Players directory list, nationality filter or pagination is missing");
+if ((playersListingPage.match(/data-player-card/g) || []).length !== sourcePlayers.length) errors.push(`Players directory must render all ${sourcePlayers.length} verified player records`);
+if (!playersListingPage.includes("Confirmed CPL 2026 Players to Date") || !playersListingPage.includes("data-player-pagination") || !playersListingPage.includes("data-player-nationality") || !playersListingPage.includes("data-player-status")) errors.push("Players directory list, visible filters or pagination is missing");
+if ((playersListingPage.match(/data-artwork-standard="true"/g) || []).length !== sourcePlayers.filter((player) => player.artworkStatus === "ready").length) errors.push("Players directory must identify every standardized player artwork");
+if (!playersListingPage.match(/data-player-grid>[\s\S]*?data-artwork-standard="true"/)) errors.push("Standardized player artwork must lead the Players directory");
 if (!fs.readFileSync(path.join(dist, "assets", "app.js"), "utf8").includes("const pageSize = 8")) errors.push("Players directory must paginate 8 player cards per page");
 if (!playersListingPage.includes('rel="preload" href="/assets/images/players/cpl-2026-players-hero.webp"')) errors.push("Players directory must preload its supplied hero image");
 if (!fixturesPage.includes("republic-bank-cpl-fixtures-confirmed-for-2026")) errors.push("Fixture page must link to the direct official schedule announcement");
-if (dataQuality.summary.confirmedSquads !== 7 || dataQuality.summary.completeSquads !== 3) errors.push("Squad readiness counts do not match the verified source snapshot");
-if (!teamPage.includes("Rovman Powell") || !teamPage.includes("12</strong><span>verified names") || !teamPage.includes('team-status partial')) errors.push("Partial squad page must list confirmed Jamaica players and status");
+if (dataQuality.summary.confirmedSquads !== 7 || dataQuality.summary.completeSquads !== 7) errors.push("Squad readiness counts do not match the verified source snapshot");
+if (!teamPage.includes("Rovman Powell") || !teamPage.includes("19</strong><span>verified names") || !teamPage.includes('team-status complete')) errors.push("Jamaica team page must list the complete official announcement and status");
 if (!completeTeamPage.includes("Rahmanullah Gurbaz") || !completeTeamPage.includes("17</strong><span>verified names") || !completeTeamPage.includes('team-status complete')) errors.push("Complete squad page must list the verified Guyana roster and status");
 if (!tkrTeamPage.includes('class="team-silo"') || !tkrTeamPage.includes("Upcoming TKR Matches") || !tkrTeamPage.includes("Nicholas Pooran") || !tkrTeamPage.includes("Brian Lara Stadium")) errors.push("TKR topic hub is missing fixtures, squad players or venue context");
 if (!tkrTeamPage.includes('"@type":"SportsTeam"') || !tkrTeamPage.includes('"member"')) errors.push("TKR team hub must include SportsTeam member schema");
+if (!completeTeamPage.includes('class="team-squad-composition"') || !completeTeamPage.includes("Overseas confirmed")) errors.push("Team pages must include the data-driven squad composition summary");
 if (!watchPage.includes("Rush Live &amp; Louder") || !watchPage.includes("cpl-and-rush-sports-launch-rush-live-louder")) errors.push("Caribbean broadcast card must show the verified channel and official source");
 if ((watchPage.match(/To be announced/g) || []).length < 5) errors.push("Unconfirmed broadcast markets must continue to render TBA values");
 if (!termsPage.includes("Terms of Use") || !sitemap.includes("/terms/")) errors.push("Terms of Use page must be generated and indexed");
 if (!andrePage.includes("Current CPL team</dt><dd>Jamaica Kingsmen") || !andrePage.includes("Previous CPL team</dt><dd>Trinbago Knight Riders")) errors.push("Transferred player pages must separate current and previous-season teams");
 if (!playerPage.includes('class="player-profile"') || !playerPage.includes('class="pp-stat-strip"') || !playerPage.includes('class="pp-tab-list"') || !playerPage.includes("CPL Career Statistics") || !playerPage.includes("Recent CPL Performances")) errors.push("Reference-matched player profile structure is incomplete");
+if (!playerPage.includes('class="pp-related"') || !playerPage.includes("Related Trinbago Knight Riders Players")) errors.push("Player profiles must include related-player internal links");
+if (!playerPage.includes('"nationality"') || !charithPage.includes('"@type":"Person"') || !charithPage.includes('"nationality"')) errors.push("Player Person schema must include confirmed nationality data");
 if ((playerPage.match(/role="tab"/g) || []).length !== 6 || (playerPage.match(/role="tabpanel"/g) || []).length !== 6) errors.push("Player profile must render six accessible tabs and panels");
 if (!playerPage.includes("2,873") || !playerPage.includes("149.09") || !playerPage.includes("official player source")) errors.push("Nicholas Pooran verified CPL career data or source note is missing");
 if (!fixtureDetailPage.includes('"@type":"SportsEvent"')) errors.push("Fixture pages must include SportsEvent structured data");
